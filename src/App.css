@@ -1,0 +1,429 @@
+@font-face {
+  font-family: "Assistant";
+  font-display: auto;
+  src: url("./res/fonts//assistant/assistantExtraLight.ttf");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Assistant";
+  font-display: auto;
+  src: url("./res/fonts/assistant/assistantLight.ttf");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Assistant";
+  font-display: auto;
+  src: url("./res/fonts//assistant/assistantRegular.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Assistant";
+  font-display: auto;
+  src: url("./res/fonts//assistant/assistantSemiBold.ttf");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Assistant";
+  font-display: auto;
+  src: url("./res/fonts//assistant/assistantBold.ttf");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Assistant";
+  font-display: auto;
+  src: url("./res/fonts//assistant/assistantExtraBold.ttf");
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Avenir";
+  font-display: auto;
+  src: url("./res/fonts//avenir/AvenirNext-Medium-06.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Avenir";
+  font-display: auto;
+  src: url("./res/fonts//avenir/AvenirNext-DemiBold-03.ttf");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Avenir";
+  font-display: auto;
+  src: url("./res/fonts//avenir/AvenirNext-Bold-01.ttf");
+  font-weight: 800;
+  font-style: normal;
+}
+
+body,
+html {
+  font-family: "Assistant", sans-serif;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+  scroll-behavior: smooth;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: auto 400px;
+  font-size: 14px;
+  overflow-x: hidden;
+  color: #28004b;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+.content {
+  margin: 0 25px;
+  position: relative;
+}
+
+.container {
+  margin: auto;
+  width: 1100px;
+}
+
+.container-faq {
+  width: 800px;
+}
+
+@media screen and (max-width: 1200px) {
+  .container-faq {
+    width: 100%;
+    max-width: initial;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .cta-phone {
+    right: -20px;
+  }
+  .container-cta {
+    padding: 100px 40px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .cta-phone {
+    right: -20px;
+    max-width: 400px;
+  }
+  .container-cta {
+    padding: 60px 40px;
+  }
+}
+
+.container-cta-form {
+  margin-top: 80px;
+}
+
+.container-cta {
+  padding: 100px 80px;
+  text-align: left;
+  position: relative;
+  min-height: 600px;
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    width: 100%;
+    max-width: initial;
+  }
+  .container--author {
+    padding: 40px 10px;
+  }
+}
+
+.flex-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.flex-container--center {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.flex-container--space-between {
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+@media screen and (min-width: 1008px) {
+  .content {
+    margin: auto;
+    max-width: 1200px;
+    padding-left: 25px;
+  }
+
+  .form_submit {
+    text-align: left;
+  }
+  .content_right_sticky {
+    position: sticky;
+    top: 0;
+  }
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+img {
+  vertical-align: middle;
+}
+.form-control:focus {
+  border-color: inherit;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.top-section {
+  width: 100%;
+  min-height: 110px;
+  position: relative;
+  overflow: hidden;
+}
+.top-section-gradient {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--top-section_gradient);
+  opacity: 0.12;
+  z-index: 1;
+  max-height: 600px;
+}
+.top-section-gradient--nheight {
+  max-height: unset;
+}
+.top-section-bg-wrapper {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+}
+.top-section-container {
+  position: relative;
+  z-index: 3;
+}
+.top-section__title-l {
+  font-family: "Avenir Next";
+  font-size: 48px;
+  line-height: 112%;
+  font-weight: 700;
+  margin-top: 75px;
+  animation-delay: 0.7s;
+}
+.top-section__title-m {
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.3em;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  opacity: 0.6;
+  animation-delay: 1s;
+}
+.container {
+  margin: auto;
+  width: 1100px;
+}
+
+.section-h2 {
+  font-family: "Avenir Next";
+  font-size: 48px;
+  padding: 0 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  margin: auto;
+  max-width: 800px;
+  font-weight: 700;
+  letter-spacing: -0.075rem;
+  display: block;
+}
+.section-p {
+  font-size: 24px;
+  font-weight: 300;
+  margin: auto;
+  display: block;
+  max-width: 600px;
+  margin-bottom: 20px;
+  text-align: center;
+  opacity: 0.8;
+}
+.dlAccountableLink:hover {
+  text-decoration: none;
+  opacity: 0.95;
+}
+
+.input-group-append {
+  background-color: white;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  height: 50px;
+}
+
+.input-group-append__btn {
+  height: 50px;
+  min-width: 150px;
+  display: inline;
+  background-color: var(--color-primary);
+  color: white;
+  border-radius: 50px;
+  border: none;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  cursor: pointer;
+  margin-left: 5px;
+  font-family: "Avenir Next";
+  font-size: 16px;
+  letter-spacing: -0.005em;
+}
+.input-group-append__btn:focus {
+  outline: 0;
+}
+.error-wrapper {
+  height: 35px;
+}
+.error-message-phone {
+  display: none;
+  color: #fff;
+}
+
+input#mce-PHONE {
+  border: none;
+  padding: 0.3rem;
+}
+
+.input-group__img--flag--tool,
+.input-group--phone__input--tool,
+.input-group--phone__input--tool:hover,
+.input-group--phone__input--tool:focus,
+.input-group-append--tool,
+.input-group__img--flag--alt,
+.input-group--phone__input--alt,
+.input-group--phone__input--alt:hover,
+.input-group--phone__input--alt:focus,
+.input-group--email__input--alt,
+.input-group--email__input--alt:hover,
+.input-group--email__input--alt:focus,
+.input-group-append--alt {
+  background: #f7f6fc;
+}
+.input-group--email {
+  width: 90%;
+  margin: auto;
+}
+.input-group--email input,
+.input-group--email input:focus {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border: none;
+  -moz-box-shadow: 0 2px 10px 0 var(--color-grey_light-4);
+  -webkit-box-shadow: 0 2px 10px 0 var(--color-grey_light-4);
+  box-shadow: 0 2px 10px 0 var(--color-grey_light-4);
+  font-size: 1.4em;
+  font-weight: 600;
+  font-weight: 300;
+  color: #959595;
+  padding: 0 10px;
+  height: 60px;
+}
+
+.mobile-only {
+  display: none;
+}
+@media screen and (max-width: 1200px) {
+  .container {
+    width: 100%;
+    max-width: initial;
+  }
+
+  .container--author {
+    padding: 40px 10px;
+  }
+}
+@media screen and (max-width: 770px) {
+  .desktop-only {
+    display: none;
+  }
+  .mobile-only {
+    display: initial;
+  }
+  .section-h2 {
+    font-size: 32px;
+  }
+  .section-p {
+    font-size: 18px;
+  }
+  .start-app-btn,
+  .start-app-btn--alt {
+    padding: 15px 30px;
+  }
+  .top-section__title-l {
+    margin-top: 50px;
+    font-size: 32px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .input-group-append {
+    width: 100%;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin: 0;
+  }
+  .input-group-append__btn {
+    width: 100%;
+    margin-left: 0;
+  }
+  .input-group--email__input {
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+  }
+}
+@media screen and (max-width: 350px) {
+  .start-app-btn {
+    min-width: 150px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .content_right_wrapper {
+    position: fixed;
+    background: #f9f8fd;
+    height: 100%;
+    width: calc((100vw - 1175px) / 2);
+    top: 0;
+    right: 0%;
+  }
+}

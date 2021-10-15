@@ -1,0 +1,102 @@
+:root {
+  --color-primary: rgba(109, 74, 211, 1);
+
+  --color-primary_opaque: rgba(40, 0, 75, 0.7);
+
+  --color-primary_transparent: rgba(32, 20, 68, 0.6);
+
+  --color-primary_transparent-1: rgba(40, 0, 75, 0.06);
+  --color-primary_transparent-2: rgba(40, 0, 75, 0.05);
+  --color-primary_transparent-3: rgba(40, 0, 75, 0.1);
+  --color-primary_transparent-4: rgba(42, 18, 50, 0.1);
+  --color-primary_transparent-5: rgba(40, 0, 75, 0.12);
+  --color-primary_transparent-6: rgba(40, 0, 75, 0.15);
+  --color-primary_transparent-7: rgba(40, 0, 75, 0.2);
+  --color-primary_transparent-8: rgba(40, 0, 75, 0.3);
+  --color-primary_transparent-9: rgba(40, 0, 75, 0.38);
+  --color-primary_transparent-10: rgba(40, 0, 75, 0.5);
+  --color-primary_transparent-11: rgba(40, 0, 85, 0.5);
+  --color-primary_transparent-12: rgba(40, 0, 85, 0.5); /**/
+  --color-primary_transparent-13: rgba(41, 2, 76, 0.5);
+  --color-primary_transparent-14: rgba(40, 0, 75, 0.6);
+  --color-primary_transparent-15: rgba(41, 0, 77, 0.7);
+  --color-primary_transparent-16: rgba(40, 0, 85, 0.8);
+  --color-primary_transparent-17: rgba(40, 0, 75, 0.8);
+
+  --color-primary_transparent-18: rgba(67, 10, 95, 0.15);
+
+  --color-primary_transparent-19: rgba(108, 74, 211, 0.04);
+  --color-primary_transparent-20: rgba(108, 74, 211, 0.06);
+  --color-primary_transparent-21: rgba(108, 74, 211, 0.08);
+  --color-primary_transparent-22: rgba(108, 74, 211, 0.1);
+  --color-primary_transparent-23: rgba(108, 74, 211, 0.12);
+  --color-primary_transparent-24: rgba(108, 74, 211, 0.15);
+  --color-primary_transparent-25: rgba(108, 74, 211, 0.3);
+
+  --color-primary_transparent-26: rgba(109, 74, 211, 0.12);
+  --color-primary_transparent-27: rgba(109, 74, 211, 0.04);
+
+  --color-white: rgba(255, 255, 255, 1);
+  --color-white-transparent: rgba(255, 255, 255, 0);
+  --color-white_clear: rgba(255, 255, 255, 0);
+  --color-white_opaque: rgba(255, 255, 255, 0.8);
+
+  --color-grey_light-1: rgba(150, 150, 150, 1);
+  --color-grey_light-2: rgba(152, 152, 152, 1);
+  --color-grey_light-3: rgba(149, 149, 149, 1);
+  --color-grey_light-4: rgba(185, 185, 185, 0.5);
+  --color-grey-1: rgba(85, 85, 85, 1);
+  --color-grey-2: rgba(72, 72, 72, 1);
+  --color-grey_dark: rgba(33, 37, 41, 1);
+
+  --color-box_shadow-grey: rgba(196, 191, 191, 0.5);
+
+  --color-black: rgba(0, 0, 0, 0.8);
+  --color-border-grey: rgba(206, 206, 206, 1);
+
+  --color-black: rgba(0, 0, 0, 0);
+  --color-black_transparent: rgba(0, 0, 0, 0.08);
+  --color-black_transparent-2: rgba(0, 0, 0, 0.2);
+  --color-black_transparent-3: rgba(0, 0, 0, 0.0398);
+  --color-black_transparent-4: rgba(0, 0, 0, 0.0576377);
+  --color-black_transparent-5: rgba(0, 0, 0, 0.14);
+  --color-black_transparent-6: rgba(0, 0, 0, 0.004);
+
+  --color-error_red: rgba(252, 8, 8, 0.7);
+  --color-invalid_red: rgba(255, 0, 0, 0.5);
+
+  --color-success_green: rgba(96, 217, 85, 0.75);
+
+  --color-blue_light_transparent: rgba(52, 88, 122, 0.1);
+
+  /***********************************************/
+  /** Gradients **/
+  /***********************************************/
+  --cta_gradient: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.38),
+      rgba(255, 255, 255, 0.38)
+    ),
+    linear-gradient(
+      270deg,
+      rgba(255, 255, 255, 0) 0%,
+      var(--color-white_opaque) 100%
+    ),
+    radial-gradient(
+      63.37% 115.51% at 40.63% 138.29%,
+      #d7b7ff 0%,
+      rgba(215, 183, 255, 0) 100%
+    ),
+    radial-gradient(
+      56.94% 103.8% at -12.33% 125.63%,
+      #f2b6e6 0%,
+      rgba(242, 182, 230, 0) 100%
+    ),
+    radial-gradient(
+      73.96% 134.81% at 107.81% -57.59%,
+      #82a5ff 0%,
+      rgba(130, 165, 255, 0) 100%
+    ),
+    linear-gradient(121.18deg, #a33ab1 0%, rgba(163, 58, 177, 0) 76.62%),
+    rgb(109, 74, 211);
+}
