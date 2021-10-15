@@ -1,0 +1,117 @@
+.field {
+}
+.magicfield {
+  position: relative;
+}
+.magicfield_label {
+  color: rgba(46, 0, 87, 0.38);
+  font-weight: normal;
+  letter-spacing: -0.01px;
+  word-break: break-word;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 16px;
+  transition: 0.2s;
+}
+.field_label {
+  color: rgba(46, 0, 87, 0.38);
+  font-weight: normal;
+  height: 24px;
+  letter-spacing: -0.01px;
+  line-height: 16px;
+  display: block;
+  word-break: break-word;
+}
+.field_input:focus + .magicfield_label, .magicfield_label--filled {
+  top: 11px;
+  font-size: 12px;
+}
+.field_input {
+  background: rgb(255, 255, 255);
+  border-radius: 10px;
+  border: 1px solid rgba(102, 75, 129, 0.2);
+  height: 62px;
+  width: 100%;
+  padding: 15px 20px 0 20px;
+  color: rgba(40, 0, 75, 0.87);
+  max-width: 420px;
+  font-size: 16px;
+}
+.field_input--shorter{
+  max-width: 310px;
+}
+.field_input--select {
+  background: url('./arrow-down.svg'),#fff;
+  background-repeat: no-repeat,repeat;
+  background-position: right .7em top 50%,0 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.field_input:focus {
+  outline: 0;
+  border: 1.5px solid rgb(109, 73, 210);
+}
+.field_input--error {
+  border: 1px solid rgb(241, 130, 141);;
+}
+.field_input::placeholder {
+  color: rgba(40, 0, 75, 0.12);
+}
+.field_input:-ms-input-placeholder {
+  color: rgba(40, 0, 75, 0.12);
+}
+.field_input::-ms-input-placeholder {
+  color: rgba(40, 0, 75, 0.12);
+}
+.field_error {
+  color: rgb(241, 130, 141);
+  display: block;
+  padding: 3px 0 5px 0;
+  height: 26px;
+}
+.select { 
+  display: flex;
+}
+.select_option {
+  display: block;
+  background: rgba(102, 75, 129, 0.05);
+  color: rgba(40, 0, 75, 0.87);
+  font-weight: 600;
+  padding: 22px 5px;
+  margin: 0 3px;
+  border-radius: 10px;
+  flex-grow: 1;
+  text-align: center;
+  cursor: pointer;
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none; 
+       -moz-user-select: none; 
+        -ms-user-select: none;
+            user-select: none; 
+}
+.select_option:first-child {
+  margin-left: 0;
+}
+.select_option:last-child {
+  margin-right: 0;
+}
+.select_option--selected {
+  background: #825cbb;
+  color: white;
+}
+/
+@media screen and (min-width:770px) {
+  .field_label {
+    width: 100px;
+    padding-top: 8px;
+    padding-right: 5px;
+  }
+
+  .field_error {
+    padding-top: 4px;
+    height: 26px;
+  }
+}
