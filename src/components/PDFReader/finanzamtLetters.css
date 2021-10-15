@@ -1,0 +1,58 @@
+.raso-letter-section {
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.raso-letter-section .raso-letter-element {
+  margin: 0 1rem;
+  flex: 0 0 1;
+}
+@media only screen and (min-width: 600px) {
+  .raso-letter-section .raso-letter-element {
+    flex: 0 0 20%;
+  }
+}
+
+.pdf-reader-wrapper {
+  padding: 1rem 0 0 0;
+  position: relative;
+  height: 80vh;
+  width: 90vw;
+  min-width: 320px;
+  max-width: 600px;
+}
+
+.raso-letter-img-wrapper {
+  min-width: 200px;
+  border: 1px solid var(--color-border-grey);
+  border-radius: 8px;
+  overflow: hidden;
+  transform: scale(0.96);
+  transition: transform 300ms ease-in-out;
+  transform-origin: center;
+  cursor: pointer;
+}
+
+.raso-letter-img-wrapper:hover {
+  transform: scale(1);
+}
+.raso-letter-img {
+  width: 100%;
+}
+.raso-letter-heading {
+  font-family: Assistant;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 27px;
+  letter-spacing: 0.005em;
+  text-align: center;
+}
+.raso-letter-p {
+  font-family: Assistant;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 27px;
+  letter-spacing: 0.005em;
+  text-align: center;
+}
