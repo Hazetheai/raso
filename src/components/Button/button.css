@@ -1,0 +1,38 @@
+.form_submit_btn {
+  background: #905fda;
+  border-radius: 25px;
+  height: 48px;
+  border: 0;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 0 25px;
+  min-width: 160px;
+  cursor: pointer;
+  text-decoration: none;
+  min-width: 100%;
+  transition: 0.3s;
+}
+.form_submit_btn:focus,
+.form_submit_btn:hover {
+  box-shadow: 1px 1px 1px 1px #bbb9be;
+}
+.form_submit_btn--alt {
+  background: none;
+  border: 1px solid rgb(109, 74, 211);
+  color: rgb(109, 74, 211);
+}
+.form_submit_btn.clear {
+  background-color: transparent;
+  color: rgb(109, 74, 211);
+}
+
+@media screen and (min-width: 400px) {
+  .form_submit_btn {
+    min-width: 160px;
+  }
+}
+
+.form_submit_btn.fluid {
+  min-width: auto;
+}
