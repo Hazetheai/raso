@@ -1,0 +1,44 @@
+.link {
+  background: #905fda;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 25px;
+  height: 48px;
+  border: 0;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 0 25px;
+  min-width: 160px;
+  cursor: pointer;
+  text-decoration: none;
+  min-width: 100%;
+  transition: 0.3s;
+}
+
+.link:focus,
+.link:hover {
+  box-shadow: 1px 1px 1px 1px #bbb9be;
+}
+
+.link svg {
+  margin-left: 10px;
+  transition: all 300ms ease-in-out;
+}
+.link:hover svg {
+  transform: translateX(5px);
+  transform-origin: center;
+  transition: all 300ms ease-in-out;
+}
+.link--alt {
+  background: none;
+  border: 1px solid rgb(109, 74, 211);
+  color: rgb(109, 74, 211);
+}
+
+@media screen and (min-width: 400px) {
+  .link {
+    min-width: 160px;
+  }
+}
