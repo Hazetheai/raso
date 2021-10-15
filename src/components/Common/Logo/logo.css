@@ -1,0 +1,13 @@
+.header {
+  text-align: center;
+  padding: 40px 0 12px 0;
+}
+.header_logo {
+  width: 100px;
+  opacity: 0.4;
+}
+@media screen and (min-width: 1008px) {
+  .header {
+    display: none;
+  }
+}
