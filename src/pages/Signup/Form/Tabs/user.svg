@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="9px" height="11px" viewBox="0 0 9 11" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>user</title>
+    <g id="---&gt;-Sign-up-from-Desktop-device" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="User_DE__SignUp_step2" transform="translate(-133.000000, -307.000000)" fill="#28004B" fill-rule="nonzero">
+            <g id="TABS" transform="translate(130.000000, 303.000000)">
+                <g id="01" transform="translate(2.999981, 0.000000)">
+                    <g id="user" transform="translate(0.000019, 4.000000)">
+                        <path d="M4.5,6 C2.01872553,6 0,8.14958984 0,10.7916602 C0,10.9066602 0.0876582285,11 0.195658155,11 L8.80434184,11 C8.91234177,11 9,10.9066602 9,10.7916602 C9,8.14957031 6.98125613,6 4.5,6 Z" id="Path"></path>
+                        <circle id="Oval" cx="4.5" cy="2.5" r="2.5"></circle>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
