@@ -1,0 +1,185 @@
+.section-cta {
+  background: var(--cta_gradient);
+  border-radius: 32px;
+  text-align: left;
+}
+
+.section-cta a,
+.section-cta button {
+  font-weight: 700;
+}
+.container-cta {
+  padding: 100px 80px;
+  text-align: left;
+  position: relative;
+  min-height: 600px;
+}
+.cta-image {
+  position: absolute;
+  top: 50px;
+  right: -120px;
+}
+.cta-h2 {
+  font-family: Avenir Next;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  text-align: left;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  max-width: 59%;
+}
+
+@media only screen and (min-width: 400px) {
+  .cta-h2 {
+    font-size: 36px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .cta-h2 {
+    font-size: 56px;
+  }
+}
+
+.cta-h4 {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Avenir Next;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 25px;
+  letter-spacing: -0.01em;
+  text-align: left;
+  color: #d14d95;
+  text-transform: uppercase;
+}
+
+.cta-h4 img {
+  margin-right: 5px;
+}
+.cta-p {
+  font-family: Assistant;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 1.6;
+  letter-spacing: 0.005em;
+  text-align: left;
+  margin: 0 0 30px 0;
+  max-width: 59%;
+}
+
+.container-cta-form {
+  margin-top: 80px;
+}
+.app-store-logo {
+  max-height: 30px;
+  margin-right: 15px;
+  opacity: 0.38;
+}
+.app-store-logo:hover {
+  opacity: 0.67;
+}
+
+.terms-footnote {
+  padding: 30px 0;
+  flex-direction: column;
+}
+
+.terms-footnote p {
+  font-family: Avenir Next;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 25px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: rgba(97, 69, 177, 1);
+
+  display: inline-flex;
+  align-items: center;
+  margin-right: 0rem;
+}
+
+.terms-footnote .promise-icon {
+  padding: 0 5px;
+}
+
+@media only screen and (min-width: 500px) {
+  .terms-footnote {
+    flex-direction: row;
+  }
+  .terms-footnote p {
+    margin-right: 2rem;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .cta-image {
+    right: -20px;
+  }
+  .container-cta {
+    padding: 100px 40px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .cta-image {
+    right: -20px;
+    max-width: 430px;
+  }
+  .container-cta {
+    padding: 60px 40px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .cta-image {
+    top: -10px;
+    left: 0;
+    transform: translateX(-11%);
+  }
+
+  .container-cta {
+    padding-top: 400px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .cta-p {
+    max-width: 550px;
+  }
+  .cta-h2 {
+    max-width: 700px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .cta-p {
+    max-width: 100%;
+  }
+  .cta-h2 {
+    max-width: 100%;
+  }
+}
+@media screen and (max-width: 574px) {
+  .start-app-btn-cta {
+    text-align: center;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .cta-image {
+    width: 400px;
+    max-width: 100%;
+  }
+}
+@media screen and (max-width: 400px) {
+  .container-cta {
+    padding-top: 350px;
+  }
+}
