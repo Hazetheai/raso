@@ -1,0 +1,93 @@
+.tab-container {
+  box-shadow: var(--box-shadow-container);
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.tab-container hr {
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.tab-nav__nav-label,
+.tab-nav_header-title {
+  font-family: Assistant;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 140%;
+}
+.tab-nav__header-icon,
+.tab-nav__nav-number {
+  border: 1px solid rgba(234, 230, 237, 1);
+  border-radius: 50%;
+  padding: 10px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tab-nav__header {
+  color: var(--color-primary_light);
+  display: flex;
+
+  align-items: center;
+  margin: 0 0 1.5rem 0;
+}
+
+.tab-nav__header-icon {
+  margin: 0 15px 0 0;
+}
+
+.tab-nav__menu {
+  display: flex;
+  flex-direction: column;
+}
+.tab-nav__tab {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: var(--color-primary_light);
+  transition: color 300ms ease-in-out;
+}
+
+.tab-nav__tab:hover,
+.tab-nav__tab.active {
+  transition: color 300ms ease-in-out;
+  color: var(--color-primary);
+}
+
+.tab-nav__tab:first-child {
+  margin: 0 0 1rem 2px;
+}
+
+.tab-nav__tab + .tab-nav__tab::before {
+  content: "";
+  background-color: rgba(234, 230, 237, 1);
+  display: block;
+  position: relative;
+  height: 1.5rem;
+  border: 0.5px solid rgba(234, 230, 237, 1);
+  border-radius: 5px;
+  margin: 3.7rem 0 0 0;
+  top: -4.5rem;
+  left: 1.6rem;
+}
+
+.tab-nav__nav-number {
+  margin-right: 15px;
+  padding: 7px 17px;
+  color: var(--color-primary_dark);
+}
+
+.tab-nav__tab.active .tab-nav__nav-number {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.tab-nav_header-title {
+}
