@@ -5,6 +5,7 @@ import checkmark from "res/images/checkmark.svg";
 import Link from "components/Link";
 import Button from "components/Button";
 import "./cta.css";
+import Terms from "components/Terms";
 
 export const CTAsampleData = {
   preHeadline: "SPECIAL OFFER FOR BEGINNERS",
@@ -87,18 +88,7 @@ const CTA = ({
             />
           )}
         </div>
-        <div className="terms-footnote flex-container">
-          {offerPromises.map((promise) => {
-            return (
-              <p key={promise.text}>
-                <span className="promise-icon">
-                  <img src={promise.imgSrc} alt={promise.text} />
-                </span>
-                {promise.text}
-              </p>
-            );
-          })}
-        </div>
+        <Terms offerPromises={offerPromises} />
       </div>
     </section>
   );

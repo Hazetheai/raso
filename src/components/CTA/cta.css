@@ -87,39 +87,6 @@
   opacity: 0.67;
 }
 
-.terms-footnote {
-  padding: 30px 0;
-  flex-direction: column;
-}
-
-.terms-footnote p {
-  font-family: Avenir Next;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 25px;
-  letter-spacing: 0em;
-  text-align: left;
-  color: rgba(97, 69, 177, 1);
-
-  display: inline-flex;
-  align-items: center;
-  margin-right: 0rem;
-}
-
-.terms-footnote .promise-icon {
-  padding: 0 5px;
-}
-
-@media only screen and (min-width: 500px) {
-  .terms-footnote {
-    flex-direction: row;
-  }
-  .terms-footnote p {
-    margin-right: 2rem;
-  }
-}
-
 @media screen and (max-width: 1024px) {
   .cta-image {
     right: -20px;
