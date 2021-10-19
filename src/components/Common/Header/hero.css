@@ -1,0 +1,25 @@
+.top-section-raso-container {
+  max-width: 70%;
+  text-align: left;
+  margin: 0 55px;
+}
+.top-section-estirev-container {
+  margin-top: 120px;
+  margin: 0 25px;
+  margin-bottom: 80px;
+}
+
+.top-section__title-l {
+  color: rgba(105, 77, 129, 1);
+}
+
+.top-section__title-m {
+  font-family: Avenir Next;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 30px;
+  letter-spacing: -0.02em;
+  text-align: left;
+  color: rgba(105, 77, 129, 1);
+}
