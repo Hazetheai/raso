@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
-import Field from "../../../../components/Field";
+import Field from "../../Field";
 import { useForm } from "react-hook-form";
 import { emailValidator } from "../validators";
 import { useTranslation } from "react-i18next";
-import { sendAmplitudeData } from "../../../../res/amplitude";
+import { sendAmplitudeData } from "../../../res/amplitude";
 import { useLocation } from "react-router-dom";
 import qs from "querystring";
 

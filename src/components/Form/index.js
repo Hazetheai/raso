@@ -67,7 +67,6 @@ const Form = () => {
     }
   };
   const steps = [
-    // <Start nextStep={nextStep} />,
     <Personal nextStep={nextStep} />,
     <Business
       nextStep={nextStep}
@@ -84,7 +83,7 @@ const Form = () => {
     return await response.json();
   };
   return (
-    <Fragment>
+    <>
       <Tabs step={step} />
 
       {steps[step]}
@@ -94,7 +93,7 @@ const Form = () => {
           to={country === "de" ? t("thank_you_page_de") : t("thank_you_page")}
         />
       )}
-    </Fragment>
+    </>
   );
 };
 export default Form;

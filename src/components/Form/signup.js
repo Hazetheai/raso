@@ -1,15 +1,15 @@
-import { setIntercomSettings } from "../../../res/intercom";
+import { setIntercomSettings } from "../../res/intercom";
 import {
   sendAmplitudeData,
   setAmplitudeUserId,
   setAmplitudeUserProperties,
-} from "../../../res/amplitude";
-import { FAlogEvent } from "../../../res/fpc";
-import { logEvent } from "../../../res/pixel";
-import { country, host } from "../../../settings/config";
-import { getUtms } from "../../../res/utms";
-import { tap } from "../../../res/tapfiliate";
-import { GTMsendEvent } from "../../../res/gtag";
+} from "../../res/amplitude";
+import { FAlogEvent } from "../../res/fpc";
+import { logEvent } from "../../res/pixel";
+import { country, host } from "../../settings/config";
+import { getUtms } from "../../res/utms";
+import { tap } from "../../res/tapfiliate";
+import { GTMsendEvent } from "../../res/gtag";
 
 const languageMap = {
   en: 0,

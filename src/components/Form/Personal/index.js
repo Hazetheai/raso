@@ -1,10 +1,10 @@
 import React, { Fragment, useEffect } from "react";
-import Field from "../../../../components/Field";
+import Field from "../../Field";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import { sendAmplitudeData } from "../../../../res/amplitude";
+import { sendAmplitudeData } from "../../../res/amplitude";
 import { emailValidator } from "../validators";
-import Button from "../../../../components/Button";
+import Button from "../../Button";
 import Modal from "components/Modal";
 import FAQ from "components/FAQ";
 import CTA, { CTAsampleData } from "components/CTA";
@@ -37,6 +37,11 @@ const Personal = ({ nextStep }) => {
         autoFocus={true}
         errors={errors}
         watch={watch}
+        topLabel="Vorname"
+        fieldHelperText="This is for your name. Your Vorname"
+        fieldHelperExpand
+        expandedHelperTitle={"Start deiner Selbständigkeit"}
+        expandedHelperContent={`Du kannst deine Selbständigkeit auch rückwirkend anmelden. Gerade, wenn du schon Kosten zum Anschieben deiner Selbständigkeit hast, kann das Sinn machen. Beachte aber, dass dann evtl. Steuermeldungen nachzuholen sind.`}
       />
       <Field
         type="phone"

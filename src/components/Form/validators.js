@@ -1,4 +1,4 @@
-import { host } from "../../../settings/config";
+import { host } from "../../settings/config";
 export const emailValidator = async (value) => {
   const response = await fetch(
     `${host}/api/v1/users/emailcheck?email=${value.toLowerCase()}`,
