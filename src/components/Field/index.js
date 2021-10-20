@@ -4,14 +4,20 @@ import clsx from "clsx";
 import { useController } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { country } from "../../settings/config";
-import { BEVATCheckDigit } from "../../pages/Signup/Form/validators";
-
+import { BEVATCheckDigit } from "../Form/validators";
+import fieldHelperIcon from "./helper-icon.svg";
 const Field = React.forwardRef(
   (
     {
       type,
       name,
       label,
+      topLabel,
+      fieldHelperText,
+      fieldHelperExpand,
+      expandedHelperTitle,
+      expandedHelperContent,
+      onToggleHelper,
       errors,
       options,
       control,
@@ -29,6 +35,23 @@ const Field = React.forwardRef(
     const notEmptyValue = watch ? watch(name) : false;
     return (
       <div className="field">
+        <div className="field_helper-row">
+          {topLabel && <label className="field_top-label">{topLabel}</label>}
+          {fieldHelperExpand && (
+            <span
+              role="button"
+              title=""
+              onClick={() => (onToggleHelper ? onToggleHelper() : null)}
+              className="field_helper-icon"
+            >
+              <img src={fieldHelperIcon} alt={"More Info"} />
+            </span>
+          )}
+        </div>
+
+        {fieldHelperText && (
+          <span className="field_helper-text">{fieldHelperText}</span>
+        )}
         {type === "picker" ? (
           <Fragment>
             <label className="field_label">{label}</label>
@@ -236,4 +259,44 @@ const VATNumberInput = ({ name, control, errors }) => {
   );
 };
 
-export default Field;
+const FormField = ({ ...fieldProps }) => {
+  const [isHelperVisible, setIsHelperVisible] = useState(false);
+
+  function toggleHelper() {
+    setIsHelperVisible(!isHelperVisible);
+  }
+
+  return (
+    <div
+      className={`form-question ${
+        fieldProps.fieldHelperExpand ? "full-width" : ""
+      }`}
+    >
+      <Field {...fieldProps} onToggleHelper={toggleHelper} />
+
+      {isHelperVisible && (
+        <FieldHelper
+          isActive={isHelperVisible}
+          title={fieldProps.expandedHelperTitle}
+          content={fieldProps.expandedHelperContent}
+        />
+      )}
+    </div>
+  );
+};
+
+const FieldHelper = ({ title, content, isActive }) => {
+  return (
+    <div className={`field_helper ${isActive ? "active" : ""}`}>
+      {title && <h5 className="field_helper__title">{title}</h5>}
+      {content && (
+        <p
+          className="field_helper__content"
+          dangerouslySetInnerHTML={{ __html: content }}
+        />
+      )}
+    </div>
+  );
+};
+
+export default FormField;

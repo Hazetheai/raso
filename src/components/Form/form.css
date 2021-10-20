@@ -1,0 +1,34 @@
+.form {
+  margin: 0 auto;
+  padding-bottom: 40px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.form_submit {
+  text-align: center;
+  padding-top: 14px;
+}
+
+.form_consent {
+  color: rgba(40, 0, 75, 0.38);
+  font-size: 12px;
+  font-weight: normal;
+  height: 60px;
+  letter-spacing: 0.03px;
+  display: block;
+  padding-top: 30px;
+  max-width: 440px;
+}
+.form_error {
+  text-align: center;
+  display: block;
+  padding: 5px 0;
+  color: rgb(241, 130, 141);
+}
+
+@media screen and (min-width: 1008px) {
+  .form_submit,
+  .form_error {
+    text-align: left;
+  }
+}

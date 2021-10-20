@@ -1,0 +1,24 @@
+.form-layout {
+  display: flex;
+  flex-direction: column;
+}
+
+@media only screen and (min-width: 600px) {
+  .form-layout {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+.form-layout .tab-container {
+  min-width: 220px;
+}
+
+@media only screen and (min-width: 600px) {
+  .form-layout .form {
+    width: 80%;
+  }
+  .form-layout .tab-container {
+    margin-right: 2vw;
+  }
+}
