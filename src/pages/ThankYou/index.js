@@ -10,7 +10,7 @@ import GooglePlay from "./googleplay.png";
 import boldFormatter from "../../res/boldFormatter";
 import { sendAmplitudeData } from "../../res/amplitude";
 import { country } from "../../settings/config";
-import Field from "../Signup/Form/Field";
+import Field from "../../components/Form/Field";
 import { useForm } from "react-hook-form";
 import { setIntercomPhone } from "../../res/intercom";
 
