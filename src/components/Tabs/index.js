@@ -1,3 +1,5 @@
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import home from "res/images/home.svg";
 import "./tabs.css";
@@ -39,7 +41,7 @@ export const sampleTabData = {
   ],
 };
 
-const Tabs = ({ tabData, activeTab, onTabClick }) => {
+const Tabs = ({ tabData, activeTab, completeTabs = [], onTabClick }) => {
   return (
     <div className="tab-container">
       <nav className="tab-nav">
@@ -53,18 +55,24 @@ const Tabs = ({ tabData, activeTab, onTabClick }) => {
         <ul className="tab-nav__menu">
           {tabData.tabs.map((tab) => {
             const { tabNumber, tabLabel, tabId } = tab;
-
+            const isTabComplete = completeTabs.includes(tabId);
             return (
               <li
                 title={tabLabel}
                 onClick={() => (onTabClick ? onTabClick(tabId) : null)}
                 key={tabId}
-                className={`tab-nav__tab ${
-                  activeTab === tabId ? "active" : ""
-                }`}
+                className={`tab-nav__tab ${activeTab === tabId ? "active" : ""}
+                ${isTabComplete ? "complete" : ""}
+                `}
                 id={tabId}
               >
-                <span className="tab-nav__nav-number">{tabNumber}</span>
+                <span className="tab-nav__nav-number">
+                  {isTabComplete ? (
+                    <FontAwesomeIcon icon={faCheck} />
+                  ) : (
+                    tabNumber
+                  )}
+                </span>
                 <span className="tab-nav__nav-label">{tabLabel}</span>
               </li>
             );
