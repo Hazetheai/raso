@@ -1,12 +1,15 @@
+import clsx from "clsx";
 import React from "react";
 import "./terms.css";
 
 const Terms = ({ offerPromises, vertical }) => {
   return (
     <div
-      className={`terms-footnote flex-container ${
-        vertical ? "flex-column" : ""
-      }`}
+      className={clsx(
+        "terms-footnote",
+        "flex-container",
+        vertical && "flex-column"
+      )}
     >
       {offerPromises.map((promise) => {
         return (
