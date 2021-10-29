@@ -1,6 +1,59 @@
 .form-layout {
   display: flex;
   flex-direction: column;
+  position: relative;
+  flex-wrap: wrap;
+  z-index: 10;
+
+  padding-bottom: 100px;
+}
+
+.screen-header {
+  padding: 40px 0;
+}
+
+.screen-title {
+  font-family: Avenir Next;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: -0.015em;
+  text-align: left;
+  padding: 40px 0;
+  color: rgba(105, 77, 129, 1);
+}
+
+.form_submit {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  text-align: center;
+  padding-top: 14px;
+  margin-right: 55px;
+  position: relative;
+  top: 40px;
+  height: 0;
+}
+
+@media only screen and (min-width: 900px) {
+  .screen-title {
+    font-size: 32px;
+    line-height: 38px;
+    letter-spacing: -0.015em;
+    padding: 20px 0;
+  }
+}
+
+.screen-subtitle {
+  max-width: 75ch;
+}
+
+@media only screen and (min-width: 900px) {
+  .form-layout {
+    top: -30px;
+    margin: 0 0 0 55px;
+  }
 }
 
 @media only screen and (min-width: 600px) {
@@ -11,14 +64,21 @@
 }
 
 .form-layout .tab-container {
+  position: relative;
   min-width: 220px;
 }
 
-@media only screen and (min-width: 600px) {
-  .form-layout .form {
-    width: 80%;
+@media only screen and (min-width: 768px) {
+  .form-layout .tab-container {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 20px;
   }
+}
+
+@media only screen and (min-width: 600px) {
   .form-layout .tab-container {
     margin-right: 2vw;
+    width: 25%;
   }
 }
