@@ -3,6 +3,7 @@ import ReactModal from "react-modal";
 import Button from "../Button";
 
 const customStyles = {
+  // this is what the package requires
   content: {
     top: "50%",
     left: "50%",
