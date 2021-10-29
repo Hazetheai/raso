@@ -12,35 +12,33 @@ import "./faq.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
+import clsx from "clsx";
 
-const sampleData = {
+export const sampleFaqData = {
   containerClassName: "raso-faq",
   title: "FAQ ⭐️ ",
   questions: [
     {
-      title: "What is Accountable?",
+      title: "Ist dies das Formular, das ich gesucht habe? ",
       xerius_number: 0,
-      answer: `Accountable is the simplest and best solution for self-employed professionals.<br/><br/>
-            You can create invoices accepted by the German tax office, scan all your receipts and therefore digitalise your accounting with ease. In addition, Accountable takes care of your tax obligations: whether it's VAT or income tax, with Accountable you won't miss any deadlines. You can send your tax returns directly to your tax office through a secure Elster interface.<br/><br/>
-            Even if you don't know anything about the German tax system, with Accountable you can do everything right from the start. We translate the language of the tax office for you and give you valuable tax tips. Our mission is to make your everyday life as a self-employed professional easier, so that you can concentrate on what is really important.`,
+      answer: `Um dich in Deutschland selbstständig zu machen, musst du den "Fragebogen zur steuerlichen Erfassung" ausfüllen. Mit diesem Formular beantragst du gleichzeitig auch deine Steuernummer. Der offizielle Fragebogen kann auf unserer Website direkt ans Finanzamt übermittelt werden. <br/><br/>
+      Wenn du dich also selbstständig machen willst, hast du das richtige Formular gefunden!`,
     },
     {
-      title: "What is your special offer for the new self-employed?",
+      title: "Benötige ich ein ELSTER Konto dafür?",
       xerius_number: 1,
-      answer: `Everyone who signs up as a self-employed professional through us can use our best PRO version with all features for 6 months completely free of charge. <br/><br/>
-      You don't have to register with your credit card and you don't have to choose a subscription. <br/><br/> 
-      We know how difficult it can be to get started, so we want to make it as easy as possible for you. If you like the PRO version, you can decide after the 6 months trial if you want to continue using it. There is no automatic renewal.`,
+      answer: `Du musst nicht extra ein ELSTER Konto erstellen, um den Fragebogen zu übermitteln! Wir übertragen dein Formular direkt über unsere offizielle ELSTER Schnittstelle. So ersparen wir dir die Anmeldung bei ELSTER.`,
     },
   ],
 };
 
 const FAQ = ({ faqData, containerClassName }) => {
   return (
-    <section className={`section-faq ${containerClassName || ""}`}>
+    <section className={clsx("section-faq", containerClassName || "")}>
       <Accordion allowZeroExpanded>
         <div className="container container-faq">
-          <h2 className="section-h2">{(sampleData || faqData).title}</h2>
-          {(faqData || sampleData).questions.map((question) => {
+          <h2 className="section-h2">{faqData.title}</h2>
+          {faqData.questions.map((question) => {
             return (
               <AccordionItem key={question.title} className="faq-question">
                 <AccordionItemHeading>

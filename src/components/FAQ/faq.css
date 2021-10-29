@@ -61,12 +61,6 @@
   padding: 20px 0;
   animation: fadein 0.35s ease-in;
 }
-@media screen and (max-width: 1200px) {
-  .container-faq {
-    width: 100%;
-    max-width: initial;
-  }
-}
 
 @keyframes fadein {
   0% {
