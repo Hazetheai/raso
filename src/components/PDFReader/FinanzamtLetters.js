@@ -11,7 +11,6 @@ function getLetterName(pdfUrl) {
 export const FinanzamtLetters = ({ finanzamtLetters }) => {
   const [currentLetter, setCurrentLetter] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [windowSize, setWindowSize] = useState(window.innerHeight * 0.7);
 
   //   useEffect(() => {
   //       setWindowSize(window.innerHeight * .7)
