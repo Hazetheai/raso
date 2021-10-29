@@ -1,4 +1,4 @@
-import { host } from "../../settings/config";
+import { host } from "settings/config";
 export const emailValidator = async (value) => {
   const response = await fetch(
     `${host}/api/v1/users/emailcheck?email=${value.toLowerCase()}`,
@@ -9,22 +9,6 @@ export const emailValidator = async (value) => {
   );
   const json = await response.json();
   return !json.exists;
-};
-
-export const BEVATCheckDigit = (input) => {
-  const vatnumber = input.replace(/\+|[^\d]/g, "");
-  if (vatnumber.length === 0) return true;
-
-  // Checks the check digits of a Belgium VAT number.
-
-  // Nine digit numbers have a 0 inserted at the front.
-  if (vatnumber.length == 9) vatnumber = "0" + vatnumber;
-
-  if (vatnumber.slice(1, 2) == 0) return false;
-
-  // Modulus 97 check on last nine digits
-  if (97 - (vatnumber.slice(0, 8) % 97) == vatnumber.slice(8, 10)) return true;
-  else return false;
 };
 
 export let isTaxIdValid = true;
@@ -72,7 +56,7 @@ export let validators = {
   businessBankAccountOwner: /^.{1,128}$/,
   privateBankAccountOwner: /^.{1,128}$/,
 };
-const elsterStNrFormatter = {
+export const elsterStNrFormatter = {
   // format by Federal state
   1: {
     match: /^([0-9]{3})([0-9]{8})$/,
