@@ -1,12 +1,13 @@
+.form-container {
+  flex: 0 0 67%;
+  background: white;
+}
+
 .form {
   margin: 0 auto;
   padding-bottom: 40px;
   display: flex;
   flex-wrap: wrap;
-}
-.form_submit {
-  text-align: center;
-  padding-top: 14px;
 }
 
 .form_consent {
@@ -24,6 +25,11 @@
   display: block;
   padding: 5px 0;
   color: rgb(241, 130, 141);
+}
+
+fieldset {
+  padding: 0;
+  border: none;
 }
 
 @media screen and (min-width: 1008px) {
