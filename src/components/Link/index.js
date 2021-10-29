@@ -2,6 +2,7 @@ import React from "react";
 import "./link.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import clsx from "clsx";
 
 const Link = ({ children, href, text, title, func, className, ...rest }) => {
   return (
@@ -9,7 +10,7 @@ const Link = ({ children, href, text, title, func, className, ...rest }) => {
       {...rest}
       href={href}
       title={title}
-      className={`link ${className || ""}`}
+      className={clsx("link", className)}
       onClick={func}
       onKeyDown={(e) => {
         if (
