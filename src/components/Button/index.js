@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import React from "react";
 import "./button.css";
 
@@ -9,14 +10,19 @@ const Button = ({
   className,
   clear,
   fluid,
+  inline,
   ...rest
 }) => {
   return (
     <button
       {...rest}
-      className={`form_submit_btn ${className || ""} ${clear ? "clear" : ""} ${
-        fluid ? "fluid" : ""
-      }`}
+      className={clsx(
+        className,
+        clear && "clear",
+        fluid && "fluid",
+        inline && "inline",
+        "form_submit_btn"
+      )}
       disabled={disabled}
       onClick={func}
       onKeyDown={(e) => {
