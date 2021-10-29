@@ -14,9 +14,9 @@ export const CTAsampleData = {
   subheadline:
     "We offer our best subscription free of charge for all those who obtain their tax number through us.",
   mobileActionElementText: "START FOR FREE",
-  mobileActionelementLink: "https://accountable.app.link/FTshY7oGF3?",
-  desktopActionelementText: "START FOR FREE",
-  desktopActionelementLink: "http://onboarding.accountable.de/en/",
+  mobileActionElementLink: "https://accountable.app.link/FTshY7oGF3?",
+  desktopActionElementText: "START FOR FREE",
+  desktopActionElementLink: "http://onboarding.accountable.de/en/",
   isButton: false,
   action: () => console.log("Click CTA"),
   offerPromises: [
@@ -30,10 +30,10 @@ const CTA = ({
   mainImageSrc,
   headline,
   subheadline,
-  mobileActionelementLink,
+  mobileActionElementLink,
   mobileActionElementText,
-  desktopActionelementLink,
-  desktopActionelementText,
+  desktopActionElementLink,
+  desktopActionElementText,
   action,
   isButton,
   offerPromises,
@@ -59,7 +59,7 @@ const CTA = ({
             />
           ) : (
             <Link
-              href={mobileActionelementLink}
+              href={mobileActionElementLink}
               func={action}
               text={mobileActionElementText}
               // className="dlAccountableLink rasoFunnel"
@@ -75,13 +75,13 @@ const CTA = ({
               //    id="downloadAppLink"
               // func={gtagEvent('RASO_CLICKED_DOWNLOADAPP')}
               func={action}
-              text={desktopActionelementText}
+              text={desktopActionElementText}
             />
           ) : (
             <Link
-              href={desktopActionelementLink}
+              href={desktopActionElementLink}
               func={action}
-              text={desktopActionelementText}
+              text={desktopActionElementText}
               // className="dlAccountableLink rasoFunnel"
               // id="downloadAppLink"
               // func={gtagEvent('RASO_CLICKED_DOWNLOADAPP')}
