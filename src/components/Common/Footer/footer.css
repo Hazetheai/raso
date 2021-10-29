@@ -1,0 +1,87 @@
+.section--footer {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  border-top: 1px solid var(--color-primary_transparent-22);
+}
+.flex-container--footer {
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.section__title-footer {
+  text-align: left;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  font-size: 1em;
+}
+.footer-social {
+  margin: 20px 10px 0 0;
+  width: 20px;
+}
+.section__img--logo {
+  height: 25px;
+}
+
+.section__a {
+  color: inherit;
+  list-style-type: none;
+  padding: 0;
+  text-align: left;
+  font-weight: 300;
+  display: block;
+  padding: 10px 0;
+}
+.section__a:hover {
+  opacity: 0.8;
+  text-decoration: none;
+}
+.section__a--margin {
+  margin-bottom: 2rem;
+}
+.footer-trustpilot {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  width: 185px;
+  margin-top: 10px;
+  color: #212529;
+  max-width: 100%;
+}
+.footer-trustpilot:hover {
+  text-decoration: none;
+}
+@media screen and (max-width: 990px) {
+  .section--footer {
+    padding-top: 60px;
+  }
+  .footer-fcol {
+    width: 100%;
+    display: flex;
+    margin-bottom: 40px;
+    justify-content: space-between;
+  }
+  .footer-social {
+    margin: 0 0 0 10px;
+  }
+  .footer-trustpilot {
+    display: none;
+  }
+}
+@media screen and (max-width: 640px) {
+  .footer-col {
+    width: 50%;
+    margin-bottom: 10px;
+  }
+}
+@media screen and (max-width: 574px) {
+  .section--footer {
+    padding-top: 40px;
+  }
+  .section__a {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 360px) {
+  .footer-col {
+    width: 100%;
+  }
+}
