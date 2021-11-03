@@ -78,6 +78,7 @@ html {
   -webkit-font-smoothing: antialiased;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
   scroll-behavior: smooth;
+  background: linear-gradient(180deg, #f9f7fc 0%, #ffffff 100%);
   background-repeat: no-repeat;
   background-position: top center;
   background-size: auto 400px;
@@ -105,12 +106,14 @@ html {
 
 .container-faq {
   width: 800px;
+  margin-bottom: 100px;
 }
 
 @media screen and (max-width: 1200px) {
   .container-faq {
     width: 100%;
     max-width: initial;
+    margin-bottom: 100px;
   }
 }
 
@@ -237,7 +240,7 @@ img {
 .top-section__title-l {
   font-family: "Avenir Next";
   font-size: 48px;
-  line-height: 112%;
+  line-height: 140%;
   font-weight: 700;
   margin-top: 75px;
   animation-delay: 0.7s;
@@ -245,10 +248,9 @@ img {
 .top-section__title-m {
   font-size: 24px;
   font-weight: 300;
-  line-height: 1.3em;
-  margin-top: 20px;
+  line-height: 150%;
+  margin-top: 25px;
   margin-bottom: 10px;
-  opacity: 0.6;
   animation-delay: 1s;
 }
 .container {
@@ -426,4 +428,76 @@ input#mce-PHONE {
     top: 0;
     right: 0%;
   }
+}
+
+/************************/
+/****** Elements ******/
+/************************/
+
+hr {
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.element-container {
+  box-shadow: 0px 1px 4px 0px rgba(8, 18, 86, 0.0847);
+  border-radius: 10px;
+  padding: 24px;
+}
+
+/************************/
+/****** Typography ******/
+/************************/
+
+.body--small {
+  font-family: Assistant;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: var(--color-primary_light);
+}
+
+.body--medium {
+  font-family: Assistant;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 21px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.body--bold {
+  font-family: Assistant;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 21px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.body--big-bold {
+  font-family: Assistant;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.h5--bold {
+  font-family: Avenir Next;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: -0.015em;
+  text-align: left;
 }
