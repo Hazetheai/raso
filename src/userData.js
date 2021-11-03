@@ -1,8 +1,5 @@
-import React, { useContext, createContext, useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import { sendAmplitudeData } from "./res/amplitude";
-import qs from "querystring";
 import produce from "immer";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
 const UserDataContext = createContext();
 
@@ -12,26 +9,29 @@ const useUserData = () => {
 
 const UserDataProvider = ({ children }) => {
   const [userData, setUserDataHook] = useState({
+    uxFields: {
+      startedFilling: false,
+    },
     // Personal
     personalFields: {
       firstname: "",
       name: "",
       email: "",
       phone: "+49 ",
-      gender: "",
+      gender: "choose",
       birthdate: { d: "", m: "", y: "" },
       address_street: "",
       address_number: "",
       address_city: "",
       address_postcode: "",
-      religion: "",
-      maritalstatus: "", // edit here
+      religion: "choose",
+      maritalstatus: "001", // edit here
       maritalstatusdate: { d: "", m: "", y: "" },
       partner_firstname: "",
       partner_name: "",
-      partner_gender: "",
+      partner_gender: "choose",
       partner_birthdate: { d: "", m: "", y: "" },
-      partner_religion: "",
+      partner_religion: "choose",
       moved: false,
       past_address_street: "",
       past_address_number: "",
@@ -54,7 +54,7 @@ const UserDataProvider = ({ children }) => {
       steueridentifkationsnummer: "",
       steuernummer: false,
       steuernummer_value: "",
-      steuernummer_state: "",
+      steuernummer_state: "choose",
       singleentry: true,
       startdate: { d: "", m: "", y: "" },
       revenue_firstYear: "",
@@ -102,68 +102,17 @@ const UserDataProvider = ({ children }) => {
     },
     // Review
     reviewFields: {
-      taxOffice: "",
+      taxOffice: "choose",
       optin: true,
       version: "a",
       finanzamtLetters: [],
     },
   });
-  const location = useLocation();
+
   useEffect(() => {
     const sessionUserData = JSON.parse(localStorage.getItem("userData"));
-    if (sessionUserData) setUserData(sessionUserData);
-    const usable =
-      location.search[0] === "?" ? location.search.slice(1) : location.search;
-    const params = qs.parse(usable);
-    // if (params.r) {
-    //   // promocode
-    //   setUserData({ ...userData, promocode: params.r }, true);
-    //   sendAmplitudeData('WEB_SIGNUP_USEDPROMOCODELINK', {
-    //     promocode: params.r,
-    //   });
-    // }
-    // if (params.token) {
-    //   try {
-    //     const data = JSON.parse(atob(params.token.replace(/\u200B/g, '')));
-    //     sendAmplitudeData('WEB_SIGNUP_SOURCE_AFFILATE', {
-    //       source: 'HelloBank',
-    //       id: data?.Uuid,
-    //       timestamp: data?.TimeStamp,
-    //       marketplaceitem: data?.MarketPlaceItem,
-    //     });
-    //   } catch (e) {
-    //     console.error('Parsing error:', e);
-    //   }
-    // }
-    // if (params.d) {
-    //   // if url user data
-    //   try {
-    //     const data = JSON.parse(atob(params.d.replace(/\u200B/g, '')));
-    //     const newUserDate = {
-    //       // TODO: type this!
-    //       rasoRef: data.rasoRef,
-    //       fullName: `${data.firstName} ${data.lastName}`,
-    //       accountType:
-    //         data.accountType === 'freiberufler_principal_vat'
-    //           ? 'freiberufler_principal_vat'
-    //           : 'gewerbetreibender_principal',
-    //       VATType: data.VATType === 'subjectToVAT' ? 'subjectToVAT' : 'noVAT',
-    //       ...(data.noVATStatus && { noVATStatus: 'franchisee' }),
-    //       ...(data.VATReturnFrequency && {
-    //         VATReturnFrequency: data.VATReturnFrequency,
-    //       }),
-    //       email: data.email,
-    //       phoneNumber: data.phoneNumber,
-    //     };
-    //     setUserData({
-    //       ...userData,
-    //       ...newUserDate,
-    //     });
-    //   } catch (e) {
-    //     console.error('Parsing error:', e);
-    //   }
-    // }
-  }, [location.search]);
+    if (sessionUserData) setUserDataHook(sessionUserData);
+  }, []);
 
   /**
    *
@@ -172,22 +121,15 @@ const UserDataProvider = ({ children }) => {
    * @param {boolean} save
    */
   const setUserData = (newUserData, dataSection, save = false) => {
+    const newData = produce(userData, (draft) => {
+      draft[dataSection] = newUserData;
+    });
+
     if (save) {
-      localStorage.setItem(
-        "userData",
-        JSON.stringify(
-          produce((draft) => {
-            draft[dataSection] = newUserData;
-          })
-        )
-      );
+      localStorage.setItem("userData", JSON.stringify(newData));
     }
 
-    setUserDataHook(
-      produce((draft) => {
-        draft[dataSection] = newUserData;
-      })
-    );
+    setUserDataHook(newData);
   };
   return (
     <UserDataContext.Provider value={{ userData, setUserData }}>
