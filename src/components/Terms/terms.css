@@ -1,18 +1,17 @@
 .terms-footnote {
-  padding: 30px 0;
+  padding: 40px 0;
   flex-direction: column;
 }
 
 .terms-footnote p {
   font-family: Avenir Next;
-  font-size: 14px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 500;
-  line-height: 25px;
+  line-height: 167%;
   letter-spacing: 0em;
   text-align: left;
-  color: rgba(97, 69, 177, 1);
-
+  color: var(--color-serious_purple);
   display: inline-flex;
   align-items: center;
   margin-right: 0rem;
