@@ -1,10 +1,10 @@
 [
-  { "value": "001", "label": "Not married " },
-  { "value": "002", "label": "Married " },
-  { "value": "003", "label": "Living permanently separated " },
-  { "value": "004", "label": "Divorced " },
-  { "value": "005", "label": "Widowed " },
-  { "value": "006", "label": "Registered civil partnership " },
-  { "value": "007", "label": "Dissolved registered civil partnership " },
-  { "value": "008", "label": "Registered partner deceased" }
+  { "value": "001", "name": "Unverheiratet" },
+  { "value": "002", "name": "Verheiratet" },
+  { "value": "003", "name": "Dauernd getrennt lebend" },
+  { "value": "004", "name": "Geschieden " },
+  { "value": "005", "name": "Verwitwet " },
+  { "value": "006", "name": "Eingetragene Lebenspartnerschaft" },
+  { "value": "007", "name": "Aufgelöste Lebenspartnerschaft" },
+  { "value": "008", "name": "Lebenspartner verstorben" }
 ]

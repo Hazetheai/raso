@@ -1,31 +1,32 @@
 [
-  { "value": "11", "label": "nicht kirchensteuerpflichtig" },
-  { "value": "03", "label": "Römisch-katholisch" },
-  { "value": "02", "label": "Evangelisch" },
-  { "value": "05", "label": "Evangelisch-reformiert" },
-  { "value": "20", "label": "Evangelisch-reformierte Kirche Bückeburg" },
-  { "value": "21", "label": "Evangelisch-reformierte Kirche Stadthagen" },
-  { "value": "07", "label": "Französisch-reformiert" },
-  { "value": "16", "label": "Freie Religionsgemeinschaft Alzey" },
-  { "value": "13", "label": "Freireligiöse Landesgemeinde Baden" },
-  { "value": "14", "label": "Freireligiöse Landesgemeinde Pfalz" },
-  { "value": "15", "label": "Freireligiöse Gemeinde Mainz" },
-  { "value": "17", "label": "Freireligiöse Gemeinde Offenbach" },
-  { "value": "25", "label": "Israelitische Religionsgemeinschaft Baden" },
-  { "value": "19", "label": "Jüdische Gemeinden im Landesverband Hessen" },
+  { "value": "choose", "name": "Aüswahlen" },
+  { "value": "11", "name": "nicht kirchensteuerpflichtig" },
+  { "value": "03", "name": "Römisch-katholisch" },
+  { "value": "02", "name": "Evangelisch" },
+  { "value": "05", "name": "Evangelisch-reformiert" },
+  { "value": "20", "name": "Evangelisch-reformierte Kirche Bückeburg" },
+  { "value": "21", "name": "Evangelisch-reformierte Kirche Stadthagen" },
+  { "value": "07", "name": "Französisch-reformiert" },
+  { "value": "16", "name": "Freie Religionsgemeinschaft Alzey" },
+  { "value": "13", "name": "Freireligiöse Landesgemeinde Baden" },
+  { "value": "14", "name": "Freireligiöse Landesgemeinde Pfalz" },
+  { "value": "15", "name": "Freireligiöse Gemeinde Mainz" },
+  { "value": "17", "name": "Freireligiöse Gemeinde Offenbach" },
+  { "value": "25", "name": "Israelitische Religionsgemeinschaft Baden" },
+  { "value": "19", "name": "Jüdische Gemeinden im Landesverband Hessen" },
   {
     "value": "26",
-    "label": "Landesverband der israelitischen Kultusgemeinden in Bayern"
+    "name": "Landesverband der israelitischen Kultusgemeinden in Bayern"
   },
-  { "value": "18", "label": "Jüdische Gemeinde Frankfurt (Hessen)" },
+  { "value": "18", "name": "Jüdische Gemeinde Frankfurt (Hessen)" },
   {
     "value": "27",
-    "label": "Jüdische Kultusgemeinden Bad Kreuznach und Koblenz"
+    "name": "Jüdische Kultusgemeinden Bad Kreuznach und Koblenz"
   },
-  { "value": "28", "label": "Israelitisch (Saarland)" },
-  { "value": "12", "label": "Israelitische Religionsgemeinschaft Württemberg" },
-  { "value": "29", "label": "Nordrhein-Westfalen: Israelitisch (jüdisch)" },
-  { "value": "24", "label": "Jüdische Gemeinde Hamburg" },
-  { "value": "04", "label": "Altkatholisch" },
-  { "value": "10", "label": "Sonstige" }
+  { "value": "28", "name": "Israelitisch (Saarland)" },
+  { "value": "12", "name": "Israelitische Religionsgemeinschaft Württemberg" },
+  { "value": "29", "name": "Nordrhein-Westfalen: Israelitisch (jüdisch)" },
+  { "value": "24", "name": "Jüdische Gemeinde Hamburg" },
+  { "value": "04", "name": "Altkatholisch" },
+  { "value": "10", "name": "Sonstige" }
 ]
