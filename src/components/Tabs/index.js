@@ -33,8 +33,10 @@ export const sampleTabData = {
     {
       tabNumber: "4",
       tabLabel: "Steuerschätzung",
-      tabSubtitle:
-        "Alle Daten werden SSL-verschlüsselt und über die ELSTER Schnittstelle sicher an dein Finanzamt übertragen.",
+      tabSubtitle: "",
+      tabHelper: `Diese Angaben bilden die Berechnungsgrundlage für deine vierteljährlichen Vorauszahlungen zur Einkommensteuer und Gewerbesteuer.
+        Bitte wähle mindestens eine Einkommensquelle aus.
+        `,
       tabId: "raso_tab-3",
     },
     {
@@ -62,7 +64,7 @@ const Tabs = ({ tabData, activeTab, completeTabs = [], onTabClick }) => {
           <span className="tab-nav__header-icon ">
             <img src={tabData.icon} alt={tabData.title} />
           </span>
-          <span className="tab-nav__header-title body-medium">
+          <span className="tab-nav__header-title body--medium">
             {tabData.title}
           </span>
         </div>
@@ -92,8 +94,8 @@ const Tabs = ({ tabData, activeTab, completeTabs = [], onTabClick }) => {
                 </span>
                 <span
                   className={clsx(
-                    "tab-nav__nav-label body-medium",
-                    activeTab === tabId && "body-bold"
+                    "tab-nav__nav-label body--medium",
+                    activeTab === tabId && "body--bold"
                   )}
                 >
                   {tabLabel}

@@ -2,10 +2,12 @@
   width: 100%;
   height: 100%;
   z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .top-section-raso-bg {
-  max-height: 550px;
+  max-height: 650px;
   bottom: 0;
   position: absolute;
   right: -150px;

@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import Badges from "components/Badges";
 import Button from "components/Button";
 import Link from "components/Link";
@@ -16,13 +17,11 @@ const terms = [
 ];
 
 export const sampleHeroData = {
-  h1: "Steuerliche Registrierung deiner Selbständigkeit",
-  h3: `Melde dein Gewerbe oder deine Freiberuflichkeit direkt online, ohne
-      den “Fragebogen zur steuerlichen Erfassung” ausfüllen zu müssen. Deine
-      Steuernummer wird dir vom Finanzamt direkt nach Hause geschickt.`,
+  h1: "Den Fragebogen zur steuerlichen Erfassung ausfüllen",
+  h3: `Um dich selbstständig zu machen, benötigst du eine Steuernummer. Dafür musst du das Formular ausfüllen und an dein Finanzamt übermitteln. Die steuerliche Registrierung durch Accountable ist schnell, sicher und kostenlos`,
   terms,
   ctaText: "Anmeldung beginnen",
-  ctaFunc: () => console.log("Clicked CTA"),
+  ctaFunc: () => document.querySelector(".content")?.scrollIntoView(),
 };
 
 const Hero = ({ terms, h1, h3, ctaText, ctaLink, ctaFunc }) => {
@@ -39,9 +38,24 @@ const Hero = ({ terms, h1, h3, ctaText, ctaLink, ctaFunc }) => {
         {ctaText && (
           <>
             {ctaLink ? (
-              <Link href={ctaLink} text={ctaText} func={ctaFunc} />
+              <Link
+                href={ctaLink}
+                text={ctaText}
+                func={ctaFunc}
+                className={clsx(
+                  "body--big-bold",
+                  "form_submit_btn--raso-header"
+                )}
+              />
             ) : (
-              <Button text={ctaText} func={ctaFunc} />
+              <Button
+                text={ctaText}
+                func={ctaFunc}
+                className={clsx(
+                  "body--big-bold",
+                  "form_submit_btn--raso-header"
+                )}
+              />
             )}
           </>
         )}

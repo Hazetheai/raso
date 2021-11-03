@@ -1,5 +1,5 @@
 .top-section-raso-container {
-  max-width: 70%;
+  max-width: 61%;
   text-align: left;
   margin: 0 55px 55px 55px;
 }
@@ -21,5 +21,11 @@
   line-height: 30px;
   letter-spacing: -0.02em;
   text-align: left;
-  color: rgba(105, 77, 129, 1);
+  color: var(--color-primary_medium);
+}
+
+.form_submit_btn--raso-header {
+  margin: 10px 0;
+  letter-spacing: 1.2525px;
+  padding: 0 35px;
 }

@@ -2,12 +2,18 @@
   display: none;
 }
 .badges img {
-  max-height: 75px;
+  max-height: 95px;
+
+  margin: 20px 20px 50px 0;
+}
+.badges img.elster {
+  max-height: 65px;
 
   margin: 20px 20px 50px 0;
 }
 @media screen and (min-width: 1008px) {
   .badges {
     display: flex;
+    align-items: center;
   }
 }

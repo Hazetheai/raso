@@ -9,24 +9,20 @@
   justify-content: center;
   align-items: center;
 }
-/* @media only screen and (min-width: 768px) {
-  .tab-nav__header-icon,
-  .tab-nav__nav-number {
-    width: 50px;
-    height: 50px;
-  }
-} */
 
 .tab-nav__header {
-  color: var(--color-primary_light);
   display: flex;
-
   align-items: center;
   margin: 0 0 0.7rem 0;
 }
 
 .tab-nav__header-icon {
   margin: 0 15px 0 0;
+  width: 30px;
+  padding: 0;
+}
+.tab-nav__header-title {
+  color: var(--color-primary_light);
 }
 
 .tab-nav__menu {
@@ -34,13 +30,18 @@
   flex-direction: column;
 }
 .tab-nav__tab {
+  position: relative;
   display: flex;
   align-items: center;
   cursor: pointer;
   color: var(--color-primary_light);
   transition: all 300ms ease-in-out;
+  padding: 1rem 0;
 }
 
+.tab-nav__tab:first-child {
+  padding-top: 5px;
+}
 .tab-nav__tab:hover,
 .tab-nav__tab.active {
   transition: all 300ms ease-in-out;
@@ -51,40 +52,26 @@
   color: var(--color-success_green);
 }
 
-.tab-nav__tab:first-child {
-  margin: 0 0 1.4rem 2px;
-}
-
 .tab-nav__tab + .tab-nav__tab::before {
   content: "";
   background-color: rgba(234, 230, 237, 1);
   display: block;
-  position: relative;
-  height: 1.5rem;
+  position: absolute;
+  height: 1rem;
   border: 0.5px solid rgba(234, 230, 237, 1);
   border-radius: 5px;
   margin: 3.7rem 0 0 0;
-  top: -4.5rem;
-  left: 1rem;
+  top: -68px;
+  left: 14px;
 }
-
-/* @media only screen and (min-width: 768px) {
-  .tab-nav__tab + .tab-nav__tab::before {
-    left: 1.6rem;
-  }
-} */
 
 .tab-nav__nav-number {
   margin-right: 15px;
   padding: 10px 8px;
-  color: var(--color-primary_dark);
+  color: var(--color-primary_medium);
+  font-size: 12px;
+  font-weight: 700;
 }
-
-/* @media only screen and (min-width: 768px) {
-  .tab-nav__nav-number {
-    padding: 7px 17px;
-  }
-} */
 
 .tab-nav__tab.active .tab-nav__nav-number {
   background-color: var(--color-primary);
@@ -95,13 +82,4 @@
   border-color: var(--color-success_green);
   color: var(--color-success_green);
   font-size: 0.5rem;
-}
-
-/* @media only screen and (min-width: 768px) {
-  .tab-nav__tab.complete .tab-nav__nav-number {
-    font-size: 1rem;
-  }
-} */
-
-.tab-nav_header-title {
 }
