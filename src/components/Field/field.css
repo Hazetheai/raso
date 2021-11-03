@@ -157,17 +157,6 @@ svg {
   padding-top: 10px;
 }
 
-/* .body-small {
-  font-family: Assistant;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 17px;
-  letter-spacing: 0px;
-  text-align: left;
-  color: rgba(105, 77, 129, 1);
-} */
-
 .field_helper__title {
   color: rgba(74, 53, 92, 1);
   font-weight: bold;
@@ -198,6 +187,14 @@ svg {
   margin-left: auto;
 }
 
+.field_helper-maxChars-level {
+  display: block;
+  height: 6px;
+  width: 100%;
+  background: var(--gradient-char-limit);
+  border-radius: 5px;
+}
+
 .magicfield {
   position: relative;
 }
@@ -212,7 +209,7 @@ svg {
   font-size: 12px;
   transition: 0.2s;
   padding: 2px 8px;
-  background: var(--color-white);
+  border-radius: 5px;
 }
 .field_label {
   color: rgba(46, 0, 87, 0.38);
@@ -239,9 +236,12 @@ svg {
   cursor: pointer;
 }
 .field_input:focus + .magicfield_label,
+.field_input--control-value + .magicfield_label,
 .magicfield_label--filled {
   top: -8px;
   font-size: 10px;
+  background: var(--color-white);
+  /* border: 1px solid rgba(102, 75, 129, 0.2); */
 }
 .field_input {
   background: rgb(255, 255, 255);
@@ -256,7 +256,8 @@ svg {
 }
 
 textarea.field_input {
-  height: 100px;
+  height: 120px;
+  padding: 24px;
 }
 
 .field_input--shorter {
@@ -301,7 +302,7 @@ textarea.field_input {
   display: block;
   position: relative;
   top: 7px;
-  border: 1px solid var(--color-primary);
+  border: 1px solid rgba(109, 74, 211, 0.38);
   font-weight: 600;
   margin: 0 3px 0 24px;
 
@@ -346,6 +347,9 @@ textarea.field_input {
 }
 .select_option--selected::after {
   opacity: 1;
+}
+.select_option--selected {
+  border-color: var(--color-primary);
 }
 @media screen and (min-width: 770px) {
   .field_label {

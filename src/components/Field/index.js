@@ -24,7 +24,6 @@ const Field = React.forwardRef(
       fullWidth,
       fieldHelperExpand,
       expandedHelpers,
-      // onToggleHelper,
       inputMode,
       errors,
       options,
@@ -53,7 +52,7 @@ const Field = React.forwardRef(
       setIsHelperHovered(isHovered);
     }
 
-    const notEmptyValue = watch ? watch(name) : false;
+    const fieldValue = watch ? watch(name) : null;
 
     useEffect(() => {
       if (isEscapePressed && isHelperVisible && !isHelperHovered) {
@@ -94,7 +93,7 @@ const Field = React.forwardRef(
 
           {fieldHelperText && !helperBelow && (
             <span
-              className="body-small field_helper-text--top"
+              className="body--small field_helper-text--top"
               dangerouslySetInnerHTML={{ __html: fieldHelperText }}
             />
           )}
@@ -202,10 +201,7 @@ const Field = React.forwardRef(
                   htmlFor={name}
                   className={clsx(
                     "magicfield_label",
-                    (notEmptyValue ||
-                      type === "phone" ||
-                      type === "VATNumber" ||
-                      (disabled && value)) &&
+                    (fieldValue || type === "phone" || (disabled && value)) &&
                       "magicfield_label--filled"
                   )}
                 >
@@ -214,22 +210,21 @@ const Field = React.forwardRef(
               )}
             </div>
           )}
+
           {fieldHelperText && helperBelow && (
             <span
-              className="body-small field_helper-text--bottom"
+              className="body--small field_helper-text--bottom"
               dangerouslySetInnerHTML={{ __html: fieldHelperText }}
             />
           )}
           {secondFieldHelperText && (
             <span
-              className="body-small field_helper-text--bottom"
+              className="body--small field_helper-text--bottom"
               dangerouslySetInnerHTML={{ __html: secondFieldHelperText }}
             />
           )}
           {maxChars && (
-            <span className="field_helper-maxChars body-small">
-              Maximal {maxChars} Zeichen
-            </span>
+            <MaxChars numChars={fieldValue?.length || 0} maxChars={maxChars} />
           )}
           <span className="field_error">
             {errors[name] && (
@@ -352,11 +347,13 @@ const JumpDate = ({ name, control, errors, shorter }) => {
     rules: { required: true, minLength: 8 },
     defaultValue: "",
   });
+
   return (
     <Cleave
       className={clsx(
         "field_input",
         shorter && "field_input--shorter",
+        inputProps.value && "field_input--control-value",
         errors[name] && "field_input--error"
       )}
       name={name}
@@ -442,7 +439,7 @@ const FieldHelper = ({ expandedHelpers, isActive, toggleHelper, onHover }) => {
               {helper.cs && (
                 <Button
                   type="button"
-                  func={() => window.Intercom("show")}
+                  func={() => window.Intercom && window.Intercom("show")}
                   text="Noch Fragen?"
                   inline
                 />
@@ -452,6 +449,53 @@ const FieldHelper = ({ expandedHelpers, isActive, toggleHelper, onHover }) => {
           {idx < arr.length - 1 ? <hr /> : null}
         </React.Fragment>
       ))}
+    </div>
+  );
+};
+
+const MaxChars = ({ numChars, maxChars }) => {
+  return (
+    <div>
+      <span
+        className="field_helper-maxChars-level"
+        style={
+          numChars < 1
+            ? {}
+            : numChars > 0
+            ? {
+                "--gradient-char-limit": `linear-gradient(
+                  90deg,
+                  var(--color-primary) ${
+                    numChars < maxChars ? (numChars / maxChars) * 100 - 6 : 100
+                  }%,
+                  var(--color-primary) ${
+                    numChars < maxChars ? (numChars / maxChars) * 100 - 9 : 100
+                  }%,
+                  var(--color-primary) ${
+                    numChars < maxChars ? (numChars / maxChars) * 100 - 13 : 100
+                  }%,
+                  #fff ${(numChars / maxChars) * 100}%,
+                  rgba(163, 58, 177, 0) ${(numChars / maxChars) * 100}%
+                )`,
+              }
+            : {}
+        }
+      />
+      <span className="field_helper-maxChars body--small">
+        Maximal{" "}
+        <strong
+          style={
+            numChars > maxChars - 10
+              ? {
+                  color: "var(--color-invalid_red)",
+                }
+              : {}
+          }
+        >
+          {numChars || 0} / {maxChars}{" "}
+        </strong>{" "}
+        Zeichen
+      </span>
     </div>
   );
 };
