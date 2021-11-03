@@ -1,11 +1,5 @@
-.form-container {
-  flex: 0 0 67%;
-  background: white;
-}
-
 .form {
   margin: 0 auto;
-  padding-bottom: 40px;
   display: flex;
   flex-wrap: wrap;
 }

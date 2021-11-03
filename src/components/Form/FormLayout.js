@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useUserData } from "userData";
 import Business from "./Business";
 import "./form-layout.css";
+import "./form.css";
 import {
   formatDatasection,
   reFormatForFormData,
@@ -56,9 +57,12 @@ const FormLayout = () => {
       <div className="form-container element-container">
         <div className="screen-header">
           <h2 className="screen-title">{currentStep.tabLabel}</h2>
-          <p className="screen-subtitle body-small">
+          <p className="screen-subtitle body--small">
             {currentStep.tabSubtitle}
           </p>
+          {currentStep.tabHelper && (
+            <p className="tab-helper body--medium">{currentStep.tabHelper}</p>
+          )}
         </div>
         {currentStep.tabId === "raso_tab-0" && (
           <Personal
