@@ -11,6 +11,7 @@ const Button = ({
   clear,
   fluid,
   inline,
+  isLoading,
   ...rest
 }) => {
   return (
@@ -36,7 +37,18 @@ const Button = ({
         }
       }}
     >
-      {children || text}
+      {isLoading ? (
+        <div className="loading-indicator">
+          <div className="lds-ellipsis" id="estirevLoading">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      ) : (
+        children || text
+      )}
     </button>
   );
 };

@@ -1,4 +1,5 @@
 .form_submit_btn {
+  position: relative;
   background: #905fda;
   border-radius: 25px;
   height: 48px;
@@ -27,7 +28,7 @@
 }
 .form_submit_btn:focus,
 .form_submit_btn:hover {
-  box-shadow: 1px 1px 1px 1px #bbb9be;
+  box-shadow: 2px 2px 6px 4px #bbb9be;
 }
 .form_submit_btn--alt {
   background: none;
@@ -37,6 +38,12 @@
 .form_submit_btn.clear {
   background-color: transparent;
   color: rgb(109, 74, 211);
+}
+
+.loading-indicator {
+  position: absolute;
+  top: -8px;
+  left: 43px;
 }
 
 @media screen and (min-width: 400px) {
