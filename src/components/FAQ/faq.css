@@ -1,5 +1,12 @@
 .container-faq {
-  width: 800px;
+  width: 100%;
+  margin-bottom: 100px;
+}
+
+@media screen and (min-width: 1200px) {
+  .container-faq {
+    width: 800px;
+  }
 }
 
 .faq-question + .faq-question {
