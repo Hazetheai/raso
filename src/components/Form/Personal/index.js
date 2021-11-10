@@ -1,32 +1,47 @@
 import Button from "components/Button";
+import { nYearsFromNow } from "components/Field/helpers";
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import marital_status from "res/FormData/marital_status.json";
 import genders from "res/FormData/gender.json";
+import marital_status from "res/FormData/marital_status.json";
 import religion from "res/FormData/religion.json";
-import { useUserData } from "userData";
+import { isEmpty } from "res/lib";
+import { useUserInteraction } from "userInteraction";
 import { sendAmplitudeData } from "../../../res/amplitude";
 import Field from "../../Field";
 import Fieldset from "../Fieldset";
-import { wrap } from "../helpers";
-import { emailValidator } from "../validators";
+import { emailValidator, validators } from "../validators";
 
-const Personal = ({ steps, currentStep, nextStep, defaultValues }) => {
-  const { register, handleSubmit, watch, errors, control, reset } = useForm({
-    mode: "onBlur",
-    defaultValues,
-  });
-
+const Personal = ({
+  steps,
+  currentStep,
+  nextStep,
+  defaultValues,
+  onFillStart,
+  comingStep,
+}) => {
+  const { register, handleSubmit, watch, errors, control, reset, formState } =
+    useForm({
+      mode: "onBlur",
+      defaultValues,
+    });
+  const { userInteraction, setUserInteraction } = useUserInteraction();
   const onSubmit = (data) => nextStep(data, "personalFields");
   const moved_value = watch("moved");
   const maritalstatus_value = watch("maritalstatus");
   const { t } = useTranslation();
 
   useEffect(() => {
-    console.log(`defaultValues`, defaultValues);
     reset(defaultValues); // asynchronously reset your form values
-  }, [defaultValues, reset]);
+  }, [reset, defaultValues]);
+
+  useEffect(() => {
+    if (formState.isDirty) {
+      // console.log(`formState`, formState);
+      setUserInteraction({ startedFilling: true });
+    }
+  }, [formState.isDirty, setUserInteraction]);
 
   // useEffect(() => {
   //   setTimeout(() => {
@@ -35,19 +50,20 @@ const Personal = ({ steps, currentStep, nextStep, defaultValues }) => {
   //     });
   //   }, 500);
   // }, []);
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      {console.log(`errors`, errors)}
-      {console.log(`control`, control.getValues())}
+      {/* {console.log(`userInteraction`, userInteraction)} */}
       <div className="form">
         <Field
           type="text"
           name="firstname"
-          floatingLabel={t("firstname_label")}
+          // floatingLabel={t("firstname_label")}
           placeholder={t("firstname_placeholder")}
           ref={register({
             required: true,
             maxLength: 80,
+            pattern: validators.firstname,
           })}
           errors={errors}
           watch={watch}
@@ -57,11 +73,12 @@ const Personal = ({ steps, currentStep, nextStep, defaultValues }) => {
         <Field
           type="text"
           name="name"
-          floatingLabel={t("name_label")}
+          // floatingLabel={t("name_label")}
           placeholder={t("name_placeholder")}
           ref={register({
             required: true,
             maxLength: 80,
+            pattern: validators.name,
           })}
           // autoFocus={true}
           errors={errors}
@@ -71,11 +88,11 @@ const Personal = ({ steps, currentStep, nextStep, defaultValues }) => {
         <Field
           type="email"
           name="email"
-          floatingLabel={t("email_address_label")}
+          // floatingLabel={t("email_address_label")}
           ref={register({
             required: true,
             validate: emailValidator,
-            pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+            pattern: validators.email,
           })}
           onBlur={() =>
             sendAmplitudeData("WEB_SIGNUP_FILLFIELD", {
@@ -101,6 +118,10 @@ const Personal = ({ steps, currentStep, nextStep, defaultValues }) => {
           topLabel="Geburtstag"
           errors={errors}
           control={control}
+          dateMinMax={{
+            dateMin: nYearsFromNow(90, "before"),
+            dateMax: nYearsFromNow(18, "before"),
+          }}
         />
         <Field
           type="select"
@@ -124,54 +145,61 @@ const Personal = ({ steps, currentStep, nextStep, defaultValues }) => {
             floatingLabel={"Strasse"}
             ref={register({
               required: true,
+              pattern: validators.address_street,
             })}
+            watch={watch}
             errors={errors}
             control={control}
             topLabel="Adresse"
-            fieldHelperExpand
             expandedHelpers={[
               {
                 title:
                   "Was ist, wenn ich vor kurzem aus dem Ausland nach Deutschland gezogen bin?",
-                content: `Dann kannst du auf diese Frage mit "Nein" antworten, solange du nicht aus einer anderen deutschen Gemeinde umgezogen bist.`,
-                cs: true,
+                content: `Antworte mit "Nein", solange du nicht aus einer anderen deutschen Gemeinde umgezogen bist.`,
               },
               {
                 title:
                   "Ich werde in den nächsten Wochen umziehen, welche Adresse soll ich angeben?",
-                content: `Zur steuerlichen Registrierung wird deine aktuelle Adresse benötigt. Du bekommst deine Steuernummer in der Regel innerhalb von 2 bis 6 Wochen per Post zugesandt. Solltest du also in den nächsten Wochen umziehen, kannst du deine Adresse auch nach der Registrierung bei deinem Finanzamt korrigieren lassen.`,
+                content: `Deine Steuernummer erhältst du per Post. Du kannst deine Adresse aber auch nach der Registrierung bei deinem Finanzamt korrigieren lassen.`,
+                cs: true,
               },
             ]}
           />
           <Field
             ref={register({
               required: true,
+              pattern: validators.address_number,
             })}
             type="text"
             name="address_number"
             floatingLabel={"Hausnummer"}
             errors={errors}
             control={control}
+            watch={watch}
           />
           <Field
             ref={register({
               required: true,
+              pattern: validators.address_postcode,
             })}
             type="text"
             name="address_postcode"
             floatingLabel={"Postleitzahl"}
             errors={errors}
             control={control}
+            watch={watch}
           />
           <Field
             ref={register({
               required: true,
+              pattern: validators.address_city,
             })}
             type="text"
             name="address_city"
             floatingLabel={"Stadt"}
             errors={errors}
             control={control}
+            watch={watch}
           />
         </Fieldset>
 
@@ -186,6 +214,7 @@ const Personal = ({ steps, currentStep, nextStep, defaultValues }) => {
           options={marital_status}
           errors={errors}
           control={control}
+          watch={watch}
         />
 
         {["002", "003", "004", "005", "006", "007", "008"].includes(
@@ -202,6 +231,7 @@ const Personal = ({ steps, currentStep, nextStep, defaultValues }) => {
                   ref={register({
                     required: true,
                     maxLength: 80,
+                    pattern: validators.partner_firstname,
                   })}
                   // autoFocus={true}
                   errors={errors}
@@ -216,6 +246,7 @@ const Personal = ({ steps, currentStep, nextStep, defaultValues }) => {
                   ref={register({
                     required: true,
                     maxLength: 80,
+                    pattern: validators.partner_name,
                   })}
                   // autoFocus={true}
                   errors={errors}
@@ -242,6 +273,11 @@ const Personal = ({ steps, currentStep, nextStep, defaultValues }) => {
                   topLabel="Geburtsdatum deines Partners / deiner Partnerin"
                   errors={errors}
                   control={control}
+                  floatingLabel="TT.MM.JJJJ"
+                  dateMinMax={{
+                    dateMin: nYearsFromNow(90, "before"),
+                    dateMax: nYearsFromNow(18, "before"),
+                  }}
                 />
 
                 <Field
@@ -306,42 +342,50 @@ const Personal = ({ steps, currentStep, nextStep, defaultValues }) => {
           <Fieldset subfield>
             <Field
               type="text"
+              watch={watch}
               name="past_address_street"
               floatingLabel={"Strasse"}
               errors={errors}
               ref={register({
                 required: true,
+                pattern: validators.past_address_street,
               })}
               control={control}
               topLabel="Adresse"
             />
             <Field
               type="text"
+              watch={watch}
               name="past_address_number"
               floatingLabel={"Hausnummer"}
               errors={errors}
               ref={register({
                 required: true,
+                pattern: validators.past_address_number,
               })}
               control={control}
             />
             <Field
               type="text"
+              watch={watch}
               name="past_address_postcode"
               floatingLabel={"Postleitzahl"}
               errors={errors}
               ref={register({
                 required: true,
+                pattern: validators.past_address_postcode,
               })}
               control={control}
             />
             <Field
               type="text"
+              watch={watch}
               name="past_address_city"
               floatingLabel={"Stadt"}
               errors={errors}
               ref={register({
                 required: true,
+                pattern: validators.past_address_city,
               })}
               control={control}
             />
@@ -349,6 +393,7 @@ const Personal = ({ steps, currentStep, nextStep, defaultValues }) => {
               type="jump-date"
               name="movingdate"
               topLabel="Umzugsdatum"
+              floatingLabel="TT.MM.JJJJ"
               errors={errors}
               ref={register({
                 required: true,
@@ -359,29 +404,32 @@ const Personal = ({ steps, currentStep, nextStep, defaultValues }) => {
         )}
 
         <Field
-          type="picker"
+          type="checkbox"
           control={control}
-          name="want_tips"
+          name="optin"
           fullWidth
           options={[
             {
               name: "Ich will Hilfe beim Ausfüllen des Fragebogens und Steuer-Tipps von Accountable erhalten",
               value: true,
+              required: false,
+              default: false,
             },
           ]}
           errors={errors}
         />
       </div>
       <div className="form_submit">
+        <div className="form-invalid">
+          {" "}
+          {isEmpty(errors) ? null : t("form_invalid")}
+        </div>
         <Button
           type="submit"
           // form={currentStep.tabId}
           // func={nextStep}
-          className="body-big-bold"
-          text={`${t("form_continue")}: ${
-            steps[wrap(steps.indexOf(currentStep) + 1, 0, steps.length - 1)]
-              .tabLabel
-          }`}
+          className="body--big-bold"
+          text={`${t("form_continue")}: ${comingStep.tabLabel}`}
         />
       </div>
     </form>

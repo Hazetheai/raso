@@ -1,13 +1,19 @@
 import Button from "components/Button";
 import FormField from "components/Field";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import { sendAmplitudeData } from "../../../res/amplitude";
+import { isEmpty } from "res/lib";
 import Fieldset from "../Fieldset";
-import { wrap } from "../helpers";
+import { validators } from "../validators";
 
-const Business = ({ steps, currentStep, nextStep, defaultValues }) => {
+const Business = ({
+  steps,
+  currentStep,
+  nextStep,
+  defaultValues,
+  comingStep,
+}) => {
   const { handleSubmit, watch, register, errors, control, reset } = useForm({
     mode: "onBlur",
   });
@@ -18,7 +24,7 @@ const Business = ({ steps, currentStep, nextStep, defaultValues }) => {
 
   useEffect(() => {
     reset(defaultValues); // asynchronously reset your form values
-  }, [defaultValues, reset]);
+  }, []);
 
   // useEffect(() => {
   //   sendAmplitudeData("WEB_SIGNUP_TABVIEW", {
@@ -35,18 +41,17 @@ const Business = ({ steps, currentStep, nextStep, defaultValues }) => {
           fieldHelperText={
             "Auf Basis dieser Informationen entscheidet das Finanzamt, ob du als Freiberufler*in oder Gewerbetreibende*r eingestuft wirst und welche Steuern du zahlen musst. Hier findest du mehr Informationen dazu."
           }
-          fieldHelperExpand
           expandedHelpers={[
             {
               title: "Was sollte ich bei der Tätigkeitsbeschreibung beachten?",
-              content: `Wichtig ist, dass du eine kurze aber genaue Angabe deiner Tätigkeit machst. Z.B. solltest du nicht nur "Design" angeben, sondern etwas wie "Erstellung von Designs für Webseiten". <br/>
-              Du kannst auch mehrere Tätigkeiten anmelden. Dabei solltest du aber darauf achten, dass die Tätigkeiten möglichst zusammenpassen und deine Haupttätigkeit erkennbar ist. Als Webdesigner*in kannst du z.B. auch Online-Werbung oder Marketing machen.<br/>
-              Wenn du während deiner Selbständigkeit neue Tätigkeiten für dich entdeckst, musst du diese an das Finanzamt nachmelden. Für anmeldepflichtige Berufe (z.B. Handwerker*in) musst du zusätzlich spezielle Anträge stellen.
-              `,
+              content: `Eine kurze aber genaue Angabe deiner Tätigkeit: z.B. nicht nur "Design", sondern "Erstellung von Designs für Webseiten" <br/><br/>
+              Du kannst auch mehrere Tätigkeiten anmelden. Diese sollten zu deiner Haupttätigkeit passen. Als Webdesigner*in kannst du z.B. auch Online-Werbung oder Marketing machen.`,
             },
           ]}
           ref={register({
+            required: true,
             maxLength: 200,
+            pattern: validators.profession,
           })}
           errors={errors}
           watch={watch}
@@ -73,6 +78,7 @@ const Business = ({ steps, currentStep, nextStep, defaultValues }) => {
               type="text"
               ref={register({
                 required: true,
+                pattern: validators.office_address_street,
               })}
               name="office_address_street"
               label={"Strasse"}
@@ -84,6 +90,7 @@ const Business = ({ steps, currentStep, nextStep, defaultValues }) => {
               type="text"
               ref={register({
                 required: true,
+                pattern: validators.office_address_number,
               })}
               name="office_address_number"
               label={"Hausnummer"}
@@ -94,6 +101,7 @@ const Business = ({ steps, currentStep, nextStep, defaultValues }) => {
               type="text"
               ref={register({
                 required: true,
+                pattern: validators.office_address_city,
               })}
               name="office_address_city"
               label={"Postleitzahl"}
@@ -104,6 +112,7 @@ const Business = ({ steps, currentStep, nextStep, defaultValues }) => {
               type="text"
               ref={register({
                 required: true,
+                pattern: validators.office_address_postcode,
               })}
               name="office_address_postcode"
               label={"Stadt"}
@@ -129,15 +138,16 @@ const Business = ({ steps, currentStep, nextStep, defaultValues }) => {
         {/* {error && <span className="form_error">{t("form_error")}</span>} */}
       </div>
       <div className="form_submit">
+        <div className="form-invalid">
+          {" "}
+          {isEmpty(errors) ? null : t("form_invalid")}
+        </div>
         <Button
           type="submit"
           // form={currentStep.tabId}
           // func={nextStep}
-          className="body-big-bold"
-          text={`${t("form_continue")}: ${
-            steps[wrap(steps.indexOf(currentStep) + 1, 0, steps.length - 1)]
-              .tabLabel
-          }`}
+          className="body--big-bold"
+          text={`${t("form_continue")}: ${comingStep.tabLabel}`}
         />
       </div>
     </form>
