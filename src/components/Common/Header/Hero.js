@@ -79,7 +79,7 @@ const Hero = ({ terms, h1, h3, ctaText, ctaLink, ctaFunc }) => {
           <p className="raso-congrats_p">
             Du hast deine Selbständigkeit offiziell angemeldet!{" "}
           </p>
-          {/* TODO */}
+          {/* TODO - Success Page */}
           <div className="raso-congrats_address_box raso-a-section">
             <address className="raso-congrats_address raso-congrats_address--name">
               <strong>Ihr Name</strong>
