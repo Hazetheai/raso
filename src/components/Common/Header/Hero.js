@@ -5,6 +5,7 @@ import Link from "components/Link";
 import Terms from "components/Terms";
 import React from "react";
 import checkmark from "res/images/checkmark.svg";
+import { useUserInteraction } from "userInteraction";
 import "./hero.css";
 
 const terms = [
@@ -25,6 +26,8 @@ export const sampleHeroData = {
 };
 
 const Hero = ({ terms, h1, h3, ctaText, ctaLink, ctaFunc }) => {
+  const { userInteraction, setUserInteraction } = useUserInteraction();
+
   return (
     <>
       <div className="top-section-raso-container container" id="rasoHead">
@@ -37,7 +40,7 @@ const Hero = ({ terms, h1, h3, ctaText, ctaLink, ctaFunc }) => {
         {terms && <Terms vertical offerPromises={terms} />}
         {ctaText && (
           <>
-            {ctaLink ? (
+            {userInteraction.startedFilling ? null : ctaLink ? (
               <Link
                 href={ctaLink}
                 text={ctaText}
