@@ -19,7 +19,7 @@ export function formatStNrForELSTER(stnr, taxOffice) {
   }
 }
 
-export function setNextVATDeadline(userData, lang) {
+export function getNextVATDeadline(userData, lang) {
   const formatter = new Intl.DateTimeFormat(lang, {
     year: "numeric",
     month: "long",
@@ -35,13 +35,27 @@ export function setNextVATDeadline(userData, lang) {
   }
   nextVATDeadline.setDate(10);
   // TODO Set Vat Deadline in Success Header
-  document.querySelector("#nextVATDeadline").innerHTML =
-    formatter.format(nextVATDeadline);
+  // document.querySelector("#nextVATDeadline").innerHTML =
+  // formatter.format(nextVATDeadline);
 
   // TODO Set Vat Deadline in Success Header
-  if (userData.taxInfoFields.chargeVAT)
-    document.querySelector("#rasoSubmittedSubjectToVAT").style.display =
-      "block";
+  // if (userData.taxInfoFields.chargeVAT) {
+  //   document.querySelector("#rasoSubmittedSubjectToVAT").style.display =
+  //     "block";
+  // }
+
+  return {
+    vatDeadline: formatter.format(nextVATDeadline),
+    showChargeVat: !!userData.taxInfoFields.chargeVAT,
+  };
+}
+
+export function flatten2DObject(obj) {
+  const newObj = {};
+  Object.entries(obj).forEach((el) =>
+    Object.entries(el[1]).forEach((item) => (newObj[item[0]] = item[1]))
+  );
+  return newObj;
 }
 
 /**
@@ -137,7 +151,7 @@ function reFormatDates(obj) {
 
 function formatYesNo(obj) {
   Object.entries(obj).forEach((entry) => {
-    if (/\bno\b/i.test(entry[1])) {
+    if (/\bno\b|001/i.test(entry[1])) {
       obj[entry[0]] = false;
     } else if (/\byes\b/i.test(entry[1])) {
       obj[entry[0]] = true;
@@ -146,6 +160,76 @@ function formatYesNo(obj) {
 
   return obj;
 }
+function formatGender(obj) {
+  Object.entries(obj).forEach((entry) => {
+    if (/\female/gi.test(entry[1])) {
+      console.log(`entry - female`, entry);
+      obj[entry[0]] = 2;
+    }
+    if (/\bmale\b/gi.test(entry[1])) {
+      console.log(`entry - male`, entry);
+      obj[entry[0]] = 1;
+    }
+  });
+
+  return obj;
+}
+
+function formatNumbers(obj) {
+  Object.entries(obj).forEach((entry) => {
+    if (typeof entry[1] === "string" && /€/gi.test(entry[1])) {
+      obj[entry[0]] = sanitizeNumbers(entry[1]);
+    } else {
+      obj[entry[0]] = entry[1];
+    }
+  });
+  return obj;
+}
+
+// Only for Dev
+export function threeDJsonToPostmanXwwwForm(obj) {
+  return Object.entries(obj)
+    .map((key) => {
+      if (typeof key[1] === "object") {
+        return Object.entries(key[1])
+          .map((nestedKey) => {
+            if (typeof nestedKey[1] === "object") {
+              return Object.entries(nestedKey[1])
+                .map((nestedKey2) => {
+                  return `${key[0]}[${nestedKey[0]}][${nestedKey2[0]}]:${nestedKey2[1]}\n`;
+                })
+                .join("\n");
+            }
+            return `${key[0]}[${nestedKey[0]}]:${nestedKey[1]}\n`;
+          })
+          .join("\n");
+      }
+
+      return `${key[0]}:${key[1]}`;
+    })
+    .join("\n");
+}
+
+function formatStrNumber(obj) {
+  if (obj.steuernummer_value)
+    obj.steuernummer_value = formatStNrForELSTER(
+      obj.steuernummer_value,
+      obj.steuernummer_state
+    );
+
+  return obj;
+}
+
+/**
+ *
+ * @param {Object} obj Raw User Data
+ * @returns Object - Flattened User Data
+ * @description Pass in raw user data (from context) and receive formatted for Elster Api Wrapper
+ */
+export const formatforAPICall = (obj) =>
+  formatStrNumber(
+    formatNumbers(formatGender(formatDates(formatYesNo(flatten2DObject(obj)))))
+  );
 
 export const formatDatasection = (obj) => formatDates(obj);
 export const reFormatForFormData = (obj) => reFormatDates(obj);
