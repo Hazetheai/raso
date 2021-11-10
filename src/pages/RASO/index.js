@@ -1,5 +1,5 @@
 import FAQ, { sampleFaqData } from "components/FAQ";
-import FormLayout from "components/Form/FormLayout";
+import FormLayout from "components/Form/";
 import React from "react";
 import { useTranslation } from "react-i18next";
 
