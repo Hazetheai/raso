@@ -26,6 +26,12 @@ fieldset {
   border: none;
 }
 
+.error-code,
+.error-message {
+  display: block;
+  color: var(--color-invalid_red);
+}
+
 @media screen and (min-width: 1008px) {
   .form_submit,
   .form_error {
