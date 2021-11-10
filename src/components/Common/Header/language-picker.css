@@ -1,7 +1,7 @@
 .language-picker-active {
   position: absolute;
-  top: 42px;
-  right: 0;
+  top: 30px;
+  right: -10px;
   background: white;
   border-radius: 21px;
   box-shadow: 0px 12px 48px var(--color-primary_transparent-5);
@@ -10,6 +10,7 @@
   cursor: pointer;
   z-index: 10;
 }
+
 .language-picker-all {
   display: none;
   position: absolute;
@@ -51,9 +52,9 @@
 .language-picker-activearrow {
   margin-left: 10px;
 }
-@media screen and (max-width: 770px) {
+@media screen and (min-width: 770px) {
   .language-picker-active {
-    top: 17px;
-    right: 50px;
+    top: 42px;
+    right: 0;
   }
 }
