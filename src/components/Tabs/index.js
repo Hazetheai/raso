@@ -14,21 +14,24 @@ export const sampleTabData = {
       tabLabel: "Persönliche Daten",
       tabSubtitle:
         "Alle Daten werden SSL-verschlüsselt und über die ELSTER Schnittstelle sicher an dein Finanzamt übertragen.",
-      tabId: "raso_tab-0",
+      tabId: "personalFields",
+      complete: false,
     },
     {
       tabNumber: "2",
       tabLabel: "Geschäftliche Daten",
       tabSubtitle:
         "Alle Daten werden SSL-verschlüsselt und über die ELSTER Schnittstelle sicher an dein Finanzamt übertragen.",
-      tabId: "raso_tab-1",
+      tabId: "businessFields",
+      complete: false,
     },
     {
       tabNumber: "3",
       tabLabel: "Steuerliche Angaben",
       tabSubtitle:
         "Alle Daten werden SSL-verschlüsselt und über die ELSTER Schnittstelle sicher an dein Finanzamt übertragen.",
-      tabId: "raso_tab-2",
+      tabId: "taxInfoFields",
+      complete: false,
     },
     {
       tabNumber: "4",
@@ -37,26 +40,29 @@ export const sampleTabData = {
       tabHelper: `Diese Angaben bilden die Berechnungsgrundlage für deine vierteljährlichen Vorauszahlungen zur Einkommensteuer und Gewerbesteuer.
         Bitte wähle mindestens eine Einkommensquelle aus.
         `,
-      tabId: "raso_tab-3",
+      tabId: "taxEstimateFields",
+      complete: false,
     },
     {
       tabNumber: "5",
       tabLabel: "Bankkonto",
       tabSubtitle:
         "Alle Daten werden SSL-verschlüsselt und über die ELSTER Schnittstelle sicher an dein Finanzamt übertragen.",
-      tabId: "raso_tab-4",
+      tabId: "bankAccountFields",
+      complete: false,
     },
     {
       tabNumber: "6",
       tabLabel: "Prüfen & abschicken",
       tabSubtitle:
         "Alle Daten werden SSL-verschlüsselt und über die ELSTER Schnittstelle sicher an dein Finanzamt übertragen.",
-      tabId: "raso_tab-5",
+      tabId: "reviewFields",
+      complete: false,
     },
   ],
 };
 
-const Tabs = ({ tabData, activeTab, completeTabs = [], onTabClick }) => {
+const Tabs = ({ tabData, activeTab, onTabClick }) => {
   return (
     <div className="tab-container element-container">
       <nav className="tab-nav">
@@ -72,7 +78,7 @@ const Tabs = ({ tabData, activeTab, completeTabs = [], onTabClick }) => {
         <ul className="tab-nav__menu">
           {tabData.tabs.map((tab) => {
             const { tabNumber, tabLabel, tabId } = tab;
-            const isTabComplete = completeTabs.includes(tabId);
+
             return (
               <li
                 title={tabLabel}
@@ -81,12 +87,12 @@ const Tabs = ({ tabData, activeTab, completeTabs = [], onTabClick }) => {
                 className={clsx(
                   "tab-nav__tab",
                   activeTab === tabId && "active",
-                  isTabComplete && "complete"
+                  tab.complete && "complete"
                 )}
                 id={tabId}
               >
                 <span className="tab-nav__nav-number">
-                  {isTabComplete ? (
+                  {tab.complete ? (
                     <FontAwesomeIcon icon={faCheck} />
                   ) : (
                     tabNumber
