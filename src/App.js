@@ -1,9 +1,10 @@
+import "./reset.css";
 import "./variables.css";
 import "./App.css";
-import "./reset.css";
 import { Switch, Route, withRouter, useLocation } from "react-router-dom";
 import RASO from "pages/RASO";
 import { UserDataProvider } from "./userData";
+import { UserInteractionProvider } from "./userInteraction";
 import { Fragment, useEffect } from "react";
 import { initIntercom } from "./res/intercom";
 import {
@@ -21,7 +22,7 @@ import Footer from "components/Common/Footer";
 
 function App() {
   // useEffect(() => {
-  //   initIntercom();
+  initIntercom();
   //   initAmplitude();
   //   initPixel();
   //   initGTM(); // TODO Currently activating chrome Debugger ??
@@ -47,14 +48,16 @@ function App() {
 
   return (
     <UserDataProvider>
-      <Header />
-      <Switch>
-        <Fragment>
-          <Route exact path="/" component={RASO} />
-          <Route exact path="/en" component={RASO} />
-        </Fragment>
-      </Switch>
-      <Footer />
+      <UserInteractionProvider>
+        <Header />
+        <Switch>
+          <Fragment>
+            <Route exact path="/" component={RASO} />
+            <Route exact path="/en" component={RASO} />
+          </Fragment>
+        </Switch>
+        <Footer />
+      </UserInteractionProvider>
     </UserDataProvider>
   );
 }
