@@ -1,5 +1,5 @@
 [
   { "name": "Aüswahlen", "value": "choose" },
-  { "name": "Männlich", "value": "male" },
-  { "name": "Weiblich", "value": "female" }
+  { "name": "Männlich", "value": "1" },
+  { "name": "Weiblich", "value": "2" }
 ]
