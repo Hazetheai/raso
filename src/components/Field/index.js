@@ -1,15 +1,15 @@
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Cleave from "cleave.js/react";
 import clsx from "clsx";
 import Button from "components/Button";
+import { moneyRegex } from "components/Form/validators";
 import { useKeyPress } from "components/hooks/useKeyPress";
 import React, { Fragment, useEffect, useState } from "react";
 import { useController } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import "./field.css";
 import fieldHelperIcon from "./helper-icon.svg";
-import { nYearsFromNow } from "./helpers";
 
 const Field = React.forwardRef(
   (
@@ -22,7 +22,6 @@ const Field = React.forwardRef(
       secondFieldHelperText,
       helperBelow,
       fullWidth,
-      fieldHelperExpand,
       expandedHelpers,
       inputMode,
       errors,
@@ -36,6 +35,9 @@ const Field = React.forwardRef(
       watch,
       shorter,
       maxChars,
+      pickerRules,
+      moneyRules,
+      dateMinMax,
     },
     ref
   ) => {
@@ -64,14 +66,15 @@ const Field = React.forwardRef(
       <div
         className={clsx(
           "form-question",
-          fullWidth ? "full-width" : "",
-          fieldHelperExpand ? "has-helper" : ""
+          fullWidth && !expandedHelpers?.length ? "full-width" : "",
+          !!expandedHelpers?.length ? "has-helper" : ""
         )}
+        id={name}
       >
         <div className="field">
           <div className="field_helper-row">
             {topLabel && <label className="field_top-label">{topLabel}</label>}
-            {fieldHelperExpand && (
+            {!!expandedHelpers?.length && (
               <span
                 role="button"
                 title=""
@@ -103,12 +106,20 @@ const Field = React.forwardRef(
                 <label className="field_label">{floatingLabel}</label>
               )}
               <Picker
+                rules={pickerRules}
                 name={name}
                 options={options}
                 control={control}
                 disabled={disabled}
               />
             </Fragment>
+          ) : type === "checkbox" ? (
+            <Checkbox
+              name={name}
+              option={options.length ? options[0] : options}
+              control={control}
+              disabled={disabled}
+            />
           ) : (
             <div
               className={clsx(
@@ -136,8 +147,12 @@ const Field = React.forwardRef(
                 >
                   {options.map((option) => (
                     <option
-                      key={option.value}
-                      disabled={option.value === "choose"}
+                      key={option.value || option.name}
+                      disabled={
+                        option.value === "choose" ||
+                        option.disabled ||
+                        option.value === null
+                      }
                       value={option.value}
                     >
                       {option.name}
@@ -168,6 +183,7 @@ const Field = React.forwardRef(
                   control={control}
                   errors={errors}
                   shorter={shorter}
+                  minMax={dateMinMax}
                 />
               ) : type === "money" ? (
                 <Money
@@ -176,6 +192,7 @@ const Field = React.forwardRef(
                   control={control}
                   errors={errors}
                   shorter={shorter}
+                  rules={moneyRules}
                 />
               ) : (
                 <input
@@ -234,12 +251,11 @@ const Field = React.forwardRef(
                   errors[name].type === "minLength" ||
                   errors[name].type === "maxLength") &&
                   t("field_invalid")}
+                {errors[name].type === "manual" && errors[name].message}
                 {errors[name].type === "validate" &&
                   name === "email" &&
                   t("email_exists")}
-                {errors[name].type === "validate" &&
-                  name === "VATNumber" &&
-                  t("field_invalid")}
+                {errors[name].type === "validate" && t(errors[name]?.message)}
               </span>
             )}
           </span>
@@ -257,13 +273,20 @@ const Field = React.forwardRef(
   }
 );
 
-const Picker = ({ options, name, control, disabled, defaultValue = "" }) => {
+const Picker = ({
+  options,
+  name,
+  control,
+  disabled,
+  rules,
+  defaultValue = "",
+}) => {
   const {
     field: { value, onChange, ref },
   } = useController({
     name,
     control,
-    rules: { required: true },
+    rules,
     defaultValue,
   });
   return (
@@ -286,6 +309,41 @@ const Picker = ({ options, name, control, disabled, defaultValue = "" }) => {
           </span>
         </React.Fragment>
       ))}
+    </div>
+  );
+};
+const Checkbox = ({ option, name, control, disabled, defaultValue = "" }) => {
+  const {
+    field: { value, onChange, ref },
+  } = useController({
+    name,
+    control,
+    rules: { required: option.required === true },
+    defaultValue,
+  });
+  return (
+    <div className="checkbox">
+      <div className="checkbox-choice" key={option.name}>
+        <span
+          className={clsx(
+            "checkbox_option",
+            value === option.value && "checkbox_option--checked"
+          )}
+          onClick={() =>
+            !disabled && onChange(value === option.value ? false : option.value)
+          }
+        >
+          {value === option.value && <FontAwesomeIcon icon={faCheck} />}
+        </span>
+        <span
+          className="checkbox_option-name body--medium"
+          onClick={() =>
+            !disabled && onChange(value === option.value ? false : option.value)
+          }
+        >
+          {option.name}
+        </span>
+      </div>
     </div>
   );
 };
@@ -337,7 +395,7 @@ const PhoneInput = ({ name, control, errors, shorter }) => {
   );
 };
 
-const JumpDate = ({ name, control, errors, shorter }) => {
+const JumpDate = ({ name, control, errors, shorter, minMax = {} }) => {
   const {
     field: { ref, ...inputProps },
     meta: { invalid, isTouched, isDirty },
@@ -363,37 +421,39 @@ const JumpDate = ({ name, control, errors, shorter }) => {
         date: true,
         datePattern: ["d", "m", "Y"],
         delimiter: ".",
-        dateMin: nYearsFromNow(90, "before"),
-        dateMax: nYearsFromNow(18, "before"),
+        ...minMax,
       }}
     />
   );
 };
 
-const Money = ({ name, control, errors, shorter }) => {
+const Money = ({ name, control, errors, shorter, rules }) => {
   const {
     field: { value, onChange, onBlur, ref },
   } = useController({
     name,
     control,
-    rules: { required: true },
+    rules: { required: true, pattern: moneyRegex, ...rules },
   });
-
+  const { i18n } = useTranslation();
+  const isDe = i18n.language === "de";
   return (
     <Cleave
       className="field_input"
       ref={ref}
       value={value}
+      // onChange={(e) => onChange(e.target.rawValue)}
       onChange={onChange}
       onBlur={onBlur}
       options={{
         numeral: true,
+        numericOnly: true,
         numeralThousandsGroupStyle: "thousand",
         numeralDecimalMark: ",",
         delimiter: ".",
         numeralPositiveOnly: true,
-        prefix: "€",
-        signBeforePrefix: true,
+        prefix: isDe ? " €" : "€ ",
+        tailPrefix: isDe,
       }}
     />
   );

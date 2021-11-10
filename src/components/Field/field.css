@@ -292,7 +292,7 @@ textarea.field_input {
   color: rgb(241, 130, 141);
   display: block;
   padding: 3px 0 5px 0;
-  height: 26px;
+  min-height: 26px;
 }
 .select {
   display: flex;
@@ -351,6 +351,69 @@ textarea.field_input {
 .select_option--selected {
   border-color: var(--color-primary);
 }
+
+/*** Checkbox ***/
+
+.checkbox {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  margin: 0 0 0 10px;
+}
+
+.checkbox-choice {
+  display: flex;
+  margin-bottom: 6px;
+}
+.checkbox_option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-primary);
+  display: block;
+  position: relative;
+  top: 7px;
+  border: 1px solid rgba(109, 74, 211, 0.38);
+  font-weight: 600;
+  font-size: 13px;
+  position: relative;
+  top: 4px;
+  left: -8px;
+  height: 20px;
+  min-width: 20px;
+  text-align: center;
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.checkbox_option svg {
+  position: relative;
+  top: 1px;
+}
+
+.checkbox_option-name {
+  cursor: pointer;
+  color: var(--color-primary_medium);
+}
+
+.checkbox_option:first-child {
+  margin-left: 0;
+}
+.checkbox_option:last-child {
+  margin-right: 0;
+}
+.checkbox_option--selected::after {
+  opacity: 1;
+}
+.checkbox_option--selected {
+  border-color: var(--color-primary);
+}
+
 @media screen and (min-width: 770px) {
   .field_label {
     width: 100px;
@@ -360,6 +423,6 @@ textarea.field_input {
 
   .field_error {
     padding-top: 4px;
-    height: 26px;
+    min-height: 26px;
   }
 }
