@@ -19,8 +19,16 @@ import { country } from "./settings/config";
 import { getUtms } from "./res/utms";
 import Header from "components/Common/Header";
 import Footer from "components/Common/Footer";
+import { useTranslation } from "react-i18next";
 
 function App() {
+  const { t, i18n } = useTranslation();
+
+  useEffect(() => {
+    if (navigator.language.slice(0, 2) !== i18n.language) {
+      i18n.changeLanguage(navigator.language.slice(0, 2));
+    }
+  }, []);
   // useEffect(() => {
   initIntercom();
   //   initAmplitude();

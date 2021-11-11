@@ -21,7 +21,7 @@ i18n
   .init({
     resources,
     whitelist: ["en", "de"],
-    fallbackLng: ["de"],
+    fallbackLng: "de",
     detection: {
       order: ["path"],
       lookupFromPathIndex: 0,
@@ -30,6 +30,15 @@ i18n
 
     interpolation: {
       escapeValue: false, // react already safes from xss
+    },
+
+    react: {
+      bindI18n: "languageChanged",
+      bindI18nStore: "",
+      transEmptyNodeValue: "",
+      transSupportBasicHtmlNodes: true,
+      transKeepBasicHtmlNodesFor: ["br", "strong", "i", "em"],
+      useSuspense: false,
     },
   });
 

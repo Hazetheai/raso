@@ -19,6 +19,7 @@
 
   "maximum": "Maximal",
   "characters": "Zeichen",
+  "any_questions": "Noch Fragen?",
 
   "nav_link_1": "https://www.accountable.de/selbstandig-werden-mit-accountable/",
   "nav_label_1": "Selbständig werden",
@@ -202,6 +203,11 @@
   "steueridentifkationsnummer_helper": "Wenn du in Deutschland geboren bist, erhältst du die Steueridentifikationsnummer nach der Geburt. Als Expat erhältst du sie bei der ersten Anmeldung in Deutschland. Es ist NICHT deine Steuernummer. <a href=\"https://accountable.de/blog/selbststandig-in-deutschland-das-bedeuten-die-verschiedenen-steuernummern/\" target=\"_blank\"> Hier findest du mehr Informationen.</a>",
 
   "steuernummer_label": "Hast du oder dein Ehepartner/eingetragener Lebenspartner bereits eine Steuernummer?",
+  "steuernummer_helper_expand_title": "Was ist meine Steueridentifikationsnummer?",
+  "steuernummer_helper_expand_content": "Die Steueridentifikationsnummer oder Steuer-ID besteht aus 11 Ziffern, die wie in diesem Beispiel geschrieben werden: 12365489753 (Bitte nicht verwechseln mit der Steuernummer deiner selbständigen Tätigkeit mit diesem Format: 198/113/10010).",
+  "steuernummer_helper_2_expand_title": "Wo finde ich meine Steueridentifikationsnummer?",
+  "steuernummer_helper_2_expand_content": "Wenn du bereits als Arbeitnehmer in gearbeitet hast, findest du sie in der Regel auf deiner Lohnsteuerbescheinigung im oberen Bereich unter Steuer-IfD. <br/><br/> Außerdem ist die Steuer-ID auch auf deinem Einkommensteuerbescheid vermerkt, wenn du schon mal eine Steuererklärung gemacht hast. <br/><br/> Wenn du in Deutschland geboren oder hier steuerpflichtig gemeldet bist, solltest du ein Schreiben vom Bundeszentralamt für Steuern mit deiner Steuer-ID bekommen haben. Kinder erhalten ihre Steuer-ID kurz nach Geburt und Einwanderern wird die Steuer-ID bei der ersten Anmeldung in Deutschland zugeteilt. Wenn das nicht der Fall ist oder du nicht weißt, wo der Brief ist, kannst du die Nummer aber auch über das <a href=\"https://www.bzst.de/SiteGlobals/Kontaktformulare/DE/Steuerliche_IDNr/Mitteilung_IdNr/mitteilung_IdNr_node.html\" target=\"_blank\" rel=\"noopener\">Web-Formular beim BZSt erfragen</a>",
+
   "steuernummer_value_label": "Deine Steuernummer",
 
   "singleentry_label": "Ich will die einfache Gewinnermittlung für Selbständige nutzen (EÜR)",
@@ -217,6 +223,13 @@
 
   "revenue_firstYear_label": "Deine voraussichtlichen Umsätze dieses Jahr",
   "revenue_firstYear_helper": "Bitte schätze deine Einnahmen aus deiner Selbständigkeit (ohne Gehalt, Mieteinnahmen etc.)",
+
+  "revenue_firstYear_helper_expand_title": "Deine voraussichtlichen Umsätze dieses und nächstes Jahr",
+  "revenue_firstYear_helper_expand_content": "Hier solltest du eine realistische Schätzung deiner Einnahmen aus deiner geplanten Selbständigkeit angeben. Andere Angaben zum Beispiel aus einer Anstellung musst du hier nicht hinzurechnen.",
+  "revenue_firstYear_helper_2_expand_title": "<i>Rechenbeispiel Kleinunternehmer oder Nebenerwerb</i>",
+  "revenue_firstYear_helper_2_expand_content": "<br>Stundensatz: 25€<br> Arbeitsstunden pro Woche:15 Stunden<br>Arbeitswochen pro Jahr: 40 Wochen<br>Umsatz pro Jahr: 25€ x 15 Stunden x 40 Wochen = 15.000€<br><br>",
+  "revenue_firstYear_helper_3_expand_title": "<i>Rechenbeispiel Selbständigkeit in Vollzeit</i>",
+  "revenue_firstYear_helper_3_expand_content": "Tagessatz: 300€<br>Abrechenbare Tage pro Jahr: 200 Tage<br>Umsatz pro Jahr: 300€ x 150 Tage = 60.000€",
 
   "revenue_secondYear_label": "Deine voraussichtlichen Umsätze nächstes Jahr",
   "revenue_secondYear_helper": "Bitte schätze deine Einnahmen aus deiner Selbständigkeit (ohne Gehalt, Mieteinnahmen etc.)",
