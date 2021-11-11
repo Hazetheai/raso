@@ -1,4 +1,4 @@
-import Tabs, { sampleTabData } from "components/Tabs";
+import Tabs from "components/Tabs";
 import React, { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { removeDuplicates } from "res/lib";
@@ -8,18 +8,21 @@ import BankAccount from "./BankAccount";
 import Business from "./Business";
 import "./form-layout.css";
 import "./form.css";
-import {
-  formatDatasection,
-  reFormatForFormData,
-  sanitizeNumbers,
-  wrap,
-} from "./helpers";
+import { formatDatasection, reFormatForFormData, wrap } from "./helpers";
 import Personal from "./Personal";
 import Review from "./Review";
 import TaxEstimate from "./TaxEstimate";
 import TaxInfo from "./TaxInfo";
+import home from "res/images/home.svg";
 
-const steps = sampleTabData.tabs.slice(0);
+const tabs = [
+  "personalFields",
+  "businessFields",
+  "taxInfoFields",
+  "taxEstimateFields",
+  "bankAccountFields",
+  "reviewFields",
+];
 
 function calcNextStep(steps, currentStep) {
   return steps[
@@ -31,22 +34,67 @@ function calcNextStep(steps, currentStep) {
   ];
 }
 
-const FormLayout = ({ defaultSteps = steps }) => {
+const Form = ({}) => {
+  const { t, i18n } = useTranslation();
   const { userInteraction, setUserInteraction } = useUserInteraction();
-  const [steps, setSteps] = useState(defaultSteps);
-  const [currentStep, setCurrentStep] = useState(
-    userInteraction.workingStep
-      ? defaultSteps.find((s) => s.tabId === userInteraction.workingStep)
-      : defaultSteps[0]
-  );
-  const { t } = useTranslation();
   const layoutRef = useRef(null);
   const { userData, setUserData } = useUserData();
 
+  const tabData = {
+    title: t("tab_header_welcome"),
+    icon: home,
+    tabs: tabs.map((tab, idx) => {
+      const helper = t(`tab_${tab}_helper`, {
+        interpolation: { escapeValue: false },
+      });
+      return {
+        tabNumber: idx + 1,
+        tabLabel: t(`tab_${tab}_label`),
+        tabSubtitle: t(`tab_${tab}_subtitle`),
+        tabId: `${tab}`,
+        complete: false,
+        tabHelper: /_/g.test(helper) ? null : helper,
+      };
+    }),
+  };
+
+  const [steps, setSteps] = useState(tabData.tabs);
+  const [currentStep, setCurrentStep] = useState(
+    userInteraction.workingStep
+      ? tabData.tabs.find((s) => s.tabId === userInteraction.workingStep)
+      : tabData.tabs[0]
+  );
+
   useEffect(() => {
-    if (steps.indexOf(currentStep) > 0)
+    // TODO Reload Translations
+    setSteps(
+      steps
+        ? [
+            ...steps.map((s, idx) => ({
+              ...s,
+              tabHelper: tabData.tabs[idx].tabHelper,
+              tabSubtitle: tabData.tabs[idx].tabSubtitle,
+              tabLabel: tabData.tabs[idx].tabLabel,
+            })),
+          ]
+        : tabData.tabs
+    );
+
+    setCurrentStep({
+      ...currentStep,
+      tabHelper: tabData.tabs[currentStep.tabNumber - 1].tabHelper,
+      tabSubtitle: tabData.tabs[currentStep.tabNumber - 1].tabSubtitle,
+      tabLabel: tabData.tabs[currentStep.tabNumber - 1].tabLabel,
+    });
+  }, [i18n.language]);
+
+  useEffect(() => {
+    if (currentStep.tabNumber > 1) {
+      console.log(`currentStep`, currentStep.tabNumber);
+      console.log(`currentStep`, currentStep);
       layoutRef.current.scrollIntoView({ behaviour: "smooth" });
-  }, [layoutRef, currentStep, steps]);
+    }
+  }, [currentStep.tabNumber]);
 
   function nextStep(data, dataSection, progress = true) {
     setUserData(formatDatasection(data), dataSection, true);
@@ -81,7 +129,11 @@ const FormLayout = ({ defaultSteps = steps }) => {
   return (
     <div ref={layoutRef} className="form-layout">
       <Tabs
-        tabData={{ ...sampleTabData, tabs: steps }}
+        tabData={{
+          title: t("tab_header_welcome"),
+          icon: tabData.icon,
+          tabs: steps,
+        }}
         activeTab={userInteraction?.tabId || currentStep.tabId}
         onTabClick={handleTabClick}
       />
@@ -97,8 +149,6 @@ const FormLayout = ({ defaultSteps = steps }) => {
         </div>
         {currentStep.tabId === "personalFields" && (
           <Personal
-            steps={steps}
-            currentStep={currentStep}
             comingStep={calcNextStep(steps, currentStep)}
             nextStep={nextStep}
             defaultValues={reFormatForFormData(userData.personalFields)}
@@ -154,4 +204,4 @@ const FormLayout = ({ defaultSteps = steps }) => {
   );
 };
 
-export default FormLayout;
+export default Form;

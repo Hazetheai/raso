@@ -4,30 +4,14 @@ import Button from "components/Button";
 import Link from "components/Link";
 import Terms from "components/Terms";
 import React from "react";
-import checkmark from "res/images/checkmark.svg";
+import { useTranslation } from "react-i18next";
+
 import { useUserInteraction } from "userInteraction";
 import "./hero.css";
 
-const terms = [
-  { imgSrc: checkmark, text: "Sichere Übertragung deiner Daten über Elster" },
-  {
-    imgSrc: checkmark,
-    text: "Erhalte deine Steuernummer vom Finanzamt per Post",
-  },
-  { imgSrc: checkmark, text: "Komplett kostenlos" },
-];
-
-export const sampleHeroData = {
-  h1: "Den Fragebogen zur steuerlichen Erfassung ausfüllen",
-  h3: `Um dich selbstständig zu machen, benötigst du eine Steuernummer. Dafür musst du das Formular ausfüllen und an dein Finanzamt übermitteln. Die steuerliche Registrierung durch Accountable ist schnell, sicher und kostenlos`,
-  terms,
-  ctaText: "Anmeldung beginnen",
-  ctaFunc: () => document.querySelector(".content")?.scrollIntoView(),
-};
-
 const Hero = ({ terms, h1, h3, ctaText, ctaLink, ctaFunc }) => {
   const { userInteraction, setUserInteraction } = useUserInteraction();
-
+  const { t } = useTranslation();
   return (
     <>
       <div className="top-section-raso-container container" id="rasoHead">
@@ -73,16 +57,13 @@ const Hero = ({ terms, h1, h3, ctaText, ctaLink, ctaFunc }) => {
       >
         <div className="raso-congrats">
           <span className="section-h2 raso-h2">
-            Glückwunsch,
-            <br /> der 1. Schritt ist getan...{" "}
+            {t("success_a_hero_title")}
           </span>
-          <p className="raso-congrats_p">
-            Du hast deine Selbständigkeit offiziell angemeldet!{" "}
-          </p>
+          <p className="raso-congrats_p">{t("")}</p>
           {/* TODO - Success Page */}
           <div className="raso-congrats_address_box raso-a-section">
             <address className="raso-congrats_address raso-congrats_address--name">
-              <strong>Ihr Name</strong>
+              <strong>{t("success_a_hero_your_name")}</strong>
             </address>
             <address className="raso-congrats_address raso-congrats_address--location">
               <img
@@ -91,7 +72,7 @@ const Hero = ({ terms, h1, h3, ctaText, ctaLink, ctaFunc }) => {
                 alt="🏠"
                 src="https://s.w.org/images/core/emoji/13.1.0/svg/1f3e0.svg"
               />{" "}
-              Ihre Adresse
+              {t("success_a_hero_your_address")}
             </address>
             <p className="raso-congrats_p raso-congrats_p--start">
               <img
@@ -100,7 +81,8 @@ const Hero = ({ terms, h1, h3, ctaText, ctaLink, ctaFunc }) => {
                 alt="⌛️"
                 src="https://s.w.org/images/core/emoji/13.1.0/svg/231b.svg"
               />{" "}
-              Start zum<span className="raso-congrats_p--start-date"></span>
+              {t("success_a_hero_start_from")}
+              <span className="raso-congrats_p--start-date"></span>
             </p>
             <p className="raso-congrats_p raso-congrats_address--tax-office">
               <img
@@ -109,12 +91,12 @@ const Hero = ({ terms, h1, h3, ctaText, ctaLink, ctaFunc }) => {
                 alt="🏢"
                 src="https://s.w.org/images/core/emoji/13.1.0/svg/1f3e2.svg"
               />{" "}
-              Adresse des Finanzamtes
+              {t("success_a_hero_finanzamt_office")}
             </p>
           </div>
 
           <span className="raso-congrats_ticket">
-            Deine Referenz-Nr.: <span id="tickedId"></span>
+            {t("success_a_hero_ref_number")} <span id="tickedId"></span>
           </span>
         </div>
       </div>

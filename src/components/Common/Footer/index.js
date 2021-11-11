@@ -1,25 +1,29 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import "./footer.css";
 const Footer = () => {
+  const { t } = useTranslation();
   return (
-    <footer className="section section--footer">
+    <footer className="section section--footer ">
       <div className="container">
         <div className="flex-container flex-container--footer">
           <div className="footer-fcol">
             <a href="/">
               <img
+                alt=""
                 src="https://www.accountable.de/wp-content/themes/accountable/assets/images/accountable-logo.svg"
                 className="img-fluid section__img section__img--logo"
               />
             </a>
-            <div>
+            <div className="flex-container">
               <a
                 href="https://facebook.com/getaccountable"
                 target="_blank"
                 rel="noopener"
-                title="Accountable on Facebook"
+                title={t("footer_facebook_label")}
               >
                 <img
+                  alt=""
                   className="footer-social"
                   src="https://www.accountable.de/wp-content/themes/accountable/assets/images/social/facebook.svg"
                 />
@@ -28,9 +32,10 @@ const Footer = () => {
                 href="https://instagram.com/accountable.eu/"
                 target="_blank"
                 rel="noopener"
-                title="Accountable on Instagram"
+                title={t("footer_instagram_label")}
               >
                 <img
+                  alt=""
                   className="footer-social"
                   src="https://www.accountable.de/wp-content/themes/accountable/assets/images/social/instagram.svg"
                 />
@@ -39,9 +44,10 @@ const Footer = () => {
                 href="https://www.linkedin.com/company/accountableselfemployed/"
                 target="_blank"
                 rel="noopener"
-                title="Accountable on LinkedIn"
+                title={t("footer_linkin_label")}
               >
                 <img
+                  alt=""
                   className="footer-social"
                   src="https://www.accountable.de/wp-content/themes/accountable/assets/images/social/linkedin.svg"
                 />
@@ -51,9 +57,10 @@ const Footer = () => {
               href="https://de.trustpilot.com/review/getaccountable.eu"
               className="footer-trustpilot"
             >
-              <span>24 Bewertungen</span>
+              <span>24 {t("footer_trustpilot_num_reviews")}</span>
               <br />
               <img
+                alt=""
                 src="https://www.accountable.de/wp-content/themes/accountable/assets/images/homepage/trustpilot-badge.png"
                 width="185px"
                 className="img-fluid"
@@ -61,90 +68,118 @@ const Footer = () => {
             </a>
           </div>
           <div className="footer-col">
-            <h3 className="section__title-footer">Unser Angebot</h3>
+            <h3 className="section__title-footer">
+              {t("footer_menu_product_heading_label")}
+            </h3>
             <a
               className="section__a"
-              href="/steuernummer-online-beantragen/"
+              href={t("footer_menu_product_01_link")}
               target="_parent"
             >
-              Steuernummer beantragen
+              {t("footer_menu_product_01_label")}
             </a>
-            <a className="section__a" href="/preise/" target="_parent">
-              Preise
+            <a
+              className="section__a"
+              href={t("footer_menu_product_02_link")}
+              target="_parent"
+            >
+              {t("footer_menu_product_02_label")}
             </a>
-            <a className="section__a" href="/steuerberater/" target="_parent">
-              Steuerberatung
+            <a
+              className="section__a"
+              href={t("footer_menu_product_03_link")}
+              target="_parent"
+            >
+              {t("footer_menu_product_03_label")}
             </a>
-            <a className="section__a" href="/blog/" target="_parent">
-              Steuertipps
+            <a
+              className="section__a"
+              href={t("footer_menu_product_04_link")}
+              target="_parent"
+            >
+              {t("footer_menu_product_04_label")}
             </a>
           </div>
           <div className="footer-col">
-            <h3 className="section__title-footer">Hilfen für Selbständige</h3>
+            <h3 className="section__title-footer">
+              {t("footer_menu_tools_heading_label")}
+            </h3>
             <a
               className="section__a"
-              href="https://kannichdasabsetzen.accountable.de/"
+              href={t("footer_menu_tools_01_link")}
               target="_parent"
             >
-              Kann ich das absetzen?
+              {t("footer_menu_tools_01_label")}
             </a>
             <a
               className="section__a"
-              href="/rechnung-online-erstellen/"
+              href={t("footer_menu_tools_02_link")}
               target="_parent"
             >
-              Kostenlose Rechnungsvorlage
+              {t("footer_menu_tools_02_label")}
             </a>
             <a
               className="section__a"
-              href="/angebot-online-erstellen/"
+              href={t("footer_menu_tools_03_link")}
               target="_parent"
             >
-              Kostenlose Angebotsvorlage
+              {t("footer_menu_tools_03_label")}
             </a>
-            <a className="section__a" href="/steuer-rechner/" target="_parent">
-              Steuerrechner
+            <a
+              className="section__a"
+              href={t("footer_menu_tools_04_link")}
+              target="_parent"
+            >
+              {t("footer_menu_tools_04_label")}
             </a>
           </div>
           <div className="footer-col">
-            <h3 className="section__title-footer">Company</h3>
-            <a className="section__a" href="/uber-uns/" target="_parent">
-              Über uns{" "}
+            <h3 className="section__title-footer">
+              {t("footer_menu_company_heading_label")}
+            </h3>
+            <a
+              className="section__a"
+              href={t("footer_menu_company_01_link")}
+              target="_parent"
+            >
+              {t("footer_menu_company_01_label")}
             </a>
             <a
               className="section__a"
-              href="https://angel.co/accountable-2/jobs/"
+              href={t("footer_menu_company_02_link")}
               rel="noopener"
             >
-              Jobs
+              {t("footer_menu_company_02_label")}
             </a>
-            <a className="section__a" href="/privacy/">
-              Datenschutz
+            <a className="section__a" href={t("footer_menu_company_03_link")}>
+              {t("footer_menu_company_03_label")}
             </a>
-            <a className="section__a" href="/cookie-policy/">
-              Cookie-Richtlinie
+            <a className="section__a" href={t("footer_menu_company_04_link")}>
+              {t("footer_menu_company_04_label")}
             </a>
           </div>
           <div className="footer-col">
-            <h3 className="section__title-footer">Hilfe &amp; Kontakt</h3>
+            <h3 className="section__title-footer">
+              {t("footer_menu_help_heading_label")}
+            </h3>
             <a
               className="section__a"
-              href="https://help.accountable.eu/en/"
+              href={t("footer_menu_help_01_link")}
               rel="noopener"
               target="_parent"
             >
-              FAQ
+              {t("footer_menu_help_01_label")}
             </a>
             <a
               className="section__a"
-              href="mailto:hello@getaccountable.eu"
+              href={t("footer_menu_help_02_link")}
               rel="noopener"
               target="_parent"
             >
-              Kontakt
+              {t("footer_menu_help_02_label")}
             </a>
-            <a className="section__a " href="/impressum/">
-              Impressum
+            <a className="section__a " href={t("footer_menu_help_03_link")}>
+              {t("footer_menu_help_03_label")}
             </a>
           </div>
         </div>

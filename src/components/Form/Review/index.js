@@ -26,6 +26,7 @@ const Review = ({
 
   const { t } = useTranslation();
   const { userData, setUserData } = useUserData();
+  const [errorsVisible, setErrorsVisible] = useState(false);
   const [apiResponse, setApiResponse] = useState({
     success: false,
     previewLink: "",
@@ -53,33 +54,32 @@ const Review = ({
   return (
     <form id={currentStep.tabId} onSubmit={handleSubmit(onSubmit)}>
       <div className="form">
-        <Fieldset title="Daten überprüfen und abschicken">
+        <Fieldset title={t("review_proof_read_fieldset_title")}>
           <Field
             type="select"
             fullWidth
-            topLabel="Wähle hier dein zuständiges Finanzamt"
+            topLabel={t("taxOffice_label")}
             name="taxOffice"
             ref={register({
               required: true,
-              validate: (value) =>
-                !/choose/.test(value) ||
-                "Please select the district your Finanzamt is in",
+              validate: (value) => !/choose/.test(value) || t("field_invalid"),
             })}
             autoFocus={true}
             errors={errors}
             watch={watch}
             options={tax_offices}
-            fieldHelperText={`Wähle dein zuständiges Finanzamt.`}
-            secondFieldHelperText={`<a href="https://www.bzst.de/DE/Service/Behoerdenwegweiser/Finanzamtsuche/GemFa/finanzamtsuche_node.html" target="_blank">Hier kannst du nach einem Finanzamt über PLZ oder den Namen der Gemeinde suchen</a>`}
+            fieldHelperText={t("taxOffice_helper")}
+            secondFieldHelperText={t("taxOffice_helper_2")}
           />
         </Fieldset>
       </div>
       <div className="form__review--actions">
         {!apiResponse.success && (
           <div className="tab-helper">
-            <p>
-              Bitte überprüfe deine Daten, um sicherzustellen, dass du alle
-              Informationen korrekt eingegeben hast.
+            <p className="tab-helper__heading">
+              {t("review_proof_read", {
+                interpolation: { escapeValue: false },
+              })}
             </p>
             {console.log(`apiResponse`, apiResponse)}
             <Button
@@ -94,7 +94,7 @@ const Review = ({
                 setApiResponse(ar);
                 setLoading(false);
               }}
-              text="Vorschau laden"
+              text={t("review_button_gen_pdf")}
               className="body--big-bold"
               type="submit"
               isLoading={loading}
@@ -104,9 +104,10 @@ const Review = ({
 
         {apiResponse.previewLink && (
           <div className="tab-helper">
-            <p>
-              Bitte überprüfe deine Daten, um sicherzustellen, dass du alle
-              Informationen korrekt eingegeben hast.{" "}
+            <p className="tab-helper__heading">
+              {t("review_proof_read", {
+                interpolation: { escapeValue: false },
+              })}
             </p>
             <Link
               secondary
@@ -115,7 +116,7 @@ const Review = ({
               href={apiResponse.previewLink}
               target={"_blank"}
               rel="noopener"
-              text={"Vorschau ansehen"}
+              text={t("review_button_view_pdf")}
               autoFocus
             />
           </div>
@@ -123,16 +124,8 @@ const Review = ({
 
         {apiResponse.success && (
           <div className="tab-helper form_submit--review">
-            <p className="body--medium">
-              Nach dem Absenden des Formulars erhältst du deine Steuernummer vom
-              Finanzamt per Post. In der Regel dauert es 3-6 Wochen, bis sie
-              eintrifft.
-            </p>
-            <p className="body--small">
-              Wenn du willst, kannst du zusätzlich auch einen unserer
-              Partner-Steuerberater beauftragen, deine Angaben zu prüfen bevor
-              du sie an das Finanzamt sendest.
-            </p>
+            <p className="body--medium">{t("review_button_success_heading")}</p>
+            <p className="body--small">{t("review_button_success_subtitle")}</p>
 
             <Button
               func={async () => {
@@ -144,19 +137,16 @@ const Review = ({
                 });
                 setApiResponse(ar);
               }}
+              disabled
               className="body--big-bold"
               type="button"
             >
               <img src={eagle} alt="Ans Finanzamt senden" />
-              Ans Finanzamt senden
+              {t("review_button_send_pdf")}
             </Button>
           </div>
         )}
-        <p className="body--small">
-          Die in diesem Formular gegebenen Hinweise sind unverbindlich und
-          ersetzen keinen Steuerberater. Bitte lass dir im Zweifel von einem
-          Steuerberater helfen.
-        </p>
+        <p className="body--small">{t("disclaimer")}</p>
         <p className="body--small">
           {apiResponse["code"] && (
             <span className="error-code">Code: {apiResponse["code"]}</span>
@@ -165,10 +155,24 @@ const Review = ({
             <span className="error-message">{apiResponse["message"]}</span>
           )}
         </p>
+
+        <div className="qa-errors">
+          {apiResponse["code"] ? (
+            <div>
+              <Button
+                func={() => setErrorsVisible(!errorsVisible)}
+                text={errorsVisible ? "Hide" : "Show Errors"}
+              />
+              {errorsVisible && (
+                <pre>{JSON.stringify(apiResponse, null, 2)}</pre>
+              )}
+            </div>
+          ) : null}
+        </div>
       </div>
       <div className="form-invalid">
         {" "}
-        {isEmpty(errors) ? null : t("form_invalid")}
+        {/* {isEmpty(errors) ? null : t("form_invalid")} */}
       </div>
     </form>
   );

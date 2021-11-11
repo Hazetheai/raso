@@ -26,10 +26,22 @@ fieldset {
   border: none;
 }
 
+fieldset h4 + .fieldset_helper {
+  margin: -12px 0 12px 0;
+}
+
+fieldset + fieldset {
+  margin-top: 24px;
+}
+
 .error-code,
 .error-message {
   display: block;
   color: var(--color-invalid_red);
+}
+
+.tab-helper__heading {
+  max-width: 65ch;
 }
 
 @media screen and (min-width: 1008px) {

@@ -1,15 +1,21 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import "./language-picker.css";
 const LanguagePicker = () => {
+  const { t, i18n } = useTranslation();
   return (
     <div className="language-picker-active">
-      de{" "}
+      {i18n.language.toUpperCase()}
       <div className="language-picker-all">
-        {/* TODO */}
-        <a href="https://www.accountable.de/en/online-tax-registration/">
-          English
+        <a
+          onClick={() =>
+            i18n.changeLanguage(i18n.language === "de" ? "en" : "de")
+          }
+          href="#0"
+        >
+          {i18n.language === "de" ? "English" : "Deutsch"}{" "}
         </a>{" "}
-        Deutsch{" "}
+        {i18n.language === "de" ? "Deutsch" : "English"}{" "}
       </div>
       <svg
         width="10"

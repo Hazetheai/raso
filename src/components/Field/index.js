@@ -460,6 +460,8 @@ const Money = ({ name, control, errors, shorter, rules }) => {
 };
 
 const FieldHelper = ({ expandedHelpers, isActive, toggleHelper, onHover }) => {
+  const { t } = useTranslation();
+
   return (
     <div
       onMouseMove={() => onHover(true)}
@@ -496,11 +498,12 @@ const FieldHelper = ({ expandedHelpers, isActive, toggleHelper, onHover }) => {
                 className="field_helper__content"
                 dangerouslySetInnerHTML={{ __html: helper.content }}
               />
+
               {helper.cs && (
                 <Button
                   type="button"
                   func={() => window.Intercom && window.Intercom("show")}
-                  text="Noch Fragen?"
+                  text={t("any_questions")}
                   inline
                 />
               )}
@@ -514,6 +517,7 @@ const FieldHelper = ({ expandedHelpers, isActive, toggleHelper, onHover }) => {
 };
 
 const MaxChars = ({ numChars, maxChars }) => {
+  const { t } = useTranslation();
   return (
     <div>
       <span
@@ -542,7 +546,7 @@ const MaxChars = ({ numChars, maxChars }) => {
         }
       />
       <span className="field_helper-maxChars body--small">
-        Maximal{" "}
+        {t("maximum")}{" "}
         <strong
           style={
             numChars > maxChars - 10
@@ -554,7 +558,7 @@ const MaxChars = ({ numChars, maxChars }) => {
         >
           {numChars || 0} / {maxChars}{" "}
         </strong>{" "}
-        Zeichen
+        {t("characters")}
       </span>
     </div>
   );

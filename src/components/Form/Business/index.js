@@ -37,15 +37,14 @@ const Business = ({
         <FormField
           type="textarea"
           name="profession"
-          topLabel={"Beruf"}
-          fieldHelperText={
-            "Auf Basis dieser Informationen entscheidet das Finanzamt, ob du als Freiberufler*in oder Gewerbetreibende*r eingestuft wirst und welche Steuern du zahlen musst. Hier findest du mehr Informationen dazu."
-          }
+          topLabel={t("profession_label")}
+          fieldHelperText={t("profession_helper", {
+            link: '<a href="http://accountable.de/blog/freiberufler-oder-gewerbe/" target="_blank">Hier findest du mehr Informationen dazu.</>',
+          })}
           expandedHelpers={[
             {
-              title: "Was sollte ich bei der Tätigkeitsbeschreibung beachten?",
-              content: `Eine kurze aber genaue Angabe deiner Tätigkeit: z.B. nicht nur "Design", sondern "Erstellung von Designs für Webseiten" <br/><br/>
-              Du kannst auch mehrere Tätigkeiten anmelden. Diese sollten zu deiner Haupttätigkeit passen. Als Webdesigner*in kannst du z.B. auch Online-Werbung oder Marketing machen.`,
+              title: t("profession_helper_expand_title"),
+              content: t("profession_helper_expand_content"),
             },
           ]}
           ref={register({
@@ -64,10 +63,10 @@ const Business = ({
           control={control}
           name="officeaddress"
           fullWidth
-          topLabel={`Hast du eine abweichende geschäftliche Adresse?`}
+          topLabel={t("officeaddress_label")}
           options={[
-            { name: "Ja", value: "yes" },
-            { name: "Nein", value: "no" },
+            { name: t("yes"), value: "yes" },
+            { name: t("no"), value: "no" },
           ]}
           errors={errors}
         />
@@ -81,10 +80,11 @@ const Business = ({
                 pattern: validators.office_address_street,
               })}
               name="office_address_street"
-              label={"Strasse"}
+              floatingLabel={t("address_street")}
               errors={errors}
               control={control}
-              topLabel="Adresse"
+              watch={watch}
+              topLabel={t("address_label")}
             />
             <FormField
               type="text"
@@ -93,9 +93,10 @@ const Business = ({
                 pattern: validators.office_address_number,
               })}
               name="office_address_number"
-              label={"Hausnummer"}
+              floatingLabel={t("address_number")}
               errors={errors}
               control={control}
+              watch={watch}
             />
             <FormField
               type="text"
@@ -104,9 +105,10 @@ const Business = ({
                 pattern: validators.office_address_city,
               })}
               name="office_address_city"
-              label={"Postleitzahl"}
+              floatingLabel={t("address_city")}
               errors={errors}
               control={control}
+              watch={watch}
             />
             <FormField
               type="text"
@@ -115,9 +117,10 @@ const Business = ({
                 pattern: validators.office_address_postcode,
               })}
               name="office_address_postcode"
-              label={"Stadt"}
+              floatingLabel={t("address_postcode")}
               errors={errors}
               control={control}
+              watch={watch}
             />
           </Fieldset>
         )}
@@ -127,10 +130,10 @@ const Business = ({
           control={control}
           name="previousbusiness"
           fullWidth
-          topLabel={`Hast du in den letzten 5 Jahren ein Gewerbe betrieben, warst als Selbständige*r tätig oder hast Anteile an einer Gesellschaft (von mind. 1%) besessen?`}
+          topLabel={t("previousbusiness_label")}
           options={[
-            { name: "Ja", value: "yes" },
-            { name: "Nein", value: "no" },
+            { name: t("yes"), value: "yes" },
+            { name: t("no"), value: "no" },
           ]}
           errors={errors}
         />
@@ -140,7 +143,7 @@ const Business = ({
       <div className="form_submit">
         <div className="form-invalid">
           {" "}
-          {isEmpty(errors) ? null : t("form_invalid")}
+          {/* {isEmpty(errors) ? null : t("form_invalid")} */}
         </div>
         <Button
           type="submit"

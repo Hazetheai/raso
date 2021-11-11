@@ -3,7 +3,6 @@ import Link from "components/Link";
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import { isEmpty } from "res/lib";
 import Field from "../../Field";
 import Fieldset from "../Fieldset";
 import { validators } from "../validators";
@@ -23,7 +22,6 @@ const TaxEstimate = ({
 
   useEffect(() => {
     window.addEventListener("hashchange", () => {
-      console.log(window.location.hash);
       setError(window.location.hash.replace(/#/, ""), {
         type: "manual",
         message: t("field_required"),
@@ -54,6 +52,8 @@ const TaxEstimate = ({
   const profitVermietung_field_value = watch("profitVermietung");
   const profitSonstigen_field_value = watch("profitSonstigen");
 
+  const taxPrepayment_field_value = watch("taxPrepayment");
+
   const oneOfRequired = [
     profitFreiberufler_field_value,
     profitGewerbetreibender_field_value,
@@ -76,13 +76,13 @@ const TaxEstimate = ({
     <form id={currentStep.tabId} onSubmit={handleSubmit(onSubmit)}>
       <div className="form">
         {console.log(`errors`, errors)}
-        <Fieldset title="Voraussichtlicher Gewinn aus deiner Selbständigkeit">
+        <Fieldset title={t("tax_estimate_projected_profit_fieldset_label")}>
           {/* Income Field - profitFreiberufler */}
           <Field
             type="picker"
             control={control}
             inputMode=""
-            topLabel="Erwartest du Gewinne aus Selbständigkeit?"
+            topLabel={t("profitFreiberufler_label")}
             name="profitFreiberufler"
             ref={register({
               required: true,
@@ -91,21 +91,16 @@ const TaxEstimate = ({
             autoFocus={true}
             errors={errors}
             watch={watch}
-            fieldHelperText={``}
             options={[
-              { name: "Ja", value: "yes" },
-              { name: "Nein", value: "no" },
+              { name: t("yes"), value: "yes" },
+              { name: t("no"), value: "no" },
             ]}
             expandedHelpers={[
               {
-                title:
-                  "Was ist der Unterschied zwischen selbständigen und gewerblichen Tätigkeiten?",
-                content: `Zu den selbständigen Tätigkeiten gehören: <br/>
-                - <a href="https://www.accountable.de/blog/freiberufler-oder-gewerbe/" target="_blank"> freiberufliche Tätigkeiten </a> <br/>
-                - staatliche Lotterieeinnahmen <br/>
-                - sonstige selbständige Arbeiten (z.B. Vermögensverwaltung)<br/><br/>
-                Alle anderen Tätigkeiten sind in der Regel gewerblich. Mehr Infos dazu auf <a href="https://www.accountable.de/blog/freiberufler-oder-gewerbe/" target="_blank"> unseren Blog.</a>
-                `,
+                title: t("profitFreiberufler_expand_helper_title"),
+                content: t("profitFreiberufler_expand_helper_content", {
+                  interpolation: { escapeValue: false },
+                }),
               },
               {
                 title: "Wie schätze ich meinen Gewinn?",
@@ -122,7 +117,7 @@ const TaxEstimate = ({
                 type="money"
                 control={control}
                 inputMode="numeric"
-                topLabel="Erstes Geschäftsjahr (2021)"
+                topLabel={t("profitFreiberuflerFirstYear_label")}
                 name="profitFreiberuflerFirstYear"
                 ref={register({
                   required: true,
@@ -131,13 +126,15 @@ const TaxEstimate = ({
                 autoFocus={true}
                 errors={errors}
                 watch={watch}
-                fieldHelperText={`Schätze den Gewinn so gut du kannst. Dein Gewinn ist dein Umsatz nach Abzug aller geschäftlichen Kosten (z.B. Software, Reisekosten, Hilfsmittel etc.)`}
+                fieldHelperText={t("profitFreiberuflerFirstYear_helper", {
+                  interpolation: { escapeValue: false },
+                })}
               />
               <Field
                 type="money"
                 control={control}
                 inputMode="numeric"
-                topLabel="Zweites Geschäftsjahr (2021)"
+                topLabel={t("profitFreiberuflerSecondYear_label")}
                 name="profitFreiberuflerSecondYear"
                 ref={register({
                   required: true,
@@ -157,8 +154,7 @@ const TaxEstimate = ({
             type="picker"
             control={control}
             fullWidth
-            inputMode=""
-            topLabel="Erwartest du Gewinne aus Gewerbetrieb?"
+            topLabel={t("profitGewerbetreibender_label")}
             name="profitGewerbetreibender"
             ref={register({
               required: true,
@@ -166,10 +162,9 @@ const TaxEstimate = ({
             autoFocus={true}
             errors={errors}
             watch={watch}
-            fieldHelperText={``}
             options={[
-              { name: "Ja", value: "yes" },
-              { name: "Nein", value: "no" },
+              { name: t("yes"), value: "yes" },
+              { name: t("no"), value: "no" },
             ]}
           />
 
@@ -179,7 +174,7 @@ const TaxEstimate = ({
                 type="money"
                 control={control}
                 inputMode="numeric"
-                topLabel="Erstes Geschäftsjahr (2021)"
+                topLabel={t("profitGewerbetreibenderFirstYear_label")}
                 name="profitGewerbetreibenderFirstYear"
                 ref={register({
                   required: true,
@@ -193,8 +188,10 @@ const TaxEstimate = ({
                 type="money"
                 control={control}
                 inputMode="numeric"
-                fieldHelperText={`Schätze den Gewinn so gut du kannst. Dein Gewinn ist dein Umsatz nach Abzug aller geschäftlichen Kosten (z.B. Software, Reisekosten, Hilfsmittel etc.)`}
-                topLabel="Zweites Geschäftsjahr (2021)"
+                fieldHelperText={t("profitGewerbetreibenderSecondYear_helper", {
+                  interpolation: { escapeValue: false },
+                })}
+                topLabel={t("profitGewerbetreibenderSecondYear_label")}
                 name="profitGewerbetreibenderSecondYear"
                 ref={register({
                   required: true,
@@ -208,14 +205,16 @@ const TaxEstimate = ({
           )}
           {/* Income Field - END */}
         </Fieldset>
-        <Fieldset title={"Andere Einkommensquellen"}>
+        <Fieldset title={t("tax_estimate_other_income_fieldset_label")}>
           {/* Income Field - profitNichtselbstandiger */}
           <Field
             type="picker"
             control={control}
             fullWidth
-            topLabel="Erwartete Gehalts- oder Lohnzahlungen (Nichtselbständige Arbeit)"
-            fieldHelperText={`Wenn du ein Lohn oder Gehalt bekommst, trage hier bitte das Bruttojahresgehalt vor allen Abzügen ein.`}
+            topLabel={t("profitNichtselbstandiger_label")}
+            fieldHelperText={t("profitNichtselbstandiger_helper", {
+              interpolation: { escapeValue: false },
+            })}
             name="profitNichtselbstandiger"
             ref={register({
               required: true,
@@ -224,8 +223,8 @@ const TaxEstimate = ({
             errors={errors}
             watch={watch}
             options={[
-              { name: "Ja", value: "yes" },
-              { name: "Nein", value: "no" },
+              { name: t("yes"), value: "yes" },
+              { name: t("no"), value: "no" },
             ]}
           />
 
@@ -235,7 +234,7 @@ const TaxEstimate = ({
                 type="money"
                 control={control}
                 inputMode="numeric"
-                topLabel="Erstes Geschäftsjahr (2021)"
+                topLabel={t("profitNichtselbstandiger_FirstYear_label")}
                 name="profitNichtselbstandigerFirstYear"
                 ref={register({
                   required: true,
@@ -249,7 +248,7 @@ const TaxEstimate = ({
                 type="money"
                 control={control}
                 inputMode="numeric"
-                topLabel="Zweites Geschäftsjahr (2021)"
+                topLabel={t("profitNichtselbstandiger_SecondYear_label")}
                 name="profitNichtselbstandigerSecondYear"
                 ref={register({
                   required: true,
@@ -268,8 +267,10 @@ const TaxEstimate = ({
             control={control}
             fullWidth
             inputMode=""
-            topLabel="Erwartete Gehalts- oder Lohnzahlungen (Nichtselbständige Arbeit)"
-            fieldHelperText={`Einkommen aus Aktien, Fonds oder Zinsen (keine Mieteinnahmen)`}
+            topLabel={t("profitKapitalvermogen_label")}
+            fieldHelperText={t("profitKapitalvermogen_helper", {
+              interpolation: { escapeValue: false },
+            })}
             name="profitKapitalvermogen"
             ref={register({
               required: true,
@@ -278,8 +279,8 @@ const TaxEstimate = ({
             errors={errors}
             watch={watch}
             options={[
-              { name: "Ja", value: "yes" },
-              { name: "Nein", value: "no" },
+              { name: t("yes"), value: "yes" },
+              { name: t("no"), value: "no" },
             ]}
           />
 
@@ -289,7 +290,7 @@ const TaxEstimate = ({
                 type="money"
                 control={control}
                 inputMode="numeric"
-                topLabel="Erstes Geschäftsjahr (2021)"
+                topLabel={t("profitKapitalvermogen_FirstYear_label")}
                 name="profitKapitalvermogenFirstYear"
                 ref={register({
                   required: true,
@@ -303,7 +304,7 @@ const TaxEstimate = ({
                 type="money"
                 control={control}
                 inputMode="numeric"
-                topLabel="Zweites Geschäftsjahr (2021)"
+                topLabel={t("profitKapitalvermogen_SecondYear_label")}
                 name="profitKapitalvermogenSecondYear"
                 ref={register({
                   required: true,
@@ -322,8 +323,10 @@ const TaxEstimate = ({
             control={control}
             fullWidth
             inputMode=""
-            topLabel="Erwartest du Einkommen aus Vermietung oder Verpachtung?"
-            fieldHelperText={`Einkommen aus Vermietung und Verpachtung`}
+            topLabel={t("profitVermietung_label")}
+            fieldHelperText={t("profitVermietung_helper", {
+              interpolation: { escapeValue: false },
+            })}
             name="profitVermietung"
             ref={register({
               required: true,
@@ -332,8 +335,8 @@ const TaxEstimate = ({
             errors={errors}
             watch={watch}
             options={[
-              { name: "Ja", value: "yes" },
-              { name: "Nein", value: "no" },
+              { name: t("yes"), value: "yes" },
+              { name: t("no"), value: "no" },
             ]}
           />
 
@@ -343,7 +346,7 @@ const TaxEstimate = ({
                 type="money"
                 control={control}
                 inputMode="numeric"
-                topLabel="Erstes Geschäftsjahr (2021)"
+                topLabel={t("profitVermietung_FirstYear_label")}
                 name="profitVermietungFirstYear"
                 ref={register({
                   required: true,
@@ -357,7 +360,7 @@ const TaxEstimate = ({
                 type="money"
                 control={control}
                 inputMode="numeric"
-                topLabel="Zweites Geschäftsjahr (2021)"
+                topLabel={t("profitVermietung_SecondYear_label")}
                 name="profitVermietungSecondYear"
                 ref={register({
                   required: true,
@@ -376,8 +379,10 @@ const TaxEstimate = ({
             control={control}
             fullWidth
             inputMode=""
-            topLabel="Erwartest du sonstige Einkünfte?"
-            fieldHelperText={`Einkommen aus anderen Quellen (z.B. Rente)`}
+            topLabel={t("profitSonstigen_label")}
+            fieldHelperText={t("profitSonstigen_helper", {
+              interpolation: { escapeValue: false },
+            })}
             name="profitSonstigen"
             ref={register({
               required: true,
@@ -386,8 +391,8 @@ const TaxEstimate = ({
             errors={errors}
             watch={watch}
             options={[
-              { name: "Ja", value: "yes" },
-              { name: "Nein", value: "no" },
+              { name: t("yes"), value: "yes" },
+              { name: t("no"), value: "no" },
             ]}
           />
 
@@ -431,43 +436,119 @@ const TaxEstimate = ({
           control={control}
           fullWidth
           inputMode=""
-          topLabel="Hast du Einkommen aus Land- und Forstwirtschaft?"
+          topLabel={t("profitAgriculture_label")}
           name="profitAgriculture"
           ref={register({
             required: true,
           })}
-          options={[{ name: "Nein", value: "no" }]}
+          options={[{ name: t("no"), value: "no" }]}
           autoFocus={true}
           errors={errors}
           watch={watch}
-          fieldHelperText={`Aktuell unterstützen wir die Online-Meldung beim Finanzamt nicht, wenn du Einkommen aus Land- und Forstwirtschaft hast. <a href="https://accountable.de/steuernummer-online-beantragen/#" target="_blank"> Kontaktiere uns, wenn das bei dir der Fall ist.</a>`}
+          fieldHelperText={t("profitAgriculture_helper", {
+            interpolation: { escapeValue: false },
+          })}
         />
         <Field
           type="picker"
           control={control}
           fullWidth
-          inputMode=""
-          topLabel="Willst du deine Steuerabzüge schätzen, um deine Steuer-Vorauszahlungen zu verringern?"
+          topLabel={t("taxPrepayment_label")}
           name="taxPrepayment"
           ref={register({
             required: true,
           })}
           options={[
-            { name: "Ja", value: "yes" },
-            { name: "Nein", value: "no" },
+            { name: t("yes"), value: "yes" },
+            { name: t("no"), value: "no" },
           ]}
           autoFocus={true}
           errors={errors}
           watch={watch}
-          fieldHelperText={`Du kannst versuchen deine Sonderausgaben und Steuerabzugsbeträge anhand deiner letzten Steuererklärung zu schätzen. Wenn du dir nicht sicher bist, antworte einfach mit “Nein”. Dadurch hast du evtl. höhere Steuervorauszahlungen, du kannst die Steuerabzüge aber trotzdem am Jahresende geltend machen und bist so auf der sicheren Seite.`}
+          fieldHelperText={t("taxPrepayment_helper", {
+            interpolation: { escapeValue: false },
+          })}
         />
+
+        {taxPrepayment_field_value === "yes" && (
+          <Fieldset
+            title={t("tax_estimate_sonderausgaben_fieldset_title")}
+            helper={t("tax_estimate_sonderausgaben_fieldset_helper", {
+              interpolation: { escapeValue: false },
+            })}
+            subfield
+          >
+            <Field
+              type="money"
+              control={control}
+              inputMode="numeric"
+              topLabel={t("sonderausgabenFirstYear_label")}
+              name="sonderausgabenFirstYear"
+              ref={register({
+                required: true,
+              })}
+              autoFocus={true}
+              errors={errors}
+              watch={watch}
+            />
+            <Field
+              type="money"
+              control={control}
+              inputMode="numeric"
+              topLabel={t("sonderausgabenSecondYear_label")}
+              name="sonderausgabenSecondYear"
+              ref={register({
+                required: true,
+              })}
+              autoFocus={true}
+              errors={errors}
+              watch={watch}
+            />
+          </Fieldset>
+        )}
+        {taxPrepayment_field_value === "yes" && (
+          <Fieldset
+            title={t("tax_estimate_steuerabzugsbetrage_fieldset_title")}
+            helper={t("tax_estimate_steuerabzugsbetrage_fieldset_helper", {
+              interpolation: { escapeValue: false },
+            })}
+            subfield
+          >
+            <Field
+              type="money"
+              control={control}
+              inputMode="numeric"
+              topLabel={t("steuerabzugsbetrageFirstYear_label")}
+              name="steuerabzugsbetrageFirstYear"
+              ref={register({
+                required: true,
+              })}
+              autoFocus={true}
+              errors={errors}
+              watch={watch}
+            />
+            <Field
+              type="money"
+              control={control}
+              inputMode="numeric"
+              topLabel={t("steuerabzugsbetrageSecondYear_label")}
+              name="steuerabzugsbetrageSecondYear"
+              ref={register({
+                required: true,
+              })}
+              autoFocus={true}
+              errors={errors}
+              watch={watch}
+            />
+          </Fieldset>
+        )}
       </div>
       <div className="form_submit">
         {oneOfRequired.includes("yes") ? (
           <>
             <div className="form-invalid">
               {" "}
-              {isEmpty(errors) ? null : t("form_invalid")}
+              {/* {isEmpty(errors) ? null : t("form_invalid")} */}
             </div>
             <Button
               type="submit"
@@ -478,19 +559,20 @@ const TaxEstimate = ({
         ) : (
           <div className="form-warning">
             <h4>
-              Eine dieser Einkommensarten muss ausgefüllt werden: <br />{" "}
+              {t("tax_estimate_form_warning")}
+              <br />{" "}
             </h4>
             <p>
               <Link inline href="#profitFreiberufler">
-                Freiberufler
+                {t("freelancer")}
               </Link>
               {" / "}
               <Link inline href="#profitGewerbetreibender">
-                Gewerbtreibende
+                {t("professional")}
               </Link>
               {" / "}
               <Link inline href="#profitVermietung">
-                Vermietung und Verpachtung
+                {t("renting")}
               </Link>
             </p>
           </div>

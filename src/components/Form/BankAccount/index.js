@@ -2,8 +2,8 @@ import Button from "components/Button";
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import bankAccountHolders from "res/FormData/bankAccountHolders.json";
-import { isEmpty } from "res/lib";
+import bankAccountHolders_en from "res/FormData/de/bankAccountHolders.json";
+import bankAccountHolders_de from "res/FormData/en/bankAccountHolders.json";
 import Field from "../../Field";
 import Fieldset from "../Fieldset";
 import { isValidIBANNumber } from "../validators";
@@ -22,7 +22,7 @@ const BankAccount = ({
   const showBusinessBankAccount_field_value = watch("showBusinessBankAccount");
   const showPersonalBankAccount_field_value = watch("showPersonalBankAccount");
 
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     reset(defaultValues); // asynchronously reset your form values
@@ -38,21 +38,19 @@ const BankAccount = ({
   return (
     <form id={currentStep.tabId} onSubmit={handleSubmit(onSubmit)}>
       <div className="form">
-        <Fieldset title="Geschäftliches Bankkonto">
+        <Fieldset title={t("bank_account_business_fieldset_title")}>
           <Field
             type="picker"
             control={control}
-            inputMode=""
-            topLabel="Willst du dem Finanzamt dein geschäftliches Bankkonto mitteilen (optional)?"
+            topLabel={t("showBusinessBankAccount_label")}
             name="showBusinessBankAccount"
             ref={register({})}
             autoFocus={true}
             errors={errors}
             watch={watch}
-            fieldHelperText={``}
             options={[
-              { name: "Ja", value: "yes" },
-              { name: "Nein", value: "no" },
+              { name: t("yes"), value: "yes" },
+              { name: t("no"), value: "no" },
             ]}
           />
 
@@ -61,13 +59,12 @@ const BankAccount = ({
               <Field
                 type="text"
                 control={control}
-                topLabel="IBAN deines geschäftlichen Bankkontos"
+                topLabel={t("businessIban_label")}
                 name="businessIban"
                 ref={register({
                   required: true,
                   validate: (value) =>
-                    isValidIBANNumber(value) === 1 ||
-                    "This IBAN Number is not valid",
+                    isValidIBANNumber(value) === 1 || t("iban_invalid"),
                 })}
                 autoFocus={true}
                 errors={errors}
@@ -76,7 +73,7 @@ const BankAccount = ({
               <Field
                 type="text"
                 control={control}
-                topLabel="Kontoinhaber deines geschäftlichen Bankkontos"
+                topLabel={t("businessBankAccountOwner_label")}
                 name="businessBankAccountOwner"
                 ref={register({
                   required: true,
@@ -88,34 +85,35 @@ const BankAccount = ({
               <Field
                 type="select"
                 control={control}
-                topLabel=""
                 name="businessBankAccountOwnerCategory"
                 ref={register({
                   required: true,
                 })}
                 autoFocus={true}
-                options={bankAccountHolders}
+                options={
+                  i18n.language === "de"
+                    ? bankAccountHolders_de
+                    : bankAccountHolders_en
+                }
                 errors={errors}
                 watch={watch}
               />
             </Fieldset>
           )}
         </Fieldset>
-        <Fieldset title="Privates Bankkonto">
+        <Fieldset title={t("bank_account_private_fieldset_title")}>
           <Field
             type="picker"
             control={control}
-            inputMode=""
-            topLabel="Willst du dem Finanzamt dein privates Bankkonto mitteilen (optional)?"
+            topLabel={t("showPrivateBankAccount_label")}
             name="showPersonalBankAccount"
             ref={register({})}
             autoFocus={true}
             errors={errors}
             watch={watch}
-            fieldHelperText={``}
             options={[
-              { name: "Ja", value: "yes" },
-              { name: "Nein", value: "no" },
+              { name: t("yes"), value: "yes" },
+              { name: t("no"), value: "no" },
             ]}
           />
 
@@ -124,15 +122,14 @@ const BankAccount = ({
               <Field
                 type="text"
                 control={control}
-                topLabel="IBAN deines privaten Bankkontos"
+                topLabel={t("privateIban_label")}
                 name="privateIban"
                 ref={register({
                   required: true,
                   validate: (value) =>
-                    isValidIBANNumber(value) === 1 ||
-                    "This IBAN Number is not valid",
+                    isValidIBANNumber(value) === 1 || t("iban_invalid"),
                 })}
-                fieldHelperText="Diese Informationen werden vom Finanzamt für Steuerrückerstattungen genutzt. Deine Daten werden ausschließlich an dein Finanzamt übermittelt."
+                fieldHelperText={t("privateBankAccountOwner_label")}
                 autoFocus={true}
                 errors={errors}
                 watch={watch}
@@ -158,7 +155,11 @@ const BankAccount = ({
                   required: true,
                 })}
                 autoFocus={true}
-                options={bankAccountHolders}
+                options={
+                  i18n.language === "de"
+                    ? bankAccountHolders_de
+                    : bankAccountHolders_en
+                }
                 errors={errors}
                 watch={watch}
               />
@@ -169,7 +170,7 @@ const BankAccount = ({
       <div className="form_submit">
         <div className="form-invalid">
           {" "}
-          {isEmpty(errors) ? null : t("form_invalid")}
+          {/* {isEmpty(errors) ? null : t("form_invalid")} */}
         </div>
         <Button
           type="submit"

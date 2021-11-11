@@ -3,24 +3,18 @@ import { nYearsFromNow } from "components/Field/helpers";
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import genders from "res/FormData/gender.json";
-import marital_status from "res/FormData/marital_status.json";
+import genders_de from "res/FormData/de/gender.json";
+import marital_status_de from "res/FormData/de/marital_status.json";
+import genders_en from "res/FormData/en/gender.json";
+import marital_status_en from "res/FormData/en/marital_status.json";
 import religion from "res/FormData/religion.json";
-import { isEmpty } from "res/lib";
 import { useUserInteraction } from "userInteraction";
 import { sendAmplitudeData } from "../../../res/amplitude";
 import Field from "../../Field";
 import Fieldset from "../Fieldset";
 import { emailValidator, validators } from "../validators";
 
-const Personal = ({
-  steps,
-  currentStep,
-  nextStep,
-  defaultValues,
-  onFillStart,
-  comingStep,
-}) => {
+const Personal = ({ nextStep, defaultValues, comingStep }) => {
   const { register, handleSubmit, watch, errors, control, reset, formState } =
     useForm({
       mode: "onBlur",
@@ -30,15 +24,14 @@ const Personal = ({
   const onSubmit = (data) => nextStep(data, "personalFields");
   const moved_value = watch("moved");
   const maritalstatus_value = watch("maritalstatus");
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
-    reset(defaultValues); // asynchronously reset your form values
+    reset(defaultValues);
   }, [reset, defaultValues]);
 
   useEffect(() => {
     if (formState.isDirty) {
-      // console.log(`formState`, formState);
       setUserInteraction({ startedFilling: true });
     }
   }, [formState.isDirty, setUserInteraction]);
@@ -53,13 +46,10 @@ const Personal = ({
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      {/* {console.log(`userInteraction`, userInteraction)} */}
       <div className="form">
         <Field
           type="text"
           name="firstname"
-          // floatingLabel={t("firstname_label")}
-          placeholder={t("firstname_placeholder")}
           ref={register({
             required: true,
             maxLength: 80,
@@ -67,28 +57,24 @@ const Personal = ({
           })}
           errors={errors}
           watch={watch}
-          topLabel="Wie is deine Vorname"
+          topLabel={t("firstname_label")}
         />
 
         <Field
           type="text"
           name="name"
-          // floatingLabel={t("name_label")}
-          placeholder={t("name_placeholder")}
           ref={register({
             required: true,
             maxLength: 80,
             pattern: validators.name,
           })}
-          // autoFocus={true}
           errors={errors}
           watch={watch}
-          topLabel="Nachname"
+          topLabel={t("name_label")}
         />
         <Field
           type="email"
           name="email"
-          // floatingLabel={t("email_address_label")}
           ref={register({
             required: true,
             validate: emailValidator,
@@ -99,14 +85,13 @@ const Personal = ({
               field: "email",
             })
           }
-          topLabel="Geschäftliche E-Mail"
+          topLabel={t("email_label")}
           errors={errors}
           watch={watch}
         />
         <Field
           type="phone"
           name="phone"
-          // floatingLabel={t("phone_label")}
           topLabel={t("phone_label")}
           errors={errors}
           control={control}
@@ -114,8 +99,8 @@ const Personal = ({
         <Field
           type="jump-date"
           name="birthdate"
-          floatingLabel={"TT.MM.JJJJ"}
-          topLabel="Geburtstag"
+          floatingLabel={t("date_format")}
+          topLabel={t("birthdate_label")}
           errors={errors}
           control={control}
           dateMinMax={{
@@ -126,14 +111,14 @@ const Personal = ({
         <Field
           type="select"
           name="gender"
-          topLabel="Anrede"
+          topLabel={t("gender")}
           helperBelow
           ref={register({
             required: true,
             validate: (value) => !/choose/.test(value),
           })}
-          fieldHelperText={`Aktuell bietet das Finanzamt "divers" nicht als Geschlecht an. Wir bei Accountable unterstützen alle Gender und setzen uns weiter dafür ein, dass sich etwas ändert.`}
-          options={genders}
+          fieldHelperText={t("gender_helper")}
+          options={i18n.language === "de" ? genders_de : genders_en}
           errors={errors}
           control={control}
         />
@@ -142,7 +127,7 @@ const Personal = ({
           <Field
             type="text"
             name="address_street"
-            floatingLabel={"Strasse"}
+            floatingLabel={t("address_street")}
             ref={register({
               required: true,
               pattern: validators.address_street,
@@ -150,17 +135,19 @@ const Personal = ({
             watch={watch}
             errors={errors}
             control={control}
-            topLabel="Adresse"
+            topLabel={t("address_label")}
             expandedHelpers={[
               {
-                title:
-                  "Was ist, wenn ich vor kurzem aus dem Ausland nach Deutschland gezogen bin?",
-                content: `Antworte mit "Nein", solange du nicht aus einer anderen deutschen Gemeinde umgezogen bist.`,
+                title: t("address_helper_expand_title"),
+                content: t("address_helper_expand_content", {
+                  interpolation: { escapeValue: false },
+                }),
               },
               {
-                title:
-                  "Ich werde in den nächsten Wochen umziehen, welche Adresse soll ich angeben?",
-                content: `Deine Steuernummer erhältst du per Post. Du kannst deine Adresse aber auch nach der Registrierung bei deinem Finanzamt korrigieren lassen.`,
+                title: t("address_helper_expand_2_title"),
+                content: t("address_helper_expand_2_content", {
+                  interpolation: { escapeValue: false },
+                }),
                 cs: true,
               },
             ]}
@@ -172,7 +159,7 @@ const Personal = ({
             })}
             type="text"
             name="address_number"
-            floatingLabel={"Hausnummer"}
+            floatingLabel={t("address_number")}
             errors={errors}
             control={control}
             watch={watch}
@@ -184,7 +171,7 @@ const Personal = ({
             })}
             type="text"
             name="address_postcode"
-            floatingLabel={"Postleitzahl"}
+            floatingLabel={t("address_postcode")}
             errors={errors}
             control={control}
             watch={watch}
@@ -196,7 +183,7 @@ const Personal = ({
             })}
             type="text"
             name="address_city"
-            floatingLabel={"Stadt"}
+            floatingLabel={t("address_city")}
             errors={errors}
             control={control}
             watch={watch}
@@ -206,12 +193,14 @@ const Personal = ({
         <Field
           type="select"
           name="maritalstatus"
-          topLabel="Was ist dein aktueller Familienstand?"
+          topLabel={t("maritalstatus_label")}
           ref={register({
             required: true,
             validate: (value) => !/choose/.test(value),
           })}
-          options={marital_status}
+          options={
+            i18n.language === "de" ? marital_status_de : marital_status_en
+          }
           errors={errors}
           control={control}
           watch={watch}
@@ -226,51 +215,47 @@ const Personal = ({
                 <Field
                   type="text"
                   name="partner_firstname"
-                  floatingLabel={t("partner_firstname_label")}
-                  placeholder={t("partner_firstname_placeholder")}
                   ref={register({
                     required: true,
                     maxLength: 80,
                     pattern: validators.partner_firstname,
                   })}
-                  // autoFocus={true}
                   errors={errors}
                   watch={watch}
-                  topLabel="Vornahme deines Partners / deiner Partnerin"
+                  topLabel={t("partner_firstname_label")}
                 />
                 <Field
                   type="text"
                   name="partner_name"
-                  floatingLabel={t("partner_name_label")}
-                  placeholder={t("partner_name_placeholder")}
                   ref={register({
                     required: true,
                     maxLength: 80,
                     pattern: validators.partner_name,
                   })}
-                  // autoFocus={true}
                   errors={errors}
                   watch={watch}
-                  topLabel="Nachnahme deines Partners / deiner Partnerin"
+                  topLabel={t("partner_name_placeholder")}
                 />
                 <Field
                   type="select"
                   name="partner_gender"
-                  topLabel="Geschlecht deines Partners / deiner Partnerin"
+                  topLabel={t("partner_gender")}
                   helperBelow
                   ref={register({
                     required: true,
                     validate: (value) => !/choose/.test(value),
                   })}
-                  fieldHelperText={`Aktuell bietet das Finanzamt "divers" nicht als Geschlecht an. Wir bei Accountable unterstützen alle Gender und setzen uns weiter dafür ein, dass sich etwas ändert.`}
-                  options={genders}
+                  fieldHelperText={t("gender_helper", {
+                    interpolation: { escapeValue: false },
+                  })}
+                  options={i18n.language === "de" ? genders_de : genders_en}
                   errors={errors}
                   control={control}
                 />
                 <Field
                   type="jump-date"
                   name="partner_birthdate"
-                  topLabel="Geburtsdatum deines Partners / deiner Partnerin"
+                  topLabel={t("partner_birthdate_label")}
                   errors={errors}
                   control={control}
                   floatingLabel="TT.MM.JJJJ"
@@ -289,7 +274,7 @@ const Personal = ({
                     validate: (value) => !/choose/.test(value),
                   })}
                   fullWidth
-                  topLabel="Religionszugehörigkeit deines Partners / deiner Partnerin"
+                  topLabel={t("partner_religion_label")}
                   options={religion}
                   errors={errors}
                   control={control}
@@ -299,7 +284,8 @@ const Personal = ({
             <Field
               type="jump-date"
               name="maritalstatusdate"
-              topLabel="Seit"
+              topLabel={t("maritalstatusdate_label")}
+              floatingLabel={t("date_format")}
               errors={errors}
               control={control}
             />
@@ -309,10 +295,11 @@ const Personal = ({
         <Field
           type="select"
           name="religion"
-          //floatingLabel={""}
           fullWidth
-          topLabel="Religionszugehörigkeit"
-          fieldHelperText={`Bist du Mitglied einer kirchensteuerpflichtigen Religionsgemeinschaft? Dann wähle diese bitte hier aus. Ansonsten wähle “nicht kirchensteuerpflichtig”.`}
+          topLabel={t("religion_label")}
+          fieldHelperText={t("religion_heper", {
+            interpolation: { escapeValue: false },
+          })}
           options={religion}
           ref={register({
             required: true,
@@ -327,14 +314,15 @@ const Personal = ({
           control={control}
           name="moved"
           fullWidth
-          topLabel={`Bist du in den letzten 12 Monaten aus einer anderen Gemeinde zugezogen?`}
+          topLabel={t("moved_label")}
           options={[
-            { name: "Ja", value: "yes" },
-            { name: "Nein", value: "no" },
+            { name: t("yes"), value: "yes" },
+            { name: t("no"), value: "no" },
           ]}
           //floatingLabel={t("tax_status_label")}
-          fieldHelperText={`Diese Information hilft dem Finanzamt deine bisherigen Steuerdaten zuzuordnen.`}
-          // disabled={disabled}
+          fieldHelperText={t("moved_helper", {
+            interpolation: { escapeValue: false },
+          })}
           errors={errors}
         />
 
@@ -344,7 +332,7 @@ const Personal = ({
               type="text"
               watch={watch}
               name="past_address_street"
-              floatingLabel={"Strasse"}
+              floatingLabel={t("address_street")}
               errors={errors}
               ref={register({
                 required: true,
@@ -357,7 +345,7 @@ const Personal = ({
               type="text"
               watch={watch}
               name="past_address_number"
-              floatingLabel={"Hausnummer"}
+              floatingLabel={t("address_number")}
               errors={errors}
               ref={register({
                 required: true,
@@ -369,7 +357,7 @@ const Personal = ({
               type="text"
               watch={watch}
               name="past_address_postcode"
-              floatingLabel={"Postleitzahl"}
+              floatingLabel={t("address_postcode")}
               errors={errors}
               ref={register({
                 required: true,
@@ -381,7 +369,7 @@ const Personal = ({
               type="text"
               watch={watch}
               name="past_address_city"
-              floatingLabel={"Stadt"}
+              floatingLabel={t("address_city")}
               errors={errors}
               ref={register({
                 required: true,
@@ -392,8 +380,8 @@ const Personal = ({
             <Field
               type="jump-date"
               name="movingdate"
-              topLabel="Umzugsdatum"
-              floatingLabel="TT.MM.JJJJ"
+              topLabel={t("movingdate_label")}
+              floatingLabel={t("date_format")}
               errors={errors}
               ref={register({
                 required: true,
@@ -410,7 +398,7 @@ const Personal = ({
           fullWidth
           options={[
             {
-              name: "Ich will Hilfe beim Ausfüllen des Fragebogens und Steuer-Tipps von Accountable erhalten",
+              name: t("optin_label"),
               value: true,
               required: false,
               default: false,
@@ -422,12 +410,10 @@ const Personal = ({
       <div className="form_submit">
         <div className="form-invalid">
           {" "}
-          {isEmpty(errors) ? null : t("form_invalid")}
+          {/* {isEmpty(errors) ? null : t("form_invalid")} */}
         </div>
         <Button
           type="submit"
-          // form={currentStep.tabId}
-          // func={nextStep}
           className="body--big-bold"
           text={`${t("form_continue")}: ${comingStep.tabLabel}`}
         />

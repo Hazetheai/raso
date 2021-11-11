@@ -5,62 +5,62 @@ import React from "react";
 import home from "res/images/home.svg";
 import "./tabs.css";
 
-export const sampleTabData = {
-  title: "Wilkommen",
-  icon: home,
-  tabs: [
-    {
-      tabNumber: "1",
-      tabLabel: "Persönliche Daten",
-      tabSubtitle:
-        "Alle Daten werden SSL-verschlüsselt und über die ELSTER Schnittstelle sicher an dein Finanzamt übertragen.",
-      tabId: "personalFields",
-      complete: false,
-    },
-    {
-      tabNumber: "2",
-      tabLabel: "Geschäftliche Daten",
-      tabSubtitle:
-        "Alle Daten werden SSL-verschlüsselt und über die ELSTER Schnittstelle sicher an dein Finanzamt übertragen.",
-      tabId: "businessFields",
-      complete: false,
-    },
-    {
-      tabNumber: "3",
-      tabLabel: "Steuerliche Angaben",
-      tabSubtitle:
-        "Alle Daten werden SSL-verschlüsselt und über die ELSTER Schnittstelle sicher an dein Finanzamt übertragen.",
-      tabId: "taxInfoFields",
-      complete: false,
-    },
-    {
-      tabNumber: "4",
-      tabLabel: "Steuerschätzung",
-      tabSubtitle: "",
-      tabHelper: `Diese Angaben bilden die Berechnungsgrundlage für deine vierteljährlichen Vorauszahlungen zur Einkommensteuer und Gewerbesteuer.
-        Bitte wähle mindestens eine Einkommensquelle aus.
-        `,
-      tabId: "taxEstimateFields",
-      complete: false,
-    },
-    {
-      tabNumber: "5",
-      tabLabel: "Bankkonto",
-      tabSubtitle:
-        "Alle Daten werden SSL-verschlüsselt und über die ELSTER Schnittstelle sicher an dein Finanzamt übertragen.",
-      tabId: "bankAccountFields",
-      complete: false,
-    },
-    {
-      tabNumber: "6",
-      tabLabel: "Prüfen & abschicken",
-      tabSubtitle:
-        "Alle Daten werden SSL-verschlüsselt und über die ELSTER Schnittstelle sicher an dein Finanzamt übertragen.",
-      tabId: "reviewFields",
-      complete: false,
-    },
-  ],
-};
+// export const sampleTabData = {
+//   title: "Wilkommen",
+//   icon: home,
+//   tabs: [
+//     {
+//       tabNumber: "1",
+//       tabLabel: "Persönliche Daten",
+//       tabSubtitle:
+//         "Alle Daten werden SSL-verschlüsselt und über die ELSTER Schnittstelle sicher an dein Finanzamt übertragen.",
+//       tabId: "personalFields",
+//       complete: false,
+//     },
+//     {
+//       tabNumber: "2",
+//       tabLabel: "Geschäftliche Daten",
+//       tabSubtitle:
+//         "Alle Daten werden SSL-verschlüsselt und über die ELSTER Schnittstelle sicher an dein Finanzamt übertragen.",
+//       tabId: "businessFields",
+//       complete: false,
+//     },
+//     {
+//       tabNumber: "3",
+//       tabLabel: "Steuerliche Angaben",
+//       tabSubtitle:
+//         "Alle Daten werden SSL-verschlüsselt und über die ELSTER Schnittstelle sicher an dein Finanzamt übertragen.",
+//       tabId: "taxInfoFields",
+//       complete: false,
+//     },
+//     {
+//       tabNumber: "4",
+//       tabLabel: "Steuerschätzung",
+//       tabSubtitle: "",
+//       tabHelper: `Diese Angaben bilden die Berechnungsgrundlage für deine vierteljährlichen Vorauszahlungen zur Einkommensteuer und Gewerbesteuer.
+//         Bitte wähle mindestens eine Einkommensquelle aus.
+//         `,
+//       tabId: "taxEstimateFields",
+//       complete: false,
+//     },
+//     {
+//       tabNumber: "5",
+//       tabLabel: "Bankkonto",
+//       tabSubtitle:
+//         "Alle Daten werden SSL-verschlüsselt und über die ELSTER Schnittstelle sicher an dein Finanzamt übertragen.",
+//       tabId: "bankAccountFields",
+//       complete: false,
+//     },
+//     {
+//       tabNumber: "6",
+//       tabLabel: "Prüfen & abschicken",
+//       tabSubtitle:
+//         "Alle Daten werden SSL-verschlüsselt und über die ELSTER Schnittstelle sicher an dein Finanzamt übertragen.",
+//       tabId: "reviewFields",
+//       complete: false,
+//     },
+//   ],
+// };
 
 const Tabs = ({ tabData, activeTab, onTabClick }) => {
   return (

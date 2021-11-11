@@ -23,7 +23,12 @@
   color: rgba(105, 77, 129, 1);
 }
 
+.screen-title + p {
+  margin-top: -12px;
+}
+
 .form_submit {
+  padding: 0 36px;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -61,6 +66,7 @@
   flex: 1 0 100%;
   background: white;
   padding: 24px 32px;
+  margin-right: 2vw;
 }
 
 @media only screen and (min-width: 768px) {
@@ -78,7 +84,8 @@
 .tab-helper {
   position: relative;
   background: #f4effa;
-  padding: 20px;
+  margin-top: 12px;
+  padding: 24px;
   font-weight: 600;
   border-radius: 10px;
   z-index: 20;
@@ -138,4 +145,9 @@
   flex: 0 0 100%;
   text-align: right;
   margin-right: 23%;
+}
+
+pre {
+  white-space: pre-wrap;
+  font-size: 13px;
 }

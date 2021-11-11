@@ -1,29 +1,9 @@
 import React from "react";
-import rasoCTAImage from "res/images/raso-cta-2-illustration.png";
 import pinkStars from "res/images/pink_stars.svg";
-import checkmark from "res/images/checkmark.svg";
 import Link from "components/Link";
 import Button from "components/Button";
 import "./cta.css";
 import Terms from "components/Terms";
-
-export const CTAsampleData = {
-  preHeadline: "SPECIAL OFFER FOR BEGINNERS",
-  mainImageSrc: rasoCTAImage,
-  headline: "Get 6 months free of Accountable PRO",
-  subheadline:
-    "We offer our best subscription free of charge for all those who obtain their tax number through us.",
-  mobileActionElementText: "START FOR FREE",
-  mobileActionElementLink: "https://accountable.app.link/FTshY7oGF3?",
-  desktopActionElementText: "START FOR FREE",
-  desktopActionElementLink: "http://onboarding.accountable.de/en/",
-  isButton: false,
-  action: () => console.log("Click CTA"),
-  offerPromises: [
-    { imgSrc: checkmark, text: "No Credit Card Required" },
-    { imgSrc: checkmark, text: "Full Beginner Support" },
-  ],
-};
 
 const CTA = ({
   preHeadline,
