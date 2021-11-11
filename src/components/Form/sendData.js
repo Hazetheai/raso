@@ -56,7 +56,7 @@ async function apiCall(fields, lang, partner, preview, usecase) {
 
   try {
     console.log(`sendFields`, sendFields);
-    const response = await window.fetch("http://localhost:10023/raso-api/", {
+    const response = await window.fetch(wpHost + "/raso-api/", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
