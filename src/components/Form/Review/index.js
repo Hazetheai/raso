@@ -125,7 +125,11 @@ const Review = ({
         {apiResponse.success && (
           <div className="tab-helper form_submit--review">
             <p className="body--medium">{t("review_button_success_heading")}</p>
-            <p className="body--small">{t("review_button_success_subtitle")}</p>
+            <p className="body--small">
+              {t("review_button_success_subtitle", {
+                interpolation: { escapeValue: false },
+              })}
+            </p>
 
             <Button
               func={async () => {
@@ -141,7 +145,7 @@ const Review = ({
               className="body--big-bold"
               type="button"
             >
-              <img src={eagle} alt="Ans Finanzamt senden" />
+              <img src={eagle} alt={t("review_button_send_pdf")} />
               {t("review_button_send_pdf")}
             </Button>
           </div>
