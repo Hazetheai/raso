@@ -6,6 +6,7 @@ import { useTranslation } from "react-i18next";
 import tax_offices from "res/FormData/tax_office.json";
 import eagle from "res/images/eagle.png";
 import { isEmpty } from "res/lib";
+import { corsProxy } from "settings/config";
 import { useUserData } from "userData";
 import Field from "../../Field";
 import Fieldset from "../Fieldset";
@@ -113,7 +114,7 @@ const Review = ({
               secondary
               ref={linkRef}
               className="body--big-bold"
-              href={apiResponse.previewLink}
+              href={apiResponse.previewLink.replace(corsProxy, "")}
               target={"_blank"}
               rel="noopener"
               text={t("review_button_view_pdf")}
