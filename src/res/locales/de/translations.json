@@ -7,19 +7,320 @@
   "no_credit_card_required": "Keine Kreditkarte nötig",
   "support_always_available": "Testphase endet automatisch",
   "free_plan_available": "14 Tage unverbindlich testen",
-  "email_address_label": "Email-Adresse",
-  "email_address_placeholder": "max.mustermann@gmail.com",
-  "first_name_label": "Vorname",
-  "first_name_placeholder": "Max",
-  "last_name_label": "Nachname",
-  "last_name_placeholder": "Mustermann",
+
+  "yes": "Ja",
+  "no": "Nein",
+
+  "freelancer": "Freiberufler",
+
+  "professional": "Gewerbtreibende",
+
+  "renting": "Vermietung und Verpachtung",
+
+  "maximum": "Maximal",
+  "characters": "Zeichen",
+
+  "nav_link_1": "https://www.accountable.de/selbstandig-werden-mit-accountable/",
+  "nav_label_1": "Selbständig werden",
+  "nav_link_2": "https://www.accountable.de/preise/",
+  "nav_label_2": "Preise",
+  "nav_link_3": "https://www.accountable.academy/",
+  "nav_label_3": "Academy",
+  "nav_link_4": "https://www.accountable.de/blog/",
+  "nav_label_4": "Steuer-Ratgeber",
+
+  "hero_title": "Den Fragebogen zur steuerlichen Erfassung ausfüllen",
+  "hero_subtitle": "Um dich selbstständig zu machen, benötigst du eine Steuernummer. Dafür musst du das Formular ausfüllen und an dein Finanzamt übermitteln. Die steuerliche Registrierung durch Accountable ist schnell, sicher und kostenlos",
+  "hero_term_1": "Sichere Übertragung deiner Daten über Elster",
+  "hero_term_2": "Erhalte deine Steuernummer vom Finanzamt per Post",
+  "hero_term_3": "Komplett kostenlos",
+  "hero_ctaText": "Anmeldung beginnen",
+
+  "footer_facebook_label": "Accountable auf Facebook",
+  "footer_instagram_label": "Accountable auf Instagram",
+  "footer_linkedin_label": "Accountable auf LinkedIn",
+  "footer_trustpilot_num_reviews": "Bewertungen",
+
+  "footer_menu_product_heading_label": "Unser Angebot",
+  "footer_menu_product_01_label": "Steuernummer beantragen",
+  "footer_menu_product_01_link": "/steuernummer-online-beantragen/",
+  "footer_menu_product_02_label": "Preise",
+  "footer_menu_product_02_link": "/preise/",
+  "footer_menu_product_03_label": "Steuerberatung",
+  "footer_menu_product_03_link": "/steuerberater/",
+  "footer_menu_product_04_label": "Steuertipps",
+  "footer_menu_product_04_link": "/blog/",
+
+  "footer_menu_tools_heading_label": "Hilfen für Selbständige",
+  "footer_menu_tools_01_label": "Kann ich das absetzen?",
+  "footer_menu_tools_01_link": "https://kannichdasabsetzen.accountable.de/",
+  "footer_menu_tools_02_label": "Kostenlose Rechnungsvorlage",
+  "footer_menu_tools_02_link": "/rechnung-online-erstellen/",
+  "footer_menu_tools_03_label": "Kostenlose Angebotsvorlage",
+  "footer_menu_tools_03_link": "/angebot-online-erstellen/",
+  "footer_menu_tools_04_label": "Steuerrechner",
+  "footer_menu_tools_04_link": "/steuer-rechner/",
+
+  "footer_menu_company_heading_label": "Company",
+  "footer_menu_company_01_label": "Über uns",
+  "footer_menu_company_01_link": "/uber-uns/",
+  "footer_menu_company_02_label": "Jobs",
+  "footer_menu_company_02_link": "https://angel.co/accountable-2/jobs/",
+  "footer_menu_company_03_label": "Datenschutz",
+  "footer_menu_company_03_link": "/privacy/",
+  "footer_menu_company_04_label": "Cookie-Richtlinie",
+  "footer_menu_company_04_link": "/cookie-policy/",
+
+  "footer_menu_help_heading_label": "Hilfe & Kontakt",
+  "footer_menu_help_01_label": "FAQ",
+  "footer_menu_help_01_link": "https://help.accountable.eu/en/",
+  "footer_menu_help_02_label": "Kontakt",
+  "footer_menu_help_02_link": "mailto:hello@getaccountable.eu",
+  "footer_menu_help_03_label": "Impressum",
+  "footer_menu_help_03_link": "/impressum/",
+
+  "faq_raso_q_1_title": "Ist dies das Formular, das ich gesucht habe? ",
+  "faq_raso_q_1_answer": "Um dich in Deutschland selbstständig zu machen, musst du den \"Fragebogen zur steuerlichen Erfassung\" ausfüllen. Mit diesem Formular beantragst du gleichzeitig auch deine Steuernummer. Der offizielle Fragebogen kann auf unserer Website direkt ans Finanzamt übermittelt werden. <br/><br/> Wenn du dich also selbstständig machen willst, hast du das richtige Formular gefunden!",
+  "faq_raso_q_2_title": "Benötige ich ein ELSTER Konto dafür?",
+  "faq_raso_q_2_answer": "Du musst nicht extra ein ELSTER Konto erstellen, um den Fragebogen zu übermitteln! Wir übertragen dein Formular direkt über unsere offizielle ELSTER Schnittstelle. So ersparen wir dir die Anmeldung bei ELSTER.",
+
+  "faq_raso_q_3_title": "Helft ihr mir weiter, wenn ich Fragen habe?",
+  "faq_raso_q_3_answer": "Unser Team im Kundenservice hilft dir gerne weiter. Schreib uns einfach im LiveChat und wir kümmern uns um deine Frage. Alternativ kannst du auch direkt einen Info Call mit uns buchen oder findest die Antwort auf unserem <a href=\"https://www.accountable.de/blog/so-fullst-du-den-fragebogen-zur-steuerlichen-erfassung-richtig-aus/\" target=\"_blank\">Blog! </a> ",
+
+  "faq_raso_q_4_title": "Welche Daten muss ich im Fragebogen angeben?",
+  "faq_raso_q_4_answer": "Bevor du dich registrierst, stelle sicher, dass du deine <strong>Steueridentifikationsnummer</strong> hast, dass du weißt, ob du dich als <strong>Kleinunternehmer</strong> registrieren willst und was dein zu <strong>erwartender Gewinn</strong> sein wird. ",
+
+  "faq_raso_q_5_title": "Kostet es etwas, den Fragebogen auf eurer Seite auszufüllen? ",
+  "faq_raso_q_5_answer": "Nein, diesen Service bieten wir dir komplett kostenlos an. Du kannst einfach auf \"abschicken\" klicken und erhältst nach ca. 3 Wochen deine Steuernummer vom Finanzamt, ohne dass dir etwas berechnet wird.",
+
+  "faq_raso_q_6_title": "Was ist Accountable? ",
+  "faq_raso_q_6_answer": "Accountable ist die einfachste und beste Lösung für Selbstständige. <br/><br/> Du kannst vom Finanzamt anerkannte Rechnungen schreiben, alle deine Belege scannen und somit deine Buchhaltung spielend leicht digitalisieren. Zusätzlich kümmert sich Accountable um deine Steuerverpflichtungen: ob Umsatzsteuer oder Einkommensteuer, mit Accountable verpasst du keine Fristen mehr und kannst deine Steuererklärungen durch eine sichere Elster Schnittstelle direkt an dein Finanzamt versenden. <br/><br/> Mit Accountable kannst du auch als Steuerneuling von Anfang alles richtig machen. Wir übersetzen die Sprache des Finanzamts für dich und geben dir wertvolle Steuertipps. Unsere Mission ist es, dir den Alltag als Selbstständige*n zu erleichtern, damit du dich auf das wirklich Wichtige konzentrieren kannst.",
+
+  "success_a_hero_title": "Glückwunsch, <br /> der 1. Schritt ist getan...",
+  "success_a_hero_subtitle": "Du hast deine Selbständigkeit offiziell angemeldet! ✨",
+  "success_a_hero_your_name": "Ihre Name",
+  "success_a_hero_your_address": "Ihre Adresse",
+  "success_a_hero_start_from": "Start zum",
+  "success_a_hero_finanzamt_office": "Adresse des Finanzamtes",
+  "success_a_hero_ref_number": "Deine Referenz-Nr.:",
+
+  "success_a_body_title": "",
+
+  "success_cta_join_pre_headline": "BESONDERES ANGEBOT FÜR ANFÄNGER",
+  "success_cta_join_headline": "Erhalte 6 Monate kostenlos Accountable PRO",
+  "success_cta_join_sub_headline": "Wir bieten unser bestes Abo kostenlos für alle an, die über uns ihre Steuernummer erhalten.",
+  "success_cta_join_mobile_action_element_text": "JETZT KOSTENLOS STARTEN",
+  "success_cta_join_mobile_action_element_link": "https://accountable.app.link/FTshY7oGF3?",
+  "success_cta_join_desktop_action_element_text": "JETZT KOSTENLOS STARTEN",
+  "success_cta_join_desktop_action_element_link": "http://onboarding.accountable.de/en/",
+  "success_cta_join_offer_promises_text_1": "Ohne Kreditkarte",
+  "success_cta_join_offer_promises_text_2": "Volle Unterstützung für Anfänger",
+
+  "tab_header_welcome": "Wilkommen",
+
+  "tab_personalFields_label": "Persönliche Daten",
+  "tab_personalFields_subtitle": "Alle Daten werden SSL-verschlüsselt und über die ELSTER Schnittstelle sicher an dein Finanzamt übertragen.",
+
+  "tab_businessFields_label": "Geschäftliche Daten",
+  "tab_businessFields_subtitle": "Alle Daten werden SSL-verschlüsselt und über die ELSTER Schnittstelle sicher an dein Finanzamt übertragen.",
+
+  "tab_taxInfoFields_label": "Steuerliche Angaben",
+  "tab_taxInfoFields_subtitle": "Alle Daten werden SSL-verschlüsselt und über die ELSTER Schnittstelle sicher an dein Finanzamt übertragen.",
+
+  "tab_taxEstimateFields_label": "Steuerschätzung",
+  "tab_taxEstimateFields_helper": "Diese Angaben bilden die Berechnungsgrundlage für deine vierteljährlichen Vorauszahlungen zur Einkommensteuer und Gewerbesteuer. Bitte wähle mindestens eine Einkommensquelle aus",
+  "tab_taxEstimateFields_subtitle": "Alle Daten werden SSL-verschlüsselt und über die ELSTER Schnittstelle sicher an dein Finanzamt übertragen.",
+
+  "tab_bankAccountFields_label": "Bankkonto",
+  "tab_bankAccountFields_subtitle": "Alle Daten werden SSL-verschlüsselt und über die ELSTER Schnittstelle sicher an dein Finanzamt übertragen.",
+
+  "tab_reviewFields_label": "Prüfen & abschicken",
+  "tab_reviewFields_subtitle": "Alle Daten werden SSL-verschlüsselt und über die ELSTER Schnittstelle sicher an dein Finanzamt übertragen.",
+
+  "full_name_label": "Vollständiger Name",
+
+  "firstname_label": "Wie is deine Vorname",
+  "firstname_placeholder": "Max",
+  "name_label": "Nachname",
+  "name_placeholder": "Mustermann",
+
+  "partner_firstname_label": "Vornahme deines Partners / deiner Partnerin",
+  "partner_firstname_placeholder": "Max",
+  "partner_name_label": "Nachnahme deines Partners / deiner Partnerin",
+  "partner_name_placeholder": "Mustermann",
+
+  "email_label": "Geschäftliche E-Mail",
+  "email_placeholder": "max.mustermann@gmail.com",
+
   "phone_label": "Telefon",
+  "phone_placeholder": "+49...",
+
+  "birthdate_label": "Geburtstag",
+  "partner_birthdate_label": "Geburtsdatum deines Partners / deiner Partnerin",
+
+  "gender": "Anrede",
+  "partner_gender": "Geschlecht deines Partners / deiner Partnerin",
+  "gender_helper": "Aktuell bietet das Finanzamt \"divers\" nicht als Geschlecht an. Wir bei Accountable unterstützen alle Gender und setzen uns weiter dafür ein, dass sich etwas ändert.",
+  "gender_male": "Männlich",
+  "gender_female": "Weiblich",
+
+  "address_helper_expand_title": "Was ist, wenn ich vor kurzem aus dem Ausland nach Deutschland gezogen bin?",
+  "address_helper_expand_content": "Antworte mit \"Nein\", solange du nicht aus einer anderen deutschen Gemeinde umgezogen bist.",
+  "address_helper_expand_2_title": "Ich werde in den nächsten Wochen umziehen, welche Adresse soll ich angeben?",
+  "address_helper_expand_2_content": "Deine Steuernummer erhältst du per Post. Du kannst deine Adresse aber auch nach der Registrierung bei deinem Finanzamt korrigieren lassen.",
+
+  "address_label": "Adresse",
+  "address_street": "Strasse",
+  "address_number": "Hausnummer",
+  "address_postcode": "Postleitzahl",
+  "address_city": "Stadt",
+
+  "maritalstatus_label": "Was ist dein aktueller Familienstand?",
+  "maritalstatusdate_label": "Seit",
+
+  "religion_label": "Religionszugehörigkeit",
+  "partner_religion_label": "Religionszugehörigkeit deines Partners / deiner Partnerin",
+  "religion_heper": "Bist du Mitglied einer kirchensteuerpflichtigen Religionsgemeinschaft? Dann wähle diese bitte hier aus. Ansonsten wähle “nicht kirchensteuerpflichtig”.",
+
+  "moved_label": "Bist du in den letzten 12 Monaten aus einer anderen Gemeinde zugezogen?",
+  "moved_helper": "Diese Information hilft dem Finanzamt deine bisherigen Steuerdaten zuzuordnen.",
+  "movingdate_label": "Umzugsdatum",
+
+  "optin_label": "Ich will Hilfe beim Ausfüllen des Fragebogens und Steuer-Tipps von Accountable erhalten",
+
+  "profession_label": "Beruf",
+  "profession_helper": "Auf Basis dieser Informationen entscheidet das Finanzamt, ob du als Freiberufler*in oder Gewerbetreibende*r eingestuft wirst und welche Steuern du zahlen musst. {{- link}}",
+
+  "profession_helper_expand_title": "Was sollte ich bei der Tätigkeitsbeschreibung beachten?",
+  "profession_helper_expand_content": "Eine kurze aber genaue Angabe deiner Tätigkeit: z.B. nicht nur \"Design\", sondern \"Erstellung von Designs für Webseiten\" <br/><br/> Du kannst auch mehrere Tätigkeiten anmelden. Diese sollten zu deiner Haupttätigkeit passen. Als Webdesigner*in kannst du z.B. auch Online-Werbung oder Marketing machen.",
+
+  "officeaddress_label": "Hast du eine abweichende geschäftliche Adresse?",
+
+  "previousbusiness_label": "Hast du in den letzten 5 Jahren ein Gewerbe betrieben, warst als Selbständige*r tätig oder hast Anteile an einer Gesellschaft (von mind. 1%) besessen?",
+
+  "steueridentifkationsnummer_label": "Deine Steueridentifikationsnummer",
+  "steueridentifkationsnummer_helper": "Wenn du in Deutschland geboren bist, erhältst du die Steueridentifikationsnummer nach der Geburt. Als Expat erhältst du sie bei der ersten Anmeldung in Deutschland. Es ist NICHT deine Steuernummer. <a href=\"https://accountable.de/blog/selbststandig-in-deutschland-das-bedeuten-die-verschiedenen-steuernummern/\" target=\"_blank\"> Hier findest du mehr Informationen.</a>",
+
+  "steuernummer_label": "Hast du oder dein Ehepartner/eingetragener Lebenspartner bereits eine Steuernummer?",
+  "steuernummer_value_label": "Deine Steuernummer",
+
+  "singleentry_label": "Ich will die einfache Gewinnermittlung für Selbständige nutzen (EÜR)",
+  "singleentry_helper": "Die Einnahmenüberschussrechnung (EÜR) ist die einfachste und üblichste Art der Gewinnermittlung für Selbständige. Deine Steuern werden entsprechend der von dir angegebenen Einnahmen und Kosten berechnet.",
+  "singleentry_helper_2": "Aktuell unterstützen wir nur die Gewinnermittlung per EÜR. Kontaktiere uns bittte, wenn du eine andere Gewinnermittlungsart verwenden willst oder mehr als €600.000 Umsatz oder €60.000 Gewinn machst.",
+  "singleentry_helper_expand_title": "Was ist die EÜR?",
+  "singleentry_helper_expand_content": "Die Einnahmenüberschussrechnung (EÜR) ist die einfachste Methode, um deinen Gewinn festzustellen. Alle Freiberufler*innen und Gewerbetreibende mit einem jährlichen Umsatz von weniger als 600.000€ und einem jährlichen Gewinn von weniger als 60.000€ können die EÜR verwenden. <br/> <br/> Im Moment unterstützen wir die Registrierung nur über diese Gewinnermittlungsmethode. Wenn du eine andere Methode verwenden möchtest (z.B. doppelte Buchführung), wende dich an unseren Kundenservice.",
+
+  "tax_info_expected_income_fieldset_title": "Erwartete Einnahmen aus deiner Selbständigkeit",
+  "startdate_label": "Start deiner Selbständigkeit",
+  "startdate_helper_expand_title": "Start deiner Selbständigkeit",
+  "startdate_helper_expand_content": "Du kannst deine Selbständigkeit auch rückwirkend anmelden. Gerade, wenn du schon Kosten zum Anschieben deiner Selbständigkeit hast, kann das Sinn machen. Beachte aber, dass dann evtl. Steuermeldungen nachzuholen sind.",
+
+  "revenue_firstYear_label": "Deine voraussichtlichen Umsätze dieses Jahr",
+  "revenue_firstYear_helper": "Bitte schätze deine Einnahmen aus deiner Selbständigkeit (ohne Gehalt, Mieteinnahmen etc.)",
+
+  "revenue_secondYear_label": "Deine voraussichtlichen Umsätze nächstes Jahr",
+  "revenue_secondYear_helper": "Bitte schätze deine Einnahmen aus deiner Selbständigkeit (ohne Gehalt, Mieteinnahmen etc.)",
+
+  "chargeVAT_label": "Willst du Umsatzsteuer auf deinen Rechnungen erheben",
+  "chargeVAT_helper": "Wenn dein Umsatz im Jahr weniger als 22.000€ beträgt, kannst du dich als Kleinunternehmer registrieren. Dann musst du keine Umsatzsteuer ausweisen. <a href=\"https://accountable.de/blog/kleinunternehmerin-welche-steuern-muss-ich-zahlen/\" target=_blank> Hier findest du mehr Infos und die Vor- und Nachteile davon. </a>",
+  "chargeVAT_expand_helper_title": "Kann ich mich als Kleinunternehmer*in registrieren?",
+  "chargeVAT_expand_helper_content": "Die <a href=\"https://www.accountable.de/blog kleinunternehmer-guide-alles-rund-um-die-kleinunternehmerregelung/\" target=\"_blank\"> Kleinunternehmerregelung </a> befreit dich von der Umsatzsteuer, wenn dein Umsatz unter 22.000€ im ersten Jahr und unter 50.000€ im Folgejahr liegt (Stand 2021). <br/><br/> Wenn du mitten im Jahr mit der Selbständigkeit anfängst, musst du deine Umsätze auf das ganze Jahr hochrechnen. Bei Registrierung am 1. Juli z.B. darf dein jährlicher Umsatz höchstens 11.000€ sein.",
+
+  "chargeVAT_expand_helper_2_title": "Ist die Kleinunternehmerregelung immer vorteilhaft?",
+  "chargeVAT_expand_helper_2_content": "Die Befreiung von der Umsatzsteuer ist vorteilhaft, wenn du nur Privatkunden/-kundinnen hast und keine hohen Investitionen hast.  <br/><br/> Wenn du an Unternehmen verkaufst oder hohe Investitionen planst, dann lohnt sich diese Regelung meistens nicht. Als Kleinunternehmer*in kannst du nämlich die gezahlte Umsatzsteuer aus deinen Ausgaben nicht als Vorsteuer zurückbekommen.",
+
+  "askVATnumber_label": "Umsatzsteuer-Identifikationsnummer beantragen - für Rechnungen an Kunden im EU-Ausland",
+  "askVATnumber_helper": "Wenn du auch Kunden in anderen EU Ländern hast, kannst du hier direkt die Umsatzsteueridentifikationsnummer beantragen. Hast du nur Kunden in Deutschland, genügt deine Steuernummer. <a href=\"https://accountable.de/blog/selbststandig-in-deutschland-das-bedeuten-die-verschiedenen-steuernummern/\" target=\"_blank\" > Hier findest du alles über die Umsatzsteuer-ID.</a>",
+  "askVATnumber_expand_helper_title": "Brauche ich eine USt-ID?",
+  "askVATnumber_expand_helper_content": "Nur wenn du Geschäfte mit Unternehmen aus der EU hast, musst du eine USt-ID beantragen. Kleinunternehmer*innen brauchen grundsätzlich keine USt-ID. <br/><br/> Wenn du nur an Privatpersonen in der EU verkaufst oder nur deutsche Kunden/Kundinnen hast, brauchst du auch keine.",
+
+  "tax_estimate_projected_profit_fieldset_label": "Voraussichtlicher Gewinn aus deiner Selbständigkeit",
+  "profitFreiberufler_label": "Erwartest du Gewinne aus Selbständigkeit?",
+  "profitFreiberufler_expand_helper_title": "Was ist der Unterschied zwischen selbständigen und gewerblichen Tätigkeiten?",
+  "profitFreiberufler_expand_helper_content": "Zu den selbständigen Tätigkeiten gehören: <br/> - <a href=\"https://www.accountable.de/blog/freiberufler-oder-gewerbe/\" target=\"_blank\"> freiberufliche Tätigkeiten </a> <br/> - staatliche Lotterieeinnahmen <br/> - sonstige selbständige Arbeiten (z.B. Vermögensverwaltung)<br/><br/>Alle anderen Tätigkeiten sind in der Regel gewerblich. Mehr Infos dazu auf <a href=\"https://www.accountable.de/blog/freiberufler-oder-gewerbe/\" target=\"_blank\"> unseren Blog.</a>",
+  "profitFreiberuflerFirstYear_label": "Erstes Geschäftsjahr (2021)",
+  "profitFreiberuflerFirstYear_helper": "Schätze den Gewinn so gut du kannst. Dein Gewinn ist dein Umsatz nach Abzug aller geschäftlichen Kosten (z.B. Software, Reisekosten, Hilfsmittel etc.)",
+  "profitFreiberuflerSecondYear_label": "Zweites Geschäftsjahr (2021)",
+
+  "profitGewerbetreibender_label": "Erwartest du Gewinne aus Gewerbetrieb?",
+  "profitGewerbetreibenderFirstYear_label": "Erstes Geschäftsjahr (2021)",
+  "profitGewerbetreibenderSecondYear_label": "Zweites Geschäftsjahr (2021)",
+  "profitGewerbetreibenderSecondYear_helper": "Schätze den Gewinn so gut du kannst. Dein Gewinn ist dein Umsatz nach Abzug aller geschäftlichen Kosten (z.B. Software, Reisekosten, Hilfsmittel etc.)",
+
+  "tax_estimate_other_income_fieldset_label": "Andere Einkommensquellen",
+  "profitNichtselbstandiger_label": "Erwartete Gehalts- oder Lohnzahlungen (Nichtselbständige Arbeit)",
+  "profitNichtselbstandiger_helper": "Wenn du ein Lohn oder Gehalt bekommst, trage hier bitte das Bruttojahresgehalt vor allen Abzügen ein.",
+  "profitNichtselbstandiger_FirstYear_label": "Erstes Geschäftsjahr (2021)",
+  "profitNichtselbstandiger_SecondYear_label": "Zweites Geschäftsjahr (2021)",
+
+  "profitKapitalvermogen_label": "Erwartest du Einkommen aus Kapitalvermögen?",
+  "profitKapitalvermogen_helper": "Einkommen aus Aktien, Fonds oder Zinsen (keine Mieteinnahmen)",
+  "profitKapitalvermogen_FirstYear_label": "Erstes Geschäftsjahr (2021)",
+  "profitKapitalvermogen_SecondYear_label": "Zweites Geschäftsjahr (2021)",
+
+  "profitVermietung_label": "Erwartest du Einkommen aus Vermietung oder Verpachtung?",
+  "profitVermietung_helper": "Einkommen aus Vermietung und Verpachtung",
+  "profitVermietung_FirstYear_label": "Erstes Geschäftsjahr (2021)",
+  "profitVermietung_SecondYear_label": "Zweites Geschäftsjahr (2021)",
+
+  "profitSonstigen_label": "Erwartest du sonstige Einkünfte?",
+  "profitSonstigen_helper": "Einkommen aus anderen Quellen (z.B. Rente)",
+  "profitSonstigen_FirstYear_label": "Erstes Geschäftsjahr (2021)",
+  "profitSonstigen_SecondYear_label": "Zweites Geschäftsjahr (2021)",
+
+  "profitAgriculture_label": "Hast du Einkommen aus Land- und Forstwirtschaft?",
+  "profitAgriculture_helper": "Aktuell unterstützen wir die Online-Meldung beim Finanzamt nicht, wenn du Einkommen aus Land- und Forstwirtschaft hast. <a href=\"https://accountable.de/steuernummer-online-beantragen/#\" target=\"_blank\"> Kontaktiere uns, wenn das bei dir der Fall ist.</a>",
+
+  "taxPrepayment_label": "Willst du deine Steuerabzüge schätzen, um deine Steuer-Vorauszahlungen zu verringern?",
+  "taxPrepayment_helper": "Du kannst versuchen deine Sonderausgaben und Steuerabzugsbeträge anhand deiner letzten Steuererklärung zu schätzen. Wenn du dir nicht sicher bist, antworte einfach mit “Nein”. Dadurch hast du evtl. höhere Steuervorauszahlungen, du kannst die Steuerabzüge aber trotzdem am Jahresende geltend machen und bist so auf der sicheren Seite.",
+
+  "tax_estimate_sonderausgaben_fieldset_title": "Deine erwarteten Sonderausgaben",
+  "tax_estimate_sonderausgaben_fieldset_helper": "Private Versicherungen, Altersvorsorge, Unterhalt. Bitte trage hier nicht deine geschäftlichen Ausgaben ein (Büromaterial, Miete etc.)",
+  "tax_estimate_steuerabzugsbetrage_fieldset_title": "Expected tax deductions (Steuerabzugsbeträge)",
+  "tax_estimate_steuerabzugsbetrage_fieldset_helper": "Hier kannst du eine Schätzung z.B. anhand deiner letzten Einkommensteuererklärung vornehmen.",
+
+  "sonderausgabenFirstYear_label": "Erstes Geschäftsjahr (2021)",
+  "sonderausgabenSecondYear_label": "Zweites Geschäftsjahr (2021)",
+  "steuerabzugsbetrageFirstYear_label": "Erstes Geschäftsjahr (2021)",
+  "steuerabzugsbetrageSecondYear_label": "Zweites Geschäftsjahr (2021)",
+
+  "tax_estimate_form_warning": "Eine dieser Einkommensarten muss ausgefüllt werden:",
+
+  "bank_account_business_fieldset_title": "Geschäftliches Bankkonto",
+  "showBusinessBankAccount_label": "Willst du dem Finanzamt dein geschäftliches Bankkonto mitteilen (optional)?",
+  "businessIban_label": "IBAN deines geschäftlichen Bankkontos",
+  "businessBankAccountOwner_label": "Kontoinhaber deines geschäftlichen Bankkontos",
+
+  "bank_account_private_fieldset_title": "Privates Bankkonto",
+  "showPrivateBankAccount_label": "Willst du dem Finanzamt dein privates Bankkonto mitteilen (optional)?",
+  "privateIban_label": "IBAN deines privaten Bankkontos",
+  "privateBankAccountOwner_label": "Kontoinhaber deines privaten Bankkontos",
+
+  "taxOffice_label": "Wähle hier dein zuständiges Finanzamt",
+  "taxOffice_helper": "Wähle dein zuständiges Finanzamt.",
+  "taxOffice_helper_2": "<a href=\"https://www.bzst.de/DE/Service/Behoerdenwegweiser/Finanzamtsuche/GemFa/finanzamtsuche_node.html\" target=\"_blank\">Hier kannst du nach einem Finanzamt über PLZ oder den Namen der Gemeinde suchen</a>",
+
+  "review_proof_read_fieldset_title": "Daten überprüfen und abschicken",
+  "review_proof_read": "Bitte überprüfe deine Daten, um sicherzustellen, dass du alle Informationen korrekt eingegeben hast.",
+
+  "review_button_gen_pdf": "Vorschau laden",
+  "review_button_view_pdf": "Vorschau ansehen",
+  "review_button_send_pdf": "Ans Finanzamt senden",
+
+  "review_button_success_heading": "Nach dem Absenden des Formulars erhältst du deine Steuernummer vom Finanzamt per Post. In der Regel dauert es 3-6 Wochen, bis sie eintrifft.",
+
+  "review_button_success_subtitle": "Wenn du willst, kannst du zusätzlich auch einen unserer Partner-Steuerberater beauftragen, deine Angaben zu prüfen bevor du sie an das Finanzamt sendest.",
+
+  "disclaimer": "Die in diesem Formular gegebenen Hinweise sind unverbindlich und ersetzen keinen Steuerberater. Bitte lass dir im Zweifel von einem Steuerberater helfen.",
   "no_credit_card_required_label": "Land",
   "country_option_germany": "🇩🇪 Deutschland",
   "country_option_belgium": "🇧🇪 Belgien",
   "password_label": "Passwort",
   "password_placeholder": "Ein sicheres Passwort",
   "form_continue": "Weiter",
+
+  "date_format": "TT.MM.JJJJ",
+
   "tax_status_label": "Steuerlicher Status",
   "ust_status_label": "Umsatzsteuer Status",
   "ust_status_subject_to_vat": "Umsatzsteuerpflichtig",
@@ -31,6 +332,8 @@
   "form_error": "Das Formular enthält Fehler.",
   "field_required": "Dieses Feld ist erforderlich.",
   "field_invalid": "Dieses Feld ist ungültig.",
+  "form_invalid": "Dieses Formular ist ungültig",
+  "iban_invalid": "Diese IBAN-Nummer ist ungültig",
   "email_exists": "Diese E-Mail Adresse existiert bereits.",
   "consent_message": "Indem du auf die Schaltfläche \"Weiter\" klickst, erklärst du dich ausdrücklich mit den Nutzungsbedingungen von Accountable einverstanden und verstehst, dass deine Kontoinformationen gemäß der Datenschutzrichtlinie von Accountable verwendet werden.",
   "form_create_account": "Account erstellen",
@@ -78,8 +381,6 @@
   "raso_download_pdf_ref": "Lade PDF Referenz-Nr.:",
   "raso_download_pdf": "PDF Herunterladen",
   "raso_confirm_of_registration": "Übertragungsprotokoll deiner steuerlichen Registrierung",
-
-  "full_name_label": "Vollständiger Name",
 
   "read_pdf": "Brief als PDF lesen",
   "raso_pdf_heading_Finanzamt_Steuernummer": "Erteilung der Steuernummer",

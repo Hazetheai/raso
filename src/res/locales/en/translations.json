@@ -7,13 +7,318 @@
   "no_credit_card_required": "14-day free trial",
   "support_always_available": "Free trial ends automatically",
   "free_plan_available": "Free plan available",
+
+  "yes": "Yes",
+  "no": "No",
+
+  "freelancer": "Freelancer",
+
+  "professional": "Commercial",
+
+  "renting": "Renting and leasing",
+
+  "maximum": "Maximum",
+  "characters": "Characters",
+
+  "nav_link_1": "https://www.accountable.de/en/become-self-employed-in-germany/",
+  "nav_label_1": "Become Self-Employed",
+  "nav_link_2": "https://www.accountable.de/en/pricing/",
+  "nav_label_2": "Pricing",
+  "nav_link_3": "https://www.accountable.academy/",
+  "nav_label_3": "Academy",
+  "nav_link_4": "https://www.accountable.de/en/blog/",
+  "nav_label_4": "Tax Guides",
+
+  "hero_title": "Register as self-employed",
+  "hero_subtitle": "Our fast guide through the official “Fragebogen zur Steuerlichen Erfassung”",
+  "hero_term_1": "Submitted digitally to ELSTER",
+  "hero_term_2": "Available help from our partner tax advisors",
+  "hero_term_3": "Entirely free of charge",
+  "hero_ctaText": "start now",
+
+  "footer_facebook_label": "Accountable on Facebook",
+  "footer_instagram_label": "Accountable on Instagram",
+  "footer_linkedin_label": "Accountable on LinkedIn",
+  "footer_trustpilot_num_reviews": "Reviews",
+
+  "footer_menu_product_heading_label": "Product",
+  "footer_menu_product_01_label": "Become self-employed",
+  "footer_menu_product_01_link": "/en/online-tax-registration/",
+  "footer_menu_product_02_label": "Price",
+  "footer_menu_product_02_link": "/price/",
+  "footer_menu_product_03_label": "Tax advisory",
+  "footer_menu_product_03_link": "/tax-advisor/",
+  "footer_menu_product_04_label": "Tax guides",
+  "footer_menu_product_04_link": "/en/blog/",
+
+  "footer_menu_tools_heading_label": "Tools for self-employed",
+  "footer_menu_tools_01_label": "Search all you can deduct",
+  "footer_menu_tools_01_link": "https://kannichdasabsetzen.accountable.de/en",
+  "footer_menu_tools_02_label": "Free invoice template",
+  "footer_menu_tools_02_link": "/en/create-your-invoice/",
+  "footer_menu_tools_03_label": "Free quote template",
+  "footer_menu_tools_03_link": "/en/create-your-quote/",
+  "footer_menu_tools_04_label": "Tax simulator for the self-employed",
+  "footer_menu_tools_04_link": "/en/revenue-simulator/",
+
+  "footer_menu_company_heading_label": "Company",
+  "footer_menu_company_01_label": "About us",
+  "footer_menu_company_01_link": "/en/about-us/",
+  "footer_menu_company_02_label": "Jobs",
+  "footer_menu_company_02_link": "https://angel.co/accountable-2/jobs/",
+  "footer_menu_company_03_label": "Data Privacy",
+  "footer_menu_company_03_link": "/privacy/",
+  "footer_menu_company_04_label": "Cookie Policy",
+  "footer_menu_company_04_link": "/cookie-policy/",
+
+  "footer_menu_help_heading_label": "Help & support",
+  "footer_menu_help_01_label": "Help center",
+  "footer_menu_help_01_link": "https://help.accountable.eu/en/",
+  "footer_menu_help_02_label": "Contact us",
+  "footer_menu_help_02_link": "mailto:hello@getaccountable.eu",
+  "footer_menu_help_03_label": "Imprint",
+  "footer_menu_help_03_link": "/en/imprint/",
+
+  "faq_raso_q_1_title": "Is this the form I’m looking for?",
+  "faq_raso_q_1_answer": "In order to register as self-employed in Germany, you will need to fill out a form called \"Fragebogen zur steuerlichen Erfassung\" (in English: Tax regulation questionnaire). This is also how you sign up for a Steuernummer (tax number). On our website you find the official form that can be submitted directly to your Finanzamt.  <br/><br/> So if you want to become self-employed, you found the right page!",
+
+  "faq_raso_q_2_title": "Do I need an Elster account for this?",
+  "faq_raso_q_2_answer": "You don't need to create an ELSTER account in order to submit the \"Fragebogen\"! We will submit the form via our official ELSTER interface and spare you the trouble of setting up an ELSTER account. ",
+
+  "faq_raso_q_3_title": "Will you help me with questions regarding the form?",
+  "faq_raso_q_3_answer": "Our customer support team is always happy to help. Just drop us your question in the LiveChat or schedule an info call and we'll help you out. You also find a lot of info on our <a href=\"https://www.accountable.de/en/blog/how-to-fill-out-the-fragebogen-zur-steuerlichen-erfassung-tax-registration-as-a-freelancer-in-germany/\" target=\"_blank\">blog</a>! ",
+
+  "faq_raso_q_4_title": "What to know before filling in the form?",
+  "faq_raso_q_4_answer": "Before you start filling in the form, make sure you know your <strong>Steueridentifikationsnummer</strong> (tax ID), you are sure wether you want to register as <strong>Kleinunternehmer</strong> (small business) and have a raff estimate of what you will <strong>make in profit</strong>. ",
+
+  "faq_raso_q_5_title": "Is this service for free?",
+  "faq_raso_q_5_answer": "Yes, this form is completely free. You can simply click on \"submit\" and you'll receive your Steuernummer (tax number) after about 3 weeks by the Finanzamt. Nothing will be charged.",
+
+  "faq_raso_q_6_title": "What is Accountable? ",
+  "faq_raso_q_6_answer": "Accountable is the simplest and best solution for self-employed professionals. <br/><br/> You can create invoices accepted by the German tax office, scan all your receipts and therefore digitalise your accounting with ease. In addition, Accountable takes care of your tax obligations: whether it's VAT or income tax, with Accountable you won't miss any deadlines. You can send your tax returns directly to your tax office through a secure Elster interface. <br/><br/>Even if you don't know anything about the German tax system, with Accountable you can do everything right from the start. We translate the language of the tax office for you and give you valuable tax tips. Our mission is to make your everyday life as a self-employed professional easier, so that you can concentrate on what is really important.",
+
+  "success_a_hero_title": "Congrats, <br /> you’ve mastered step 1...",
+  "success_a_hero_subtitle": "You are now officially registered as self-employed in Germany ✨",
+  "success_a_hero_your_name": "Your Name",
+  "success_a_hero_your_address": "Your Address",
+  "success_a_hero_start_from": "Start from",
+  "success_a_hero_finanzamt_office": "Finanzamt Address",
+  "success_a_hero_ref_number": "Your reference:",
+
+  "success_a_body_title": "",
+
+  "success_cta_join_pre_headline": "SPECIAL OFFER FOR BEGINNERS",
+  "success_cta_join_headline": "Get 6 months free of Accountable PRO",
+  "success_cta_join_sub_headline": "We offer our best subscription free of charge for all those who obtain their tax number through us.",
+  "success_cta_join_mobile_action_element_text": "START FOR FREE",
+  "success_cta_join_mobile_action_element_link": "https://accountable.app.link/FTshY7oGF3?",
+  "success_cta_join_desktop_action_element_text": "START FOR FREE",
+  "success_cta_join_desktop_action_element_link": "http://onboarding.accountable.de/en/",
+  "success_cta_join_offer_promises_text_1": "No Credit Card Required",
+  "success_cta_join_offer_promises_text_2": "Full Beginner Support",
+
+  "tab_header_welcome": "Welcome",
+
+  "tab_personalFields_label": "Personal details",
+  "tab_personalFields_subtitle": "All data is SSL encrypted and securely sent to the official Finanzamt portal ELSTER.",
+
+  "tab_businessFields_label": "Business info",
+  "tab_businessFields_subtitle": "All data is SSL encrypted and securely sent to the official Finanzamt portal ELSTER.",
+
+  "tab_taxInfoFields_label": "Tax set up",
+  "tab_taxInfoFields_subtitle": "All data is SSL encrypted and securely sent to the official Finanzamt portal ELSTER.",
+
+  "tab_taxEstimateFields_label": "Tax estimation",
+  "tab_taxEstimateFields_helper": "The expected profit and deduction amounts are the basis for calculating the quarterly income tax and trade tax prepayments. Please, select at least one source of profit.",
+  "tab_taxEstimateFields_subtitle": "All data is SSL encrypted and securely sent to the official Finanzamt portal ELSTER.",
+
+  "tab_bankAccountFields_label": "Bank account",
+  "tab_bankAccountFields_subtitle": "All data is SSL encrypted and securely sent to the official Finanzamt portal ELSTER.",
+
+  "tab_reviewFields_label": "Review & submit",
+  "tab_reviewFields_subtitle": "All data is SSL encrypted and securely sent to the official Finanzamt portal ELSTER.",
+
+  "firstname_label": "First Name",
+  "firstname_placeholder": "Max",
+  "name_label": "Surname",
+  "name_placeholder": "Mustermann",
+
+  "partner_firstname_label": "Your partner's first name",
+  "partner_firstname_placeholder": "Max",
+  "partner_name_label": "Your partner's surname",
+  "partner_name_placeholder": "Mustermann",
+
+  "email_label": "Professional E-Mail",
+  "email_placeholder": "max.mustermann@gmail.com",
+
+  "phone_label": "Phone",
+  "phone_placeholder": "+49...",
+
+  "birthdate_label": "Birthdate",
+  "partner_birthdate_label": "Your partner's birthdate",
+
+  "gender": "Gender",
+  "partner_gender": "Your partner's gender",
+  "gender_helper": "Currently, the Finanzamt does not offer \"diverse\" as a gender. At Accountable, we support all genders.",
+  "gender_male": "Male",
+  "gender_female": "Female",
+
+  "address_helper_expand_title": "What should I do when I recently moved from abroad to Germany?",
+  "address_helper_expand_content": "Answer \"no\" as long as you didn't move house within Germany.",
+  "address_helper_expand_2_title": "I will move in the next weeks. Which address should I put?",
+  "address_helper_expand_2_content": "You will receive your tax number via mail. If you are planning on moving house in the next weeks, you can contact your tax office and change your address.",
+
+  "address_label": "Address",
+  "address_street": "Street",
+  "address_number": "House number",
+  "address_postcode": "Postal Code",
+  "address_city": "State",
+
+  "maritalstatus_label": "Marital status",
+  "maritalstatusdate_label": "Since",
+
+  "religion_label": "Religious affiliation",
+  "partner_religion_label": "Your partner's religious affiliation",
+  "religion_heper": "The religion you are registered with and pay church tax to. If you are not paying church tax, select \"nicht kirchensteuerpflichtig\".",
+
+  "moved_label": "Have you recently moved from another German city in the last 12 months?",
+  "moved_helper": "This information helps the Finanzamt to correctly match your tax records.",
+  "movingdate_label": "Moving date",
+
+  "optin_label": "I want to receive help filling in the form and tax tips from Accountable.",
+
+  "profession_label": "Profession (in German)",
+  "profession_helper": "On the basis of this information, the Finanzamt decides whether you are classified as a Freiberufler or a Gewerbetreibender and what taxes you have to pay. Please find more information <a href=\"https://www.accountable.de/en/blog/registering-as-self-employed-in-germany-freelancer-or-tradesperson-freiberufler-or-gewerbe/\" target=\"_blank\">here</a>. ",
+
+  "profession_helper_expand_title": "What should I put in the profession field?",
+  "profession_helper_expand_content": "A short but precise description of your profession. For example, not just \"design\" but something like \"creating designs for websites\". <br/> <br/> You can also register multiple professions. They should all be related to your main profession. As a web designer you could for example also add online advertising and marketing as complementary professions.",
+
+  "officeaddress_label": "Do you have an office address?",
+
+  "previousbusiness_label": "Have you operated a Gewerbe, worked as a self-employed professional or held shares in a company (of at least 1%) in the last 5 years?",
+
+  "steueridentifkationsnummer_label": "Your personal tax id / Steueridentifikationsnummer",
+  "steueridentifkationsnummer_helper": "As a German you receive the Steueridentifikationsnummer at birth. As an expat you receive it when you first register in Germany. It is NOT your Steuernummer. If in doubt you can find more information <a href=\"https://www.accountable.de/en/blog/freelancing-in-germany-heres-what-you-need-to-know-about-tax-numbers/\" target=\"_blank\">here</a>.",
+
+  "steuernummer_label": "Do you or your spouse already have a tax number / Steuernummer?",
+  "steuernummer_value_label": "Your tax number / Steuernummer",
+
+  "singleentry_label": "I want to use the simplified profit determination method for self-employed",
+  "singleentry_helper": "The Einnahmenüberschussrechnung (EÜR) or single entry bookkeeping is the simplified and most common method for self employed professionals. Your taxes are calculated based on the income and expenses you declare.",
+  "singleentry_helper_2": "We currently only support single entry bookkeeping. <a href=\"#0\" target=\"_blank\">Contact us</a> if you want to use another method and/or if you are making over €600.000 in revenue or €60.000 in profit.",
+  "singleentry_helper_expand_title": "What is the EÜR?",
+  "singleentry_helper_expand_content": "The EÜR (profit & loss statement) is the easiest method to calculate your profit as a self-employed professional. All freelancers and professionals with an annual turnover of less than 600,000€ and an annual profit of less than 60,000€ can use the EÜR. <br/> <br/> At the moment we only support registrations with the EÜR. If you want to use another method (e.g. double bookkeeping), please contact our customer service.",
+
+  "startdate_label": "Business start date",
+  "startdate_helper_expand_title": "Business start date",
+  "startdate_helper_expand_content": "You can also register your self-employment retroactively. This can make sense, especially if you already have costs to kick-start your self-employment. However, please note that you may then have to file tax returns for this period.",
+
+  "tax_info_expected_income_fieldset_title": "Expected revenue from self-employment",
+
+  "revenue_firstYear_label": "Estimated revenue this year",
+  "revenue_firstYear_helper": "Please provide an estimate of your revenues from self-employment (without salaries, rental income, interest etc.)",
+
+  "revenue_secondYear_label": "Estimated revenue next year",
+  "revenue_secondYear_helper": "Please provide an estimate of your revenues from self-employment (without salaries, rental income, interest etc.)",
+
+  "chargeVAT_label": "Do you want to charge VAT as a small business owner / Kleinunternehmer?",
+  "chargeVAT_helper": "If your yearly revenue is below €22.000, you are eligible for the small business owner / Kleinunternehmer regime and can decide whether you want to charge VAT. You can find more information on the pros and cons <a href=\"https://www.accountable.de/en/blog/managing-your-taxes-as-a-freelancer-in-germany/\" target=\"_blank\">here</a>.",
+  "chargeVAT_expand_helper_title": "Can I register as a Kleinunternehmer (small business owner)?",
+  "chargeVAT_expand_helper_content": "As a <a href=\"https://www.accountable.de/en/blog/when-is-a-freelancer-a-kleinunternehmer/\" target=\"_blank\">Kleinunternehmer</a> your are exempted from VAT if your turnover is less than 22,000€ in the first year and less than 50,000€ in the following year (as of 2021).  <br/><br/> If you start your business in the middle of the year, don't forget that the 22,000€ are meant for the whole year. For example, if you register on July 1st, you can only have a maximum turnover of 11,000€ for the first year.",
+  "chargeVAT_expand_helper_2_title": "Is the small business regulation (Kleinunternehmerregelung) always a good option?",
+  "chargeVAT_expand_helper_2_content": "The exemption from VAT is a good option if you only have private individuals as customers and do not have high investments.   <br/><br/> However, if you mainly have business customers or if you are planning to make high investments, this regulation is usually not worthwhile. As a small business owner (Kleinunternehmer), you cannot reclaim the VAT paid on your expenses. ",
+
+  "askVATnumber_label": "Request VAT number - only needed for charging clients that are in the EU but outside Germany",
+  "askVATnumber_helper": "If you are not planning to invoice customers in other EU countries (not including Germany) you can use your Steuernummer for German clients. You can find more information on the european VAT number <a href=\"https://www.accountable.de/en/blog/freelancing-in-germany-heres-what-you-need-to-know-about-tax-numbers/\" target=\"_blank\">here</a>.",
+  "askVATnumber_expand_helper_title": "Do I need a VAT ID?",
+  "askVATnumber_expand_helper_content": "You only need one if you do business with EU companies. Kleinunternehmer (small business owners) usually don't need one.  <br/><br/> Also if you only sell to private individuals in the EU, you do not need a VAT ID. The same applies if you only have German customers.",
+
+  "tax_estimate_projected_profit_fieldset_label": "Expected profit from self-employment",
+  "profitFreiberufler_label": "Are you expecting profit from self-employment (Freiberufler)?",
+  "profitFreiberufler_expand_helper_title": "What is the difference between profit from self-employment and profit from commercial operations?",
+  "profitFreiberufler_expand_helper_content": "Self-employed activities include: <br/> -  <a href=\"https://www.accountable.de/en/blog/registering-as-self-employed-in-germany-freelancer-or-tradesperson-freiberufler-or-gewerbe/\" target=\"_blank\">freelance activities</a> (Freiberufler) <br/> - state lottery income <br/> - sother self-employed activities (e.g. asset management) <br/><br/> All other activities are usually gewerblich (commercial). You can also check our <a href=\"https://www.accountable.de/en/blog/registering-as-self-employed-in-germany-freelancer-or-tradesperson-freiberufler-or-gewerbe/\" target=\"_blank\">blog</a> for more information.",
+  "profitFreiberuflerFirstYear_label": "First year in business (2021)",
+  "profitFreiberuflerFirstYear_helper": "Estimate the profit you will be making as best as you can. Profit is the amount you are expecting to earn after deducting work related expenses (e.g. Tools, transportation, software, training, etc...).",
+  "profitFreiberuflerSecondYear_label": "Second year in business (2022)",
+
+  "profitGewerbetreibender_label": "Are you expecting profit from commercial operations (Gewerbetreibender)?",
+  "profitGewerbetreibenderFirstYear_label": "First year in business (2021)",
+  "profitGewerbetreibenderSecondYear_label": "Second year in business (2022)",
+  "profitGewerbetreibenderSecondYear_helper": "Estimate the profit you will be making as best as you can. Profit is the amount you are expecting to earn after deducting work related expenses (e.g. Tools, transportation, software, training, etc...).",
+
+  "tax_estimate_other_income_fieldset_label": "Other source of income & profit",
+  "profitNichtselbstandiger_label": "Expected income from salary (Nichtselbständiger Arbeit)",
+  "profitNichtselbstandiger_helper": "If you receive a salary, please enter your gross annual salary for the entire year, before any tax and social insurance deductions.",
+  "profitNichtselbstandiger_FirstYear_label": "First year in business (2021)",
+  "profitNichtselbstandiger_SecondYear_label": "Second year in business (2022)",
+
+  "profitKapitalvermogen_label": "Are you expecting profit from investments (Kapitalvermögen)",
+  "profitKapitalvermogen_helper": "Profit from stock market, bonds or interests (Not rental income)",
+  "profitKapitalvermogen_FirstYear_label": "First year in business (2021)",
+  "profitKapitalvermogen_SecondYear_label": "Second year in business (2022)",
+
+  "profitVermietung_label": "Are you expecting income from rental and leasing (Vermietung und Verpachtung)?",
+  "profitVermietung_helper": "Profit from letting and leasing properties, for example renting out an apartment",
+  "profitVermietung_FirstYear_label": "First year in business (2021)",
+  "profitVermietung_SecondYear_label": "Second year in business (2022)",
+
+  "profitSonstigen_label": "Are you expecting Einkommen from other sources (Sonstigen Einkünften)?",
+  "profitSonstigen_helper": "e.g. receiving a pension",
+  "profitSonstigen_FirstYear_label": "First year in business (2021)",
+  "profitSonstigen_SecondYear_label": "Second year in business (2022)",
+
+  "profitAgriculture_label": "Do you have income from agriculture and forestry (Land und Forstwirtschaft)?",
+  "profitAgriculture_helper": "Currently we don’t support the automatic sign up for tax IDs if you have income from agriculture and forestry. <a href=\"0#\" target=\"_blank\">Contact us</a> if it was the case.",
+
+  "taxPrepayment_label": "Do you want to estimate your costs to lower your tax prepayments?",
+  "taxPrepayment_helper": "You can try to estimate your costs based on your last income tax return. Choose ‘No’ if you are not sure - This might increase your income tax prepayments, but you can deduct those expenses at the end of the year and you are on the safe side.",
+
+  "tax_estimate_sonderausgaben_fieldset_title": "Expected amount of private special expenses (Sonderausgaben)",
+  "tax_estimate_sonderausgaben_fieldset_helper": "Private insurances, pension savings, donations, etc... Should not include normal business expenses like office supplies and tools.",
+  "tax_estimate_steuerabzugsbetrage_fieldset_title": "Expected tax deductions (Steuerabzugsbeträge)",
+  "tax_estimate_steuerabzugsbetrage_fieldset_helper": "You can try to estimate based on your last income tax return under “Steuerabzugsbeträge”.",
+
+  "sonderausgabenFirstYear_label": "First year in business (2021)",
+  "sonderausgabenSecondYear_label": "Second year in business (2022)",
+  "steuerabzugsbetrageFirstYear_label": "First year in business (2021)",
+  "steuerabzugsbetrageSecondYear_label": "Second year in business (2022)",
+
+  "tax_estimate_form_warning": "One of these categories has to be filled:",
+  "bank_account_business_fieldset_title": "Business bank Account",
+  "showBusinessBankAccount_label": "Do you want to share your business bank account to ELSTER (optional)?",
+  "businessIban_label": "IBAN of your business bank account",
+  "businessBankAccountOwner_label": "Account owner of your business bank account",
+  "bank_account_private_fieldset_title": "Private Bank Account",
+  "showPrivateBankAccount_label": "Do you want to share your private bank account to ELSTER (optional)?",
+  "privateIban_label": "IBAN of your private bank account",
+  "privateBankAccountOwner_label": "Account owner of your private bank account",
+
+  "taxOffice_label": "Select your tax office (Finanzamt)",
+  "taxOffice_helper": "Pick the Finanzamt that serves your neighbourhood.",
+  "taxOffice_helper_2": "<a href=\"https://www.bzst.de/DE/Service/Behoerdenwegweiser/Finanzamtsuche/GemFa/finanzamtsuche_node.html\" target=\"_blank\">You can find it here by using your zip code or city name.</a>",
+  "review_proof_read_fieldset_title": "Review and submit your form",
+  "review_proof_read": "Check your data to make sure you entered all information correctly.",
+
+  "review_button_gen_pdf": "Load Preview",
+  "review_button_view_pdf": "View Preview",
+  "review_button_send_pdf": "Submit to the Finanzamt",
+
+  "review_button_success_heading": "After submitting the form you will receive your tax number from the Finanzamt via post. It usually takes 3-6 weeks to arrive.",
+
+  "review_button_success_subtitle": "For extra peace of mind, you can <a href=\"http://localhost:10023/en/tax-advisor/\" target=\"_blank\">ask your tax consultant</a> on our website to review your tax registration form before submitting it to the Finanzamt.",
+
+  "disclaimer": "The guidance provided within this form is without liability and does not replace a tax consultant. To get an accurate answer for your specific case, please consult with a certified tax consultant.",
+
+  "no_credit_card_required_label": "Land",
+
+  "date_format": "TT.MM.JJJJ",
+
   "email_address_label": "Email address",
   "email_address_placeholder": "youremail@domain.com",
   "first_name_label": "First Name",
   "first_name_placeholder": "Your first name",
   "last_name_label": "Last Name",
   "last_name_placeholder": "Your last name",
-  "phone_label": "Phone",
   "country_label": "Country",
   "country_option_germany": "🇩🇪 Germany",
   "country_option_belgium": "🇧🇪 Belgium",
@@ -88,7 +393,6 @@
 
   "question_email_subheadline": "Let's start!",
   "question_email_headline": "What is your email ?",
-  "email_placeholder": "youremail@domain.com",
   "question_name_subheadline": "Welcome, we are happy you are here 💛",
   "question_name_headline": "What is your name ?",
   "full_name_label": "Full name",

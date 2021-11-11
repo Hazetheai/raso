@@ -1,0 +1,10 @@
+[
+  { "value": "001", "name": "Not married" },
+  { "value": "002", "name": "Married" },
+  { "value": "003", "name": "Living permanently separated" },
+  { "value": "004", "name": "Divorced " },
+  { "value": "005", "name": "Widowed " },
+  { "value": "006", "name": "Registered civil partnership" },
+  { "value": "007", "name": "Dissolved registered civil partnership" },
+  { "value": "008", "name": "Registered partner deceased" }
+]
