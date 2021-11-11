@@ -1,6 +1,16 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { appHost } from "settings/config";
 import "./footer.css";
+
+function lnk(str) {
+  if (/^http(s)?/.test(str)) {
+    return str;
+  }
+
+  return appHost + str;
+}
+
 const Footer = () => {
   const { t } = useTranslation();
   return (
@@ -73,28 +83,28 @@ const Footer = () => {
             </h3>
             <a
               className="section__a"
-              href={t("footer_menu_product_01_link")}
+              href={lnk(t("footer_menu_product_01_link"))}
               target="_parent"
             >
               {t("footer_menu_product_01_label")}
             </a>
             <a
               className="section__a"
-              href={t("footer_menu_product_02_link")}
+              href={lnk(t("footer_menu_product_02_link"))}
               target="_parent"
             >
               {t("footer_menu_product_02_label")}
             </a>
             <a
               className="section__a"
-              href={t("footer_menu_product_03_link")}
+              href={lnk(t("footer_menu_product_03_link"))}
               target="_parent"
             >
               {t("footer_menu_product_03_label")}
             </a>
             <a
               className="section__a"
-              href={t("footer_menu_product_04_link")}
+              href={lnk(t("footer_menu_product_04_link"))}
               target="_parent"
             >
               {t("footer_menu_product_04_label")}
@@ -106,28 +116,28 @@ const Footer = () => {
             </h3>
             <a
               className="section__a"
-              href={t("footer_menu_tools_01_link")}
+              href={lnk(t("footer_menu_tools_01_link"))}
               target="_parent"
             >
               {t("footer_menu_tools_01_label")}
             </a>
             <a
               className="section__a"
-              href={t("footer_menu_tools_02_link")}
+              href={lnk(t("footer_menu_tools_02_link"))}
               target="_parent"
             >
               {t("footer_menu_tools_02_label")}
             </a>
             <a
               className="section__a"
-              href={t("footer_menu_tools_03_link")}
+              href={lnk(t("footer_menu_tools_03_link"))}
               target="_parent"
             >
               {t("footer_menu_tools_03_label")}
             </a>
             <a
               className="section__a"
-              href={t("footer_menu_tools_04_link")}
+              href={lnk(t("footer_menu_tools_04_link"))}
               target="_parent"
             >
               {t("footer_menu_tools_04_label")}
@@ -139,22 +149,28 @@ const Footer = () => {
             </h3>
             <a
               className="section__a"
-              href={t("footer_menu_company_01_link")}
+              href={lnk(t("footer_menu_company_01_link"))}
               target="_parent"
             >
               {t("footer_menu_company_01_label")}
             </a>
             <a
               className="section__a"
-              href={t("footer_menu_company_02_link")}
+              href={lnk(t("footer_menu_company_02_link"))}
               rel="noopener"
             >
               {t("footer_menu_company_02_label")}
             </a>
-            <a className="section__a" href={t("footer_menu_company_03_link")}>
+            <a
+              className="section__a"
+              href={lnk(t("footer_menu_company_03_link"))}
+            >
               {t("footer_menu_company_03_label")}
             </a>
-            <a className="section__a" href={t("footer_menu_company_04_link")}>
+            <a
+              className="section__a"
+              href={lnk(t("footer_menu_company_04_link"))}
+            >
               {t("footer_menu_company_04_label")}
             </a>
           </div>
@@ -164,7 +180,7 @@ const Footer = () => {
             </h3>
             <a
               className="section__a"
-              href={t("footer_menu_help_01_link")}
+              href={lnk(t("footer_menu_help_01_link"))}
               rel="noopener"
               target="_parent"
             >
@@ -172,13 +188,16 @@ const Footer = () => {
             </a>
             <a
               className="section__a"
-              href={t("footer_menu_help_02_link")}
+              href={lnk(t("footer_menu_help_02_link"))}
               rel="noopener"
               target="_parent"
             >
               {t("footer_menu_help_02_label")}
             </a>
-            <a className="section__a " href={t("footer_menu_help_03_link")}>
+            <a
+              className="section__a "
+              href={lnk(t("footer_menu_help_03_link"))}
+            >
               {t("footer_menu_help_03_label")}
             </a>
           </div>

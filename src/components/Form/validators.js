@@ -14,7 +14,7 @@ export const emailValidator = async (value) => {
     const json = await response.json();
     return !json.exists;
   } catch (err) {
-    return false;
+    return "Dieses Feld ist ungültig";
   }
 };
 export const taxIdValidator = async (value) => {
@@ -30,7 +30,9 @@ export const taxIdValidator = async (value) => {
     const json = await response.json();
     return json.valid || "Dieses Feld ist ungültig";
   } catch (err) {
-    return "There was an error validating the Tax ID. Please try again later";
+    return navigator?.language.slice(0, 2) === "en"
+      ? "There was an error validating the Tax ID. Please try again later"
+      : "Es ist ein Fehler bei der Validierung der Steuer-ID aufgetreten. Bitte versuchen Sie es später erneut";
   }
 };
 
