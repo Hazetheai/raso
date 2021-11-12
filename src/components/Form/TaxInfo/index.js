@@ -1,4 +1,5 @@
 import Button from "components/Button";
+import { nYearsFromNow } from "components/Field/helpers";
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
@@ -211,6 +212,7 @@ const TaxInfo = ({
             autoFocus={true}
             errors={errors}
             //   watch={watch}
+            dateMinMax={{ dateMin: nYearsFromNow(90, "before") }}
             topLabel={t("startdate_label")}
           />
           <Field

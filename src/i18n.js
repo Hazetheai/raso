@@ -31,15 +31,6 @@ i18n
     interpolation: {
       escapeValue: false, // react already safes from xss
     },
-
-    react: {
-      bindI18n: "languageChanged",
-      bindI18nStore: "",
-      transEmptyNodeValue: "",
-      transSupportBasicHtmlNodes: true,
-      transKeepBasicHtmlNodesFor: ["br", "strong", "i", "em"],
-      useSuspense: false,
-    },
   });
 
 export default i18n;
