@@ -20,9 +20,9 @@ const Button = ({
       className={clsx(
         "body--big-bold",
         className,
-        clear && "clear",
-        fluid && "fluid",
-        inline && "inline",
+        clear && "form_submit_btn--clear",
+        fluid && "form_submit_btn--fluid",
+        inline && "form_submit_btn--inline",
         "form_submit_btn"
       )}
       disabled={disabled}

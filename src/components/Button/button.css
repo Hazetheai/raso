@@ -13,7 +13,7 @@
   transition: 0.3s;
 }
 
-.form_submit_btn.inline {
+.form_submit_btn--inline {
   padding: 0 10px;
   width: auto;
   display: inline-block;
@@ -28,7 +28,7 @@
 }
 .form_submit_btn:focus,
 .form_submit_btn:hover {
-  box-shadow: 2px 2px 6px 4px #bbb9be;
+  background-color: var(--color-primary_hover);
 }
 .form_submit_btn--alt {
   background: none;
@@ -52,6 +52,6 @@
   }
 }
 
-.form_submit_btn.fluid {
+.form_submit_btn--fluid {
   min-width: auto;
 }
