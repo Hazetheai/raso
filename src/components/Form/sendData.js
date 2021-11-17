@@ -1,5 +1,5 @@
 import qs from "qs";
-import { wpHost } from "settings/config";
+import { dlAppLink, wpHost } from "settings/config";
 import {
   formatforAPICall,
   generateWebSignupPayLoad,
@@ -106,12 +106,12 @@ async function apiCall(fields, lang, partner, preview, usecase) {
       const downloadAppLink = `https://onboarding.accountable.de/${
         sLang === "en" ? "en/" : ""
       }raso?d=${generateWebSignupPayLoad(
-        apiResponse["data"].data.ticket
+        apiResponse["data"].data.ticket,
+        fields
       )}&utm_content=${fields.version}`;
 
       apiResponse["downloadAppLink_desktop"] = downloadAppLink;
-      apiResponse["downloadAppLink_mobile"] =
-        "https://accountable.app.link/FTshY7oGF3?";
+      apiResponse["downloadAppLink_mobile"] = dlAppLink;
 
       // A Section (NEW)
       //   document.querySelectorAll(".dlAccountableLink").forEach((link) => {
@@ -133,7 +133,7 @@ async function apiCall(fields, lang, partner, preview, usecase) {
       //   document.querySelector("#rasoHeadCongrats").style.display = "block";
       //   document.querySelector("#rasoFormSubmitted").style.display = "block";
 
-      apiResponse["nextVatDeadline"] = getNextVATDeadline();
+      apiResponse["nextVatDeadline"] = getNextVATDeadline(fields, lang);
 
       // TODO computeSuccessPage(ver);
       window.scrollTo(0, 0);
