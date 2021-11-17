@@ -1,5 +1,7 @@
 import produce from "immer";
 import React, { createContext, useContext, useEffect, useState } from "react";
+import { isEmpty } from "res/lib";
+import { dlAppLink } from "settings/config";
 
 const UserInteractionContext = createContext();
 
@@ -14,13 +16,28 @@ const UserInteractionProvider = ({ children }) => {
     workingStep: "",
     preview: false,
     send: false,
+    success: false,
+    data: null,
+    previewLink: "",
+    ticketId: "",
+    downloadAppLink_desktop: "",
+    downloadAppLink_mobile: dlAppLink,
+    showHeader: false,
+    nextVatDeadline: {
+      vatDeadline: "",
+      showChargeVat: false,
+    },
+    code: "",
+    message: "",
   });
 
   useEffect(() => {
     const sessionUserInteraction = JSON.parse(
       localStorage.getItem("userInteraction")
     );
-    if (sessionUserInteraction) setUserInteractionHook(sessionUserInteraction);
+    if (sessionUserInteraction) {
+      setUserInteractionHook(sessionUserInteraction);
+    }
   }, []);
 
   /**
@@ -29,11 +46,9 @@ const UserInteractionProvider = ({ children }) => {
    * @param {boolean} save
    */
   const setUserInteraction = (newUserInteraction, save = true) => {
-    // console.log(`newUserInteraction`, newUserInteraction);
     const newData = produce(userInteraction, (draft) => {
       Object.assign(draft, newUserInteraction);
     });
-    // console.log(`newData`, newData);
 
     if (save) {
       localStorage.setItem("userInteraction", JSON.stringify(newData));

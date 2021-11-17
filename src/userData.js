@@ -122,9 +122,8 @@ const UserDataProvider = ({ children }) => {
    */
   const setUserData = (newUserData, dataSection, save = false) => {
     const newData = produce(userData, (draft) => {
-      draft[dataSection] = newUserData;
+      draft[dataSection] = { ...draft[dataSection], ...newUserData };
     });
-
     if (save) {
       localStorage.setItem("userData", JSON.stringify(newData));
     }
