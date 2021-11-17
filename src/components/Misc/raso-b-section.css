@@ -1,0 +1,27 @@
+.raso-nextstep_instructions {
+  text-align: center;
+}
+
+.section-h2--raso-b-section {
+  margin: 0 auto;
+  font-size: 40px;
+  color: var(--color-primary_medium);
+  max-width: 65ch;
+}
+
+.raso-nextstep_instructions p {
+  margin-bottom: 12px;
+}
+.raso-nextstep_instructions a {
+  padding: 12px 24px;
+}
+
+.raso-congrats--b-section__cta {
+  margin: 24px auto;
+  display: flex;
+  justify-content: center;
+}
+
+.raso-trust {
+  margin: 100px 0;
+}
