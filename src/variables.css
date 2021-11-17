@@ -1,5 +1,6 @@
 :root {
   --color-primary: rgba(128, 89, 200, 1);
+  --color-primary_hover: rgba(153, 122, 211, 1);
 
   --color-primary_opaque: rgba(40, 0, 75, 0.7);
 
