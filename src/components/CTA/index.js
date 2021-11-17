@@ -1,9 +1,9 @@
+import Button from "components/Button";
+import Link from "components/Link";
+import Terms from "components/Terms";
 import React from "react";
 import pinkStars from "res/images/pink_stars.svg";
-import Link from "components/Link";
-import Button from "components/Button";
 import "./cta.css";
-import Terms from "components/Terms";
 
 const CTA = ({
   preHeadline,
@@ -18,22 +18,32 @@ const CTA = ({
   isButton,
   offerPromises,
 }) => {
+  console.log(
+    `{  mobileActionElementLink,
+  mobileActionElementText,
+  desktopActionElementLink,
+  desktopActionElementText,}`,
+    {
+      mobileActionElementLink,
+      mobileActionElementText,
+      desktopActionElementLink,
+      desktopActionElementText,
+    }
+  );
   return (
     <section className="section-cta">
-      <div className="container-cta">
+      <div className="container-cta container-cta--main">
         <img src={mainImageSrc} alt="Accounting team" className="cta-image" />
         <h4 className="cta-h4">
           <img src={pinkStars} alt={preHeadline} /> {preHeadline}
         </h4>
-        <h2 className="section-h2 cta-h2">{headline}</h2>
-        <br />
+        <h2 className="section-h2--cta-h2">{headline}</h2>
+
         <p className="section-p cta-p">{subheadline}</p>
         <div className="mobile-only">
           {isButton ? (
             <Button
-              //    className=" "
-              //    id="downloadAppLink"
-              // func={gtagEvent('RASO_CLICKED_DOWNLOADAPP')}
+              id="downloadAppLink"
               func={action}
               text={mobileActionElementText}
             />
@@ -42,29 +52,21 @@ const CTA = ({
               href={mobileActionElementLink}
               func={action}
               text={mobileActionElementText}
-              // className="dlAccountableLink rasoFunnel"
-              // id="downloadAppLink"
-              // func={gtagEvent('RASO_CLICKED_DOWNLOADAPP')}
+              target="_blank"
+              id="downloadAppLink"
             />
           )}
         </div>
         <div className="desktop-only">
           {isButton ? (
-            <Button
-              //    className=" "
-              //    id="downloadAppLink"
-              // func={gtagEvent('RASO_CLICKED_DOWNLOADAPP')}
-              func={action}
-              text={desktopActionElementText}
-            />
+            <Button func={action} text={desktopActionElementText} />
           ) : (
             <Link
               href={desktopActionElementLink}
               func={action}
               text={desktopActionElementText}
-              // className="dlAccountableLink rasoFunnel"
-              // id="downloadAppLink"
-              // func={gtagEvent('RASO_CLICKED_DOWNLOADAPP')}
+              target="_blank"
+              id="downloadAppLink"
             />
           )}
         </div>

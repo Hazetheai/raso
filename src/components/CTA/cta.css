@@ -9,17 +9,26 @@
   font-weight: 700;
 }
 .container-cta {
-  padding: 100px 80px;
+  padding: 20px 80px 80px 80px;
   text-align: left;
   position: relative;
   min-height: 600px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.container-cta--main {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  justify-content: end;
 }
 .cta-image {
   position: absolute;
   top: 50px;
   right: -120px;
 }
-.cta-h2 {
+.section-h2--cta-h2 {
   font-family: Avenir Next;
   font-size: 24px;
   font-style: normal;
@@ -30,17 +39,14 @@
   position: relative;
   padding: 0;
   margin: 0;
-  max-width: 59%;
+  max-width: 80%;
 }
 
 @media only screen and (min-width: 400px) {
-  .cta-h2 {
-    font-size: 36px;
-  }
 }
 
 @media only screen and (min-width: 768px) {
-  .cta-h2 {
+  .section-h2--cta-h2 {
     font-size: 56px;
   }
 }
@@ -58,6 +64,7 @@
   text-align: left;
   color: #d14d95;
   text-transform: uppercase;
+  padding-bottom: 12px;
 }
 
 .cta-h4 img {
@@ -87,6 +94,17 @@
   opacity: 0.67;
 }
 
+.cta-phone {
+  right: -20px;
+  max-width: 400px;
+}
+
+@media screen and (min-width: 900px) {
+  .cta-phone {
+    right: 0;
+  }
+}
+
 @media screen and (max-width: 1024px) {
   .cta-image {
     right: -20px;
@@ -113,8 +131,8 @@
 
   .container-cta {
     padding-top: 400px;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 48px;
+    padding-right: 48px;
   }
 }
 @media screen and (max-width: 1024px) {
@@ -149,4 +167,81 @@
   .container-cta {
     padding-top: 350px;
   }
+}
+
+/** Secondary CTA **/
+
+.secondary-cta {
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  padding: 0;
+  margin: 92px;
+}
+
+.secondary-cta-img-wrapper {
+  position: relative;
+  width: 40%;
+  max-width: 300px;
+  min-width: 200px;
+  height: 14rem;
+  margin: 0 37% 0 auto;
+}
+
+@media only screen and (min-width: 768px) {
+  .secondary-cta {
+    flex-direction: row;
+  }
+  .secondary-cta-img-wrapper {
+    margin: 0;
+  }
+}
+
+.secondary-cta__header {
+  max-width: 350px;
+
+  font-family: Avenir Next;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 33px;
+  letter-spacing: -0.01em;
+  text-align: left;
+  color: var(--color-primary_medium);
+}
+
+.secondary-cta .cta-content {
+  padding-top: 5rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .secondary-cta .cta-content {
+    padding-top: 0;
+    padding-right: 5rem;
+    width: 50%;
+    min-width: 280px;
+    max-width: 500px;
+  }
+}
+
+.secondary-cta .cta-fingers {
+  position: absolute;
+  max-width: 150px;
+  top: -30px;
+  left: -20px;
+}
+
+.secondary-cta .cta-tino {
+  position: absolute;
+  max-width: 300px;
+  top: -60px;
+  left: 0;
+}
+
+.secondary-cta button,
+.secondary-cta a {
+  text-transform: uppercase;
+  width: 100%;
+  max-width: initial;
 }
