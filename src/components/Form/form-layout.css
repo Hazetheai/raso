@@ -13,7 +13,7 @@
 
 .screen-title {
   font-family: Avenir Next;
-  font-size: 22px;
+  font-size: 24px;
   font-style: normal;
   font-weight: 700;
   line-height: 38px;
@@ -109,7 +109,7 @@
 
 @media only screen and (min-width: 900px) {
   .screen-title {
-    font-size: 32px;
+    font-size: 36px;
     line-height: 38px;
     letter-spacing: -0.015em;
     padding: 20px 0;

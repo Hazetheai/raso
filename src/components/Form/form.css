@@ -4,16 +4,6 @@
   flex-wrap: wrap;
 }
 
-.form_consent {
-  color: rgba(40, 0, 75, 0.38);
-  font-size: 12px;
-  font-weight: normal;
-  height: 60px;
-  letter-spacing: 0.03px;
-  display: block;
-  padding-top: 30px;
-  max-width: 440px;
-}
 .form_error {
   text-align: center;
   display: block;

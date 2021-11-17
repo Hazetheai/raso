@@ -82,10 +82,9 @@ html {
   background-repeat: no-repeat;
   background-position: top center;
   background-size: auto 400px;
-  font-size: 14px;
+  font-size: 16px;
   overflow-x: hidden;
   color: #28004b;
-  font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
 }
@@ -204,7 +203,7 @@ hr {
 
 .body--small {
   font-family: Assistant;
-  font-size: 12px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 17px;
@@ -215,7 +214,7 @@ hr {
 
 .body--medium {
   font-family: Assistant;
-  font-size: 15px;
+  font-size: 17px;
   font-style: normal;
   font-weight: 600;
   line-height: 21px;
@@ -225,7 +224,7 @@ hr {
 
 .body--bold {
   font-family: Assistant;
-  font-size: 15px;
+  font-size: 17px;
   font-style: normal;
   font-weight: 700;
   line-height: 21px;
@@ -235,7 +234,7 @@ hr {
 
 .body--big-bold {
   font-family: Assistant;
-  font-size: 17px;
+  font-size: 19px;
   font-style: normal;
   font-weight: 700;
   line-height: 24px;
@@ -254,7 +253,7 @@ hr {
 
 .section-h2 {
   font-family: "Avenir Next";
-  font-size: 32px;
+  font-size: 36px;
   padding-bottom: 20px;
   max-width: 27ch;
   font-weight: 700;
@@ -264,7 +263,7 @@ hr {
 }
 
 .top-section__title-l {
-  font-size: 26px;
+  font-size: 30px;
   font-family: "Avenir Next";
   line-height: 140%;
   font-weight: 700;
@@ -272,7 +271,7 @@ hr {
 }
 
 .section-p {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 300;
   display: block;
   max-width: 43ch;
@@ -282,7 +281,7 @@ hr {
 
 @media only screen and (min-width: 768px) {
   .section-h2 {
-    font-size: 48px;
+    font-size: 52px;
     padding-bottom: 20px;
     max-width: 27ch;
     letter-spacing: -0.075rem;
@@ -290,19 +289,19 @@ hr {
 
   .top-section__title-l {
     margin-top: 75px;
-    font-size: 32px;
+    font-size: 36px;
   }
 }
 
 @media only screen and (min-width: 1200px) {
   .top-section__title-l {
-    font-size: 48px;
+    font-size: 52px;
   }
 }
 
 .top-section__title-m {
   font-family: Avenir Next;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 150%;
   font-weight: 500;
   font-style: normal;

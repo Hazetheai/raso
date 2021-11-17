@@ -15,7 +15,7 @@ fieldset .form-question {
 
 fieldset h4 {
   font-family: Avenir Next;
-  font-size: 20px;
+  font-size: 22px;
   font-style: normal;
   font-weight: 600;
   line-height: 24px;
@@ -78,7 +78,7 @@ fieldset .field {
 
 label.field_top-label {
   color: rgba(105, 77, 129, 1);
-  font-size: 14px;
+  font-size: 16px;
   display: block;
 }
 
@@ -163,7 +163,7 @@ svg {
   margin: 5px 0;
 }
 .field_helper__content {
-  font-size: 14px;
+  font-size: 16px;
   color: rgba(74, 53, 92, 1);
 }
 .field_helper__content + button {
@@ -206,7 +206,7 @@ svg {
   position: absolute;
   top: 15px;
   left: 20px;
-  font-size: 12px;
+  font-size: 14px;
   transition: 0.2s;
   padding: 2px 8px;
   border-radius: 5px;
@@ -225,7 +225,7 @@ svg {
   font-family: Assistant;
   font-style: normal;
   font-weight: normal;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 24px;
   color: var(--color-primary);
   letter-spacing: -0.015px;
@@ -239,7 +239,7 @@ svg {
 .field_input--control-value + .magicfield_label,
 .magicfield_label--filled {
   top: -8px;
-  font-size: 10px;
+  font-size: 12px;
   background: var(--color-white);
   /* border: 1px solid rgba(102, 75, 129, 0.2); */
 }
@@ -252,7 +252,7 @@ svg {
   padding: 0 20px;
   color: rgba(40, 0, 75, 0.87);
   max-width: 420px;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 textarea.field_input {
@@ -381,7 +381,7 @@ textarea.field_input {
 
   border: 1px solid rgba(109, 74, 211, 0.38);
   font-weight: 600;
-  font-size: 13px;
+  font-size: 15px;
   position: relative;
   top: 0px;
   left: -8px;
