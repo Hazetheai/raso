@@ -339,6 +339,12 @@ textarea.field_input {
   padding: 4px;
   border-radius: 50%;
 }
+
+@supports (-webkit-touch-callout: none) {
+  .select_option::after {
+    top: -11px;
+  }
+}
 .select_option:first-child {
   margin-left: 0;
 }

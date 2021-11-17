@@ -33,6 +33,7 @@
 
 .terms-footnote .promise-icon {
   padding: 0 5px;
+  min-width: 24px;
 }
 
 @media only screen and (min-width: 500px) {

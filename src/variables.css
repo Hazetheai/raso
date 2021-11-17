@@ -82,8 +82,8 @@
   /***********************************************/
 
   --gradient-char-limit: linear-gradient(121.18deg, transparent);
-
-  --cta_gradient: linear-gradient(
+  --gradient-top-section: linear-gradient(180deg, #f9f7fc 0%, #ffffff 100%);
+  --gradient-cta: linear-gradient(
       0deg,
       rgba(255, 255, 255, 0.38),
       rgba(255, 255, 255, 0.38)

@@ -1,5 +1,5 @@
 .section-cta {
-  background: var(--cta_gradient);
+  background: var(--gradient-cta);
   border-radius: 32px;
   text-align: left;
 }
