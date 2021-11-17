@@ -41,6 +41,10 @@
   height: 0;
 }
 
+.form_submit {
+  text-align: left;
+}
+
 .form__review--actions p {
   margin-bottom: 1rem;
 }
