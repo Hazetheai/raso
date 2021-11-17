@@ -372,7 +372,7 @@
 
   "no_credit_card_required_label": "Land",
 
-  "date_format": "TT.MM.JJJJ",
+  "date_format": "DD.MM.YYYY",
 
   "email_address_label": "Email address",
   "email_address_placeholder": "youremail@domain.com",
