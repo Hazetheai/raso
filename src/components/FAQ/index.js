@@ -18,8 +18,8 @@ const FAQ = ({ faqData }) => {
   return (
     <section className={clsx("section-faq", faqData.containerClassName || "")}>
       <Accordion allowZeroExpanded>
-        <div className="container container-faq">
-          <h2 className="section-h2">{faqData.title}</h2>
+        <div className=" container-faq">
+          <h2 className="section-h2 faq-title">{faqData.title}</h2>
           {faqData.questions.map((question) => {
             return (
               <AccordionItem key={question.title} className="faq-question">
@@ -48,6 +48,7 @@ const FAQ = ({ faqData }) => {
                 <AccordionItemPanel className="faq-box-answer">
                   <div id={`xerius-a${question["xerius_number"]}`}>
                     <p
+                      className="faq-answer"
                       dangerouslySetInnerHTML={{ __html: question["answer"] }}
                     />
                   </div>

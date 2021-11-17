@@ -1,7 +1,15 @@
-.container-faq {
+.section-faq {
   width: 100%;
   margin: 100px auto;
+}
+
+.container-faq {
+  margin: 0 auto;
   max-width: 800px;
+}
+
+.faq-title {
+  text-align: center;
 }
 
 .faq-question + .faq-question {
@@ -15,6 +23,11 @@
   width: 100%;
   text-align: left;
   cursor: pointer;
+  padding: 0 12px;
+}
+
+.faq-answer {
+  padding: 0 12px;
 }
 
 .faq-h3 {
@@ -36,11 +49,6 @@
   font-weight: 900;
   font-size: 20px;
 }
-
-/* .faq-button[aria-expanded="true"] .fa-plus,
-.faq-button[aria-selected="true"] .fa-plus {
-  transform: rotate(-45deg);
-} */
 
 .faq-button + .faq-button {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
