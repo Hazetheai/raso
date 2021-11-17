@@ -187,7 +187,7 @@
 
   "full_name_label": "Vollständiger Name",
 
-  "firstname_label": "Wie is deine Vorname",
+  "firstname_label": "Wie is dein Vorname",
   "firstname_placeholder": "Max",
   "name_label": "Nachname",
   "name_placeholder": "Mustermann",
@@ -218,7 +218,7 @@
   "address_helper_expand_2_content": "Deine Steuernummer erhältst du per Post. Du kannst deine Adresse aber auch nach der Registrierung bei deinem Finanzamt korrigieren lassen.",
 
   "address_label": "Adresse",
-  "address_street": "Strasse",
+  "address_street": "Straße",
   "address_number": "Hausnummer",
   "address_postcode": "Postleitzahl",
   "address_city": "Stadt",
