@@ -7,7 +7,7 @@ import genders_de from "res/FormData/de/gender.json";
 import marital_status_de from "res/FormData/de/marital_status.json";
 import genders_en from "res/FormData/en/gender.json";
 import marital_status_en from "res/FormData/en/marital_status.json";
-import religion from "res/FormData/religion.json";
+import religion from "res/FormData/de/religion.json";
 import { useUserInteraction } from "userInteraction";
 import { sendAmplitudeData } from "../../../res/amplitude";
 import Field from "../../Field";
@@ -145,9 +145,7 @@ const Personal = ({ nextStep, defaultValues, comingStep }) => {
               },
               {
                 title: t("address_helper_expand_2_title"),
-                content: t("address_helper_expand_2_content", {
-                  interpolation: { escapeValue: false },
-                }),
+                content: t("address_helper_expand_2_content"),
                 cs: true,
               },
             ]}

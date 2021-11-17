@@ -3,7 +3,7 @@ import { nYearsFromNow } from "components/Field/helpers";
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import states from "res/FormData/states.json";
+import states from "res/FormData/de/states.json";
 import { isEmpty } from "res/lib";
 import Field from "../../Field";
 import Fieldset from "../Fieldset";

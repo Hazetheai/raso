@@ -3,14 +3,16 @@ import Link from "components/Link";
 import React, { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import tax_offices from "res/FormData/tax_office.json";
+import tax_offices from "res/FormData/de/tax_office.json";
 import eagle from "res/images/eagle.png";
 import { isEmpty } from "res/lib";
 import { corsProxy } from "settings/config";
 import { useUserData } from "userData";
+import { useUserInteraction } from "userInteraction";
 import Field from "../../Field";
 import Fieldset from "../Fieldset";
 import { previewForm, sendForm } from "../sendData";
+import letter_data from "res/letterData.json";
 
 const Review = ({
   steps,
@@ -23,27 +25,52 @@ const Review = ({
     mode: "onBlur",
   });
   const onSubmit = (data) => nextStep(data, "reviewFields", false);
-  //   const showBusinessReview_field_value = watch("showBusinessReview");
 
   const { t } = useTranslation();
   const { userData, setUserData } = useUserData();
+  const { userInteraction, setUserInteraction } = useUserInteraction();
   const [errorsVisible, setErrorsVisible] = useState(false);
-  const [apiResponse, setApiResponse] = useState({
-    success: false,
-    previewLink: "",
-  });
-
   const linkRef = useRef(null);
   const [loading, setLoading] = useState(false);
+
+  const { previewLink, success, code = "", message = "" } = userInteraction;
+
+  const taxOffice = watch("taxOffice");
+
+  useEffect(() => {
+    function getFinanzamtLetters(ld) {
+      const fl = [];
+
+      if (["002", "003"].includes(userData.personalFields.maritalstatus)) {
+        fl.push(...ld.married_letters);
+      } else {
+        fl.push(...ld.single_letters);
+      }
+
+      if (userData.taxInfoFields.askVATnumber === "yes") {
+        fl.push(...ld.with_vat_letters);
+      }
+
+      return fl;
+    }
+
+    setUserData(
+      {
+        finanzamtLetters: getFinanzamtLetters(letter_data),
+      },
+      "reviewFields"
+    );
+  }, []);
+
   useEffect(() => {
     reset(defaultValues); // asynchronously reset your form values
   }, []);
 
   useEffect(() => {
-    if (linkRef?.current && apiResponse.previewLink) {
+    if (linkRef?.current && previewLink) {
       linkRef.current.focus();
     }
-  }, [linkRef, apiResponse]);
+  }, [linkRef, previewLink]);
 
   // useEffect(() => {
   //   setTimeout(() => {
@@ -75,24 +102,27 @@ const Review = ({
         </Fieldset>
       </div>
       <div className="form__review--actions">
-        {!apiResponse.success && (
+        {!success && (
           <div className="tab-helper">
             <p className="tab-helper__heading">
               {t("review_proof_read", {
                 interpolation: { escapeValue: false },
               })}
             </p>
-            {console.log(`apiResponse`, apiResponse)}
+
             <Button
               func={async () => {
                 setLoading(true);
                 const ar = await previewForm({
-                  fields: userData,
+                  fields: {
+                    ...userData,
+                    reviewFields: { ...userData.reviewFields, taxOffice },
+                  },
                   preview: true,
                   sLang: "en",
                   sPartner: "",
                 });
-                setApiResponse(ar);
+                setUserInteraction({ ...ar, preview: true });
                 setLoading(false);
               }}
               text={t("review_button_gen_pdf")}
@@ -103,7 +133,7 @@ const Review = ({
           </div>
         )}
 
-        {apiResponse.previewLink && (
+        {previewLink && (
           <div className="tab-helper">
             <p className="tab-helper__heading">
               {t("review_proof_read", {
@@ -114,23 +144,33 @@ const Review = ({
               secondary
               ref={linkRef}
               className="body--big-bold"
-              href={apiResponse.previewLink.replace(corsProxy, "")}
+              href={previewLink} //.replace(corsProxy, "")}
               target={"_blank"}
               rel="noopener"
               text={t("review_button_view_pdf")}
               autoFocus
             />
+            <Link
+              secondary
+              className="body--big-bold"
+              href={"/en/success"} //.replace(corsProxy, "")}
+              text={"Go Success"}
+              autoFocus
+            />
           </div>
         )}
 
-        {apiResponse.success && (
+        {success && (
           <div className="tab-helper form_submit--review">
             <p className="body--medium">{t("review_button_success_heading")}</p>
-            <p className="body--small">
-              {t("review_button_success_subtitle", {
-                interpolation: { escapeValue: false },
-              })}
-            </p>
+            <p
+              className="body--small"
+              dangerouslySetInnerHTML={{
+                __html: t("review_button_success_subtitle", {
+                  interpolation: { escapeValue: false },
+                }),
+              }}
+            />
 
             <Button
               func={async () => {
@@ -140,7 +180,7 @@ const Review = ({
                   sLang: "en",
                   sPartner: "",
                 });
-                setApiResponse(ar);
+                setUserInteraction(ar);
               }}
               disabled
               className="body--big-bold"
@@ -153,23 +193,23 @@ const Review = ({
         )}
         <p className="body--small">{t("disclaimer")}</p>
         <p className="body--small">
-          {apiResponse["code"] && (
-            <span className="error-code">Code: {apiResponse["code"]}</span>
-          )}
-          {apiResponse["message"] && (
-            <span className="error-message">{apiResponse["message"]}</span>
+          {code && !success && <span className="error-code">Code: {code}</span>}
+          {message && !success && (
+            <span className="error-message">{message}</span>
           )}
         </p>
 
         <div className="qa-errors">
-          {apiResponse["code"] ? (
+          {code && !success ? (
             <div>
               <Button
                 func={() => setErrorsVisible(!errorsVisible)}
                 text={errorsVisible ? "Hide" : "Show Errors"}
               />
               {errorsVisible && (
-                <pre>{JSON.stringify(apiResponse, null, 2)}</pre>
+                <pre>
+                  {JSON.stringify(userInteraction?.data || {}, null, 2)}
+                </pre>
               )}
             </div>
           ) : null}
