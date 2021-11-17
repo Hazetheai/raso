@@ -42,7 +42,7 @@ export const validators = {
   firstname: /^.{1,72}$/,
   name: /^.{1,72}$/,
   email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-  address_street: /\D{1,72}$/,
+  address_street: /\w{1,72}$/,
   address_number: /^([0-9]{1,6})([a-z0-9A-Z]*)?$/,
   address_city: /^(?=.{1,72}$)\D*$/,
   address_postcode: /^([0-9]{5})$/,
