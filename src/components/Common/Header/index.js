@@ -7,9 +7,14 @@ import rasoBg from "res/images/top-section.png";
 import checkmark from "res/images/checkmark.svg";
 import "./header.css";
 import { useTranslation } from "react-i18next";
+import { useLocation } from "react-router";
+import clsx from "clsx";
 
 const Header = () => {
   const { t } = useTranslation();
+  const { pathname } = useLocation();
+  const isSuccess = /success|erfolg/gi.test(pathname);
+
   const terms = [
     { imgSrc: checkmark, text: t("hero_term_1") },
     {
@@ -28,8 +33,16 @@ const Header = () => {
   };
   return (
     <>
-      <div className="top-section">
-        <img src={rasoBg} alt="" className="top-section-raso-bg" />
+      <div className={clsx("top-section")}>
+        <div
+          className={clsx(
+            "top-section-gradient",
+            isSuccess && "top-section-gradient--raso-success"
+          )}
+        />
+        {isSuccess ? null : (
+          <img src={rasoBg} alt="" className="top-section-raso-bg" />
+        )}
         <header className="top-section__header">
           <a className="top-section__header__link" href="/">
             <img
@@ -41,7 +54,7 @@ const Header = () => {
           <Nav />
           <LanguagePicker />
         </header>
-        <Hero {...heroData} />
+        <Hero {...heroData} isSuccessPage={isSuccess} />
       </div>
     </>
   );

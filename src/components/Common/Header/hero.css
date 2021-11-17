@@ -3,6 +3,11 @@
   padding: 40px 45px;
 }
 
+.top-section-raso-congrats-container {
+  padding-bottom: 36px;
+  padding-top: 36px;
+}
+
 @media only screen and (min-width: 768px) {
   .top-section-raso-container {
     margin: 0 55px 55px 55px;
@@ -13,11 +18,10 @@
 .top-section-estirev-container {
   margin-top: 120px;
   margin: 0 25px;
-  margin-bottom: 80px;
 }
 
 .top-section__title-l {
-  color: rgba(105, 77, 129, 1);
+  color: var(--color-primary_medium);
 }
 
 .top-section__title-m {
@@ -28,4 +32,41 @@
   margin: 10px 0;
   letter-spacing: 1.2525px;
   padding: 0 35px;
+}
+
+.raso-congrats {
+  text-align: center;
+  font-family: Assistant;
+}
+
+.section-h2--raso-h2 {
+  font-size: 40px;
+  text-align: center;
+  padding-bottom: 18px;
+  margin: 0 auto;
+}
+
+.raso-congrats_p {
+  font-weight: 300;
+  font-size: 18px;
+  color: var(--color-gentle_black);
+}
+
+.raso-congrats_address_box {
+  margin: 48px auto;
+}
+
+.raso-congrats_ticket {
+  display: block;
+  margin: 32px auto;
+  padding: 12px 36px;
+  font-weight: 600;
+  line-height: 150%;
+  background-color: rgba(231, 227, 244, 1);
+  border-radius: 100px;
+  max-width: 350px;
+}
+
+.ticket-text {
+  opacity: 0.7;
 }

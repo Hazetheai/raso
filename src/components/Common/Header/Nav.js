@@ -13,7 +13,10 @@ const Nav = () => {
           <a href={t("nav_link_2")}>{t("nav_label_2")}</a>
         </li>
         <li className="menu-item">
-          <a href={t("nav_link_3")}>{t("nav_label_4")}</a>
+          <a href={t("nav_link_3")}>{t("nav_label_3")}</a>
+        </li>
+        <li className="menu-item">
+          <a href={t("nav_link_4")}>{t("nav_label_4")}</a>
         </li>
       </ul>
     </nav>
