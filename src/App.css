@@ -100,8 +100,12 @@ html {
 /************************/
 
 .content {
-  margin: 0 25px;
   position: relative;
+}
+@media only screen and (min-width: 500px) {
+  .content {
+    margin: 0 25px;
+  }
 }
 
 .container {

@@ -9,12 +9,19 @@
   font-weight: 700;
 }
 .container-cta {
-  padding: 20px 80px 80px 80px;
+  padding: 18px;
   text-align: left;
   position: relative;
   min-height: 600px;
   max-width: 1100px;
   margin: 0 auto;
+}
+
+@media only screen and (min-width: 768px) {
+  .container-cta {
+    padding: 20px 80px 80px 80px;
+    margin: 0 auto;
+  }
 }
 
 .container-cta--main {
@@ -23,11 +30,21 @@
   align-items: flex-start;
   justify-content: end;
 }
+
 .cta-image {
-  position: absolute;
+  position: relative;
   top: 50px;
-  right: -120px;
+  right: 20%;
 }
+
+@media only screen and (min-width: 1024px) {
+  .cta-image {
+    position: absolute;
+    top: 50px;
+    right: -120px;
+  }
+}
+
 .section-h2--cta-h2 {
   font-family: Avenir Next;
   font-size: 24px;
@@ -38,8 +55,7 @@
   text-align: left;
   position: relative;
   padding: 0;
-  margin: 0;
-  max-width: 80%;
+  margin: 0 0 12px 0;
 }
 
 @media only screen and (min-width: 400px) {
@@ -79,7 +95,6 @@
   letter-spacing: 0.005em;
   text-align: left;
   margin: 0 0 30px 0;
-  max-width: 59%;
 }
 
 .container-cta-form {
@@ -99,76 +114,6 @@
   max-width: 400px;
 }
 
-@media screen and (min-width: 900px) {
-  .cta-phone {
-    right: 0;
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .cta-image {
-    right: -20px;
-  }
-  .container-cta {
-    padding: 100px 40px;
-  }
-}
-@media screen and (max-width: 1024px) {
-  .cta-image {
-    right: -20px;
-    max-width: 430px;
-  }
-  .container-cta {
-    padding: 60px 40px;
-  }
-}
-@media screen and (max-width: 1024px) {
-  .cta-image {
-    top: -10px;
-    left: 0;
-    transform: translateX(-11%);
-  }
-
-  .container-cta {
-    padding-top: 400px;
-    padding-left: 48px;
-    padding-right: 48px;
-  }
-}
-@media screen and (max-width: 1024px) {
-  .cta-p {
-    max-width: 550px;
-  }
-  .cta-h2 {
-    max-width: 700px;
-  }
-}
-@media screen and (max-width: 768px) {
-  .cta-p {
-    max-width: 100%;
-  }
-  .cta-h2 {
-    max-width: 100%;
-  }
-}
-@media screen and (max-width: 574px) {
-  .start-app-btn-cta {
-    text-align: center;
-    width: 100%;
-  }
-}
-@media screen and (max-width: 500px) {
-  .cta-image {
-    width: 400px;
-    max-width: 100%;
-  }
-}
-@media screen and (max-width: 400px) {
-  .container-cta {
-    padding-top: 350px;
-  }
-}
-
 /** Secondary CTA **/
 
 .secondary-cta {
@@ -177,9 +122,14 @@
   align-items: center;
   min-height: 400px;
   padding: 0;
-  margin: 92px;
+  margin: 24px;
 }
 
+@media only screen and (min-width: 768px) {
+  .secondary-cta {
+    margin: 92px;
+  }
+}
 .secondary-cta-img-wrapper {
   position: relative;
   width: 40%;

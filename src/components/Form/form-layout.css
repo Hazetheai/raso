@@ -69,12 +69,13 @@
 .form-layout .form-container {
   flex: 1 0 100%;
   background: white;
-  padding: 24px 32px;
+  padding: 24px;
   margin-right: 2vw;
 }
 
 @media only screen and (min-width: 768px) {
   .form-layout .form-container {
+    padding: 24px 32px;
     flex: 1 0 55%;
   }
 }
