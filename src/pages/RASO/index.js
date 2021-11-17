@@ -1,11 +1,16 @@
-import Button from "components/Button";
 import FAQ from "components/FAQ";
 import Form from "components/Form/";
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { useUserInteraction } from "userInteraction";
 
 const RASO = () => {
   const { t, i18n } = useTranslation();
+  const { userInteraction, setUserInteraction } = useUserInteraction();
+
+  useEffect(() => {
+    setUserInteraction({ version: Math.random() > 0.5 ? "a" : "b" });
+  }, []);
 
   const faqData = {
     containerClassName: "raso-faq",
