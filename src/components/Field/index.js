@@ -442,18 +442,18 @@ const Money = ({ name, control, errors, shorter, rules }) => {
       className="field_input"
       ref={ref}
       value={value}
-      // onChange={(e) => onChange(e.target.rawValue)}
       onChange={onChange}
       onBlur={onBlur}
       options={{
         numeral: true,
         numericOnly: true,
         numeralThousandsGroupStyle: "thousand",
-        numeralDecimalMark: ",",
-        delimiter: ".",
+        numeralDecimalMark: isDe ? "," : ".",
+        delimiter: isDe ? "." : ",",
         numeralPositiveOnly: true,
-        prefix: isDe ? " €" : "€ ",
-        tailPrefix: isDe,
+        //   noImmediatePrefix: true,
+        //   prefix: isDe ? " €" : "€ ",
+        //   tailPrefix: isDe,
       }}
     />
   );
