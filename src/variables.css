@@ -47,7 +47,8 @@
 
   --color-grey_light-1: rgba(150, 150, 150, 1);
   --color-grey_light-2: rgba(152, 152, 152, 1);
-  --color-grey_light-3: rgba(149, 149, 149, 1);
+  --color-grey_light-3: rgba(248, 248, 248, 1);
+
   --color-grey_light-4: rgba(185, 185, 185, 0.5);
   --color-grey-1: rgba(85, 85, 85, 1);
   --color-grey-2: rgba(72, 72, 72, 1);
@@ -59,6 +60,8 @@
   --color-border-grey: rgba(206, 206, 206, 1);
 
   --color-black: rgba(0, 0, 0, 0);
+  --color-gentle_black: rgba(40, 0, 75, 1);
+
   --color-black_transparent: rgba(0, 0, 0, 0.08);
   --color-black_transparent-2: rgba(0, 0, 0, 0.2);
   --color-black_transparent-3: rgba(0, 0, 0, 0.0398);
