@@ -90,8 +90,6 @@ const Form = ({}) => {
 
   useEffect(() => {
     if (currentStep.tabNumber > 1) {
-      console.log(`currentStep`, currentStep.tabNumber);
-      console.log(`currentStep`, currentStep);
       layoutRef.current.scrollIntoView({ behaviour: "smooth" });
     }
   }, [currentStep.tabNumber]);
