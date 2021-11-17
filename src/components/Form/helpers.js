@@ -61,30 +61,30 @@ export function flatten2DObject(obj) {
 /**
  *
  * @param {string} ticket
- * @param {Object} fields User Data Fields
+ * @param {Object} userData User Data Fields
  * @returns
  */
 
-export function generateWebSignupPayLoad(ticket, fields) {
+export function generateWebSignupPayLoad(ticket, userData) {
   const payload = {
     rasoRef: ticket,
-    firstName: fields.personalFields.firstname,
-    lastName: fields.personalFields.name,
-    email: fields.personalFields.email,
-    phoneNumber: fields.personalFields.phone,
+    firstName: userData.personalFields.firstname,
+    lastName: userData.personalFields.name,
+    email: userData.personalFields.email,
+    phoneNumber: userData.personalFields.phone,
   };
-  if (fields.taxEstimateFields.profitGewerbetreibender)
-    payload.accountType = "gewerbetreibender_principal";
-  else payload.accountType = "freiberufler_principal_vat";
+  if (userData.taxEstimateFields.profitGewerbetreibender)
+    payload["accountType"] = "gewerbetreibender_principal";
+  else payload["accountType"] = "freiberufler_principal_vat";
 
-  if (fields.taxInfoFields.chargeVAT) {
-    payload.VATReturnFrequency = "monthly";
-    payload.VATType = "subjectToVAT";
+  if (userData.taxInfoFields.chargeVAT) {
+    payload["VATReturnFrequency"] = "monthly";
+    payload["VATType"] = "subjectToVAT";
   } else {
     //klein
-    payload.VATReturnFrequency = "quarterly";
-    payload.VATType = "noVAT";
-    payload.noVATStatus = "franchisee";
+    payload["VATReturnFrequency"] = "quarterly";
+    payload["VATType"] = "noVAT";
+    payload["noVATStatus"] = "franchisee";
   }
   const b64 = btoa(JSON.stringify(payload))
     .replace(/\+/g, "-") // Convert '+' to '-'
