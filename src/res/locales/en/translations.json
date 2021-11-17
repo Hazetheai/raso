@@ -32,9 +32,9 @@
   "nav_label_4": "Tax Guides",
 
   "hero_title": "Register as self-employed",
-  "hero_subtitle": "Our fast guide through the official “Fragebogen zur Steuerlichen Erfassung”",
-  "hero_term_1": "Submitted digitally to ELSTER",
-  "hero_term_2": "Available help from our partner tax advisors",
+  "hero_subtitle": "You need a Steuernummer (tax number) in order to be self-employed in Germany. You fill in the official form and we send it directly to the Finanzamt (tax office). The registration through Accountable is fast, secure and free of charge",
+  "hero_term_1": "Safe submission through Elster",
+  "hero_term_2": "Receive your tax number from the Finanzamt via mail",
   "hero_term_3": "Entirely free of charge",
   "hero_ctaText": "Start Now",
 
@@ -246,7 +246,7 @@
 
   "previousbusiness_label": "Have you operated a Gewerbe, worked as a self-employed professional or held shares in a company (of at least 1%) in the last 5 years?",
 
-  "steueridentifkationsnummer_label": "Your personal tax id / Steueridentifikationsnummer",
+  "steueridentifkationsnummer_label": "Your Steueridentifikationsnummer (personal tax ID)",
   "steueridentifkationsnummer_helper": "As a German you receive the Steueridentifikationsnummer at birth. As an expat you receive it when you first register in Germany. It is NOT your Steuernummer. If in doubt you can find more information <a href=\"https://www.accountable.de/en/blog/freelancing-in-germany-heres-what-you-need-to-know-about-tax-numbers/\" target=\"_blank\">here</a>.",
 
   "steuernummer_label": "Do you or your spouse already have a tax number / Steuernummer?",
@@ -255,9 +255,9 @@
   "steuernummer_helper_2_expand_title": "Where do I find my tax identification number?",
   "steuernummer_helper_2_expand_content": "If you’ve been working as an employee you can generally find it on your wage slip (Lohnsteuerbescheinigung) in the top section under “Steuer-ID” <br/><br/> Your tax identification number is also stated on your income tax assessments. <br/><br/> If you were born in Germany or are registered in the country for tax reasons, you should have received a letter from the tax office assigning you a Steuer-ID. Children receive their tax ID shortly after birth and foreigners are assigned their Steuer-ID when they first register in Germany. Alternatively, if you didn’t receive a letter or simply can’t find it, you can request the letter with your Steuer-ID to be sent again using the <a href=\"https://www.bzst.de/SiteGlobals/Kontaktformulare/EN/Tax_Idenr/message_IdNr/notification_idnr_node.html\" target=\"_blank\" rel=\"noopener\">input form on the website of the BZSt</a>",
 
-  "steuernummer_value_label": "Your tax number / Steuernummer",
+  "steuernummer_value_label": "Please enter the existing Steuernummer (tax number)",
 
-  "singleentry_label": "I want to use the simplified profit determination method for self-employed",
+  "singleentry_label": "I want to use the EÜR (simplified profit determination method) for self-employed",
   "singleentry_helper": "The Einnahmenüberschussrechnung (EÜR) or single entry bookkeeping is the simplified and most common method for self employed professionals. Your taxes are calculated based on the income and expenses you declare.",
   "singleentry_helper_2": "We currently only support single entry bookkeeping. <a href=\"#0\" target=\"_blank\">Contact us</a> if you want to use another method and/or if you are making over €600.000 in revenue or €60.000 in profit.",
   "singleentry_helper_expand_title": "What is the EÜR?",
@@ -282,7 +282,7 @@
   "revenue_secondYear_label": "Estimated revenue next year",
   "revenue_secondYear_helper": "Please provide an estimate of your revenues from self-employment (without salaries, rental income, interest etc.)",
 
-  "chargeVAT_label": "Do you want to charge VAT as a small business owner / Kleinunternehmer?",
+  "chargeVAT_label": "Do you want to be exempt from VAT as a Kleinunternehmer (small business owner)?",
   "chargeVAT_helper": "If your yearly revenue is below €22.000, you are eligible for the small business owner / Kleinunternehmer regime and can decide whether you want to charge VAT. You can find more information on the pros and cons <a href=\"https://www.accountable.de/en/blog/managing-your-taxes-as-a-freelancer-in-germany/\" target=\"_blank\">here</a>.",
   "chargeVAT_expand_helper_title": "Can I register as a Kleinunternehmer (small business owner)?",
   "chargeVAT_expand_helper_content": "As a <a href=\"https://www.accountable.de/en/blog/when-is-a-freelancer-a-kleinunternehmer/\" target=\"_blank\">Kleinunternehmer</a> your are exempted from VAT if your turnover is less than 22,000€ in the first year and less than 50,000€ in the following year (as of 2021).  <br/><br/> If you start your business in the middle of the year, don't forget that the 22,000€ are meant for the whole year. For example, if you register on July 1st, you can only have a maximum turnover of 11,000€ for the first year.",

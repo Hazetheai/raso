@@ -38,9 +38,7 @@ const Business = ({
           type="textarea"
           name="profession"
           topLabel={t("profession_label")}
-          fieldHelperText={t("profession_helper", {
-            link: '<a href="http://accountable.de/blog/freiberufler-oder-gewerbe/" target="_blank">Hier findest du mehr Informationen dazu.</>',
-          })}
+          fieldHelperText={t("profession_helper")}
           expandedHelpers={[
             {
               title: t("profession_helper_expand_title"),

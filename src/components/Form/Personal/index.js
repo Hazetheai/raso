@@ -208,6 +208,14 @@ const Personal = ({ nextStep, defaultValues, comingStep }) => {
           maritalstatus_value
         ) && (
           <Fieldset subfield>
+            <Field
+              type="jump-date"
+              name="maritalstatusdate"
+              topLabel={t("maritalstatusdate_label")}
+              floatingLabel={t("date_format")}
+              errors={errors}
+              control={control}
+            />
             {["002", "003"].includes(maritalstatus_value) && (
               <>
                 <Field
@@ -232,7 +240,7 @@ const Personal = ({ nextStep, defaultValues, comingStep }) => {
                   })}
                   errors={errors}
                   watch={watch}
-                  topLabel={t("partner_name_placeholder")}
+                  topLabel={t("partner_name_label")}
                 />
                 <Field
                   type="select"
@@ -279,14 +287,6 @@ const Personal = ({ nextStep, defaultValues, comingStep }) => {
                 />
               </>
             )}
-            <Field
-              type="jump-date"
-              name="maritalstatusdate"
-              topLabel={t("maritalstatusdate_label")}
-              floatingLabel={t("date_format")}
-              errors={errors}
-              control={control}
-            />
           </Fieldset>
         )}
 

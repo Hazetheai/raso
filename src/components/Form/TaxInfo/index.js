@@ -313,8 +313,8 @@ const TaxInfo = ({
             errors={errors}
             fullWidth
             options={[
-              { name: t("yes"), value: "yes" },
-              { name: t("no"), value: "no" },
+              { name: t("yes"), value: "no" },
+              { name: t("no"), value: "yes" },
             ]}
             fieldHelperText={t("askVATnumber_helper", {
               interpolation: { escapeValue: false },
