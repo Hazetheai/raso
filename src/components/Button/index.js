@@ -18,6 +18,7 @@ const Button = ({
     <button
       {...rest}
       className={clsx(
+        "body--big-bold",
         className,
         clear && "clear",
         fluid && "fluid",

@@ -27,6 +27,7 @@ const Link = React.forwardRef(
         title={title}
         className={clsx(
           "link",
+          "body--big-bold",
           className,
           secondary && "link--sencondary",
           inline && "link--inline"
