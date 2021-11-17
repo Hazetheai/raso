@@ -20,6 +20,7 @@ import { getUtms } from "./res/utms";
 import Header from "components/Common/Header";
 import Footer from "components/Common/Footer";
 import { useTranslation } from "react-i18next";
+import SuccessPage from "pages/RASO/success";
 
 function App() {
   const { t, i18n } = useTranslation();
@@ -61,7 +62,10 @@ function App() {
         <Switch>
           <Fragment>
             <Route exact path="/" component={RASO} />
+            <Route exact path="/erfolg" component={SuccessPage} />
+
             <Route exact path="/en" component={RASO} />
+            <Route exact path="/en/success" component={SuccessPage} />
           </Fragment>
         </Switch>
         <Footer />
