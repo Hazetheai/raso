@@ -34,8 +34,26 @@ export const FinanzamtLetters = ({ finanzamtLetters }) => {
   return (
     <>
       <section>
+        <div className="raso-letters-heading">
+          <h2
+            className="raso-a-section section-h2 section-h2--raso-h2"
+            dangerouslySetInnerHTML={{
+              __html: t("raso_letter_section_heading", {
+                interpolation: { escapeValue: false },
+              }),
+            }}
+          />
+          <p
+            className="raso-congrats_p raso-a-section"
+            dangerouslySetInnerHTML={{
+              __html: t("raso_letter_section_subtitle", {
+                interpolation: { escapeValue: false },
+              }),
+            }}
+          />
+        </div>
         <div className="flex-container raso-letter-section raso-a-section">
-          {finanzamtLetters.map((letter) => {
+          {finanzamtLetters?.map((letter) => {
             const heading = `raso_pdf_heading_${getLetterName(letter.pdf_url)}`;
             const content = `raso_pdf_content_${getLetterName(letter.pdf_url)}`;
 

@@ -1,6 +1,7 @@
 .raso-letter-section {
   justify-content: space-between;
   flex-wrap: wrap;
+  margin: 72px auto;
 }
 .raso-letter-section .raso-letter-element {
   margin: 0 1rem;
@@ -10,6 +11,10 @@
   .raso-letter-section .raso-letter-element {
     flex: 0 0 20%;
   }
+}
+.raso-letters-heading {
+  text-align: center;
+  margin: 48px auto;
 }
 
 .pdf-reader-wrapper {

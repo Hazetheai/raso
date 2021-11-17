@@ -1,0 +1,40 @@
+{
+  "married_letters": [
+    {
+      "pdf_url": "/pdfs/raso/married_letters/Finanzamt_Steuernummer.pdf",
+      "image_url": "/images/raso/married_letters/Finanzamt_Steuernummer_page_1.jpg"
+    },
+    {
+      "pdf_url": "/pdfs/raso/married_letters/Finanzamt_Steuernummer_Einkommensteuer.pdf",
+      "image_url": "/images/raso/married_letters/Finanzamt_Steuernummer_Einkommensteuer_page_1.jpg"
+    },
+    {
+      "pdf_url": "/pdfs/raso/married_letters/Finanzamt_Steuervorauszahlungen.pdf",
+      "image_url": "/images/raso/married_letters/Finanzamt_Steuervorauszahlungen_page_1.jpg"
+    },
+    {
+      "pdf_url": "/pdfs/raso/married_letters/Finanzamt_Istversteuerung.pdf",
+      "image_url": "/images/raso/married_letters/Finanzamt_Istversteuerung_page_1.jpg"
+    }
+  ],
+  "single_letters": [
+    {
+      "pdf_url": "/pdfs/raso/single_letters/Finanzamt_Steuernummer_single.pdf",
+      "image_url": "/images/raso/single_letters/Finanzamt_Steuernummer_single_page_1.jpg"
+    },
+    {
+      "pdf_url": "/pdfs/raso/single_letters/Finanzamt_Steuervorauszahlungen_single.pdf",
+      "image_url": "/images/raso/single_letters/Finanzamt_Steuervorauszahlungen_single_page_1.jpg"
+    },
+    {
+      "pdf_url": "/pdfs/raso/single_letters/Finanzamt_Istversteuerung_single.pdf",
+      "image_url": "/images/raso/single_letters/Finanzamt_Istversteuerung_single_page_1.jpg"
+    }
+  ],
+  "with_vat_letters": [
+    {
+      "pdf_url": "/pdfs/raso/vat_letters/Finanzamt_UStID.pdf",
+      "image_url": "/images/raso/vat_letters/Finanzamt_UStID_page_1.jpg"
+    }
+  ]
+}
