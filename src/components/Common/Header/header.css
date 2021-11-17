@@ -6,6 +6,7 @@
   margin: 0 auto;
   min-height: 110px;
   position: relative;
+  background: var(--gradient-top-section);
 }
 
 .top-section-gradient {
