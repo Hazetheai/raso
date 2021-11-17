@@ -11,6 +11,7 @@
   text-decoration: none;
   min-width: 100%;
   transition: 0.3s;
+  white-space: nowrap;
 }
 
 .form_submit_btn--inline {
