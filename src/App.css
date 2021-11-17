@@ -94,34 +94,14 @@ html {
 ::before {
   box-sizing: border-box;
 }
+
+/************************/
+/****** Containers ******/
+/************************/
+
 .content {
   margin: 0 25px;
   position: relative;
-}
-
-.cta-phone {
-  right: -20px;
-  max-width: 400px;
-}
-.container-cta {
-  padding: 100px 40px;
-}
-
-@media screen and (min-width: 900px) {
-  .cta-phone {
-    right: 0;
-  }
-}
-
-.container-cta-form {
-  margin-top: 80px;
-}
-
-.container-cta {
-  padding: 100px 80px;
-  text-align: left;
-  position: relative;
-  min-height: 600px;
 }
 
 .container {
@@ -165,9 +145,6 @@ html {
     padding-left: 25px;
   }
 
-  .form_submit {
-    text-align: left;
-  }
   .content_right_sticky {
     position: sticky;
     top: 0;
@@ -181,185 +158,14 @@ a {
 img {
   vertical-align: middle;
 }
-.form-control:focus {
-  border-color: inherit;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-.top-section {
-  width: 100%;
-  min-height: 110px;
-  position: relative;
-  overflow: hidden;
-}
-.top-section-gradient {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: var(--top-section_gradient);
-  opacity: 0.12;
-  z-index: 1;
-  max-height: 600px;
-}
-.top-section-gradient--nheight {
-  max-height: unset;
-}
-.top-section-bg-wrapper {
-  position: absolute;
-  z-index: 2;
-  top: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-}
-.top-section-container {
-  position: relative;
-  z-index: 3;
-}
 
-.top-section__title-l {
-  font-size: 26px;
-  font-family: "Avenir Next";
-  line-height: 140%;
-  font-weight: 700;
-  animation-delay: 0.7s;
-}
-
-@media only screen and (min-width: 768px) {
-  .top-section__title-l {
-    margin-top: 75px;
-    font-size: 32px;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
-  .top-section__title-l {
-    font-size: 48px;
-  }
-}
-
-.top-section__title-m {
-  font-family: Avenir Next;
-  font-size: 18px;
-  line-height: 150%;
-  font-weight: 500;
-  font-style: normal;
-  letter-spacing: -0.02em;
-  text-align: left;
-  margin-top: 25px;
-  margin-bottom: 10px;
-}
-
-.section-h2 {
-  font-family: "Avenir Next";
-  font-size: 48px;
-  padding: 0 20px;
-  padding-bottom: 20px;
-  text-align: center;
-  margin: auto;
-  max-width: 800px;
-  font-weight: 700;
-  letter-spacing: -0.075rem;
-  display: block;
-}
-.section-p {
-  font-size: 24px;
-  font-weight: 300;
-  margin: auto;
-  display: block;
-  max-width: 600px;
-  margin-bottom: 20px;
-  text-align: center;
-  opacity: 0.8;
-}
 .dlAccountableLink:hover {
   text-decoration: none;
   opacity: 0.95;
 }
 
-.input-group-append {
-  background-color: white;
-  border-top-right-radius: 50px;
-  border-bottom-right-radius: 50px;
-  height: 50px;
-}
-
-.input-group-append__btn {
-  height: 50px;
-  min-width: 150px;
-  display: inline;
-  background-color: var(--color-primary);
-  color: white;
-  border-radius: 50px;
-  border: none;
-  padding-left: 1.5em;
-  padding-right: 1.5em;
-  cursor: pointer;
-  margin-left: 5px;
-  font-family: "Avenir Next";
-  font-size: 16px;
-  letter-spacing: -0.005em;
-}
-.input-group-append__btn:focus {
-  outline: 0;
-}
-.error-wrapper {
-  height: 35px;
-}
-.error-message-phone {
-  display: none;
-  color: #fff;
-}
-
-input#mce-PHONE {
-  border: none;
-  padding: 0.3rem;
-}
-
-.input-group__img--flag--tool,
-.input-group--phone__input--tool,
-.input-group--phone__input--tool:hover,
-.input-group--phone__input--tool:focus,
-.input-group-append--tool,
-.input-group__img--flag--alt,
-.input-group--phone__input--alt,
-.input-group--phone__input--alt:hover,
-.input-group--phone__input--alt:focus,
-.input-group--email__input--alt,
-.input-group--email__input--alt:hover,
-.input-group--email__input--alt:focus,
-.input-group-append--alt {
-  background: #f7f6fc;
-}
-.input-group--email {
-  width: 90%;
-  margin: auto;
-}
-.input-group--email input,
-.input-group--email input:focus {
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  border: none;
-  -moz-box-shadow: 0 2px 10px 0 var(--color-grey_light-4);
-  -webkit-box-shadow: 0 2px 10px 0 var(--color-grey_light-4);
-  box-shadow: 0 2px 10px 0 var(--color-grey_light-4);
-  font-size: 1.4em;
-  font-weight: 600;
-  font-weight: 300;
-  color: #959595;
-  padding: 0 10px;
-  height: 60px;
-}
-
 .desktop-only {
   display: none;
-}
-
-.section-h2 {
-  font-size: 32px;
-}
-.section-p {
-  font-size: 18px;
 }
 
 @media screen and (min-width: 770px) {
@@ -368,17 +174,6 @@ input#mce-PHONE {
   }
   .mobile-only {
     display: none;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .content_right_wrapper {
-    position: fixed;
-    background: #f9f8fd;
-    height: 100%;
-    width: calc((100vw - 1175px) / 2);
-    top: 0;
-    right: 0%;
   }
 }
 
@@ -441,7 +236,6 @@ hr {
   font-weight: 700;
   line-height: 24px;
   letter-spacing: 0px;
-  text-align: left;
 }
 
 .h5--bold {
@@ -454,9 +248,91 @@ hr {
   text-align: left;
 }
 
+.section-h2 {
+  font-family: "Avenir Next";
+  font-size: 32px;
+  padding-bottom: 20px;
+  max-width: 27ch;
+  font-weight: 700;
+  letter-spacing: -0.075rem;
+  display: block;
+  color: var(--color-primary_medium);
+}
+
+.top-section__title-l {
+  font-size: 26px;
+  font-family: "Avenir Next";
+  line-height: 140%;
+  font-weight: 700;
+  animation-delay: 0.7s;
+}
+
+.section-p {
+  font-size: 18px;
+  font-weight: 300;
+  display: block;
+  max-width: 43ch;
+  margin-bottom: 12px;
+  opacity: 0.8;
+}
+
+@media only screen and (min-width: 768px) {
+  .section-h2 {
+    font-size: 48px;
+    padding-bottom: 20px;
+    max-width: 27ch;
+    letter-spacing: -0.075rem;
+  }
+
+  .top-section__title-l {
+    margin-top: 75px;
+    font-size: 32px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .top-section__title-l {
+    font-size: 48px;
+  }
+}
+
+.top-section__title-m {
+  font-family: Avenir Next;
+  font-size: 18px;
+  line-height: 150%;
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -0.02em;
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
 /************************/
 /****** Animations ******/
 /************************/
+
+.pulse {
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+  transform: scale(1);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+}
 
 .lds-ellipsis {
   position: relative;
