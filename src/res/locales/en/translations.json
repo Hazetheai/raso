@@ -36,7 +36,7 @@
   "hero_term_1": "Submitted digitally to ELSTER",
   "hero_term_2": "Available help from our partner tax advisors",
   "hero_term_3": "Entirely free of charge",
-  "hero_ctaText": "start now",
+  "hero_ctaText": "Start Now",
 
   "footer_facebook_label": "Accountable on Facebook",
   "footer_instagram_label": "Accountable on Instagram",
@@ -107,7 +107,26 @@
   "success_a_hero_finanzamt_office": "Finanzamt Address",
   "success_a_hero_ref_number": "Your reference:",
 
-  "success_a_body_title": "",
+  "success_b_hero_title": "Congrats, <br /> you’ve mastered step 1...",
+  "success_b_hero_subtitle": "You are now officially registered as self-employed in Germany ✨",
+  "success_b_hero_your_name": "Your Name",
+  "success_b_hero_your_address": "Your Address",
+  "success_b_hero_start_from": "Start from",
+  "success_b_hero_finanzamt_office": "Finanzamt Address",
+  "success_b_hero_ref_number": "Your reference:",
+
+  "success_b_body_title": "...now, get it right from the start:",
+  "success_b_body_subtitle": " ⏱<strong> Within the next 24h: </strong> <br /> Download & save your <strong>PDF-confirmation from the tax office</strong>",
+  "success_b_body_subtitle_2": "📅 <strong>Until: </strong> <br/> Submit your first VAT return",
+  "success_b_body_subtitle_3": "All required documentation is waiting for you here:",
+
+  "success_b_raso_trust_title": "Trusted by 10,000 self-employed to manage invoices, receipts & taxes",
+  "success_b_raso_quote_1_occupation": "Designer",
+  "success_b_raso_quote_1_content": "Great automation for freelancers. Integration with the bank account helps you to keep track of the expenses in real time. Bills on email? You simply fwd the email and the app will attach it to correct expense. Simple invoicing is great. And integration with Elster lets you do the Vat returns automatically.",
+  "success_b_raso_quote_2_occupation": "Developer",
+  "success_b_raso_quote_2_content": "Fantastic for freelancers to do the bookeeping and prepare tax returns. <br/> all the admin part. It’s a fantastic tool and their customer support is great!",
+  "success_b_raso_quote_3_occupation": "Consultant",
+  "success_b_raso_quote_3_content": "This app has saved me so much time on my bookkeeping. It's intuitive and easy to use and all my administration is in one place. Next to that, the app actually gives you tax saving tips, just with those I've saved the more money then the app cost me!",
 
   "success_cta_join_pre_headline": "SPECIAL OFFER FOR BEGINNERS",
   "success_cta_join_headline": "Get 6 months free of Accountable PRO",
@@ -118,6 +137,34 @@
   "success_cta_join_desktop_action_element_link": "http://onboarding.accountable.de/en/",
   "success_cta_join_offer_promises_text_1": "No Credit Card Required",
   "success_cta_join_offer_promises_text_2": "Full Beginner Support",
+
+  "secondary_cta_heading": "What should you do with it? What happens now?",
+  "secondary_cta_content": "📅 Book a free (video) phone call with one of our tax coaches here, who will go through the documents with you and explain them to you.",
+  "secondary_cta_action_element": "Book a free call",
+
+  "raso_success_a_section_faq_1_title": "What is Accountable?",
+  "raso_success_a_section_faq_1_answer": "Accountable is the simplest and best solution for self-employed professionals.<br/><br/>\r\n                    You can create invoices accepted by the German tax office, scan all your receipts and therefore digitalise your accounting with ease. In addition, Accountable takes care of your tax obligations: whether it's VAT or income tax, with Accountable you won't miss any deadlines. You can send your tax returns directly to your tax office through a secure Elster interface.<br/><br/>\r\n                    Even if you don't know anything about the German tax system, with Accountable you can do everything right from the start. We translate the language of the tax office for you and give you valuable tax tips. Our mission is to make your everyday life as a self-employed professional easier, so that you can concentrate on what is really important.",
+
+  "raso_success_a_section_faq_2_title": "What is your special offer for the new self-employed?",
+  "raso_success_a_section_faq_2_answer": "Everyone who signs up as a self-employed professional through us can use our best PRO version with all features for 6 months completely free of charge. <br/><br/>\r\n                    You don't have to register with your credit card and you don't have to choose a subscription. <br/><br/> \r\n                    We know how difficult it can be to get started, so we want to make it as easy as possible for you. If you like the PRO version, you can decide after the 6 months trial if you want to continue using it. There is no automatic renewal.",
+
+  "raso_success_a_section_faq_3_title": "Is Accountable free of charge?",
+  "raso_success_a_section_faq_3_answer": "You can use Accountable with all features for free in the first 6 months if you take advantage of our special offer for beginners. No credit card is required for this offer. Even after the 6 months, you can use the Accountable app for free at your leisure and for as long as you like.<br/><br/>\r\n                    The free plan allows you to scan up to 5 documents per month. You won't incur any costs and you don't have to sign up for a subscription. If you want to scan more documents, you can switch to our BASIC or PRO plan. You can find out more about our prices <a href=\"https://www.accountable.de/en/pricing/\" target=\"_blank\">here</a>",
+
+  "raso_success_a_section_faq_4_title": "Does Accountable work for a Kleinunternehmer?",
+  "raso_success_a_section_faq_4_answer": "Yes, we have developed the app especially for self-employed and Kleinunternehmer (small business owners).<br/><br/>\r\n                     As a Kleinunternehmer, you can digitalise and professionalize your accounting with the Accountable app for free. The app automatically adapts to your individual tax situation. As your business grows, we can also help you further with our partner tax advisors.",
+
+  "raso_success_a_section_faq_5_title": "Does Accountable replace the need for a tax advisor?",
+  "raso_success_a_section_faq_5_answer": "Accountable gives you the freedom to decide how you want to work: Do you want to manage your accounting and taxes on your own? Great! Then use Accountable to save time and focus on what's important.<br/><br/>\r\n                \r\n                    You like to work with your existing accountant and still want to use Accountable? No problem: You can simply export all transactions with all the receipts for a certain period. Your tax advisor can then give you the best advice based on this information.<br/><br/>\r\n                \r\n                    If you are looking for a tax advisor but haven't found one yet: You can use the app in cooperation with one of our partnered tax advisors.",
+
+  "raso_success_a_section_faq_6_title": "What are my tax obligations as a self-employed in Germany?",
+  "raso_success_a_section_faq_6_answer": "In Germany, there are three main types of taxes that might be important for you: VAT (also called sales tax), income tax and trade tax for trade organisations. <br/><br/>\r\n                    All tax obligations for VAT and income tax can be easily done in our app. You can also create the E\u00dcR (income surplus statement) through Accountable and send it directly to your tax office. We remind you of all your tax obligations and help you if you have titles about the tax system in Germany.",
+
+  "raso_success_a_section_faq_7_title": "Can Accountable recommend me a tax advisor?",
+  "raso_success_a_section_faq_7_answer": "Yes, if you want to work with a tax consultant, we have the perfect solution for you. We can forward your request to one of our partnered tax advisors who will help you for pre-determined prices.<br/><br/>",
+
+  "raso_success_a_section_faq_8_title": "Can I use Accountable if I already have a tax advisor?",
+  "raso_success_a_section_faq_8_answer": "You like to work with your current Steuerberater or accountant and still want to use Accountable? No problem: You can simply export all transactions with all the receipts for a certain period. Your tax advisor can then advise you optimally based on this information.<br/><br/>",
 
   "tab_header_welcome": "Welcome",
 
@@ -168,7 +215,7 @@
   "address_helper_expand_title": "What should I do when I recently moved from abroad to Germany?",
   "address_helper_expand_content": "Answer \"no\" as long as you didn't move house within Germany.",
   "address_helper_expand_2_title": "I will move in the next weeks. Which address should I put?",
-  "address_helper_expand_2_content": "You will receive your tax number via mail. If you are planning on moving house in the next weeks, you can contact your tax office and change your address.",
+  "address_helper_expand_2_content": "You will receive your tax number via mail. If you are planning on moving house in the next weeks,<br/><br/> you can contact your tax office and change your address.",
 
   "address_label": "Address",
   "address_street": "Street",
@@ -461,6 +508,9 @@
   "raso_download_pdf": "Download PDF",
   "raso_confirm_of_registration": "Confirmation of your tax registration",
 
+  "raso_letter_section_heading": "...you will now receive the following letters from the Finanzamt:",
+  "raso_letter_section_subtitle": "⏱ In the <strong> next 5 - 10 days:</strong> <br/> you should receive, depending on your exact status:",
+
   "read_pdf": "Read letter as PDF",
   "raso_pdf_heading_Finanzamt_Steuernummer": "Issue of tax number",
   "raso_pdf_content_Finanzamt_Steuernummer": "for income tax",
@@ -483,6 +533,6 @@
   "raso_pdf_heading_Finanzamt_Istversteuerung_single": "Notice of actual taxation",
   "raso_pdf_content_Finanzamt_Istversteuerung_single": "",
 
-  "raso_pdf_heading_Finanzamt_Finanzamt_UStID": "Issue of VAT ID",
-  "raso_pdf_content_Finanzamt_Finanzamt_UStID": "for turnover tax"
+  "raso_pdf_heading_Finanzamt_UStID": "Issue of VAT ID",
+  "raso_pdf_content_Finanzamt_UStID": "for turnover tax"
 }

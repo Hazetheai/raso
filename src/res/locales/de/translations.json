@@ -105,7 +105,26 @@
   "success_a_hero_finanzamt_office": "Adresse des Finanzamtes",
   "success_a_hero_ref_number": "Deine Referenz-Nr.:",
 
-  "success_a_body_title": "",
+  "success_b_hero_title": "Glückwunsch, <br /> der 1. Schritt ist getan...",
+  "success_b_hero_subtitle": "Du hast deine Selbständigkeit offiziell angemeldet! ✨",
+  "success_b_hero_your_name": "Ihre Name",
+  "success_b_hero_your_address": "Ihre Adresse",
+  "success_b_hero_start_from": "Start zum",
+  "success_b_hero_finanzamt_office": "Adresse des Finanzamtes",
+  "success_b_hero_ref_number": "Deine Referenz-Nr.:",
+
+  "success_b_body_title": "...mache jetzt von Anfang an alles richtig:",
+  "success_b_body_subtitle": " ⏱<strong>  Innherhalb der nächsten 24h: </strong>: <br /> Download & Speichern deiner  <strong>PDF-Bestätigung der Registrierung️</strong>",
+  "success_b_body_subtitle_2": "📅 <strong>Bis zum</strong>: <br/> Abgabe deiner ersten Umsatzsteuer-Voranmeldung",
+  "success_b_body_subtitle_3": "Die notwendigen Unterlagen haben wir hier für dich vorbereitet:",
+
+  "success_b_raso_trust_title": "Über 10,000 zufriedene Freiberufler, Gewerbetreibende und Kleinunternehmer.",
+  "success_b_raso_quote_1_occupation": "Consultant",
+  "success_b_raso_quote_1_content": "Einfach nur WOW! Super einfache Bedienung und die schwierige Steuer-Welt verständlich gemacht. Konnte mit wenigen Klicks alle Rechnungen hochladen und dann an die zuständige Behörde verschicken. <br/> Vielen Dank an das Team! Ihr habt einen Fan dazugewonnen 😁",
+  "success_b_raso_quote_2_occupation": "Designer",
+  "success_b_raso_quote_2_content": "Ich habe bisher Unsummen für das Sortieren und Kontieren meiner vielen Zettel bezahlt. Jetzt scanne ich bequem alle Belege auf dem Sofa sitzend ein und die App sortiert alles dahin, wo es hingehört. Genau das hatte ich gesucht!",
+  "success_b_raso_quote_3_occupation": "Entwickler",
+  "success_b_raso_quote_3_content": "Spart Zeit und Geld. Und mal ehrlich es gibt schönere Dinge im Leben als Accounting. Daher bin ich froh, dass es jetzt einfacher geht.",
 
   "success_cta_join_pre_headline": "BESONDERES ANGEBOT FÜR ANFÄNGER",
   "success_cta_join_headline": "Erhalte 6 Monate kostenlos Accountable PRO",
@@ -116,6 +135,34 @@
   "success_cta_join_desktop_action_element_link": "http://onboarding.accountable.de/en/",
   "success_cta_join_offer_promises_text_1": "Ohne Kreditkarte",
   "success_cta_join_offer_promises_text_2": "Volle Unterstützung für Anfänger",
+
+  "secondary_cta_heading": "Was sollst du damit machen? <br/> Wie geht’s jetzt weiter?",
+  "secondary_cta_content": "📅 Buche hier ein kostenloses (Video-) Telefonat mit einem unserer Steuer-Coaches, der mit dir die Dokumente durchgeht und sie dir erklärt.",
+  "secondary_cta_action_element": "Kostenloses Telefonat buchen",
+
+  "raso_success_a_section_faq_1_title": "Was ist Accountable?",
+  "raso_success_a_section_faq_1_answer": "Accountable ist die einfachste und beste Lösung für Selbstständige.<br/><br/>\r\n                    Du kannst vom Finanzamt anerkannte Rechnungen schreiben, alle deine Belege scannen und somit deine Buchhaltung spielend leicht digitalisieren. Zusätzlich kümmert sich Accountable um deine Steuerverpflichtungen: ob Umsatzsteuer oder Einkommensteuer, mit Accountable verpasst du keine Fristen mehr und kannst deine Steuererklärungen durch eine sichere Elster Schnittstelle direkt an dein Finanzamt versenden.<br/><br/>\r\n                    Mit Accountable kannst du auch als Steuerneuling von Anfang alles richtig machen. Wir übersetzen die Sprache des Finanzamts für dich und geben dir wertvolle Steuertipps. Unsere Mission ist es, dir den Alltag als Selbstständige*n zu erleichtern, damit du dich auf das wirklich Wichtige konzentrieren kannst.",
+
+  "raso_success_a_section_faq_2_title": "Was ist das besondere Angebot für Anfänger?",
+  "raso_success_a_section_faq_2_answer": "Jeder, der sich über uns als Selbstständige*r anmeldet, kann unsere beste PRO Version mit allen Funktionen für 6 Monate komplett kostenlos nutzen. Du musst keine Zahlungsmethode angeben und musst auch kein Abo auswählen. <br/><br/>\r\n                    You don't have to register with your credit card and you don't have to choose a subscription. <br/><br/> \r\n                    Wir wissen wie schwierig der Anfang sein kann und möchten dir daher den Anfang so gut es geht erleichtern. Wenn dir die PRO Version gefällt, kannst du nach den 6 Monaten entscheiden, ob du sie weiterhin nutzen möchtest. Eine automatische Verlängerung findet nicht statt.",
+
+  "raso_success_a_section_faq_3_title": "Ist Accountable kostenlos?",
+  "raso_success_a_section_faq_3_answer": "Die ersten 6 Monate kannst du Accountable im vollem Funktionsumfang ausprobieren, wenn du unser besonderes Angebot für Anfänger wahrnimmst. Für dieses Angebot ist auch keine Kreditkarte erforderlich. Auch nach den 6 Monaten kannst du die Accountable App in Ruhe und solange du möchtest kostenlos testen.<br/><br/>\r\n                    Im kostenlosen Tarif kannst du bis zu 5 Dokumente im Monat scannen. Dir entstehen keine Kosten und du musst auch kein Abo abschließen. Wenn du mehr Belege scannen willst, kannst du in unseren BASIC oder PRO Plan wechseln. Mehr über unsere Preise erfährst du <a href=\"https://www.accountable.de/preise/\" target=\"_blank\">hier</a>.",
+
+  "raso_success_a_section_faq_4_title": "Ich bin Kleinunternehmer, ist Accountable die richtige Lösung für mich?",
+  "raso_success_a_section_faq_4_answer": "Ja, wir haben die App speziell für Selbständige und Kleinunternehmer entwickelt. Als Kleinunternehmer kannst du mit der Accountable App kostenlos deine Buchhaltung digitalisieren und professionalisieren. Die App passt sich automatisch auf deine individuelle Steuersituation an. Wenn dein Business wächst, können wir dir außerdem über unsere Partner-Steuerberater weiter helfen.",
+
+  "raso_success_a_section_faq_5_title": "Brauche ich einen Steuerberater, wenn ich die App nutze?",
+  "raso_success_a_section_faq_5_answer": "Accountable gibt dir die Freiheit selber zu entscheiden, wie du arbeiten willst: Willst du deine Buchhaltung und Steuern selbstständig managen? Prima! Nutze dann Accountable um Zeit zu sparen und dich auf das Wesentliche zu konzentrieren.<br/><br/>\r\n                \r\n                   Du arbeitest gerne mit deinem bestehenden Steuerberater zusammen und willst trotzdem Accountable verwenden? Kein Problem: Du kannst einfach alle Transaktionen und Aktivitäten für einen bestimmten Zeitraum zusammen mit den Belegen exportieren. Dein Steuerberater kann dich dann anhand dieser Informationen optimal beraten.<br/><br/>\r\n                \r\n                    Falls du einen Steuerberater suchst, aber noch keinen gefunden hast: Bei uns kannst du die App in Zusammenarbeit mit einem unserer Partner-Steuerberater nutzen.",
+
+  "raso_success_a_section_faq_6_title": "Was sind meine Steuerverpflichtungen als Selbstständige*r?",
+  "raso_success_a_section_faq_6_answer": "In Deutschland gibt es hauptsächlich drei Steuerarten, die für dich wichtig sein könnten: die Umsatzsteuer (auch Mehrwertsteuer gennant), Einkommensteuer und die Gewerbesteuer für Gewerbetreibende. <br/><br/>\r\n                    Alle Steuerverpflichtungen für die Umsatzsteuer und die Einkommensteuer kannst du ganz einfach in unserer App erledigen. Du kannst auch die EÜR (Einnahmenüberschussrechnung) über Accountable erstellen und direkt an dein Finanzamt versenden. Wir erinnern dich an all deine Steuerverpflichtungen und helfen dir, wenn du Fragen zu Steuerthemen hast.",
+
+  "raso_success_a_section_faq_7_title": "Kann Accountable mir einen Steuerberater empfehlen?",
+  "raso_success_a_section_faq_7_answer": "Yes, if you want to work with a tax consultant, we have the perfect solution for you. We can forward your request to one of our partnered tax advisors who will help you for pre-determined prices.",
+
+  "raso_success_a_section_faq_8_title": "Ich habe einen Steuerberater, ist Accountable die richtige Lösung für mich?",
+  "raso_success_a_section_faq_8_answer": "YDu arbeitest gerne mit deinem bestehenden Steuerberater zusammen und willst trotzdem Accountable verwenden? Kein Problem: Du kannst einfach alle Transaktionen und Aktivitäten für einen bestimmten Zeitraum zusammen mit den Belegen exportieren. Dein Steuerberater kann dich dann anhand dieser Informationen optimal beraten.",
 
   "tab_header_welcome": "Wilkommen",
 
@@ -226,9 +273,9 @@
 
   "revenue_firstYear_helper_expand_title": "Deine voraussichtlichen Umsätze dieses und nächstes Jahr",
   "revenue_firstYear_helper_expand_content": "Hier solltest du eine realistische Schätzung deiner Einnahmen aus deiner geplanten Selbständigkeit angeben. Andere Angaben zum Beispiel aus einer Anstellung musst du hier nicht hinzurechnen.",
-  "revenue_firstYear_helper_2_expand_title": "<i>Rechenbeispiel Kleinunternehmer oder Nebenerwerb</i>",
+  "revenue_firstYear_helper_2_expand_title": "Rechenbeispiel Kleinunternehmer oder Nebenerwerb",
   "revenue_firstYear_helper_2_expand_content": "<br>Stundensatz: 25€<br> Arbeitsstunden pro Woche:15 Stunden<br>Arbeitswochen pro Jahr: 40 Wochen<br>Umsatz pro Jahr: 25€ x 15 Stunden x 40 Wochen = 15.000€<br><br>",
-  "revenue_firstYear_helper_3_expand_title": "<i>Rechenbeispiel Selbständigkeit in Vollzeit</i>",
+  "revenue_firstYear_helper_3_expand_title": "Rechenbeispiel Selbständigkeit in Vollzeit",
   "revenue_firstYear_helper_3_expand_content": "Tagessatz: 300€<br>Abrechenbare Tage pro Jahr: 200 Tage<br>Umsatz pro Jahr: 300€ x 150 Tage = 60.000€",
 
   "revenue_secondYear_label": "Deine voraussichtlichen Umsätze nächstes Jahr",
@@ -395,6 +442,9 @@
   "raso_download_pdf": "PDF Herunterladen",
   "raso_confirm_of_registration": "Übertragungsprotokoll deiner steuerlichen Registrierung",
 
+  "raso_letter_section_heading": "...folgende Briefe erhältst du jetzt vom Finanzamt:",
+  "raso_letter_section_subtitle": "⏱ In den <strong> nächsten 5 - 10 Tagen:</strong> <br/> erhältst du abhängig von deinen Angaben:",
+
   "read_pdf": "Brief als PDF lesen",
   "raso_pdf_heading_Finanzamt_Steuernummer": "Erteilung der Steuernummer",
   "raso_pdf_content_Finanzamt_Steuernummer": "für Einkommensteuer",
@@ -417,6 +467,6 @@
   "raso_pdf_heading_Finanzamt_Istversteuerung_single": "Bescheid zur Ist-Versteuerung",
   "raso_pdf_content_Finanzamt_Istversteuerung_single": "",
 
-  "raso_pdf_heading_Finanzamt_Finanzamt_UStID": "Erteilung USt-ID",
-  "raso_pdf_content_Finanzamt_Finanzamt_UStID": "für Umsatzsteuer"
+  "raso_pdf_heading_Finanzamt_UStID": "Erteilung USt-ID",
+  "raso_pdf_content_Finanzamt_UStID": "für Umsatzsteuer"
 }
