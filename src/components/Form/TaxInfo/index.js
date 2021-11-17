@@ -183,12 +183,12 @@ const TaxInfo = ({
             },
           ]}
           options={[{ name: t("yes"), value: "yes" }]}
-          fieldHelperText={t("singleentry_helper", {
-            interpolation: { escapeValue: false },
-          })}
-          secondFieldHelperText={t("singleentry_helper_2", {
-            interpolation: { escapeValue: false },
-          })}
+          // fieldHelperText={t("singleentry_helper", {
+          //   interpolation: { escapeValue: false },
+          // })}
+          // secondFieldHelperText={t("singleentry_helper_2", {
+          //   interpolation: { escapeValue: false },
+          // })}
           topLabel={t("singleentry_label")}
         />
 
