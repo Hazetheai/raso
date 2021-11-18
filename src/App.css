@@ -281,7 +281,7 @@ hr {
 
 @media only screen and (min-width: 768px) {
   .section-h2 {
-    font-size: 52px;
+    font-size: 50px;
     padding-bottom: 20px;
     max-width: 27ch;
     letter-spacing: -0.075rem;
@@ -295,7 +295,7 @@ hr {
 
 @media only screen and (min-width: 1200px) {
   .top-section__title-l {
-    font-size: 52px;
+    font-size: 50px;
   }
 }
 
