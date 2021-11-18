@@ -53,6 +53,7 @@ const Form = ({}) => {
         tabSubtitle: t(`tab_${tab}_subtitle`),
         tabId: `${tab}`,
         complete: false,
+        touched: false,
         tabHelper: /_/g.test(helper) ? null : helper,
       };
     }),
@@ -113,15 +114,18 @@ const Form = ({}) => {
         ...steps.filter((s) => s.complete).map((s) => s.tabId),
         currentStep.tabId,
       ]),
+      touchedScreens: removeDuplicates([
+        ...userInteraction.touchedScreens,
+        dataSection,
+      ]),
       workingStep: calcNextStep(steps, currentStep).tabId,
     });
   }
 
   function handleTabClick(id) {
     const selectedTab = steps.find((el) => el.tabId === id);
-    if (selectedTab.complete) {
-      setCurrentStep(selectedTab);
-    }
+    setCurrentStep(selectedTab);
+    setUserInteraction({ workingStep: id });
   }
 
   return (
@@ -147,54 +151,50 @@ const Form = ({}) => {
         </div>
         {currentStep.tabId === "personalFields" && (
           <Personal
+            currentStep={currentStep}
             comingStep={calcNextStep(steps, currentStep)}
             nextStep={nextStep}
-            defaultValues={reFormatForFormData(userData.personalFields)}
+            defaultValues={reFormatForFormData(userData["personalFields"])}
           />
         )}
         {currentStep.tabId === "businessFields" && (
           <Business
-            steps={steps}
             currentStep={currentStep}
             comingStep={calcNextStep(steps, currentStep)}
             nextStep={nextStep}
-            defaultValues={reFormatForFormData(userData.businessFields)}
+            defaultValues={reFormatForFormData(userData["businessFields"])}
           />
         )}
         {currentStep.tabId === "taxInfoFields" && (
           <TaxInfo
-            steps={steps}
             currentStep={currentStep}
             comingStep={calcNextStep(steps, currentStep)}
             nextStep={nextStep}
-            defaultValues={reFormatForFormData(userData.taxInfoFields)}
+            defaultValues={reFormatForFormData(userData["taxInfoFields"])}
           />
         )}
         {currentStep.tabId === "taxEstimateFields" && (
           <TaxEstimate
-            steps={steps}
             currentStep={currentStep}
             comingStep={calcNextStep(steps, currentStep)}
             nextStep={nextStep}
-            defaultValues={reFormatForFormData(userData.taxEstimateFields)}
+            defaultValues={reFormatForFormData(userData["taxEstimateFields"])}
           />
         )}
         {currentStep.tabId === "bankAccountFields" && (
           <BankAccount
-            steps={steps}
             currentStep={currentStep}
             comingStep={calcNextStep(steps, currentStep)}
             nextStep={nextStep}
-            defaultValues={reFormatForFormData(userData.bankAccountFields)}
+            defaultValues={reFormatForFormData(userData["bankAccountFields"])}
           />
         )}
         {currentStep.tabId === "reviewFields" && (
           <Review
-            steps={steps}
             currentStep={currentStep}
             comingStep={calcNextStep(steps, currentStep)}
             nextStep={nextStep}
-            defaultValues={reFormatForFormData(userData.reviewFields)}
+            defaultValues={reFormatForFormData(userData["reviewFields"])}
           />
         )}
       </div>

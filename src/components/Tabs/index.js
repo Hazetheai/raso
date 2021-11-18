@@ -2,7 +2,6 @@ import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import clsx from "clsx";
 import React from "react";
-import home from "res/images/home.svg";
 import { useUserInteraction } from "userInteraction";
 import "./tabs.css";
 
@@ -13,11 +12,17 @@ const Tabs = ({ tabData, activeTab, onTabClick }) => {
   function filterTabData(tabData) {
     const newTabData = Object.assign({}, tabData);
 
-    newTabData["tabs"] = newTabData.tabs.map((tab) =>
-      userInteraction.stepsCompleted.includes(tab.tabId)
-        ? { ...tab, complete: true }
-        : tab
-    );
+    newTabData["tabs"] = newTabData.tabs
+      .map((tab) =>
+        userInteraction.stepsCompleted.includes(tab.tabId)
+          ? { ...tab, complete: true }
+          : tab
+      )
+      .map((tab) =>
+        userInteraction.touchedScreens.includes(tab.tabId)
+          ? { ...tab, touched: true }
+          : tab
+      );
 
     return newTabData;
   }
@@ -46,6 +51,7 @@ const Tabs = ({ tabData, activeTab, onTabClick }) => {
                 className={clsx(
                   "tab-nav__tab",
                   newActiveTab === tabId && "active",
+                  tab.touched && !tab.complete && "incomplete",
                   tab.complete && "complete"
                 )}
                 id={tabId}

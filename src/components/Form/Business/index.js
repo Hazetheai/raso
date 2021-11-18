@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { isEmpty } from "res/lib";
+import { useUserInteraction } from "userInteraction";
 import Fieldset from "../Fieldset";
 import { validators } from "../validators";
 
@@ -14,9 +15,11 @@ const Business = ({
   defaultValues,
   comingStep,
 }) => {
-  const { handleSubmit, watch, register, errors, control, reset } = useForm({
-    mode: "onBlur",
-  });
+  const { handleSubmit, watch, register, errors, control, reset, formState } =
+    useForm({
+      mode: "onBlur",
+    });
+  const { userInteraction, setUserInteraction } = useUserInteraction();
 
   const onSubmit = (data) => nextStep(data, "businessFields");
   const officeaddress_value = watch("officeaddress");
@@ -25,6 +28,18 @@ const Business = ({
   useEffect(() => {
     reset(defaultValues); // asynchronously reset your form values
   }, []);
+
+  useEffect(() => {
+    if (
+      formState.isDirty &&
+      !userInteraction.touchedScreens.includes(currentStep.tabId)
+    ) {
+      setUserInteraction({
+        startedFilling: true,
+        touchedScreens: [...userInteraction.touchedScreens, "businessFields"],
+      });
+    }
+  }, [formState.isDirty, setUserInteraction]);
 
   // useEffect(() => {
   //   sendAmplitudeData("WEB_SIGNUP_TABVIEW", {

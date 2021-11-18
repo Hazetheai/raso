@@ -4,25 +4,38 @@ import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import bankAccountHolders_en from "res/FormData/de/bankAccountHolders.json";
 import bankAccountHolders_de from "res/FormData/en/bankAccountHolders.json";
+import { useUserInteraction } from "userInteraction";
 import Field from "../../Field";
 import Fieldset from "../Fieldset";
 import { isValidIBANNumber } from "../validators";
 
-const BankAccount = ({
-  steps,
-  currentStep,
-  nextStep,
-  defaultValues,
-  comingStep,
-}) => {
-  const { register, handleSubmit, watch, errors, control, reset } = useForm({
-    mode: "onBlur",
-  });
+const BankAccount = ({ currentStep, nextStep, defaultValues, comingStep }) => {
+  const { register, handleSubmit, watch, errors, control, reset, formState } =
+    useForm({
+      mode: "onBlur",
+    });
+  const { userInteraction, setUserInteraction } = useUserInteraction();
+
   const onSubmit = (data) => nextStep(data, "bankAccountFields");
+  const { t, i18n } = useTranslation();
+
   const showBusinessBankAccount_field_value = watch("showBusinessBankAccount");
   const showPersonalBankAccount_field_value = watch("showPersonalBankAccount");
 
-  const { t, i18n } = useTranslation();
+  useEffect(() => {
+    if (
+      formState.isDirty &&
+      !userInteraction.touchedScreens.includes(currentStep.tabId)
+    ) {
+      setUserInteraction({
+        startedFilling: true,
+        touchedScreens: [
+          ...userInteraction.touchedScreens,
+          "bankAccountFields",
+        ],
+      });
+    }
+  }, [formState.isDirty, setUserInteraction]);
 
   useEffect(() => {
     reset(defaultValues); // asynchronously reset your form values
@@ -44,8 +57,9 @@ const BankAccount = ({
             control={control}
             topLabel={t("showBusinessBankAccount_label")}
             name="showBusinessBankAccount"
-            ref={register({})}
-            autoFocus={true}
+            ref={register({
+              required: true,
+            })}
             errors={errors}
             watch={watch}
             options={[
@@ -66,7 +80,6 @@ const BankAccount = ({
                   validate: (value) =>
                     isValidIBANNumber(value) === 1 || t("iban_invalid"),
                 })}
-                autoFocus={true}
                 errors={errors}
                 watch={watch}
               />
@@ -78,7 +91,6 @@ const BankAccount = ({
                 ref={register({
                   required: true,
                 })}
-                autoFocus={true}
                 errors={errors}
                 watch={watch}
               />
@@ -89,7 +101,6 @@ const BankAccount = ({
                 ref={register({
                   required: true,
                 })}
-                autoFocus={true}
                 options={
                   i18n.language === "de"
                     ? bankAccountHolders_de
@@ -108,7 +119,6 @@ const BankAccount = ({
             topLabel={t("showPrivateBankAccount_label")}
             name="showPersonalBankAccount"
             ref={register({})}
-            autoFocus={true}
             errors={errors}
             watch={watch}
             options={[
@@ -130,7 +140,6 @@ const BankAccount = ({
                     isValidIBANNumber(value) === 1 || t("iban_invalid"),
                 })}
                 fieldHelperText={t("privateBankAccountOwner_label")}
-                autoFocus={true}
                 errors={errors}
                 watch={watch}
               />
@@ -142,7 +151,6 @@ const BankAccount = ({
                 ref={register({
                   required: true,
                 })}
-                autoFocus={true}
                 errors={errors}
                 watch={watch}
               />
@@ -154,7 +162,6 @@ const BankAccount = ({
                 ref={register({
                   required: true,
                 })}
-                autoFocus={true}
                 options={
                   i18n.language === "de"
                     ? bankAccountHolders_de

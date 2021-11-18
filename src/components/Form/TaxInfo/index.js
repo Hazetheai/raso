@@ -5,22 +5,33 @@ import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import states from "res/FormData/de/states.json";
 import { isEmpty } from "res/lib";
+import { useUserInteraction } from "userInteraction";
 import Field from "../../Field";
 import Fieldset from "../Fieldset";
 import { sanitizeNumbers } from "../helpers";
 import { taxIdValidator, validators } from "../validators";
 
-const TaxInfo = ({
-  steps,
-  currentStep,
-  nextStep,
-  defaultValues,
-  comingStep,
-}) => {
-  const { register, handleSubmit, watch, errors, control, reset } = useForm({
-    mode: "onBlur",
-    reValidateMode: "onBlur",
-  });
+const TaxInfo = ({ currentStep, nextStep, defaultValues, comingStep }) => {
+  const { register, handleSubmit, watch, errors, control, reset, formState } =
+    useForm({
+      mode: "onBlur",
+      reValidateMode: "onBlur",
+    });
+
+  const { userInteraction, setUserInteraction } = useUserInteraction();
+
+  useEffect(() => {
+    if (
+      formState.isDirty &&
+      !userInteraction.touchedScreens.includes(currentStep.tabId)
+    ) {
+      setUserInteraction({
+        startedFilling: true,
+        touchedScreens: [...userInteraction.touchedScreens, "taxInfoFields"],
+      });
+    }
+  }, [formState.isDirty, setUserInteraction]);
+
   const onSubmit = (data) => nextStep(data, "taxInfoFields");
 
   const steuernummer_field_value = watch("steuernummer") || "";
@@ -99,7 +110,6 @@ const TaxInfo = ({
             pattern: validators.steueridentifkationsnummer,
             validate: taxIdValidator,
           })}
-          autoFocus={true}
           errors={errors}
           watch={watch}
           fieldHelperText={t("steueridentifkationsnummer_helper", {
@@ -146,7 +156,6 @@ const TaxInfo = ({
                 required: true,
                 pattern: validators.steuernummer_value,
               })}
-              autoFocus={true}
               errors={errors}
               topLabel={t("steuernummer_value_label")}
             />
@@ -156,7 +165,6 @@ const TaxInfo = ({
               ref={register({
                 required: true,
               })}
-              autoFocus={true}
               errors={errors}
               options={states}
             />
@@ -170,7 +178,6 @@ const TaxInfo = ({
           ref={register({
             required: true,
           })}
-          autoFocus={true}
           errors={errors}
           expandedHelpers={[
             {
@@ -209,7 +216,6 @@ const TaxInfo = ({
                 }),
               },
             ]}
-            autoFocus={true}
             errors={errors}
             //   watch={watch}
             dateMinMax={{ dateMin: nYearsFromNow(90, "before") }}
@@ -222,7 +228,6 @@ const TaxInfo = ({
             inputMode="numeric"
             name="revenue_firstYear"
             moneyRules={{ validate: (value) => validateKUN("first") }}
-            autoFocus={true}
             errors={errors}
             fieldHelperText={t("revenue_firstYear_helper", {
               interpolation: { escapeValue: false },
@@ -258,7 +263,6 @@ const TaxInfo = ({
             // floatingLabel={t("revenue_secondYear_label")}
             placeholder={t("revenue_secondYear_placeholder")}
             moneyRules={{ validate: (value) => validateKUN("second") }}
-            autoFocus={true}
             errors={errors}
             fieldHelperText={t("revenue_secondYear_helper", {
               interpolation: { escapeValue: false },
@@ -274,7 +278,6 @@ const TaxInfo = ({
             ref={register({
               required: true,
             })}
-            autoFocus={true}
             errors={errors}
             options={[
               { name: t("yes"), value: "yes" },
@@ -309,7 +312,6 @@ const TaxInfo = ({
             ref={register({
               required: true,
             })}
-            autoFocus={true}
             errors={errors}
             fullWidth
             options={[

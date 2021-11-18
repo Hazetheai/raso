@@ -13,29 +13,58 @@ import { sendAmplitudeData } from "../../../res/amplitude";
 import Field from "../../Field";
 import Fieldset from "../Fieldset";
 import { emailValidator, validators } from "../validators";
+import { useUserData } from "userData";
+import { isEmpty } from "res/lib";
 
-const Personal = ({ nextStep, defaultValues, comingStep }) => {
-  const { register, handleSubmit, watch, errors, control, reset, formState } =
-    useForm({
-      mode: "onBlur",
-      defaultValues,
-    });
+const Personal = ({ nextStep, defaultValues, comingStep, currentStep }) => {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    errors,
+    control,
+    reset,
+    formState,
+    getValues,
+  } = useForm({
+    mode: "onBlur",
+    defaultValues,
+  });
   const { userInteraction, setUserInteraction } = useUserInteraction();
+  const { userData, setUserData } = useUserData();
+  const { t, i18n } = useTranslation();
+
   const onSubmit = (data) => nextStep(data, "personalFields");
+
   const moved_value = watch("moved");
   const maritalstatus_value = watch("maritalstatus");
-  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     reset(defaultValues);
   }, [reset, defaultValues]);
 
   useEffect(() => {
-    if (formState.isDirty) {
-      setUserInteraction({ startedFilling: true });
+    if (
+      formState.isDirty &&
+      !userInteraction.touchedScreens.includes(currentStep.tabId)
+    ) {
+      setUserInteraction({
+        startedFilling: true,
+        touchedScreens: [...userInteraction.touchedScreens, "personalFields"],
+      });
     }
   }, [formState.isDirty, setUserInteraction]);
 
+  // const vals = getValues();
+  // useEffect(() => {
+  //   if (
+  //     JSON.stringify(userData["personalFields"]) !== JSON.stringify(vals) &&
+  //     !isEmpty(vals)
+  //   ) {
+  //     nextStep(vals, "personalFields", false);
+  //     console.log(`vals`, vals);
+  //   }
+  // }, [vals]);
   // useEffect(() => {
   //   setTimeout(() => {
   //     sendAmplitudeData("WEB_SIGNUP_TABVIEW", {
@@ -43,7 +72,6 @@ const Personal = ({ nextStep, defaultValues, comingStep }) => {
   //     });
   //   }, 500);
   // }, []);
-
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="form">

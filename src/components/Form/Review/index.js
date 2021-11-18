@@ -14,16 +14,11 @@ import Fieldset from "../Fieldset";
 import { previewForm, sendForm } from "../sendData";
 import letter_data from "res/letterData.json";
 
-const Review = ({
-  steps,
-  currentStep,
-  nextStep,
-  defaultValues,
-  comingStep,
-}) => {
-  const { register, handleSubmit, watch, errors, control, reset } = useForm({
-    mode: "onBlur",
-  });
+const Review = ({ currentStep, nextStep, defaultValues }) => {
+  const { register, handleSubmit, watch, errors, control, reset, formState } =
+    useForm({
+      mode: "onBlur",
+    });
   const onSubmit = (data) => nextStep(data, "reviewFields", false);
 
   const { t } = useTranslation();
@@ -32,6 +27,18 @@ const Review = ({
   const [errorsVisible, setErrorsVisible] = useState(false);
   const linkRef = useRef(null);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (
+      formState.isDirty &&
+      !userInteraction.touchedScreens.includes(currentStep.tabId)
+    ) {
+      setUserInteraction({
+        startedFilling: true,
+        touchedScreens: [...userInteraction.touchedScreens, "reviewFields"],
+      });
+    }
+  }, [formState.isDirty, setUserInteraction]);
 
   const { previewLink, success, code = "", message = "" } = userInteraction;
 
@@ -92,7 +99,6 @@ const Review = ({
               required: true,
               validate: (value) => !/choose/.test(value) || t("field_invalid"),
             })}
-            autoFocus={true}
             errors={errors}
             watch={watch}
             options={tax_offices}
@@ -104,14 +110,25 @@ const Review = ({
       <div className="form__review--actions">
         {!success && (
           <div className="tab-helper">
-            <p className="tab-helper__heading">
-              {t("review_proof_read", {
-                interpolation: { escapeValue: false },
-              })}
-            </p>
+            {userInteraction.stepsCompleted.length < 5 ? (
+              <p className="tab-helper__heading">
+                {t("review_please_complete", {
+                  interpolation: { escapeValue: false },
+                })}
+              </p>
+            ) : (
+              <p className="tab-helper__heading">
+                {t("review_proof_read", {
+                  interpolation: { escapeValue: false },
+                })}
+              </p>
+            )}
 
             <Button
               func={async () => {
+                if (userInteraction.stepsCompleted.length < 5) {
+                  return;
+                }
                 setLoading(true);
                 const ar = await previewForm({
                   fields: {
@@ -125,6 +142,10 @@ const Review = ({
                 setUserInteraction({ ...ar, preview: true });
                 setLoading(false);
               }}
+              disabled={
+                userInteraction.stepsCompleted.length < 5 ||
+                /choose/.test(taxOffice)
+              }
               text={t("review_button_gen_pdf")}
               className="body--big-bold"
               type="submit"

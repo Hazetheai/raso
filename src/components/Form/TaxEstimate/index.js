@@ -3,22 +3,42 @@ import Link from "components/Link";
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
+import { useUserInteraction } from "userInteraction";
 import Field from "../../Field";
 import Fieldset from "../Fieldset";
 import { validators } from "../validators";
 
-const TaxEstimate = ({
-  steps,
-  currentStep,
-  nextStep,
-  defaultValues,
-  comingStep,
-}) => {
-  const { register, handleSubmit, watch, errors, control, reset, setError } =
-    useForm({
-      mode: "onBlur",
-    });
+const TaxEstimate = ({ currentStep, nextStep, defaultValues, comingStep }) => {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    errors,
+    control,
+    reset,
+    setError,
+    formState,
+  } = useForm({
+    mode: "onBlur",
+  });
   const { t } = useTranslation();
+
+  const { userInteraction, setUserInteraction } = useUserInteraction();
+
+  useEffect(() => {
+    if (
+      formState.isDirty &&
+      !userInteraction.touchedScreens.includes(currentStep.tabId)
+    ) {
+      setUserInteraction({
+        startedFilling: true,
+        touchedScreens: [
+          ...userInteraction.touchedScreens,
+          "taxEstimateFields",
+        ],
+      });
+    }
+  }, [formState.isDirty, setUserInteraction]);
 
   useEffect(() => {
     window.addEventListener("hashchange", () => {
@@ -81,15 +101,13 @@ const TaxEstimate = ({
           <Field
             type="picker"
             control={control}
-            inputMode=""
             topLabel={t("profitFreiberufler_label")}
             name="profitFreiberufler"
+            errors={errors}
             ref={register({
               required: true,
             })}
             pickerRules={pickerRules}
-            autoFocus={true}
-            errors={errors}
             watch={watch}
             options={[
               { name: t("yes"), value: "yes" },
@@ -123,7 +141,6 @@ const TaxEstimate = ({
                   required: true,
                   pattern: validators.profitFreiberuflerFirstYear,
                 })}
-                autoFocus={true}
                 errors={errors}
                 watch={watch}
                 fieldHelperText={t("profitFreiberuflerFirstYear_helper", {
@@ -140,7 +157,6 @@ const TaxEstimate = ({
                   required: true,
                   pattern: validators.profitFreiberuflerSecondYear,
                 })}
-                autoFocus={true}
                 errors={errors}
                 watch={watch}
               />
@@ -159,7 +175,6 @@ const TaxEstimate = ({
             ref={register({
               required: true,
             })}
-            autoFocus={true}
             errors={errors}
             watch={watch}
             options={[
@@ -180,7 +195,6 @@ const TaxEstimate = ({
                   required: true,
                   pattern: validators.profitGewerbetreibenderFirstYear,
                 })}
-                autoFocus={true}
                 errors={errors}
                 watch={watch}
               />
@@ -197,7 +211,6 @@ const TaxEstimate = ({
                   required: true,
                   pattern: validators.profitGewerbetreibenderSecondYear,
                 })}
-                autoFocus={true}
                 errors={errors}
                 watch={watch}
               />
@@ -219,7 +232,6 @@ const TaxEstimate = ({
             ref={register({
               required: true,
             })}
-            autoFocus={true}
             errors={errors}
             watch={watch}
             options={[
@@ -240,7 +252,6 @@ const TaxEstimate = ({
                   required: true,
                   pattern: validators.profitNichtselbstandigerFirstYear,
                 })}
-                autoFocus={true}
                 errors={errors}
                 watch={watch}
               />
@@ -254,7 +265,6 @@ const TaxEstimate = ({
                   required: true,
                   pattern: validators.profitNichtselbstandigerSecondYear,
                 })}
-                autoFocus={true}
                 errors={errors}
                 watch={watch}
               />
@@ -275,7 +285,6 @@ const TaxEstimate = ({
             ref={register({
               required: true,
             })}
-            autoFocus={true}
             errors={errors}
             watch={watch}
             options={[
@@ -296,7 +305,6 @@ const TaxEstimate = ({
                   required: true,
                   pattern: validators.profitKapitalvermogenFirstYear,
                 })}
-                autoFocus={true}
                 errors={errors}
                 watch={watch}
               />
@@ -310,7 +318,6 @@ const TaxEstimate = ({
                   required: true,
                   pattern: validators.profitKapitalvermogenSecondYear,
                 })}
-                autoFocus={true}
                 errors={errors}
                 watch={watch}
               />
@@ -331,7 +338,6 @@ const TaxEstimate = ({
             ref={register({
               required: true,
             })}
-            autoFocus={true}
             errors={errors}
             watch={watch}
             options={[
@@ -352,7 +358,6 @@ const TaxEstimate = ({
                   required: true,
                   pattern: validators.profitVermietungFirstYear,
                 })}
-                autoFocus={true}
                 errors={errors}
                 watch={watch}
               />
@@ -366,7 +371,6 @@ const TaxEstimate = ({
                   required: true,
                   pattern: validators.profitVermietungSecondYear,
                 })}
-                autoFocus={true}
                 errors={errors}
                 watch={watch}
               />
@@ -387,7 +391,6 @@ const TaxEstimate = ({
             ref={register({
               required: true,
             })}
-            autoFocus={true}
             errors={errors}
             watch={watch}
             options={[
@@ -408,7 +411,6 @@ const TaxEstimate = ({
                   required: true,
                   pattern: validators.profitSonstigenFirstYear,
                 })}
-                autoFocus={true}
                 errors={errors}
                 watch={watch}
               />
@@ -422,7 +424,6 @@ const TaxEstimate = ({
                   required: true,
                   pattern: validators.profitSonstigenSecondYear,
                 })}
-                autoFocus={true}
                 errors={errors}
                 watch={watch}
               />
@@ -442,7 +443,6 @@ const TaxEstimate = ({
             required: true,
           })}
           options={[{ name: t("no"), value: "no" }]}
-          autoFocus={true}
           errors={errors}
           watch={watch}
           fieldHelperText={t("profitAgriculture_helper", {
@@ -462,7 +462,6 @@ const TaxEstimate = ({
             { name: t("yes"), value: "yes" },
             { name: t("no"), value: "no" },
           ]}
-          autoFocus={true}
           errors={errors}
           watch={watch}
           fieldHelperText={t("taxPrepayment_helper", {
@@ -487,7 +486,6 @@ const TaxEstimate = ({
               ref={register({
                 required: true,
               })}
-              autoFocus={true}
               errors={errors}
               watch={watch}
             />
@@ -500,7 +498,6 @@ const TaxEstimate = ({
               ref={register({
                 required: true,
               })}
-              autoFocus={true}
               errors={errors}
               watch={watch}
             />
@@ -523,7 +520,6 @@ const TaxEstimate = ({
               ref={register({
                 required: true,
               })}
-              autoFocus={true}
               errors={errors}
               watch={watch}
             />
@@ -536,7 +532,6 @@ const TaxEstimate = ({
               ref={register({
                 required: true,
               })}
-              autoFocus={true}
               errors={errors}
               watch={watch}
             />

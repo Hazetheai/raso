@@ -359,6 +359,7 @@
   "taxOffice_helper_2": "<a href=\"https://www.bzst.de/DE/Service/Behoerdenwegweiser/Finanzamtsuche/GemFa/finanzamtsuche_node.html\" target=\"_blank\">You can find it here by using your zip code or city name.</a>",
   "review_proof_read_fieldset_title": "Review and submit your form",
   "review_proof_read": "Check your data to make sure you entered all information correctly.",
+  "review_please_complete": "Please complete all sections",
 
   "review_button_gen_pdf": "Load Preview",
   "review_button_view_pdf": "View Preview",

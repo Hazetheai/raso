@@ -12,6 +12,7 @@ const useUserInteraction = () => {
 const UserInteractionProvider = ({ children }) => {
   const [userInteraction, setUserInteractionHook] = useState({
     startedFilling: false,
+    touchedScreens: [],
     stepsCompleted: [],
     workingStep: "",
     preview: false,

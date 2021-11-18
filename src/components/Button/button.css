@@ -56,3 +56,7 @@
 .form_submit_btn--fluid {
   min-width: auto;
 }
+
+.form_submit_btn[disabled] {
+  background-color: var(--color-grey_light-1);
+}

@@ -115,9 +115,14 @@ export function wrap(n, min, max) {
  * @param {string|number} string
  * @returns
  */
-export function sanitizeNumbers(string) {
+export function sanitizeNumbers(string, nodecimal) {
   if (typeof string === "number") return string;
-  return parseInt(`${string}`.replace(/\D/g, ""), 10);
+
+  if (nodecimal) {
+    return parseInt(`${string}`.replace(/\D|,|\./g, ""), 10);
+  } else {
+    return parseInt(`${string}`.replace(/\D/g, ""), 10);
+  }
 }
 
 function formatDates(obj) {
@@ -177,8 +182,12 @@ function formatGender(obj) {
 
 function formatNumbers(obj) {
   Object.entries(obj).forEach((entry) => {
+    // Is Money
     if (typeof entry[1] === "string" && /€/gi.test(entry[1])) {
-      obj[entry[0]] = sanitizeNumbers(entry[1]);
+      obj[entry[0]] = sanitizeNumbers(entry[1], true);
+    } else if (typeof entry[1] === "string" && /\d+/gi.test(entry[1])) {
+      // Is number-as-string (preserve "0" str padding etc)
+      obj[entry[0]] = entry[1].replace(/\D/gi, "");
     } else {
       obj[entry[0]] = entry[1];
     }
