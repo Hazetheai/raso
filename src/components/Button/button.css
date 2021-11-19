@@ -41,7 +41,7 @@
   color: rgb(109, 74, 211);
 }
 
-.loading-indicator {
+.button--loading-indicator {
   position: absolute;
   top: -8px;
   left: 43px;

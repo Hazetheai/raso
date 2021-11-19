@@ -39,7 +39,7 @@ const Button = ({
       }}
     >
       {isLoading ? (
-        <div className="loading-indicator">
+        <div className="button--loading-indicator">
           <div className="lds-ellipsis" id="estirevLoading">
             <div></div>
             <div></div>
