@@ -70,7 +70,7 @@ const TaxInfo = ({ currentStep, nextStep, comingStep }) => {
 
     if (
       year === "first" &&
-      chargeVAT_value !== "yes" &&
+      chargeVAT_value === "yes" &&
       ((13 - startMonth) / 12) * 22000 < revenue_firstYear_value
     ) {
       const error = t("revenue_firstYear_error", {
@@ -83,7 +83,7 @@ const TaxInfo = ({ currentStep, nextStep, comingStep }) => {
       return error;
     } else if (
       year === "second" &&
-      chargeVAT_value !== "yes" &&
+      chargeVAT_value === "yes" &&
       revenue_secondYear_value > 50000
     ) {
       const error = t("revenue_secondYear_error", {
@@ -114,7 +114,7 @@ const TaxInfo = ({ currentStep, nextStep, comingStep }) => {
   // }, []);
   return (
     <form id={currentStep.tabId} onSubmit={handleSubmit(onSubmit)}>
-      {validateKUN()}
+      {/* {validateKUN()} */}
       <div className="form">
         <Field
           type="number"
