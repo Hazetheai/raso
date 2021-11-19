@@ -5,11 +5,12 @@ import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import genders_de from "res/FormData/de/gender.json";
 import marital_status_de from "res/FormData/de/marital_status.json";
-import religion from "res/FormData/de/religion.json";
+import religion_de from "res/FormData/de/religion.json";
+import religion_en from "res/FormData/en/religion.json";
 import genders_en from "res/FormData/en/gender.json";
 import marital_status_en from "res/FormData/en/marital_status.json";
 import { useUserInteraction } from "userInteraction";
-import { sendAmplitudeData } from "../../../res/amplitude";
+import { sendAmplitudeData } from "res/amplitude";
 import Field from "../../Field";
 import { useLocalFormVal } from "../../hooks/useLocalState";
 import Fieldset from "../Fieldset";
@@ -304,7 +305,7 @@ const Personal = ({ nextStep, comingStep, currentStep }) => {
                   })}
                   fullWidth
                   topLabel={t("partner_religion_label")}
-                  options={religion}
+                  options={i18n.language === "de" ? religion_de : religion_en}
                   errors={errors}
                   control={control}
                 />
@@ -321,7 +322,7 @@ const Personal = ({ nextStep, comingStep, currentStep }) => {
           fieldHelperText={t("religion_heper", {
             interpolation: { escapeValue: false },
           })}
-          options={religion}
+          options={i18n.language === "de" ? religion_de : genders_en}
           ref={register({
             required: true,
             validate: (value) => !/choose/.test(value),

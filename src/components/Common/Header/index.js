@@ -11,10 +11,12 @@ import { useLocation } from "react-router";
 import clsx from "clsx";
 import Button from "components/Button";
 import { cleanLocal } from "res/lib";
+import { useUserInteraction } from "userInteraction";
 
 const Header = () => {
   const { t } = useTranslation();
   const { pathname } = useLocation();
+  const { userInteraction, setUserInteraction } = useUserInteraction();
   const isSuccess = /success|erfolg/gi.test(pathname);
 
   const terms = [
@@ -31,7 +33,10 @@ const Header = () => {
     h3: t("hero_subtitle"),
     terms,
     ctaText: t("hero_ctaText"),
-    ctaFunc: () => document.querySelector(".content")?.scrollIntoView(),
+    ctaFunc: () => {
+      setUserInteraction({ clickedStart: true });
+      document.querySelector(".content").scrollIntoView({ behavior: "smooth" });
+    },
   };
   return (
     <>

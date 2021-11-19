@@ -90,9 +90,15 @@ const Form = ({}) => {
   }, [i18n.language]);
 
   useEffect(() => {
-    if (currentStep.tabNumber > 1) {
-      layoutRef.current.scrollIntoView({ behaviour: "smooth" });
+    if (
+      !userInteraction.startedFilling &&
+      userInteraction.stepsCompleted.length === 0 &&
+      userInteraction.touchedScreens.length === 0
+    ) {
+      return;
     }
+
+    layoutRef.current.scrollIntoView({ behaviour: "smooth" });
   }, [currentStep.tabNumber]);
 
   function nextStep(data, dataSection, progress = true) {

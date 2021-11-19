@@ -14,6 +14,7 @@ const UserInteractionProvider = ({ children }) => {
     touchedScreens: [],
     stepsCompleted: [],
     workingStep: "",
+    clickedStart: false,
     isAutoSaving: false,
     preview: false,
     send: false,
