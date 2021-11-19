@@ -1,9 +1,13 @@
-import React from 'react';
+import React from "react";
 
 const boldRegex = /\*\*([\s\S]*?)\*\*/g;
 
-const boldFormatter = (str: string): React.ReactNode =>
+const boldFormatter = (str) =>
   // Every pair element is a bold element.
-  str.split(boldRegex).map((part, index) => (index % 2 ? <strong key={part + index}>{part}</strong> : part));
+  str
+    .split(boldRegex)
+    .map((part, index) =>
+      index % 2 ? <strong key={part + index}>{part}</strong> : part
+    );
 
 export default boldFormatter;
