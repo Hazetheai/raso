@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { appHost } from "settings/config";
+import { accountableDomain } from "settings/config";
 import "./footer.css";
 
 function lnk(str) {
@@ -8,7 +8,7 @@ function lnk(str) {
     return str;
   }
 
-  return appHost + str;
+  return accountableDomain + str;
 }
 
 const Footer = () => {
