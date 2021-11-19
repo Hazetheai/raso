@@ -271,6 +271,7 @@
 
   "revenue_firstYear_label": "Estimated revenue this year",
   "revenue_firstYear_helper": "Please provide an estimate of your revenues from self-employment (without salaries, rental income, interest etc.)",
+  "revenue_firstYear_error": "According to your estimated revenue of €{{- estiYrRev}} for your first year, your estimated monthly revenue is € {{- projMonRev}}. Your projected annual revenue for a full working year is €{{- projYrRev}}. As this is above the threshold for the small business owner (Kleinunternehmer) regulation, you will need to charge VAT from your customers",
 
   "revenue_firstYear_helper_expand_title": "Estimated revenue this year and next year",
   "revenue_firstYear_helper_expand_content": "Here you should provide a realistic estimate of your income from your planned self-employment. You do not need to add other information, for example from employment.",
@@ -281,6 +282,7 @@
 
   "revenue_secondYear_label": "Estimated revenue next year",
   "revenue_secondYear_helper": "Please provide an estimate of your revenues from self-employment (without salaries, rental income, interest etc.)",
+  "revenue_secondYear_error": "According to your estimated revenue of €{{- estiYrRev}} for your second year, Your projected annual revenue for a full working year is €{{- projYrRev}}. As this is above the threshold for the small business owner (Kleinunternehmer) regulation, you will need to charge VAT from your customers",
 
   "chargeVAT_label": "Do you want to be exempt from VAT as a Kleinunternehmer (small business owner)?",
   "chargeVAT_helper": "If your yearly revenue is below €22.000, you are eligible for the small business owner / Kleinunternehmer regime and can decide whether you want to charge VAT. You can find more information on the pros and cons <a href=\"https://www.accountable.de/en/blog/managing-your-taxes-as-a-freelancer-in-germany/\" target=\"_blank\">here</a>.",

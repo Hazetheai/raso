@@ -66,35 +66,33 @@ const TaxInfo = ({ currentStep, nextStep, comingStep }) => {
     const startMonth = Number(startdate_value.split(".")[1]);
     const projectedMonthly_firstYear =
       revenue_firstYear_value / (13 - startMonth);
+    const projectedMonthly_secondYear = revenue_secondYear_value / 12;
 
     if (
       year === "first" &&
       chargeVAT_value !== "yes" &&
       ((13 - startMonth) / 12) * 22000 < revenue_firstYear_value
     ) {
-      const error = `According to your estimated revenue of €${revenue_firstYear_value.toLocaleString(
-        "de"
-      )} for your first year, your estimated monthly revenue is € ${projectedMonthly_firstYear
-        .toLocaleString("de")
-        .replace(/,\d\d\d/, trimMoney)}. 
-      Your projected annual revenue for a full working year is €${(
-        projectedMonthly_firstYear * 12
-      ).toLocaleString("de")}.
-                        As this is above the threshold for the small business owner (Kleinunternehmer) regulation,  you will need to charge VAT from your customers`;
-
+      const error = t("revenue_firstYear_error", {
+        estiYrRev: revenue_firstYear_value.toLocaleString("de"),
+        projMonRev: projectedMonthly_firstYear
+          .toLocaleString("de")
+          .replace(/,\d\d\d/, trimMoney),
+        projYrRev: (projectedMonthly_firstYear * 12).toLocaleString("de"),
+      });
       return error;
     } else if (
       year === "second" &&
       chargeVAT_value !== "yes" &&
       revenue_secondYear_value > 50000
     ) {
-      const error = `According to your estimated revenue of €${revenue_secondYear_value.toLocaleString(
-        "de"
-      )} for your second year, 
-      Your projected annual revenue for a full working year is €${revenue_secondYear_value.toLocaleString(
-        "de"
-      )}.
-                        As this is above the threshold for the small business owner (Kleinunternehmer) regulation,  you will need to charge VAT from your customers`;
+      const error = t("revenue_secondYear_error", {
+        estiYrRev: revenue_secondYear_value.toLocaleString("de"),
+        projMonRev: projectedMonthly_secondYear
+          .toLocaleString("de")
+          .replace(/,\d\d\d/, trimMoney),
+        projYrRev: revenue_secondYear_value.toLocaleString("de"),
+      });
 
       return error;
     }

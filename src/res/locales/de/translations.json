@@ -270,6 +270,7 @@
 
   "revenue_firstYear_label": "Deine voraussichtlichen Umsätze dieses Jahr",
   "revenue_firstYear_helper": "Bitte schätze deine Einnahmen aus deiner Selbständigkeit (ohne Gehalt, Mieteinnahmen etc.)",
+  "revenue_firstYear_error": "Entsprechend deiner Umsatzschätzung in Höhe von €{{- estiYrRev}} im ersten Jahr deiner Selbständigkeit beträgt dein geschätzter monatlicher Umsatz €{{- projMonRev}}. Hochgerechnet ergibt das einen Jahresumsatz in Höhe von €{{- projYrRev}}. Du liegst damit über der Grenze für die Kleinunternehmer-Regelung und musst daher Umsatzsteuer von deinen Kunden erheben.",
 
   "revenue_firstYear_helper_expand_title": "Deine voraussichtlichen Umsätze dieses und nächstes Jahr",
   "revenue_firstYear_helper_expand_content": "Hier solltest du eine realistische Schätzung deiner Einnahmen aus deiner geplanten Selbständigkeit angeben. Andere Angaben zum Beispiel aus einer Anstellung musst du hier nicht hinzurechnen.",
@@ -280,6 +281,7 @@
 
   "revenue_secondYear_label": "Deine voraussichtlichen Umsätze nächstes Jahr",
   "revenue_secondYear_helper": "Bitte schätze deine Einnahmen aus deiner Selbständigkeit (ohne Gehalt, Mieteinnahmen etc.)",
+  "revenue_secondYear_error": "Entsprechend deiner Umsatzschätzung in Höhe von €{{- estiYrRev}} im zweites Jahr deiner Selbständigkeit beträgt dein geschätzter monatlicher Umsatz €{{- projMonRev}}. Hochgerechnet ergibt das einen Jahresumsatz in Höhe von €{{- projYrRev}}. Du liegst damit über der Grenze für die Kleinunternehmer-Regelung und musst daher Umsatzsteuer von deinen Kunden erheben.",
 
   "chargeVAT_label": "Willst du durch die Kleinunternehmerregelung von der Umsatzsteuer befreit werden?",
   "chargeVAT_helper": "Wenn dein Umsatz im Jahr weniger als 22.000€ beträgt, kannst du dich als Kleinunternehmer registrieren. Dann musst du keine Umsatzsteuer ausweisen. <a href=\"https://accountable.de/blog/kleinunternehmerin-welche-steuern-muss-ich-zahlen/\" target=_blank> Hier findest du mehr Infos und die Vor- und Nachteile davon. </a>",

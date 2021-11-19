@@ -84,7 +84,7 @@ const Field = React.forwardRef(
                     if (!isHelperHovered) {
                       toggleHelper(false);
                     }
-                  }, 300)
+                  }, 200)
                 }
                 onKeyDown={() => toggleHelper(true)}
                 className="field_helper-icon"
@@ -468,7 +468,7 @@ const FieldHelper = ({ expandedHelpers, isActive, toggleHelper, onHover }) => {
       onMouseLeave={() => {
         setTimeout(() => {
           onHover(false);
-        }, 300);
+        }, 200);
       }}
       className={clsx(
         "field_helper",
