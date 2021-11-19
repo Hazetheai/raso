@@ -449,3 +449,16 @@ hr {
     transform: translate(19px, 0);
   }
 }
+
+.fix-top-r {
+  position: fixed !important;
+  top: 20px;
+  left: 0px;
+  font-size: 10px;
+  padding: 5px;
+  height: auto;
+  width: 100px;
+  min-width: auto !important;
+  white-space: pre-line !important;
+  line-height: 12px !important;
+}

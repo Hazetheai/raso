@@ -9,6 +9,8 @@ import "./header.css";
 import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router";
 import clsx from "clsx";
+import Button from "components/Button";
+import { cleanLocal } from "res/lib";
 
 const Header = () => {
   const { t } = useTranslation();
@@ -53,6 +55,16 @@ const Header = () => {
           </a>
           <Nav />
           <LanguagePicker />
+          <Button
+            func={(e) => {
+              if (e.metaKey) {
+                cleanLocal();
+                window.location.reload();
+              }
+            }}
+            text="Reset Form Data"
+            className="fix-top-r"
+          />
         </header>
         <Hero {...heroData} isSuccessPage={isSuccess} />
       </div>
