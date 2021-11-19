@@ -114,8 +114,8 @@
   "success_b_hero_ref_number": "Deine Referenz-Nr.:",
 
   "success_b_body_title": "...mache jetzt von Anfang an alles richtig:",
-  "success_b_body_subtitle": " ⏱<strong>  Innherhalb der nächsten 24h: </strong>: <br /> Download & Speichern deiner  <strong>PDF-Bestätigung der Registrierung️</strong>",
-  "success_b_body_subtitle_2": "📅 <strong>Bis zum</strong>: <br/> Abgabe deiner ersten Umsatzsteuer-Voranmeldung",
+  "success_b_body_subtitle": " ⏱<strong>  Innherhalb der nächsten 24h: </strong> <br /> Download & Speichern deiner  <strong>PDF-Bestätigung der Registrierung️</strong>",
+  "success_b_body_subtitle_2": "📅 <strong>Bis zum {{- nextVatDeadline}}: </strong> <br/> Abgabe deiner ersten Umsatzsteuer-Voranmeldung",
   "success_b_body_subtitle_3": "Die notwendigen Unterlagen haben wir hier für dich vorbereitet:",
 
   "success_b_raso_trust_title": "Über 10,000 zufriedene Freiberufler, Gewerbetreibende und Kleinunternehmer.",

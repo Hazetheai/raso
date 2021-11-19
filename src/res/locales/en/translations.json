@@ -117,7 +117,7 @@
 
   "success_b_body_title": "...now, get it right from the start:",
   "success_b_body_subtitle": " ⏱<strong> Within the next 24h: </strong> <br /> Download & save your <strong>PDF-confirmation from the tax office</strong>",
-  "success_b_body_subtitle_2": "📅 <strong>Until: </strong> <br/> Submit your first VAT return",
+  "success_b_body_subtitle_2": "📅 <strong>Until: {{- nextVatDeadline}} </strong> <br/> Submit your first VAT return",
   "success_b_body_subtitle_3": "All required documentation is waiting for you here:",
 
   "success_b_raso_trust_title": "Trusted by 10,000 self-employed to manage invoices, receipts & taxes",
