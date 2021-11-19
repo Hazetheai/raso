@@ -1,9 +1,16 @@
+.quote-carousel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .quote-element {
   margin: 20px 10px;
   padding: 30px;
   position: relative;
   z-index: 5;
   max-width: 350px;
+  min-width: 250px;
   background: var(--color-grey_light-3);
   border-radius: 32px;
 }

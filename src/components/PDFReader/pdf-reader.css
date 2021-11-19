@@ -40,6 +40,7 @@
 
 .pdf-reader-navigation p {
   padding: 5px;
+  min-width: 90px;
 }
 .pdf-reader-zoom {
   display: inline-flex;

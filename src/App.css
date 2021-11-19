@@ -168,16 +168,15 @@ img {
   opacity: 0.95;
 }
 
-.desktop-only {
-  display: none;
+@media only screen and (max-width: 769px) {
+  .desktop-only {
+    display: none !important;
+  }
 }
 
 @media screen and (min-width: 770px) {
-  .desktop-only {
-    display: initial;
-  }
   .mobile-only {
-    display: none;
+    display: none !important;
   }
 }
 
