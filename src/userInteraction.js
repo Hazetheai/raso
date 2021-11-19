@@ -1,6 +1,5 @@
 import produce from "immer";
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { isEmpty } from "res/lib";
 import { dlAppLink } from "settings/config";
 
 const UserInteractionContext = createContext();
@@ -15,6 +14,7 @@ const UserInteractionProvider = ({ children }) => {
     touchedScreens: [],
     stepsCompleted: [],
     workingStep: "",
+    isAutoSaving: false,
     preview: false,
     send: false,
     success: false,
