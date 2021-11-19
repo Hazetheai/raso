@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useUserData } from "userData";
 import { useUserInteraction } from "userInteraction";
 import tax_offices from "res/FormData/de/tax_office.json";
+import { gtagEvent } from "res/gtag";
 
 const SuccessHero = () => {
   const { userInteraction, setUserInteraction } = useUserInteraction();
@@ -16,7 +17,12 @@ const SuccessHero = () => {
     : "";
 
   const startdate = `${taxInfoFields.startdate.d}.${taxInfoFields.startdate.m}.${taxInfoFields.startdate.y}`;
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    if (userInteraction.version === "a") {
+      gtagEvent("RASO_TAB-ITER-1", { tab: "BookACall" });
+    }
+  }, []);
   const { t } = useTranslation();
   return (
     <div

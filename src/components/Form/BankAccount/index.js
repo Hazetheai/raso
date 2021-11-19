@@ -9,6 +9,7 @@ import Field from "../../Field";
 import Fieldset from "../Fieldset";
 import { useLocalFormVal } from "../../hooks/useLocalState";
 import { isValidIBANNumber } from "../validators";
+import { gtagEvent } from "res/gtag";
 
 const BankAccount = ({ currentStep, nextStep, comingStep }) => {
   const { userInteraction, setUserInteraction } = useUserInteraction();
@@ -198,6 +199,9 @@ const BankAccount = ({ currentStep, nextStep, comingStep }) => {
           type="submit"
           className="body--big-bold"
           text={`${t("form_continue")}: ${comingStep.tabLabel}`}
+          func={() => {
+            gtagEvent("RASO_CLICKED_BUTTON-ITER-1", { button: "#review" });
+          }}
         />
       </div>
     </form>

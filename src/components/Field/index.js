@@ -8,6 +8,7 @@ import { useKeyPress } from "components/hooks/useKeyPress";
 import React, { Fragment, useEffect, useState } from "react";
 import { useController } from "react-hook-form";
 import { useTranslation } from "react-i18next";
+import { gtagEvent } from "res/gtag";
 import "./field.css";
 import fieldHelperIcon from "./helper-icon.svg";
 
@@ -28,7 +29,10 @@ const Field = React.forwardRef(
       options,
       control,
       disabled,
-      onBlur,
+      onBlur = () => {
+        console.log(`name 1`, name);
+        gtagEvent("RASO_FILLFIELD-ITER-1", { field: name });
+      },
       value,
       autoComplete,
       autoFocus,
@@ -139,6 +143,10 @@ const Field = React.forwardRef(
                   name={name}
                   ref={ref}
                   defaultValue={options[0]}
+                  onBlur={() => {
+                    console.log(`name 2`, name);
+                    gtagEvent("RASO_FILLFIELD-ITER-1", { field: name });
+                  }}
                   className={clsx(
                     "field_input",
                     "field_input--select",
@@ -262,6 +270,7 @@ const Field = React.forwardRef(
         </div>
         {(isHelperVisible || isHelperHovered) && (
           <FieldHelper
+            name={name}
             isActive={isHelperVisible || isHelperHovered}
             expandedHelpers={expandedHelpers}
             toggleHelper={toggleHelper}
@@ -298,11 +307,17 @@ const Picker = ({
               "select_option",
               value === option.value && "select_option--selected"
             )}
-            onClick={() => !disabled && onChange(option.value)}
+            onClick={() => {
+              gtagEvent("RASO_FILL_FIELD-ITER-1", { field: name });
+              return !disabled && onChange(option.value);
+            }}
           ></span>
           <span
             className="select_option-name"
-            onClick={() => !disabled && onChange(option.value)}
+            onClick={() => {
+              gtagEvent("RASO_FILL_FIELD-ITER-1", { field: name });
+              return !disabled && onChange(option.value);
+            }}
           >
             {" "}
             {option.name}
@@ -314,7 +329,7 @@ const Picker = ({
 };
 const Checkbox = ({ option, name, control, disabled, defaultValue = "" }) => {
   const {
-    field: { value, onChange, ref },
+    field: { value, onChange, onBlur, ref },
   } = useController({
     name,
     control,
@@ -323,7 +338,17 @@ const Checkbox = ({ option, name, control, disabled, defaultValue = "" }) => {
   });
   return (
     <div className="checkbox">
-      <div className="checkbox-choice" key={option.name}>
+      <div
+        className="checkbox-choice"
+        key={option.name}
+        onClick={() => {
+          console.log(`name`, name);
+          gtagEvent("RASO_FILLFIELD-ITER-1", {
+            field: name,
+            value: option.value,
+          });
+        }}
+      >
         <span
           className={clsx(
             "checkbox_option",
@@ -390,7 +415,11 @@ const PhoneInput = ({ name, control, errors, shorter }) => {
       )}
       value={value}
       onChange={formatPhone}
-      onBlur={onBlur}
+      onBlur={() => {
+        console.log(`name`, name);
+        gtagEvent("RASO_FILLFIELD-ITER-1", { field: name });
+        return onBlur();
+      }}
     />
   );
 };
@@ -417,6 +446,11 @@ const JumpDate = ({ name, control, errors, shorter, minMax = {} }) => {
       name={name}
       ref={ref}
       {...inputProps}
+      onBlur={() => {
+        console.log(`name`, name);
+        gtagEvent("RASO_FILLFIELD-ITER-1", { field: name });
+        return inputProps.onBlur();
+      }}
       options={{
         date: true,
         datePattern: ["d", "m", "Y"],
@@ -427,7 +461,7 @@ const JumpDate = ({ name, control, errors, shorter, minMax = {} }) => {
   );
 };
 
-const Money = ({ name, control, errors, shorter, rules }) => {
+const Money = ({ name, control, rules }) => {
   const {
     field: { value, onChange, onBlur, ref },
   } = useController({
@@ -443,7 +477,11 @@ const Money = ({ name, control, errors, shorter, rules }) => {
       ref={ref}
       value={value}
       onChange={onChange}
-      onBlur={onBlur}
+      onBlur={() => {
+        console.log(`name`, name);
+        gtagEvent("RASO_FILLFIELD-ITER-1", { field: name });
+        return onBlur();
+      }}
       options={{
         numeral: true,
         numericOnly: true,
@@ -459,12 +497,22 @@ const Money = ({ name, control, errors, shorter, rules }) => {
   );
 };
 
-const FieldHelper = ({ expandedHelpers, isActive, toggleHelper, onHover }) => {
+const FieldHelper = ({
+  expandedHelpers,
+  isActive,
+  toggleHelper,
+  onHover,
+  name,
+}) => {
   const { t } = useTranslation();
 
   return (
     <div
-      onMouseMove={() => onHover(true)}
+      onMouseMove={() => {
+        gtagEvent("RASO_CLICKED_HELPER-ITER-1", { helper: name });
+
+        return onHover(true);
+      }}
       onMouseLeave={() => {
         setTimeout(() => {
           onHover(false);

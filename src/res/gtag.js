@@ -1,6 +1,6 @@
 import { gtagId } from "../settings/config";
 
-export const initGTM = (): void => {
+export const initGTM = () => {
   ((w, d, s, l, i) => {
     w[l] = w[l] || [];
     w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
@@ -13,5 +13,5 @@ export const initGTM = (): void => {
   })(window, document, "script", "dataLayer", gtagId);
 };
 
-export const GTMsendEvent = (event, payload = {}) =>
+export const gtagEvent = (event, payload = {}) =>
   window.dataLayer.push({ event: event, payload: payload });

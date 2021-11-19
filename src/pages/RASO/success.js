@@ -6,7 +6,7 @@ import RASOSuccessBSection from "components/Misc/RASOSuccessBSection";
 import FinanzamtLetters from "components/PDFReader/FinanzamtLetters";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { GTMsendEvent } from "res/gtag";
+import { gtagEvent } from "res/gtag";
 import checkmark from "res/images/checkmark.svg";
 import rasoCTAImage from "res/images/raso-cta-2-illustration.png";
 import { useUserData } from "userData";
@@ -29,7 +29,7 @@ const SuccessPage = () => {
       userInteraction.downloadAppLink_desktop ??
       "http://onboarding.accountable.de/en/",
     isButton: false,
-    action: () => GTMsendEvent("RASO_CLICKED_DOWNLOADAPP"),
+    action: () => gtagEvent("RASO_CLICKED_DOWNLOADAPP-ITER-1"),
     offerPromises: [
       { imgSrc: checkmark, text: t("success_cta_join_offer_promises_text_1") },
       { imgSrc: checkmark, text: t("success_cta_join_offer_promises_text_2") },

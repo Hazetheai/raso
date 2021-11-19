@@ -15,6 +15,7 @@ import Field from "../../Field";
 import { useLocalFormVal } from "../../hooks/useLocalState";
 import Fieldset from "../Fieldset";
 import { emailValidator, validators } from "../validators";
+import { gtagEvent } from "res/gtag";
 
 const Personal = ({ nextStep, comingStep, currentStep }) => {
   const { userInteraction, setUserInteraction } = useUserInteraction();
@@ -104,11 +105,6 @@ const Personal = ({ nextStep, comingStep, currentStep }) => {
             validate: emailValidator,
             pattern: validators.email,
           })}
-          onBlur={() =>
-            sendAmplitudeData("WEB_SIGNUP_FILLFIELD", {
-              field: "email",
-            })
-          }
           topLabel={t("email_label")}
           errors={errors}
           watch={watch}
@@ -322,7 +318,7 @@ const Personal = ({ nextStep, comingStep, currentStep }) => {
           fieldHelperText={t("religion_heper", {
             interpolation: { escapeValue: false },
           })}
-          options={i18n.language === "de" ? religion_de : genders_en}
+          options={i18n.language === "de" ? religion_de : religion_en}
           ref={register({
             required: true,
             validate: (value) => !/choose/.test(value),
@@ -438,6 +434,9 @@ const Personal = ({ nextStep, comingStep, currentStep }) => {
           type="submit"
           className="body--big-bold"
           text={`${t("form_continue")}: ${comingStep.tabLabel}`}
+          func={() => {
+            gtagEvent("RASO_CLICKED_BUTTON-ITER-1", { button: "#business" });
+          }}
         />
       </div>
     </form>

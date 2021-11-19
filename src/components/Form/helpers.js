@@ -34,15 +34,6 @@ export function getNextVATDeadline(userData, lang) {
     nextVATDeadline.setMonth(nextVATDeadline.getMonth() + 1);
   }
   nextVATDeadline.setDate(10);
-  // TODO Set Vat Deadline in Success Header
-  // document.querySelector("#nextVATDeadline").innerHTML =
-  // formatter.format(nextVATDeadline);
-
-  // TODO Set Vat Deadline in Success Header
-  // if (userData.taxInfoFields.chargeVAT) {
-  //   document.querySelector("#rasoSubmittedSubjectToVAT").style.display =
-  //     "block";
-  // }
 
   return {
     vatDeadline: formatter.format(nextVATDeadline),

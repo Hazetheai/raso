@@ -3,6 +3,7 @@ import Link from "components/Link";
 import React, { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
+import { Redirect } from "react-router";
 import tax_offices from "res/FormData/de/tax_office.json";
 import eagle from "res/images/eagle.png";
 import letter_data from "res/letterData.json";
@@ -31,7 +32,7 @@ const Review = ({ currentStep, nextStep }) => {
   });
   const onSubmit = (data) => nextStep(data, "reviewFields", false);
 
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { userData, setUserData } = useUserData();
   const [errorsVisible, setErrorsVisible] = useState(false);
   const linkRef = useRef(null);
@@ -135,7 +136,11 @@ const Review = ({ currentStep, nextStep }) => {
                 })}
               </p>
             )}
-
+            {!/accountable/gi.test(userData.personalFields.email) && (
+              <p style={{ color: "var(--color-invalid_red)" }}>
+                Please use an @accountable.eu address for testing
+              </p>
+            )}
             <Button
               func={async () => {
                 if (userInteraction.stepsCompleted.length < 5) {
@@ -156,7 +161,8 @@ const Review = ({ currentStep, nextStep }) => {
               }}
               disabled={
                 userInteraction.stepsCompleted.length < 5 ||
-                /choose/.test(taxOffice)
+                /choose/.test(taxOffice) ||
+                !/accountable/gi.test(userData.personalFields.email)
               }
               text={t("review_button_gen_pdf")}
               className="body--big-bold"
@@ -183,13 +189,13 @@ const Review = ({ currentStep, nextStep }) => {
               text={t("review_button_view_pdf")}
               autoFocus
             />
-            <Link
+            {/* <Link
               secondary
               className="body--big-bold"
               href={"/en/success"} //.replace(corsProxy, "")}
               text={"Go Success"}
               autoFocus
-            />
+            /> */}
           </div>
         )}
 
@@ -207,21 +213,28 @@ const Review = ({ currentStep, nextStep }) => {
 
             <Button
               func={async () => {
+                setLoading(true);
                 const ar = await sendForm({
                   fields: userData,
                   preview: true,
                   sLang: "en",
                   sPartner: "",
                 });
+                setLoading(false);
                 setUserInteraction(ar);
               }}
-              disabled
+              isLoading={loading}
               className="body--big-bold"
               type="button"
             >
               <img src={eagle} alt={t("review_button_send_pdf")} />
               {t("review_button_send_pdf")}
             </Button>
+            {userInteraction.downloadAppLink_desktop && (
+              <Redirect
+                to={i18n.language === "de" ? "/erfolgt" : "en/success"}
+              />
+            )}
           </div>
         )}
         <p className="body--small">{t("disclaimer")}</p>

@@ -3,6 +3,7 @@ import FormField from "components/Field";
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
+import { gtagEvent } from "res/gtag";
 import { useUserInteraction } from "userInteraction";
 import { useLocalFormVal } from "../../hooks/useLocalState";
 import Fieldset from "../Fieldset";
@@ -175,7 +176,9 @@ const Business = ({
         <Button
           type="submit"
           // form={currentStep.tabId}
-          // func={nextStep}
+          func={() => {
+            gtagEvent("RASO_CLICKED_BUTTON-ITER-1", { button: "#tax" });
+          }}
           className="body--big-bold"
           text={`${t("form_continue")}: ${comingStep.tabLabel}`}
         />

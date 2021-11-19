@@ -1,26 +1,18 @@
-import "./reset.css";
-import "./variables.css";
-import "./App.css";
-import { Switch, Route, withRouter, useLocation } from "react-router-dom";
+import Footer from "components/Common/Footer";
+import Header from "components/Common/Header";
 import RASO from "pages/RASO";
+import SuccessPage from "pages/RASO/success";
+import { Fragment, useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import { Route, Switch, withRouter } from "react-router-dom";
+import "./App.css";
+import { initAmplitude } from "./res/amplitude";
+import { gtagEvent, initGTM } from "./res/gtag";
+import { initIntercom } from "./res/intercom";
+import "./reset.css";
 import { UserDataProvider } from "./userData";
 import { UserInteractionProvider } from "./userInteraction";
-import { Fragment, useEffect } from "react";
-import { initIntercom } from "./res/intercom";
-import {
-  initAmplitude,
-  sendAmplitudeData,
-  setAmplitudeUserProperties,
-} from "./res/amplitude";
-import { initPixel, logPageView } from "./res/pixel";
-import { initGTM } from "./res/gtag";
-import { country } from "./settings/config";
-
-import { getUtms } from "./res/utms";
-import Header from "components/Common/Header";
-import Footer from "components/Common/Footer";
-import { useTranslation } from "react-i18next";
-import SuccessPage from "pages/RASO/success";
+import "./variables.css";
 
 function App() {
   const { t, i18n } = useTranslation();
@@ -30,30 +22,19 @@ function App() {
       i18n.changeLanguage(navigator.language.slice(0, 2));
     }
   }, []);
-  // useEffect(() => {
-  initIntercom();
-  //   initAmplitude();
-  //   initPixel();
-  //   initGTM(); // TODO Currently activating chrome Debugger ??
 
-  // }, []);
+  useEffect(() => {
+    initIntercom();
+    initAmplitude();
+    // initPixel();
+    initGTM();
+  }, []);
 
-  // const location = useLocation();
-  // useEffect(() => {
-  //   logPageView();
-
-  //   const utms = getUtms();
-  //   sendAmplitudeData("WEB_SIGNUP_PAGEVIEW", {
-  //     path: location.pathname,
-  //     country,
-  //     ...utms,
-  //   });
-  //   setAmplitudeUserProperties({
-  //     utms,
-  //     ...utms,
-  //     user_country: country,
-  //   });
-  // }, [location.pathname, location.search]);
+  useEffect(() => {
+    // logPageView();
+    gtagEvent("RASO_PAGEVIEW-ITER-1", { path: window.location.pathname });
+    gtagEvent("RASO_TAB-ITER-1", { tab: "#personal" });
+  }, []);
 
   return (
     <UserDataProvider>

@@ -67,7 +67,6 @@ const Form = ({}) => {
   );
 
   useEffect(() => {
-    // TODO Reload Translations
     setSteps(
       steps
         ? [

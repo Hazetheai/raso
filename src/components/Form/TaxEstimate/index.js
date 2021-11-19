@@ -3,6 +3,7 @@ import Link from "components/Link";
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
+import { gtagEvent } from "res/gtag";
 import { useUserInteraction } from "userInteraction";
 import Field from "../../Field";
 import { useLocalFormVal } from "../../hooks/useLocalState";
@@ -555,6 +556,9 @@ const TaxEstimate = ({ currentStep, nextStep, comingStep }) => {
               type="submit"
               className="body--big-bold"
               text={`${t("form_continue")}: ${comingStep.tabLabel}`}
+              func={() => {
+                gtagEvent("RASO_CLICKED_BUTTON-ITER-1", { button: "#review" });
+              }}
             />
           </>
         ) : (
