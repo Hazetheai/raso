@@ -4,6 +4,7 @@ import { useUserData } from "userData";
 import { useUserInteraction } from "userInteraction";
 import { formatDatasection, reFormatForFormData } from "../Form/helpers";
 import { isEqual } from "lodash";
+import { isDev } from "settings/config";
 
 export function useLocalFormVal({ key, reset, localFormVals, errors }) {
   const { userInteraction, setUserInteraction } = useUserInteraction();
@@ -25,12 +26,12 @@ export function useLocalFormVal({ key, reset, localFormVals, errors }) {
       !userInteraction.stepsCompleted.includes(key) &&
       !userInteraction.touchedScreens.includes(key)
     ) {
-      console.log("resetting to default values");
+      isDev && console.log("resetting to default values");
       reset(reFormatForFormData(userData[key]));
       return;
     }
     if (!userInteraction.stepsCompleted.includes(key) && ls) {
-      console.log("resetting to local Vals");
+      isDev && console.log("resetting to local Vals");
       reset(reFormatForFormData(JSON.parse(ls)));
     }
   }, []);
@@ -47,7 +48,7 @@ export function useLocalFormVal({ key, reset, localFormVals, errors }) {
     ) {
       setUserInteraction({ isAutoSaving: true });
 
-      console.log("saving to User Data");
+      isDev && console.log("saving to User Data");
 
       setUserData(
         formatDatasection({ ...userData[key], ...localFormVals }),
@@ -61,7 +62,7 @@ export function useLocalFormVal({ key, reset, localFormVals, errors }) {
   // Save the local form Values
   useEffect(() => {
     if (!ls) {
-      console.log("Setting initial local data");
+      isDev && console.log("Setting initial local data");
       localStorage.setItem(
         key,
         JSON.stringify(reFormatForFormData(userData[key]))
@@ -75,7 +76,7 @@ export function useLocalFormVal({ key, reset, localFormVals, errors }) {
       !isEqual(localFormVals, ls ? JSON.parse(ls) : {}) &&
       !isEmpty(localFormVals)
     ) {
-      console.log("Saving local vals to storage");
+      isDev && console.log("Saving local vals to storage");
       localStorage.setItem(key, JSON.stringify(localFormVals));
     }
   }, [localFormVals]);
@@ -83,7 +84,7 @@ export function useLocalFormVal({ key, reset, localFormVals, errors }) {
   //   reset to User Data form values (Step has been completed)
   useEffect(() => {
     if (userInteraction.stepsCompleted.includes(key)) {
-      console.log("resetting to User Data");
+      isDev && console.log("resetting to User Data");
       reset(reFormatForFormData(userData[key]));
     }
   }, []);
@@ -93,7 +94,7 @@ export function useLocalFormVal({ key, reset, localFormVals, errors }) {
  *  // Save the local form Values
   useEffect(() => {
     if (!ls) {
-      console.log("Setting initial local data");
+     isDev && console.log("Setting initial local data");
       localStorage.setItem(key, reFormatForFormData(userData[key]));
     }
     if (
@@ -104,7 +105,7 @@ export function useLocalFormVal({ key, reset, localFormVals, errors }) {
       !isEqual(localFormVals, ls ? JSON.parse(ls) : {}) &&
       !isEmpty(localFormVals)
     ) {
-      console.log("Saving local vals to storage");
+     isDev && console.log("Saving local vals to storage");
       localStorage.setItem(key, JSON.stringify(localFormVals));
     }
   }, [localFormVals]);
