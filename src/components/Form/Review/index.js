@@ -7,6 +7,7 @@ import { Redirect } from "react-router";
 import tax_offices from "res/FormData/de/tax_office.json";
 import eagle from "res/images/eagle.png";
 import letter_data from "res/letterData.json";
+import { isDev, isStaging } from "settings/config";
 import { useUserData } from "userData";
 import { useUserInteraction } from "userInteraction";
 import Field from "../../Field";
@@ -136,11 +137,12 @@ const Review = ({ currentStep, nextStep }) => {
                 })}
               </p>
             )}
-            {!/accountable/gi.test(userData.personalFields.email) && (
+            {(isDev || isStaging) &&
+            !/accountable/gi.test(userData.personalFields.email) ? (
               <p style={{ color: "var(--color-invalid_red)" }}>
                 Please use an @accountable.eu address for testing
               </p>
-            )}
+            ) : null}
             <Button
               func={async () => {
                 if (userInteraction.stepsCompleted.length < 5) {
@@ -162,7 +164,10 @@ const Review = ({ currentStep, nextStep }) => {
               disabled={
                 userInteraction.stepsCompleted.length < 5 ||
                 /choose/.test(taxOffice) ||
-                !/accountable/gi.test(userData.personalFields.email)
+                (isDev &&
+                  !/accountable/gi.test(userData.personalFields.email)) ||
+                (isStaging &&
+                  !/accountable/gi.test(userData.personalFields.email))
               }
               text={t("review_button_gen_pdf")}
               className="body--big-bold"
