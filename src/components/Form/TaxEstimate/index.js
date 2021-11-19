@@ -5,10 +5,12 @@ import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { useUserInteraction } from "userInteraction";
 import Field from "../../Field";
+import { useLocalFormVal } from "../../hooks/useLocalState";
 import Fieldset from "../Fieldset";
 import { validators } from "../validators";
 
-const TaxEstimate = ({ currentStep, nextStep, defaultValues, comingStep }) => {
+const TaxEstimate = ({ currentStep, nextStep, comingStep }) => {
+  const { userInteraction, setUserInteraction } = useUserInteraction();
   const {
     register,
     handleSubmit,
@@ -18,12 +20,13 @@ const TaxEstimate = ({ currentStep, nextStep, defaultValues, comingStep }) => {
     reset,
     setError,
     formState,
+    getValues,
   } = useForm({
-    mode: "onBlur",
+    mode: userInteraction.stepsCompleted.includes("personalFields")
+      ? "onChange"
+      : "onBlur",
   });
   const { t } = useTranslation();
-
-  const { userInteraction, setUserInteraction } = useUserInteraction();
 
   useEffect(() => {
     if (
@@ -49,10 +52,13 @@ const TaxEstimate = ({ currentStep, nextStep, defaultValues, comingStep }) => {
       });
     });
   }, [setError, t]);
-
-  useEffect(() => {
-    reset(defaultValues); // asynchronously reset your form values
-  }, []);
+  const localFormVals = getValues();
+  useLocalFormVal({
+    key: "taxEstimateFields",
+    reset,
+    localFormVals,
+    errors,
+  });
 
   // useEffect(() => {
   //   setTimeout(() => {

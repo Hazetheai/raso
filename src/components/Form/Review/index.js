@@ -5,25 +5,34 @@ import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import tax_offices from "res/FormData/de/tax_office.json";
 import eagle from "res/images/eagle.png";
-import { isEmpty } from "res/lib";
-import { corsProxy } from "settings/config";
+import letter_data from "res/letterData.json";
 import { useUserData } from "userData";
 import { useUserInteraction } from "userInteraction";
 import Field from "../../Field";
+import { useLocalFormVal } from "../../hooks/useLocalState";
 import Fieldset from "../Fieldset";
 import { previewForm, sendForm } from "../sendData";
-import letter_data from "res/letterData.json";
 
-const Review = ({ currentStep, nextStep, defaultValues }) => {
-  const { register, handleSubmit, watch, errors, control, reset, formState } =
-    useForm({
-      mode: "onBlur",
-    });
+const Review = ({ currentStep, nextStep }) => {
+  const { userInteraction, setUserInteraction } = useUserInteraction();
+  const {
+    register,
+    handleSubmit,
+    watch,
+    errors,
+    control,
+    reset,
+    getValues,
+    formState,
+  } = useForm({
+    mode: userInteraction.stepsCompleted.includes("personalFields")
+      ? "onChange"
+      : "onBlur",
+  });
   const onSubmit = (data) => nextStep(data, "reviewFields", false);
 
   const { t } = useTranslation();
   const { userData, setUserData } = useUserData();
-  const { userInteraction, setUserInteraction } = useUserInteraction();
   const [errorsVisible, setErrorsVisible] = useState(false);
   const linkRef = useRef(null);
   const [loading, setLoading] = useState(false);
@@ -69,10 +78,13 @@ const Review = ({ currentStep, nextStep, defaultValues }) => {
     );
   }, []);
 
-  useEffect(() => {
-    reset(defaultValues); // asynchronously reset your form values
-  }, []);
-
+  const localFormVals = getValues();
+  useLocalFormVal({
+    key: "reviewFields",
+    reset,
+    localFormVals,
+    errors,
+  });
   useEffect(() => {
     if (linkRef?.current && previewLink) {
       linkRef.current.focus();

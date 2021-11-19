@@ -3,8 +3,8 @@ import FormField from "components/Field";
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import { isEmpty } from "res/lib";
 import { useUserInteraction } from "userInteraction";
+import { useLocalFormVal } from "../../hooks/useLocalState";
 import Fieldset from "../Fieldset";
 import { validators } from "../validators";
 
@@ -12,22 +12,36 @@ const Business = ({
   steps,
   currentStep,
   nextStep,
-  defaultValues,
+
   comingStep,
 }) => {
-  const { handleSubmit, watch, register, errors, control, reset, formState } =
-    useForm({
-      mode: "onBlur",
-    });
   const { userInteraction, setUserInteraction } = useUserInteraction();
+  const {
+    handleSubmit,
+    watch,
+    register,
+    errors,
+    control,
+    reset,
+    formState,
+    getValues,
+  } = useForm({
+    mode: userInteraction.stepsCompleted.includes("personalFields")
+      ? "onChange"
+      : "onBlur",
+  });
 
   const onSubmit = (data) => nextStep(data, "businessFields");
   const officeaddress_value = watch("officeaddress");
   const { t } = useTranslation();
+  const localFormVals = getValues();
 
-  useEffect(() => {
-    reset(defaultValues); // asynchronously reset your form values
-  }, []);
+  useLocalFormVal({
+    key: "businessFields",
+    reset,
+    localFormVals,
+    errors,
+  });
 
   useEffect(() => {
     if (

@@ -4,21 +4,39 @@ import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import states from "res/FormData/de/states.json";
-import { isEmpty } from "res/lib";
 import { useUserInteraction } from "userInteraction";
 import Field from "../../Field";
+import { useLocalFormVal } from "../../hooks/useLocalState";
 import Fieldset from "../Fieldset";
 import { sanitizeNumbers } from "../helpers";
 import { taxIdValidator, validators } from "../validators";
 
-const TaxInfo = ({ currentStep, nextStep, defaultValues, comingStep }) => {
-  const { register, handleSubmit, watch, errors, control, reset, formState } =
-    useForm({
-      mode: "onBlur",
-      reValidateMode: "onBlur",
-    });
-
+const TaxInfo = ({ currentStep, nextStep, comingStep }) => {
   const { userInteraction, setUserInteraction } = useUserInteraction();
+  const {
+    register,
+    handleSubmit,
+    watch,
+    errors,
+    control,
+    reset,
+    getValues,
+    formState,
+  } = useForm({
+    mode: userInteraction.stepsCompleted.includes("personalFields")
+      ? "onChange"
+      : "onBlur",
+    reValidateMode: "onBlur",
+  });
+
+  const localFormVals = getValues();
+
+  useLocalFormVal({
+    key: "taxInfoFields",
+    reset,
+    localFormVals,
+    errors,
+  });
 
   useEffect(() => {
     if (
@@ -85,9 +103,9 @@ const TaxInfo = ({ currentStep, nextStep, defaultValues, comingStep }) => {
 
   const { t } = useTranslation();
 
-  useEffect(() => {
-    reset(defaultValues); // asynchronously reset your form values
-  }, []);
+  // useEffect(() => {
+  //   reset(defaultValues); // asynchronously reset your form values
+  // }, []);
 
   // useEffect(() => {
   //   setTimeout(() => {

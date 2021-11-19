@@ -7,14 +7,25 @@ import bankAccountHolders_de from "res/FormData/en/bankAccountHolders.json";
 import { useUserInteraction } from "userInteraction";
 import Field from "../../Field";
 import Fieldset from "../Fieldset";
+import { useLocalFormVal } from "../../hooks/useLocalState";
 import { isValidIBANNumber } from "../validators";
 
-const BankAccount = ({ currentStep, nextStep, defaultValues, comingStep }) => {
-  const { register, handleSubmit, watch, errors, control, reset, formState } =
-    useForm({
-      mode: "onBlur",
-    });
+const BankAccount = ({ currentStep, nextStep, comingStep }) => {
   const { userInteraction, setUserInteraction } = useUserInteraction();
+  const {
+    register,
+    handleSubmit,
+    watch,
+    errors,
+    control,
+    reset,
+    formState,
+    getValues,
+  } = useForm({
+    mode: userInteraction.stepsCompleted.includes("personalFields")
+      ? "onChange"
+      : "onBlur",
+  });
 
   const onSubmit = (data) => nextStep(data, "bankAccountFields");
   const { t, i18n } = useTranslation();
@@ -37,9 +48,13 @@ const BankAccount = ({ currentStep, nextStep, defaultValues, comingStep }) => {
     }
   }, [formState.isDirty, setUserInteraction]);
 
-  useEffect(() => {
-    reset(defaultValues); // asynchronously reset your form values
-  }, []);
+  const localFormVals = getValues();
+  useLocalFormVal({
+    key: "bankAccountFields",
+    reset,
+    localFormVals,
+    errors,
+  });
 
   // useEffect(() => {
   //   setTimeout(() => {

@@ -5,18 +5,19 @@ import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import genders_de from "res/FormData/de/gender.json";
 import marital_status_de from "res/FormData/de/marital_status.json";
+import religion from "res/FormData/de/religion.json";
 import genders_en from "res/FormData/en/gender.json";
 import marital_status_en from "res/FormData/en/marital_status.json";
-import religion from "res/FormData/de/religion.json";
 import { useUserInteraction } from "userInteraction";
 import { sendAmplitudeData } from "../../../res/amplitude";
 import Field from "../../Field";
+import { useLocalFormVal } from "../../hooks/useLocalState";
 import Fieldset from "../Fieldset";
 import { emailValidator, validators } from "../validators";
-import { useUserData } from "userData";
-import { isEmpty } from "res/lib";
 
-const Personal = ({ nextStep, defaultValues, comingStep, currentStep }) => {
+const Personal = ({ nextStep, comingStep, currentStep }) => {
+  const { userInteraction, setUserInteraction } = useUserInteraction();
+
   const {
     register,
     handleSubmit,
@@ -27,21 +28,25 @@ const Personal = ({ nextStep, defaultValues, comingStep, currentStep }) => {
     formState,
     getValues,
   } = useForm({
-    mode: "onBlur",
-    defaultValues,
+    mode: userInteraction.stepsCompleted.includes("personalFields")
+      ? "onChange"
+      : "onBlur",
   });
-  const { userInteraction, setUserInteraction } = useUserInteraction();
-  const { userData, setUserData } = useUserData();
+
   const { t, i18n } = useTranslation();
 
   const onSubmit = (data) => nextStep(data, "personalFields");
 
   const moved_value = watch("moved");
   const maritalstatus_value = watch("maritalstatus");
+  const localFormVals = getValues();
 
-  useEffect(() => {
-    reset(defaultValues);
-  }, [reset, defaultValues]);
+  useLocalFormVal({
+    key: "personalFields",
+    reset,
+    localFormVals,
+    errors,
+  });
 
   useEffect(() => {
     if (
@@ -55,16 +60,6 @@ const Personal = ({ nextStep, defaultValues, comingStep, currentStep }) => {
     }
   }, [formState.isDirty, setUserInteraction]);
 
-  // const vals = getValues();
-  // useEffect(() => {
-  //   if (
-  //     JSON.stringify(userData["personalFields"]) !== JSON.stringify(vals) &&
-  //     !isEmpty(vals)
-  //   ) {
-  //     nextStep(vals, "personalFields", false);
-  //     console.log(`vals`, vals);
-  //   }
-  // }, [vals]);
   // useEffect(() => {
   //   setTimeout(() => {
   //     sendAmplitudeData("WEB_SIGNUP_TABVIEW", {
