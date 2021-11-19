@@ -27,15 +27,18 @@ const RASOSuccessBSection = () => {
             }),
           }}
         />
-        <p
-          className="raso-congrats_p raso-b-section"
-          id="rasoSubmittedSubjectToVAT"
-          dangerouslySetInnerHTML={{
-            __html: t("success_b_body_subtitle_2", {
-              interpolation: { escapeValue: false },
-            }),
-          }}
-        />
+        {userInteraction.nextVatDeadline?.showChargeVat && (
+          <p
+            className="raso-congrats_p raso-b-section"
+            id="rasoSubmittedSubjectToVAT"
+            dangerouslySetInnerHTML={{
+              __html: t("success_b_body_subtitle_2", {
+                nextVatDeadline: userInteraction.nextVatDeadline?.vatDeadline,
+                interpolation: { escapeValue: false },
+              }),
+            }}
+          />
+        )}
         <p className="raso-congrats_p raso-b-section">
           All required documentation is waiting for you here:{" "}
         </p>
