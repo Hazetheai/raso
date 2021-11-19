@@ -1,0 +1,37 @@
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50px;
+  border: 1px solid var(--color-primary_medium);
+  background: var(--color-white);
+  color: var(--color-primary_medium);
+  transition: all 300ms ease-in-out;
+  transform: translate(0, 60px);
+  padding: 0 12px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.toast:not(.toast--active) {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.toast--active {
+  transform: translate(0px, 0px);
+  transition: all 300ms ease-in-out;
+}
+
+.toast__text-wrapper {
+  margin-right: 10px;
+}
+
+.toast .lds-ellipsis div {
+  background: var(--color-primary_medium);
+  top: 30px;
+  width: 7px;
+  height: 7px;
+}

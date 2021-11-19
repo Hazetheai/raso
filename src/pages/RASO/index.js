@@ -1,5 +1,6 @@
 import FAQ from "components/FAQ";
 import Form from "components/Form/";
+import Toast from "components/Toast";
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useUserInteraction } from "userInteraction";
@@ -28,6 +29,7 @@ const RASO = () => {
     <div className="content">
       <Form />
       <FAQ faqData={faqData} />
+      <Toast text="Autosaving" active={userInteraction.isAutoSaving} />
     </div>
   );
 };
