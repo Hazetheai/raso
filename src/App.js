@@ -15,14 +15,6 @@ import { UserInteractionProvider } from "./userInteraction";
 import "./variables.css";
 
 function App() {
-  const { t, i18n } = useTranslation();
-
-  useEffect(() => {
-    if (navigator.language.slice(0, 2) !== i18n.language) {
-      i18n.changeLanguage(navigator.language.slice(0, 2));
-    }
-  }, []);
-
   useEffect(() => {
     initIntercom();
     initAmplitude();
@@ -42,11 +34,19 @@ function App() {
         <Header />
         <Switch>
           <Fragment>
-            <Route exact path="/" component={RASO} />
-            <Route exact path="/erfolg" component={SuccessPage} />
+            <Route exact path="/" render={(props) => <RASO lang="de" />} />
+            <Route
+              exact
+              path="/erfolg"
+              render={(props) => <SuccessPage lang="de" />}
+            />
 
-            <Route exact path="/en" component={RASO} />
-            <Route exact path="/en/success" component={SuccessPage} />
+            <Route exact path="/en" render={(props) => <RASO lang="en" />} />
+            <Route
+              exact
+              path="/en/success"
+              render={(props) => <SuccessPage lang="en" />}
+            />
           </Fragment>
         </Switch>
         <Footer />

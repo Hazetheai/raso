@@ -5,8 +5,12 @@ import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useUserInteraction } from "userInteraction";
 
-const RASO = () => {
+const RASO = ({ lang }) => {
   const { t, i18n } = useTranslation();
+  if (i18n.language !== lang) {
+    i18n.changeLanguage(lang);
+  }
+
   const { userInteraction, setUserInteraction } = useUserInteraction();
 
   useEffect(() => {

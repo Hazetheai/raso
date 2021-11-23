@@ -12,8 +12,11 @@ import rasoCTAImage from "res/images/raso-cta-2-illustration.png";
 import { useUserData } from "userData";
 import { useUserInteraction } from "userInteraction";
 
-const SuccessPage = () => {
-  const { t } = useTranslation();
+const SuccessPage = ({ lang }) => {
+  const { t, i18n } = useTranslation();
+  if (i18n.language !== lang) {
+    i18n.changeLanguage(lang);
+  }
   const { userInteraction, setUserInteraction } = useUserInteraction();
   const { userData, setUserData } = useUserData();
 
@@ -50,14 +53,14 @@ const SuccessPage = () => {
 
   return (
     <div className="content">
-      <Button
+      {/* <Button
         text={userInteraction.version === "a" ? "Set B" : "Set A"}
         func={() =>
           setUserInteraction({
             version: userInteraction.version === "a" ? "b" : "a",
           })
         }
-      />
+      /> */}
       {userInteraction.version === "a" && (
         <>
           <FinanzamtLetters
