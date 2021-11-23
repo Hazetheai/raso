@@ -90,7 +90,6 @@ const Business = ({
           type="picker"
           control={control}
           name="officeaddress"
-          fullWidth
           topLabel={t("officeaddress_label")}
           options={[
             { name: t("yes"), value: "yes" },
@@ -157,7 +156,6 @@ const Business = ({
           type="picker"
           control={control}
           name="previousbusiness"
-          fullWidth
           topLabel={t("previousbusiness_label")}
           options={[
             { name: t("yes"), value: "yes" },

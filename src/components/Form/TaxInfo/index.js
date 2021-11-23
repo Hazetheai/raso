@@ -114,7 +114,6 @@ const TaxInfo = ({ currentStep, nextStep, comingStep }) => {
       <div className="form">
         <Field
           type="number"
-          fullWidth
           inputMode="numeric"
           name="steueridentifkationsnummer"
           ref={register({
@@ -145,7 +144,6 @@ const TaxInfo = ({ currentStep, nextStep, comingStep }) => {
         />
 
         <Field
-          fullWidth
           type="picker"
           control={control}
           name="steuernummer"
@@ -228,7 +226,6 @@ const TaxInfo = ({ currentStep, nextStep, comingStep }) => {
             topLabel={t("startdate_label")}
           />
           <Field
-            fullWidth
             type="money"
             control={control}
             inputMode="numeric"
@@ -261,7 +258,6 @@ const TaxInfo = ({ currentStep, nextStep, comingStep }) => {
             topLabel={t("revenue_firstYear_label")}
           />
           <Field
-            fullWidth
             type="money"
             control={control}
             inputMode="numeric"
@@ -289,7 +285,6 @@ const TaxInfo = ({ currentStep, nextStep, comingStep }) => {
               { name: t("yes"), value: "yes" },
               { name: t("no"), value: "no" },
             ]}
-            fullWidth
             fieldHelperText={t("chargeVAT_helper", {
               interpolation: { escapeValue: false },
             })}
@@ -319,7 +314,6 @@ const TaxInfo = ({ currentStep, nextStep, comingStep }) => {
               required: true,
             })}
             errors={errors}
-            fullWidth
             options={[
               { name: t("yes"), value: "no" },
               { name: t("no"), value: "yes" },

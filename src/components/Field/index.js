@@ -9,6 +9,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import { useController } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { gtagEvent } from "res/gtag";
+import { useUserInteraction } from "userInteraction";
 import "./field.css";
 import fieldHelperIcon from "./helper-icon.svg";
 
@@ -22,7 +23,7 @@ const Field = React.forwardRef(
       fieldHelperText,
       secondFieldHelperText,
       helperBelow,
-      fullWidth,
+      halfWidth,
       expandedHelpers,
       inputMode,
       errors,
@@ -45,31 +46,23 @@ const Field = React.forwardRef(
     ref
   ) => {
     const { t } = useTranslation();
-    const [isHelperVisible, setIsHelperVisible] = useState(false);
-    const [isHelperHovered, setIsHelperHovered] = useState(false);
+    const { userInteraction, setUserInteraction } = useUserInteraction();
 
     const isEscapePressed = useKeyPress("Escape");
-
-    function toggleHelper(isVis) {
-      setIsHelperVisible(isVis);
-    }
-    function toggleHelperHovered(isHovered) {
-      setIsHelperHovered(isHovered);
-    }
 
     const fieldValue = watch ? watch(name) : null;
 
     useEffect(() => {
-      if (isEscapePressed && isHelperVisible && !isHelperHovered) {
-        setIsHelperVisible(false);
+      if (isEscapePressed) {
+        setUserInteraction({ helperId: "" });
       }
-    }, [isEscapePressed, isHelperVisible, isHelperHovered]);
+    }, [isEscapePressed, setUserInteraction]);
 
     return (
       <div
         className={clsx(
           "form-question",
-          fullWidth && !expandedHelpers?.length ? "full-width" : "",
+          halfWidth ? "half-width" : "",
           !!expandedHelpers?.length ? "has-helper" : ""
         )}
         id={name}
@@ -80,16 +73,12 @@ const Field = React.forwardRef(
             {!!expandedHelpers?.length && (
               <span
                 role="button"
-                title=""
-                onMouseMove={() => toggleHelper(true)}
-                onMouseLeave={() =>
-                  setTimeout(() => {
-                    if (!isHelperHovered) {
-                      toggleHelper(false);
-                    }
-                  }, 200)
+                title={`${name} helper`}
+                onClick={() =>
+                  userInteraction.helperId === name
+                    ? setUserInteraction({ helperId: "" })
+                    : setUserInteraction({ helperId: name })
                 }
-                onKeyDown={() => toggleHelper(true)}
                 className="field_helper-icon"
               >
                 <img src={fieldHelperIcon} alt={"More Info"} />
@@ -266,13 +255,14 @@ const Field = React.forwardRef(
             )}
           </span>
         </div>
-        {(isHelperVisible || isHelperHovered) && (
+        {/* {console.log(`userInteraction.helperId`, userInteraction.helperId)} */}
+        {/* {console.log(`name`, name)} */}
+        {userInteraction.helperId === name && (
           <FieldHelper
             name={name}
-            isActive={isHelperVisible || isHelperHovered}
+            isActive={userInteraction.helperId === name}
             expandedHelpers={expandedHelpers}
-            toggleHelper={toggleHelper}
-            onHover={toggleHelperHovered}
+            // toggleHelper={toggleHelper}
           />
         )}
       </div>
@@ -491,48 +481,41 @@ const Money = ({ name, control, rules }) => {
   );
 };
 
-const FieldHelper = ({
-  expandedHelpers,
-  isActive,
-  toggleHelper,
-  onHover,
-  name,
-}) => {
+const FieldHelper = ({ expandedHelpers, isActive, name }) => {
   const { t } = useTranslation();
+  const { userInteraction, setUserInteraction } = useUserInteraction();
+  const [activeAnimation, setActiveAnimation] = useState(false);
+
+  useEffect(() => {
+    if (isActive) {
+      setActiveAnimation(isActive);
+    }
+  }, [isActive]);
 
   return (
     <div
-      onMouseMove={() => {
+      onClick={() => {
         gtagEvent("RASO_CLICKED_HELPER-ITER-1", { helper: name });
-
-        return onHover(true);
-      }}
-      onMouseLeave={() => {
-        setTimeout(() => {
-          onHover(false);
-        }, 200);
       }}
       className={clsx(
         "field_helper",
         "element-container",
-        isActive && "active"
+        activeAnimation && "active"
       )}
     >
+      {console.log(`name`, name)}
       <div className="field_helper__top-bar">
         <FontAwesomeIcon
           className="icon"
           icon={faTimes}
-          onClick={() => {
-            toggleHelper(false);
-            onHover(false);
-          }}
+          onClick={() => setUserInteraction({ helperId: "" })}
         />
       </div>
 
       {expandedHelpers.map((helper, idx, arr) => (
         <React.Fragment key={helper.title}>
           {helper.title && (
-            <h5 className="field_helper__title">{helper.title}</h5>
+            <h5 className="field_helper__title">💡 {helper.title}</h5>
           )}
           {helper.content && (
             <>
@@ -541,7 +524,7 @@ const FieldHelper = ({
                 dangerouslySetInnerHTML={{ __html: helper.content }}
               />
 
-              {helper.cs && (
+              {helper.intercom && (
                 <Button
                   type="button"
                   func={() => window.Intercom && window.Intercom("show")}

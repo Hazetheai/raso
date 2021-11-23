@@ -106,7 +106,6 @@ const Review = ({ currentStep, nextStep }) => {
         <Fieldset title={t("review_proof_read_fieldset_title")}>
           <Field
             type="select"
-            fullWidth
             topLabel={t("taxOffice_label")}
             name="taxOffice"
             ref={register({

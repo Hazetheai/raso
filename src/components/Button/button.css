@@ -22,9 +22,8 @@
   font-weight: 400;
   min-width: fit-content;
   background: transparent;
-  color: var(--color-primary);
-  text-transform: capitalize;
-  border: 1px solid var(--color-primary);
+  color: currentColor;
+  border: 1px solid currentColor;
   font-size: inherit;
 }
 .form_submit_btn:focus,

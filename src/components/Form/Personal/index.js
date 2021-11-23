@@ -83,6 +83,7 @@ const Personal = ({ nextStep, comingStep, currentStep }) => {
           errors={errors}
           watch={watch}
           topLabel={t("firstname_label")}
+          halfWidth
         />
 
         <Field
@@ -96,6 +97,7 @@ const Personal = ({ nextStep, comingStep, currentStep }) => {
           errors={errors}
           watch={watch}
           topLabel={t("name_label")}
+          halfWidth
         />
         <Field
           type="email"
@@ -108,6 +110,7 @@ const Personal = ({ nextStep, comingStep, currentStep }) => {
           topLabel={t("email_label")}
           errors={errors}
           watch={watch}
+          halfWidth
         />
         <Field
           type="phone"
@@ -115,6 +118,7 @@ const Personal = ({ nextStep, comingStep, currentStep }) => {
           topLabel={t("phone_label")}
           errors={errors}
           control={control}
+          halfWidth
         />
         <Field
           type="jump-date"
@@ -127,6 +131,7 @@ const Personal = ({ nextStep, comingStep, currentStep }) => {
             dateMin: nYearsFromNow(90, "before"),
             dateMax: nYearsFromNow(18, "before"),
           }}
+          halfWidth
         />
         <Field
           type="select"
@@ -141,12 +146,14 @@ const Personal = ({ nextStep, comingStep, currentStep }) => {
           options={i18n.language === "de" ? genders_de : genders_en}
           errors={errors}
           control={control}
+          halfWidth
         />
 
         <Fieldset>
           <Field
             type="text"
             name="address_street"
+            halfWidth
             floatingLabel={t("address_street")}
             ref={register({
               required: true,
@@ -166,7 +173,7 @@ const Personal = ({ nextStep, comingStep, currentStep }) => {
               {
                 title: t("address_helper_expand_2_title"),
                 content: t("address_helper_expand_2_content"),
-                cs: true,
+                intercom: true,
               },
             ]}
           />
@@ -177,6 +184,7 @@ const Personal = ({ nextStep, comingStep, currentStep }) => {
             })}
             type="text"
             name="address_number"
+            halfWidth
             floatingLabel={t("address_number")}
             errors={errors}
             control={control}
@@ -189,6 +197,7 @@ const Personal = ({ nextStep, comingStep, currentStep }) => {
             })}
             type="text"
             name="address_postcode"
+            halfWidth
             floatingLabel={t("address_postcode")}
             errors={errors}
             control={control}
@@ -201,6 +210,7 @@ const Personal = ({ nextStep, comingStep, currentStep }) => {
             })}
             type="text"
             name="address_city"
+            halfWidth
             floatingLabel={t("address_city")}
             errors={errors}
             control={control}
@@ -299,7 +309,6 @@ const Personal = ({ nextStep, comingStep, currentStep }) => {
                     required: true,
                     validate: (value) => !/choose/.test(value),
                   })}
-                  fullWidth
                   topLabel={t("partner_religion_label")}
                   options={i18n.language === "de" ? religion_de : religion_en}
                   errors={errors}
@@ -313,7 +322,6 @@ const Personal = ({ nextStep, comingStep, currentStep }) => {
         <Field
           type="select"
           name="religion"
-          fullWidth
           topLabel={t("religion_label")}
           fieldHelperText={t("religion_heper", {
             interpolation: { escapeValue: false },
@@ -331,7 +339,6 @@ const Personal = ({ nextStep, comingStep, currentStep }) => {
           type="picker"
           control={control}
           name="moved"
-          fullWidth
           topLabel={t("moved_label")}
           options={[
             { name: t("yes"), value: "yes" },
@@ -413,7 +420,6 @@ const Personal = ({ nextStep, comingStep, currentStep }) => {
           type="checkbox"
           control={control}
           name="optin"
-          fullWidth
           options={[
             {
               name: t("optin_label"),

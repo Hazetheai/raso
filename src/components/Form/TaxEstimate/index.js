@@ -176,7 +176,6 @@ const TaxEstimate = ({ currentStep, nextStep, comingStep }) => {
           <Field
             type="picker"
             control={control}
-            fullWidth
             topLabel={t("profitGewerbetreibender_label")}
             name="profitGewerbetreibender"
             ref={register({
@@ -230,7 +229,6 @@ const TaxEstimate = ({ currentStep, nextStep, comingStep }) => {
           <Field
             type="picker"
             control={control}
-            fullWidth
             topLabel={t("profitNichtselbstandiger_label")}
             fieldHelperText={t("profitNichtselbstandiger_helper", {
               interpolation: { escapeValue: false },
@@ -282,7 +280,6 @@ const TaxEstimate = ({ currentStep, nextStep, comingStep }) => {
           <Field
             type="picker"
             control={control}
-            fullWidth
             inputMode=""
             topLabel={t("profitKapitalvermogen_label")}
             fieldHelperText={t("profitKapitalvermogen_helper", {
@@ -335,7 +332,6 @@ const TaxEstimate = ({ currentStep, nextStep, comingStep }) => {
           <Field
             type="picker"
             control={control}
-            fullWidth
             inputMode=""
             topLabel={t("profitVermietung_label")}
             fieldHelperText={t("profitVermietung_helper", {
@@ -388,7 +384,6 @@ const TaxEstimate = ({ currentStep, nextStep, comingStep }) => {
           <Field
             type="picker"
             control={control}
-            fullWidth
             inputMode=""
             topLabel={t("profitSonstigen_label")}
             fieldHelperText={t("profitSonstigen_helper", {
@@ -442,7 +437,6 @@ const TaxEstimate = ({ currentStep, nextStep, comingStep }) => {
         <Field
           type="picker"
           control={control}
-          fullWidth
           inputMode=""
           topLabel={t("profitAgriculture_label")}
           name="profitAgriculture"
@@ -459,7 +453,6 @@ const TaxEstimate = ({ currentStep, nextStep, comingStep }) => {
         <Field
           type="picker"
           control={control}
-          fullWidth
           topLabel={t("taxPrepayment_label")}
           name="taxPrepayment"
           ref={register({

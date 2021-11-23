@@ -47,6 +47,10 @@
 .link:hover {
   background-color: var(--color-primary_hover);
 }
+.link--inline:focus,
+.link--inline:hover {
+  background-color: var(--color-white);
+}
 
 .link--inline:hover,
 .link--inline:focus {
@@ -59,7 +63,7 @@
 }
 
 .link--inline svg {
-  font-size: 10px;
+  font-size: inherit;
 }
 
 .link:hover svg,

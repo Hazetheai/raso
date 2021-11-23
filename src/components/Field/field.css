@@ -1,8 +1,9 @@
 .form-question,
 fieldset {
-  position: relative;
   flex: 0 0 100%;
   transition: all 300ms ease-in-out;
+  width: 100%;
+  position: relative;
 }
 
 .form-question {
@@ -11,6 +12,20 @@ fieldset {
 
 fieldset .form-question {
   padding: 0;
+}
+
+fieldset.wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+fieldset.wrap .form-question {
+  flex: 0 0 50%;
+}
+
+.form-question.half-width {
+  width: 50%;
 }
 
 fieldset h4 {
@@ -25,55 +40,18 @@ fieldset h4 {
   color: rgba(105, 77, 129, 1);
 }
 
-@media only screen and (min-width: 900px) {
-  .form-question:not(.has-helper) {
-    flex: 0 0 50%;
-  }
-  fieldset .form-question:not(.has-helper) {
-    width: 50%;
-  }
-  .form-question.full-width {
-    flex: 0 0 100%;
-  }
-}
-
 fieldset.subfield {
   padding-left: 25px;
   border-left: 2px solid var(--color-grey_light-2);
-}
-
-.form-question.has-helper {
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
 }
 
 .field {
   width: 100%;
   padding-right: 1rem;
 }
-.has-helper .field {
-  width: 100%;
-}
 
 fieldset .field {
   padding-bottom: 0.4rem;
-}
-
-@media only screen and (min-width: 900px) {
-  .has-helper .field {
-    width: 50%;
-  }
-}
-
-.full-width .field {
-  width: 100%;
-}
-
-@media only screen and (min-width: 900px) {
-  .form-question.has-helper {
-    flex-direction: row;
-  }
 }
 
 label.field_top-label {
@@ -83,42 +61,58 @@ label.field_top-label {
 }
 
 .field_helper {
-  position: relative;
-  background: #f4effa;
+  display: none;
+  position: absolute;
+  left: 110%;
+  top: -12px;
+  background: var(--color-white);
   padding: 20px;
-  border: 1px solid #e6def4;
-  flex: 0 0 50%;
-  max-width: 420px;
+  border: 1px solid var(--color-serious_purple);
+  color: var(--color-serious_purple);
+  width: 100%;
+  max-width: 20vw;
   border-radius: 10px;
   margin: 0 0 20px 0;
-  transform: scaleY(0);
+  transform: translateX(50px);
+  opacity: 0;
   transform-origin: top;
   transition: all 300ms ease-in-out;
   transition-delay: 400ms;
   z-index: 20;
 }
 
+fieldset .field_helper {
+  left: 110%;
+  top: -24px;
+}
+
+.form-question.half-width .field_helper,
+fieldset.wrap .field_helper {
+  left: 220%;
+}
+
+.field_helper::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--color-serious_purple);
+  position: absolute;
+  top: 24px;
+  left: -10px;
+  transform: rotate(45deg);
+  background-color: var(--color-white);
+  border-top-color: var(--color-white);
+  border-right-color: var(--color-white);
+}
+
 .field_helper hr {
   margin: 20px 0;
 }
 
-@media only screen and (min-width: 900px) {
-  .field_helper {
-    position: absolute;
-    left: 50%;
-  }
-}
-
 .field_helper__top-bar {
-  display: flex;
+  display: none;
   justify-content: flex-end;
   align-items: center;
-}
-
-@media only screen and (min-width: 900px) {
-  .field_helper__top-bar {
-    display: none;
-  }
 }
 
 .field_helper__top-bar,
@@ -129,22 +123,31 @@ svg {
 .field_helper.active {
   transform-origin: top;
   transition: all 300ms ease-in-out;
-  transform: scaleY(1);
+  transform: translateX(0);
   transition-delay: 400ms;
+  opacity: 1;
   /* margin: 0 0 60px 0; */
 }
 
-@media only screen and (min-width: 768px) {
-  .field_helper.active {
-    margin: 0 0 20px 0;
-  }
+.field_helper-icon {
+  display: none;
+  opacity: 1;
+  border-radius: 50%;
+  padding: 0 8px;
+  transition: all 300ms ease-in-out;
+  min-width: 50px;
+}
+
+.field_helper-icon:active img {
+  transform: scale(1.1);
+  transition: all 300ms cubic-bezier(0.15, 0.66, 0.89, 1.42) 30ms;
 }
 
 .field_helper-row {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  max-width: 420px;
+  align-items: flex-start;
+
   width: 100%;
 }
 
@@ -158,29 +161,19 @@ svg {
 }
 
 .field_helper__title {
-  color: rgba(74, 53, 92, 1);
   font-weight: bold;
   margin: 5px 0;
-  font-size: 16px;
+  font-size: 14px;
 }
 .field_helper__content {
-  font-size: 16px;
-  color: rgba(74, 53, 92, 1);
+  font-size: 13px;
 }
 .field_helper__content + button {
   margin: 13px 0 0 0;
 }
-.field_helper-icon {
-  display: inline-block;
-  opacity: 1;
-  border-radius: 50%;
-  padding: 8px;
-  transition: all 300ms ease-in-out;
-  min-width: 50px;
-}
+
 .field_helper-icon:hover,
 .field_helper-icon:focus {
-  /* box-shadow: 1px 1px 1px 1px var(--color-primary); */
   transition: all 300ms ease-in-out;
 }
 
@@ -252,7 +245,7 @@ svg {
   width: 100%;
   padding: 0 20px;
   color: rgba(40, 0, 75, 0.87);
-  max-width: 420px;
+
   font-size: 18px;
 }
 
@@ -306,8 +299,6 @@ textarea.field_input {
   border: 1px solid rgba(109, 74, 211, 0.38);
   font-weight: 600;
   margin: 0 3px 0 24px;
-
-  position: relative;
   top: 4px;
   left: -8px;
 
@@ -341,11 +332,6 @@ textarea.field_input {
   border-radius: 50%;
 }
 
-@supports (-webkit-touch-callout: none) {
-  .select_option::after {
-    top: -11px;
-  }
-}
 .select_option:first-child {
   margin-left: 0;
 }
@@ -421,7 +407,11 @@ textarea.field_input {
   border-color: var(--color-primary);
 }
 
-@media screen and (min-width: 770px) {
+@media only screen and (min-width: 768px) {
+  .field_helper.active {
+    margin: 0 0 20px 0;
+  }
+
   .field_label {
     width: 100px;
     padding-top: 8px;
@@ -431,5 +421,33 @@ textarea.field_input {
   .field_error {
     padding-top: 4px;
     min-height: 26px;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .half-width {
+    flex: 0 0 50%;
+  }
+}
+
+@media only screen and (min-width: 1100px) {
+  .field_helper-icon {
+    display: inline-block;
+  }
+  .field_helper {
+    display: inline-block;
+  }
+}
+
+@media only screen and (min-width: 1300px) {
+  .form-question.half-width .field_helper,
+  fieldset.wrap .field_helper {
+    left: 220%;
+  }
+}
+
+@supports (-webkit-touch-callout: none) {
+  .select_option::after {
+    top: -11px;
   }
 }
