@@ -104,6 +104,7 @@ export function wrap(n, min, max) {
 /**
  *
  * @param {string|number} string
+ * @param {boolean} [nodecimal]
  * @returns
  */
 export function sanitizeNumbers(string, nodecimal) {

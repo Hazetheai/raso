@@ -73,7 +73,7 @@ const Field = React.forwardRef(
             {!!expandedHelpers?.length && (
               <span
                 role="button"
-                title={`${name} helper`}
+                title={t("more_info")}
                 onClick={() =>
                   userInteraction.helperId === name
                     ? setUserInteraction({ helperId: "" })
@@ -81,7 +81,7 @@ const Field = React.forwardRef(
                 }
                 className="field_helper-icon"
               >
-                <img src={fieldHelperIcon} alt={"More Info"} />
+                <img src={fieldHelperIcon} alt={t("more_info")} />
               </span>
             )}
           </div>
