@@ -1,6 +1,7 @@
 import qs from "qs";
 import { gtagEvent } from "res/gtag";
 import { cleanLocal } from "res/lib";
+import { fbLogEvent } from "res/pixel";
 import { dlAppLink, wpHost } from "settings/config";
 import {
   formatforAPICall,
@@ -91,7 +92,7 @@ async function apiCall(fields, lang, partner, preview, usecase) {
       apiResponse["nextVatDeadline"] = getNextVATDeadline(fields, lang);
       window.scrollTo(0, 0);
 
-      // fbq && fbq("trackCustom", "TaxIdRegistrationLead");
+      fbLogEvent("trackCustom", "TaxIdRegistrationLead");
     }
   }
 

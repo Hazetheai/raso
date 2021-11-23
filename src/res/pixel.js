@@ -10,5 +10,5 @@ export const initPixel = () => ReactPixel.init(fbPixelId, {}, options);
 
 export const logPageView = () => ReactPixel.pageView();
 
-export const logEvent = (event, data = {}) =>
+export const fbLogEvent = (event, data = {}) =>
   ReactPixel.trackCustom(event, data);
