@@ -31,6 +31,10 @@
 .form_submit_btn:hover {
   background-color: var(--color-primary_hover);
 }
+
+.form_submit_btn--inline:hover {
+  color: var(--color-white);
+}
 .form_submit_btn--alt {
   background: none;
   border: 1px solid rgb(109, 74, 211);
