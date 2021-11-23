@@ -3,8 +3,8 @@ import Header from "components/Common/Header";
 import RASO from "pages/RASO";
 import SuccessPage from "pages/RASO/success";
 import { Fragment, useEffect } from "react";
-import { useTranslation } from "react-i18next";
 import { Route, Switch, withRouter } from "react-router-dom";
+import { initPixel, logPageView } from "res/pixel";
 import "./App.css";
 import { initAmplitude } from "./res/amplitude";
 import { gtagEvent, initGTM } from "./res/gtag";
@@ -18,12 +18,12 @@ function App() {
   useEffect(() => {
     initIntercom();
     initAmplitude();
-    // initPixel();
+    initPixel();
     initGTM();
   }, []);
 
   useEffect(() => {
-    // logPageView();
+    logPageView();
     gtagEvent("RASO_PAGEVIEW-ITER-1", { path: window.location.pathname });
     gtagEvent("RASO_TAB-ITER-1", { tab: "#personal" });
   }, []);
