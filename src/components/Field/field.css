@@ -161,6 +161,7 @@ svg {
   color: rgba(74, 53, 92, 1);
   font-weight: bold;
   margin: 5px 0;
+  font-size: 16px;
 }
 .field_helper__content {
   font-size: 16px;
