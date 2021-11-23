@@ -60,16 +60,6 @@ const Header = () => {
           </a>
           <Nav />
           <LanguagePicker />
-          {/* <Button
-            func={(e) => {
-              if (e.metaKey) {
-                cleanLocal();
-                window.location.reload();
-              }
-            }}
-            text="Reset Form Data"
-            className="fix-top-r"
-          /> */}
         </header>
         <Hero {...heroData} isSuccessPage={isSuccess} />
       </div>

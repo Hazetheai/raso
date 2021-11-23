@@ -1,6 +1,6 @@
 .top-section-raso-container {
   text-align: left;
-  padding: 40px 45px;
+  position: relative;
 }
 
 .top-section-raso-congrats-container {
@@ -10,7 +10,6 @@
 
 @media only screen and (min-width: 768px) {
   .top-section-raso-container {
-    margin: 0 55px 55px 55px;
     max-width: 61%;
   }
 }
@@ -26,6 +25,10 @@
 
 .top-section__title-m {
   color: var(--color-primary_medium);
+}
+
+.top-section__title-m--raso {
+  max-width: 60ch;
 }
 
 .form_submit_btn--raso-header {
