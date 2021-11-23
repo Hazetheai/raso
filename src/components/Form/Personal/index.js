@@ -104,7 +104,6 @@ const Personal = ({ nextStep, comingStep, currentStep }) => {
           name="email"
           ref={register({
             required: true,
-            validate: emailValidator,
             pattern: validators.email,
           })}
           topLabel={t("email_label")}
