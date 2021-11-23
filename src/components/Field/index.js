@@ -489,8 +489,8 @@ const Money = ({ name, control, rules }) => {
         numeralDecimalMark: isDe ? "," : ".",
         delimiter: isDe ? "." : ",",
         numeralPositiveOnly: true,
-        //   noImmediatePrefix: true,
-        //   prefix: isDe ? " €" : "€ ",
+        noImmediatePrefix: true,
+        prefix: "€ ",
         //   tailPrefix: isDe,
       }}
     />
