@@ -128,10 +128,10 @@ const TaxEstimate = ({ currentStep, nextStep, comingStep }) => {
                 }),
               },
               {
-                title: "Wie schätze ich meinen Gewinn?",
-                content: `Du kannst von deinen voraussichtlichen Einnahmen die geschätzten Ausgaben abziehen und so deinen <a href="https://www.accountable.de/blog/fragebogen-zur-steuerlichen-erfassung-so-berechnest-du-deinen-gewinn-aus-der-selbststandigkeit/" target="_blank"> Gewinn</a> berechnen. Keine Sorge, das Finanzamt erwartet keine perfekte Voraussage deines Gewinns. <br/><br/>
-                Anhand deiner Schätzung wird das Finanzamt die Steuervorauszahlungen festlegen. Mit deiner Steuererklärung am Ende des Jahres wirst du zu viel gezahlte Steuer zurückbekommen oder zu wenig gezahlte Steuer nachzahlen.
-                `,
+                title: t("profitFreiberufler_expand_helper_2_title"),
+                content: t("profitFreiberufler_expand_helper_2_content", {
+                  interpolation: { escapeValue: false },
+                }),
               },
             ]}
           />
