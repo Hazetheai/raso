@@ -82,9 +82,11 @@ const SuccessHero = () => {
             {t(`success_${userInteraction.version}_hero_ref_number`)}{" "}
           </span>{" "}
           <span id="tickedId">
-            {userInteraction.ticketId ||
-              userInteraction?.data?.data?.ticket ||
-              ""}
+            <strong>
+              {userInteraction.ticketId ||
+                userInteraction?.data?.data?.ticket ||
+                ""}
+            </strong>
           </span>
         </span>
       </div>
