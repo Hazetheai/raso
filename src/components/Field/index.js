@@ -30,7 +30,6 @@ const Field = React.forwardRef(
       control,
       disabled,
       onBlur = () => {
-        console.log(`name 1`, name);
         gtagEvent("RASO_FILLFIELD-ITER-1", { field: name });
       },
       value,
@@ -144,7 +143,6 @@ const Field = React.forwardRef(
                   ref={ref}
                   defaultValue={options[0]}
                   onBlur={() => {
-                    console.log(`name 2`, name);
                     gtagEvent("RASO_FILLFIELD-ITER-1", { field: name });
                   }}
                   className={clsx(
@@ -342,7 +340,6 @@ const Checkbox = ({ option, name, control, disabled, defaultValue = "" }) => {
         className="checkbox-choice"
         key={option.name}
         onClick={() => {
-          console.log(`name`, name);
           gtagEvent("RASO_FILLFIELD-ITER-1", {
             field: name,
             value: option.value,
@@ -416,7 +413,6 @@ const PhoneInput = ({ name, control, errors, shorter }) => {
       value={value}
       onChange={formatPhone}
       onBlur={() => {
-        console.log(`name`, name);
         gtagEvent("RASO_FILLFIELD-ITER-1", { field: name });
         return onBlur();
       }}
@@ -447,7 +443,6 @@ const JumpDate = ({ name, control, errors, shorter, minMax = {} }) => {
       ref={ref}
       {...inputProps}
       onBlur={() => {
-        console.log(`name`, name);
         gtagEvent("RASO_FILLFIELD-ITER-1", { field: name });
         return inputProps.onBlur();
       }}
@@ -478,7 +473,6 @@ const Money = ({ name, control, rules }) => {
       value={value}
       onChange={onChange}
       onBlur={() => {
-        console.log(`name`, name);
         gtagEvent("RASO_FILLFIELD-ITER-1", { field: name });
         return onBlur();
       }}
