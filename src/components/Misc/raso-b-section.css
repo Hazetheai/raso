@@ -7,6 +7,7 @@
   font-size: 44px;
   color: var(--color-primary_medium);
   max-width: 65ch;
+  padding-top: 72px;
 }
 
 .raso-nextstep_instructions p {
