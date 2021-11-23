@@ -103,10 +103,6 @@ const TaxInfo = ({ currentStep, nextStep, comingStep }) => {
   const { t } = useTranslation();
 
   // useEffect(() => {
-  //   reset(defaultValues); // asynchronously reset your form values
-  // }, []);
-
-  // useEffect(() => {
   //   setTimeout(() => {
   //     sendAmplitudeData("WEB_SIGNUP_TABVIEW", {
   //       tab: "taxInfo",
@@ -115,7 +111,6 @@ const TaxInfo = ({ currentStep, nextStep, comingStep }) => {
   // }, []);
   return (
     <form id={currentStep.tabId} onSubmit={handleSubmit(onSubmit)}>
-      {/* {validateKUN()} */}
       <div className="form">
         <Field
           type="number"
@@ -207,12 +202,6 @@ const TaxInfo = ({ currentStep, nextStep, comingStep }) => {
             },
           ]}
           options={[{ name: t("yes"), value: "yes" }]}
-          // fieldHelperText={t("singleentry_helper", {
-          //   interpolation: { escapeValue: false },
-          // })}
-          // secondFieldHelperText={t("singleentry_helper_2", {
-          //   interpolation: { escapeValue: false },
-          // })}
           topLabel={t("singleentry_label")}
         />
 

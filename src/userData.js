@@ -57,7 +57,11 @@ const UserDataProvider = ({ children }) => {
       steuernummer_value: "",
       steuernummer_state: "choose",
       singleentry: "yes",
-      startdate: { d: "", m: "", y: "" },
+      startdate: {
+        d: new Date().getDate(),
+        m: new Date().getMonth() + 1,
+        y: new Date().getFullYear(),
+      },
       revenue_firstYear: "",
       revenue_secondYear: "",
       chargeVAT: "",
