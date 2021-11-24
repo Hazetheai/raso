@@ -74,11 +74,13 @@ const Field = React.forwardRef(
               <span
                 role="button"
                 title={t("more_info")}
-                onClick={() =>
+                onClick={() => {
                   userInteraction.helperId === name
                     ? setUserInteraction({ helperId: "" })
-                    : setUserInteraction({ helperId: name })
-                }
+                    : setUserInteraction({ helperId: name });
+
+                  gtagEvent("RASO_CLICKED_HELPER-ITER-1", { helper: name });
+                }}
                 className="field_helper-icon"
               >
                 <img src={fieldHelperIcon} alt={t("more_info")} />
@@ -134,6 +136,11 @@ const Field = React.forwardRef(
                   onBlur={() => {
                     gtagEvent("RASO_FILLFIELD-ITER-1", { field: name });
                   }}
+                  onFocus={() => {
+                    userInteraction.helperId === name
+                      ? setUserInteraction({ helperId: "" })
+                      : setUserInteraction({ helperId: name });
+                  }}
                   className={clsx(
                     "field_input",
                     "field_input--select",
@@ -171,6 +178,11 @@ const Field = React.forwardRef(
                   autoFocus={autoFocus}
                   id={name}
                   maxLength={maxChars}
+                  onFocus={() => {
+                    userInteraction.helperId === name
+                      ? setUserInteraction({ helperId: "" })
+                      : setUserInteraction({ helperId: name });
+                  }}
                 />
               ) : type === "jump-date" ? (
                 <JumpDate
@@ -206,6 +218,11 @@ const Field = React.forwardRef(
                   autoFocus={autoFocus}
                   id={name}
                   maxLength={maxChars}
+                  onFocus={() => {
+                    userInteraction.helperId === name
+                      ? setUserInteraction({ helperId: "" })
+                      : setUserInteraction({ helperId: name });
+                  }}
                 />
               )}
               {floatingLabel && (
@@ -257,7 +274,7 @@ const Field = React.forwardRef(
         </div>
         {/* {console.log(`userInteraction.helperId`, userInteraction.helperId)} */}
         {/* {console.log(`name`, name)} */}
-        {userInteraction.helperId === name && (
+        {userInteraction.helperId === name && !!expandedHelpers?.length && (
           <FieldHelper
             name={name}
             isActive={userInteraction.helperId === name}
@@ -308,7 +325,6 @@ const Picker = ({
               return !disabled && onChange(option.value);
             }}
           >
-            {" "}
             {option.name}
           </span>
         </React.Fragment>
@@ -370,6 +386,8 @@ const PhoneInput = ({ name, control, errors, shorter }) => {
     rules: { required: true, minLength: 12 },
     defaultValue: "+49 ",
   });
+  const { userInteraction, setUserInteraction } = useUserInteraction();
+
   const formatPhone = (e) => {
     let phone = e.target.value.replace(/\+|[^\d]/g, "");
     onChange(
@@ -407,6 +425,11 @@ const PhoneInput = ({ name, control, errors, shorter }) => {
         gtagEvent("RASO_FILLFIELD-ITER-1", { field: name });
         return onBlur();
       }}
+      onFocus={() => {
+        userInteraction.helperId === name
+          ? setUserInteraction({ helperId: "" })
+          : setUserInteraction({ helperId: name });
+      }}
     />
   );
 };
@@ -421,6 +444,7 @@ const JumpDate = ({ name, control, errors, shorter, minMax = {} }) => {
     rules: { required: true, minLength: 8 },
     defaultValue: "",
   });
+  const { userInteraction, setUserInteraction } = useUserInteraction();
 
   return (
     <Cleave
@@ -436,6 +460,11 @@ const JumpDate = ({ name, control, errors, shorter, minMax = {} }) => {
       onBlur={() => {
         gtagEvent("RASO_FILLFIELD-ITER-1", { field: name });
         return inputProps.onBlur();
+      }}
+      onFocus={() => {
+        userInteraction.helperId === name
+          ? setUserInteraction({ helperId: "" })
+          : setUserInteraction({ helperId: name });
       }}
       options={{
         date: true,
@@ -456,6 +485,8 @@ const Money = ({ name, control, rules }) => {
     rules: { required: true, pattern: moneyRegex, ...rules },
   });
   const { i18n } = useTranslation();
+  const { userInteraction, setUserInteraction } = useUserInteraction();
+
   const isDe = i18n.language === "de";
   return (
     <Cleave
@@ -466,6 +497,11 @@ const Money = ({ name, control, rules }) => {
       onBlur={() => {
         gtagEvent("RASO_FILLFIELD-ITER-1", { field: name });
         return onBlur();
+      }}
+      onFocus={() => {
+        userInteraction.helperId === name
+          ? setUserInteraction({ helperId: "" })
+          : setUserInteraction({ helperId: name });
       }}
       options={{
         numeral: true,
@@ -493,18 +529,18 @@ const FieldHelper = ({ expandedHelpers, isActive, name }) => {
     }
   }, [isActive]);
 
+  if (!expandedHelpers?.length) {
+    return null;
+  }
+
   return (
     <div
-      onClick={() => {
-        gtagEvent("RASO_CLICKED_HELPER-ITER-1", { helper: name });
-      }}
       className={clsx(
         "field_helper",
         "element-container",
         activeAnimation && "active"
       )}
     >
-      {console.log(`name`, name)}
       <div className="field_helper__top-bar">
         <FontAwesomeIcon
           className="icon"
@@ -513,7 +549,7 @@ const FieldHelper = ({ expandedHelpers, isActive, name }) => {
         />
       </div>
 
-      {expandedHelpers.map((helper, idx, arr) => (
+      {expandedHelpers?.map((helper, idx, arr) => (
         <React.Fragment key={helper.title}>
           {helper.title && (
             <h5 className="field_helper__title">💡 {helper.title}</h5>
