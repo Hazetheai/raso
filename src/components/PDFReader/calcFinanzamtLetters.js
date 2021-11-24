@@ -6,26 +6,20 @@ function calcFinanzamtLetters(userData) {
   if (isMarried) {
     letters = letters
       .concat(letterData["married_letters"])
-      .filter((el) => !/single_letters/g.test(el.pdf_url))
-      .filter((item, pos, arr) => arr.indexOf(item) === pos);
+      .filter((el) => !/single_letters/g.test(el.pdf_url));
   } else {
     letters = letters
       .concat(letterData["single_letters"])
-      .filter((el) => !/married_letters/g.test(el.pdf_url))
-      .filter((item, pos, arr) => arr.indexOf(item) === pos);
+      .filter((el) => !/married_letters/g.test(el.pdf_url));
   }
 
   if (userData.askVATnumber) {
-    letters = letters
-      .concat(letterData["with_vat_letters"])
-      .filter((item, pos, arr) => arr.indexOf(item) === pos);
+    letters = letters.concat(letterData["with_vat_letters"]);
   } else {
-    letters = letters
-      .filter((el) => !/vat_letter/g.test(el.pdf_url))
-      .filter((item, pos, arr) => arr.indexOf(item) === pos);
+    letters = letters.filter((el) => !/vat_letter/g.test(el.pdf_url));
   }
-
-  return letters;
+  // Remove Dupes
+  return letters.filter((item, pos, arr) => arr.indexOf(item) === pos);
 }
 
 export default calcFinanzamtLetters;
