@@ -71,7 +71,7 @@ const TaxInfo = ({ currentStep, nextStep, comingStep }) => {
 
     if (
       year === "first" &&
-      chargeVAT_value === "yes" &&
+      chargeVAT_value === "no" &&
       ((13 - startMonth) / 12) * 22000 < revenue_firstYear_value
     ) {
       const error = t("revenue_firstYear_error", {
@@ -84,7 +84,7 @@ const TaxInfo = ({ currentStep, nextStep, comingStep }) => {
       return error;
     } else if (
       year === "second" &&
-      chargeVAT_value === "yes" &&
+      chargeVAT_value === "no" &&
       revenue_secondYear_value > 50000
     ) {
       const error = t("revenue_secondYear_error", {
@@ -282,8 +282,8 @@ const TaxInfo = ({ currentStep, nextStep, comingStep }) => {
             })}
             errors={errors}
             options={[
-              { name: t("yes"), value: "yes" },
-              { name: t("no"), value: "no" },
+              { name: t("yes"), value: "no" },
+              { name: t("no"), value: "yes" },
             ]}
             fieldHelperText={t("chargeVAT_helper", {
               interpolation: { escapeValue: false },
@@ -315,8 +315,8 @@ const TaxInfo = ({ currentStep, nextStep, comingStep }) => {
             })}
             errors={errors}
             options={[
-              { name: t("yes"), value: "no" },
-              { name: t("no"), value: "yes" },
+              { name: t("yes"), value: "yes" },
+              { name: t("no"), value: "no" },
             ]}
             fieldHelperText={t("askVATnumber_helper", {
               interpolation: { escapeValue: false },
