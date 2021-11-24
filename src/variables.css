@@ -9,6 +9,7 @@
   --color-primary_light: rgba(169, 153, 183, 1);
   --color-primary_medium: rgba(105, 77, 129, 1);
   --color-serious_purple: rgba(128, 89, 200, 1);
+  --color-primary_bg: rgba(169, 153, 183, 0.05);
 
   --color-primary_transparent-1: rgba(40, 0, 75, 0.06);
   --color-primary_transparent-2: rgba(40, 0, 75, 0.05);

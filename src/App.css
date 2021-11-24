@@ -67,6 +67,10 @@
   font-style: normal;
 }
 
+#root {
+  background: var(--color-primary_bg);
+}
+
 body,
 html {
   font-family: "Assistant", sans-serif;
