@@ -135,6 +135,7 @@ const Field = React.forwardRef(
                   defaultValue={options[0]}
                   onBlur={() => {
                     gtagEvent("RASO_FILLFIELD-ITER-1", { field: name });
+                    setUserInteraction({ helperId: "" });
                   }}
                   onFocus={() => {
                     userInteraction.helperId === name
@@ -171,7 +172,10 @@ const Field = React.forwardRef(
                   )}
                   rows={7}
                   ref={ref}
-                  onBlur={onBlur}
+                  onBlur={() => {
+                    setUserInteraction({ helperId: "" });
+                    onBlur && onBlur();
+                  }}
                   disabled={disabled}
                   defaultValue={value}
                   autoComplete={autoComplete}
@@ -211,7 +215,10 @@ const Field = React.forwardRef(
                     errors[name] && "field_input--error"
                   )}
                   ref={ref}
-                  onBlur={onBlur}
+                  onBlur={() => {
+                    setUserInteraction({ helperId: "" });
+                    onBlur && onBlur();
+                  }}
                   disabled={disabled}
                   defaultValue={value}
                   autoComplete={autoComplete}
@@ -423,12 +430,11 @@ const PhoneInput = ({ name, control, errors, shorter }) => {
       onChange={formatPhone}
       onBlur={() => {
         gtagEvent("RASO_FILLFIELD-ITER-1", { field: name });
+        setUserInteraction({ helperId: "" });
         return onBlur();
       }}
       onFocus={() => {
-        userInteraction.helperId === name
-          ? setUserInteraction({ helperId: "" })
-          : setUserInteraction({ helperId: name });
+        setUserInteraction({ helperId: name });
       }}
     />
   );
@@ -459,12 +465,11 @@ const JumpDate = ({ name, control, errors, shorter, minMax = {} }) => {
       {...inputProps}
       onBlur={() => {
         gtagEvent("RASO_FILLFIELD-ITER-1", { field: name });
+        setUserInteraction({ helperId: "" });
         return inputProps.onBlur();
       }}
       onFocus={() => {
-        userInteraction.helperId === name
-          ? setUserInteraction({ helperId: "" })
-          : setUserInteraction({ helperId: name });
+        setUserInteraction({ helperId: name });
       }}
       options={{
         date: true,
@@ -496,12 +501,11 @@ const Money = ({ name, control, rules }) => {
       onChange={onChange}
       onBlur={() => {
         gtagEvent("RASO_FILLFIELD-ITER-1", { field: name });
+        setUserInteraction({ helperId: "" });
         return onBlur();
       }}
       onFocus={() => {
-        userInteraction.helperId === name
-          ? setUserInteraction({ helperId: "" })
-          : setUserInteraction({ helperId: name });
+        setUserInteraction({ helperId: name });
       }}
       options={{
         numeral: true,
