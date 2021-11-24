@@ -236,7 +236,7 @@ const Review = ({ currentStep, nextStep }) => {
             </Button>
             {userInteraction.downloadAppLink_desktop && (
               <Redirect
-                to={i18n.language === "de" ? "/erfolgt" : "en/success"}
+                to={i18n.language === "de" ? "/erfolg" : "/en/success"}
               />
             )}
           </div>
