@@ -87,6 +87,7 @@ html {
   font-weight: 400;
   line-height: 1.5;
   scroll-padding-top: 20px;
+  overflow-x: hidden;
 }
 *,
 ::after,
@@ -107,7 +108,7 @@ html {
   min-height: 110px;
   position: relative;
   padding: 24px;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .content {

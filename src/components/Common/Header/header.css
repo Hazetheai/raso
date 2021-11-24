@@ -21,6 +21,7 @@
 }
 
 .top-section-gradient--raso-success {
+  top: 0;
   background: linear-gradient(
       180deg,
       rgba(255, 255, 255, 0.67) 0%,
