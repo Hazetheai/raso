@@ -8,7 +8,7 @@
 }
 
 .screen-header {
-  padding: 40px 0;
+  padding: 0px 32px 0 0;
 }
 
 .screen-title {
@@ -67,14 +67,14 @@
   position: relative;
   width: 100%;
   min-width: 250px;
-  padding: 32px;
+  padding: 48px 32px 32px 32px;
   background: var(--color-white);
 }
 
 .form-layout .form-container {
   flex: 1 0 100%;
   background: white;
-  padding: 24px;
+  padding: 48px;
   margin-right: 2vw;
   width: 100%;
 }
@@ -89,7 +89,7 @@
 
 @media only screen and (min-width: 768px) {
   .form-layout .form-container {
-    padding: 24px 32px;
+    padding: 48px;
     flex: 1 0 55%;
   }
 }
@@ -100,7 +100,7 @@
 
   .form-layout .form-container {
     flex: 1 0 52%;
-    padding: 24px 32px;
+    padding: 48px;
   }
 
   .form-layout .tab-container {
@@ -116,10 +116,16 @@
 
   .form-layout .form-container {
     flex: 1 0 52%;
-    padding: 24px;
+    padding: 48px;
   }
   .form-layout .tab-container {
-    padding: 24px;
+    padding: 48px 24px 24px 24px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .form-layout .form-container {
+    padding: 48px;
   }
 }
 
@@ -144,7 +150,7 @@
     font-size: 36px;
     line-height: 38px;
     letter-spacing: -0.015em;
-    padding: 20px 0;
+    padding: 12px 0 24px 0;
   }
 }
 

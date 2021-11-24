@@ -63,7 +63,7 @@ label.field_top-label {
 .field_helper {
   display: none;
   position: absolute;
-  left: 110%;
+  left: 115%;
   top: -12px;
   background: var(--color-white);
   padding: 20px;
@@ -82,13 +82,13 @@ label.field_top-label {
 }
 
 fieldset .field_helper {
-  left: 110%;
+  left: 115%;
   top: -24px;
 }
 
 .form-question.half-width .field_helper,
 fieldset.wrap .field_helper {
-  left: 220%;
+  left: 230%;
 }
 
 .field_helper::after {
@@ -441,7 +441,7 @@ textarea.field_input {
 @media only screen and (min-width: 1300px) {
   .form-question.half-width .field_helper,
   fieldset.wrap .field_helper {
-    left: 220%;
+    left: 230%;
   }
 }
 
