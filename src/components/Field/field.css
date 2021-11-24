@@ -6,6 +6,10 @@ fieldset {
   position: relative;
 }
 
+.form > fieldset {
+  padding-top: 18px;
+}
+
 .form-question {
   padding: 10px 0;
 }
@@ -36,7 +40,7 @@ fieldset h4 {
   line-height: 24px;
   letter-spacing: -0.015em;
   text-align: left;
-  padding-bottom: 20px;
+  padding-bottom: 12px;
   color: rgba(105, 77, 129, 1);
 }
 

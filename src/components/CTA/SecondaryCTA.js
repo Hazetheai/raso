@@ -34,11 +34,14 @@ const SecondaryCTA = () => {
       className="container-cta secondary-cta flex-container"
     >
       <div className=" cta-content">
-        <h2 className="secondary-cta__header">
-          {t("secondary_cta_heading", {
-            interpolation: { escapeValue: false },
-          })}
-        </h2>
+        <h2
+          className="secondary-cta__header"
+          dangerouslySetInnerHTML={{
+            __html: t("secondary_cta_heading", {
+              interpolation: { escapeValue: false },
+            }),
+          }}
+        />
         <br />
         <p className="section-p cta-p">
           {t("secondary_cta_content", {
