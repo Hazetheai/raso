@@ -62,6 +62,8 @@ export const validators = {
   steuernummer_value: /^[0-9]{10,11}$/,
   revenue_firstYear: moneyRegex,
   revenue_secondYear: moneyRegex,
+  profitFirstYear: moneyRegex,
+  profitSecondYear: moneyRegex,
   profitFreiberuflerFirstYear: moneyRegex,
   profitFreiberuflerSecondYear: moneyRegex,
   profitGewerbetreibenderFirstYear: moneyRegex,

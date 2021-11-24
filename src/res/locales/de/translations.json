@@ -13,7 +13,7 @@
 
   "freelancer": "Freiberufler",
 
-  "professional": "Gewerbtreibende",
+  "commercial": "Gewerbtreibende",
 
   "renting": "Vermietung und Verpachtung",
 
@@ -305,6 +305,17 @@
   "profitFreiberuflerFirstYear_label": "Erstes Geschäftsjahr (2021)",
   "profitFreiberuflerFirstYear_helper": "Schätze den Gewinn so gut du kannst. Dein Gewinn ist dein Umsatz nach Abzug aller geschäftlichen Kosten (z.B. Software, Reisekosten, Hilfsmittel etc.)",
   "profitFreiberuflerSecondYear_label": "Zweites Geschäftsjahr (2021)",
+
+  "profitFirstYear_label": "Erstes Geschäftsjahr (2021)",
+  "profitFirstYear_helper": "Schätze den Gewinn so gut du kannst. Dein Gewinn ist dein Umsatz nach Abzug aller geschäftlichen Kosten (z.B. Software, Reisekosten, Hilfsmittel etc.)",
+  "profitSecondYear_label": "Zweites Geschäftsjahr (2021)",
+
+  "profit_expand_helper_title": "Was ist der Unterschied zwischen selbständigen und gewerblichen Tätigkeiten?",
+  "profit_expand_helper_content": "Zu den selbständigen Tätigkeiten gehören: <br/> - <a href=\"https://www.accountable.de/blog/freiberufler-oder-gewerbe/\" target=\"_blank\"> freiberufliche Tätigkeiten </a> <br/> - staatliche Lotterieeinnahmen <br/> - sonstige selbständige Arbeiten (z.B. Vermögensverwaltung)<br/><br/>Alle anderen Tätigkeiten sind in der Regel gewerblich. Mehr Infos dazu auf <a href=\"https://www.accountable.de/blog/freiberufler-oder-gewerbe/\" target=\"_blank\"> unseren Blog.</a>",
+  "profit_expand_helper_2_title": "Wie schätze ich meinen Gewinn?",
+  "profit_expand_helper_2_content": "Du kannst von deinen voraussichtlichen Einnahmen die geschätzten Ausgaben abziehen und so deinen Gewinn berechnen. Keine Sorge, das Finanzamt erwartet keine perfekte Voraussage deines Gewinns.",
+
+  "freiberufler_oder_gewerbetreibender_label": "Stammen diese Gewinne aus der freiberuflichen Selbständigkeit (Freiberufler) oder aus gewerblichen Betrieben (Gewerbetreibender)?",
 
   "profitGewerbetreibender_label": "Erwartest du Gewinne aus Gewerbebetrieb? (z.B. Gewerbetreibende)",
   "profitGewerbetreibenderFirstYear_label": "Erstes Geschäftsjahr (2021)",

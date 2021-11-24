@@ -198,6 +198,26 @@ function formatStrNumber(obj) {
   return obj;
 }
 
+function formatFreelanceOrCommercial(obj) {
+  const {
+    profitFirstYear,
+    profitSecondYear,
+    freiberufler_oder_gewerbetreibender,
+  } = obj;
+  if (freiberufler_oder_gewerbetreibender === "freelancer") {
+    obj["profitFreiberufler"] = "yes";
+    obj["profitFreiberuflerFirstYear"] = profitFirstYear;
+    obj["profitFreiberuflerSecondYear"] = profitSecondYear;
+  }
+  if (freiberufler_oder_gewerbetreibender === "commercial") {
+    obj["profitGewerbetreibender"] = "yes";
+    obj["profitGewerbetreibenderFirstYear"] = profitFirstYear;
+    obj["profitGewerbetreibenderSecondYear"] = profitSecondYear;
+  }
+
+  return obj;
+}
+
 /**
  *
  * @param {Object} obj Raw User Data
@@ -206,7 +226,13 @@ function formatStrNumber(obj) {
  */
 export const formatforAPICall = (obj) => {
   return formatStrNumber(
-    formatNumbers(formatGender(formatDates(formatYesNo(flatten2DObject(obj)))))
+    formatNumbers(
+      formatGender(
+        formatDates(
+          formatYesNo(formatFreelanceOrCommercial(flatten2DObject(obj)))
+        )
+      )
+    )
   );
 };
 

@@ -287,7 +287,7 @@ const Picker = ({
     defaultValue,
   });
   return (
-    <div className="select">
+    <div className="select" id={name}>
       {options.map((option) => (
         <React.Fragment key={option.value}>
           <span
@@ -299,6 +299,7 @@ const Picker = ({
               gtagEvent("RASO_FILL_FIELD-ITER-1", { field: name });
               return !disabled && onChange(option.value);
             }}
+            name={option.value}
           ></span>
           <span
             className="select_option-name"

@@ -1,5 +1,4 @@
 import Button from "components/Button";
-import Link from "components/Link";
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
@@ -27,7 +26,15 @@ const TaxEstimate = ({ currentStep, nextStep, comingStep }) => {
       ? "onChange"
       : "onBlur",
   });
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const localFormVals = getValues();
+
+  useLocalFormVal({
+    key: "taxEstimateFields",
+    reset,
+    localFormVals,
+    errors,
+  });
 
   useEffect(() => {
     if (
@@ -53,25 +60,8 @@ const TaxEstimate = ({ currentStep, nextStep, comingStep }) => {
       });
     });
   }, [setError, t]);
-  const localFormVals = getValues();
-  useLocalFormVal({
-    key: "taxEstimateFields",
-    reset,
-    localFormVals,
-    errors,
-  });
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     sendAmplitudeData("WEB_SIGNUP_TABVIEW", {
-  //       tab: "taxEstimate",
-  //     });
-  //   }, 500);
-  // }, []);
 
   const onSubmit = (data) => nextStep(data, "taxEstimateFields");
-  const profitFreiberufler_field_value = watch("profitFreiberufler");
-  const profitGewerbetreibender_field_value = watch("profitGewerbetreibender");
   const profitNichtselbstandiger_field_value = watch(
     "profitNichtselbstandiger"
   );
@@ -81,22 +71,8 @@ const TaxEstimate = ({ currentStep, nextStep, comingStep }) => {
 
   const taxPrepayment_field_value = watch("taxPrepayment");
 
-  const oneOfRequired = [
-    profitFreiberufler_field_value,
-    profitGewerbetreibender_field_value,
-    profitVermietung_field_value,
-  ];
-
   const pickerRules = {
     required: true,
-    validate: (value) => {
-      return (
-        value === "yes" ||
-        oneOfRequired.includes("yes") ||
-        `Eine dieser Einkommensarten muss ausgefüllt werden: 
-      Freiberufler / Gewerbtreibende / Vermietung und Verpachtung`
-      );
-    },
   };
 
   return (
@@ -104,12 +80,57 @@ const TaxEstimate = ({ currentStep, nextStep, comingStep }) => {
       <div className="form">
         {console.log(`errors`, errors)}
         <Fieldset title={t("tax_estimate_projected_profit_fieldset_label")}>
-          {/* Income Field - profitFreiberufler */}
+          {/* New Profit UX */}
+
+          <Field
+            type="money"
+            control={control}
+            inputMode="numeric"
+            topLabel={t("profitFirstYear_label")}
+            name="profitFirstYear"
+            ref={register({
+              required: true,
+              pattern: validators.profitFirstYear,
+            })}
+            errors={errors}
+            watch={watch}
+            fieldHelperText={t("profitFirstYear_helper", {
+              interpolation: { escapeValue: false },
+            })}
+            expandedHelpers={[
+              {
+                title: t("profit_expand_helper_title"),
+                content: t("profit_expand_helper_content", {
+                  interpolation: { escapeValue: false },
+                }),
+              },
+              {
+                title: t("profit_expand_helper_2_title"),
+                content: t("profit_expand_helper_2_content", {
+                  interpolation: { escapeValue: false },
+                }),
+              },
+            ]}
+          />
+          <Field
+            type="money"
+            control={control}
+            inputMode="numeric"
+            topLabel={t("profitSecondYear_label")}
+            name="profitSecondYear"
+            ref={register({
+              required: true,
+              pattern: validators.profitSecondYear,
+            })}
+            errors={errors}
+            watch={watch}
+          />
+
           <Field
             type="picker"
             control={control}
-            topLabel={t("profitFreiberufler_label")}
-            name="profitFreiberufler"
+            topLabel={t("freiberufler_oder_gewerbetreibender_label")}
+            name="freiberufler_oder_gewerbetreibender"
             errors={errors}
             ref={register({
               required: true,
@@ -117,112 +138,24 @@ const TaxEstimate = ({ currentStep, nextStep, comingStep }) => {
             pickerRules={pickerRules}
             watch={watch}
             options={[
-              { name: t("yes"), value: "yes" },
-              { name: t("no"), value: "no" },
-            ]}
-            expandedHelpers={[
               {
-                title: t("profitFreiberufler_expand_helper_title"),
-                content: t("profitFreiberufler_expand_helper_content", {
-                  interpolation: { escapeValue: false },
-                }),
+                name:
+                  i18n.language === "de"
+                    ? t("freelancer")
+                    : t("freelancer", { lng: "de" }) +
+                      ` (${t("freelancer", { lng: "en" })})`,
+                value: "freelancer",
               },
               {
-                title: t("profitFreiberufler_expand_helper_2_title"),
-                content: t("profitFreiberufler_expand_helper_2_content", {
-                  interpolation: { escapeValue: false },
-                }),
+                name:
+                  i18n.language === "de"
+                    ? t("commercial")
+                    : t("commercial", { lng: "de" }) +
+                      ` (${t("commercial", { lng: "en" })})`,
+                value: "commercial",
               },
             ]}
           />
-
-          {profitFreiberufler_field_value === "yes" && (
-            <Fieldset subfield>
-              <Field
-                type="money"
-                control={control}
-                inputMode="numeric"
-                topLabel={t("profitFreiberuflerFirstYear_label")}
-                name="profitFreiberuflerFirstYear"
-                ref={register({
-                  required: true,
-                  pattern: validators.profitFreiberuflerFirstYear,
-                })}
-                errors={errors}
-                watch={watch}
-                fieldHelperText={t("profitFreiberuflerFirstYear_helper", {
-                  interpolation: { escapeValue: false },
-                })}
-              />
-              <Field
-                type="money"
-                control={control}
-                inputMode="numeric"
-                topLabel={t("profitFreiberuflerSecondYear_label")}
-                name="profitFreiberuflerSecondYear"
-                ref={register({
-                  required: true,
-                  pattern: validators.profitFreiberuflerSecondYear,
-                })}
-                errors={errors}
-                watch={watch}
-              />
-            </Fieldset>
-          )}
-
-          {/* Income Field - END */}
-
-          {/* Income Field - profitGewerbetreibender */}
-          <Field
-            type="picker"
-            control={control}
-            topLabel={t("profitGewerbetreibender_label")}
-            name="profitGewerbetreibender"
-            ref={register({
-              required: true,
-            })}
-            errors={errors}
-            watch={watch}
-            options={[
-              { name: t("yes"), value: "yes" },
-              { name: t("no"), value: "no" },
-            ]}
-          />
-
-          {profitGewerbetreibender_field_value === "yes" && (
-            <Fieldset subfield>
-              <Field
-                type="money"
-                control={control}
-                inputMode="numeric"
-                topLabel={t("profitGewerbetreibenderFirstYear_label")}
-                name="profitGewerbetreibenderFirstYear"
-                ref={register({
-                  required: true,
-                  pattern: validators.profitGewerbetreibenderFirstYear,
-                })}
-                errors={errors}
-                watch={watch}
-              />
-              <Field
-                type="money"
-                control={control}
-                inputMode="numeric"
-                fieldHelperText={t("profitGewerbetreibenderSecondYear_helper", {
-                  interpolation: { escapeValue: false },
-                })}
-                topLabel={t("profitGewerbetreibenderSecondYear_label")}
-                name="profitGewerbetreibenderSecondYear"
-                ref={register({
-                  required: true,
-                  pattern: validators.profitGewerbetreibenderSecondYear,
-                })}
-                errors={errors}
-                watch={watch}
-              />
-            </Fieldset>
-          )}
-          {/* Income Field - END */}
         </Fieldset>
         <Fieldset title={t("tax_estimate_other_income_fieldset_label")}>
           {/* Income Field - profitNichtselbstandiger */}
@@ -539,22 +472,22 @@ const TaxEstimate = ({ currentStep, nextStep, comingStep }) => {
         )}
       </div>
       <div className="form_submit">
-        {oneOfRequired.includes("yes") ? (
-          <>
-            <div className="form-invalid">
-              {" "}
-              {/* {isEmpty(errors) ? null : t("form_invalid")} */}
-            </div>
-            <Button
-              type="submit"
-              className="body--big-bold"
-              text={`${t("form_continue")}: ${comingStep.tabLabel}`}
-              func={() => {
-                gtagEvent("RASO_CLICKED_BUTTON-ITER-1", { button: "#review" });
-              }}
-            />
-          </>
-        ) : (
+        {/* {oneOfRequired.includes("yes") ? ( */}
+        <>
+          <div className="form-invalid">
+            {" "}
+            {/* {isEmpty(errors) ? null : t("form_invalid")} */}
+          </div>
+          <Button
+            type="submit"
+            className="body--big-bold"
+            text={`${t("form_continue")}: ${comingStep.tabLabel}`}
+            func={() => {
+              gtagEvent("RASO_CLICKED_BUTTON-ITER-1", { button: "#review" });
+            }}
+          />
+        </>
+        {/* ) : (
           <div className="form-warning">
             <h4>
               {t("tax_estimate_form_warning")}
@@ -566,7 +499,7 @@ const TaxEstimate = ({ currentStep, nextStep, comingStep }) => {
               </Link>
               {" / "}
               <Link inline href="#profitGewerbetreibender">
-                {t("professional")}
+                {t("commercial")}
               </Link>
               {" / "}
               <Link inline href="#profitVermietung">
@@ -574,7 +507,7 @@ const TaxEstimate = ({ currentStep, nextStep, comingStep }) => {
               </Link>
             </p>
           </div>
-        )}
+        )} */}
       </div>
     </form>
   );
