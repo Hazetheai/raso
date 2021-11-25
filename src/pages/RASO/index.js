@@ -11,11 +11,7 @@ const RASO = ({ lang }) => {
     i18n.changeLanguage(lang);
   }
 
-  const { userInteraction, setUserInteraction } = useUserInteraction();
-
-  useEffect(() => {
-    setUserInteraction({ version: Math.random() > 0.5 ? "a" : "b" });
-  }, []);
+  const { userInteraction } = useUserInteraction();
 
   const faqData = {
     containerClassName: "raso-faq",
@@ -32,7 +28,9 @@ const RASO = ({ lang }) => {
   return (
     <div className="content">
       <Form />
-      <FAQ faqData={faqData} />
+      {userInteraction.workingStep === "personalFields" && (
+        <FAQ faqData={faqData} />
+      )}
       <Toast text="Autosaving" active={userInteraction.isAutoSaving} />
     </div>
   );

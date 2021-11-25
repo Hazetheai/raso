@@ -70,6 +70,13 @@ const Form = ({}) => {
   );
 
   useEffect(() => {
+    setUserInteraction({
+      workingStep: tabData.tabs[0].tabId,
+      version: Math.random() > 0.5 ? "a" : "b",
+    });
+  }, []);
+
+  useEffect(() => {
     setSteps(
       steps
         ? [
