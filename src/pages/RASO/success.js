@@ -16,9 +16,9 @@ import { useUserTesting } from "userTesting";
 
 const SuccessPage = ({ lang }) => {
   const { t, i18n } = useTranslation();
-  if (i18n.language !== lang) {
-    i18n.changeLanguage(lang);
-  }
+  // if (i18n.language !== lang) {
+  //   i18n.changeLanguage(lang);
+  // }
   const { userTesting, setUserTesting } = useUserTesting();
   const { userInteraction, setUserInteraction } = useUserInteraction();
   const { userData, setUserData } = useUserData();
