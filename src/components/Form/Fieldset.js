@@ -8,7 +8,7 @@ const Fieldset = ({ children, subfield, title, helper, wrap, section }) => {
         "fieldset",
         subfield && "subfield",
         wrap && "wrap",
-        section && "section"
+        section && "form-section"
       )}
     >
       {title && <h4>{title}</h4>}
