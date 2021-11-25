@@ -18,18 +18,6 @@ const CTA = ({
   isButton,
   offerPromises,
 }) => {
-  console.log(
-    `{  mobileActionElementLink,
-  mobileActionElementText,
-  desktopActionElementLink,
-  desktopActionElementText,}`,
-    {
-      mobileActionElementLink,
-      mobileActionElementText,
-      desktopActionElementLink,
-      desktopActionElementText,
-    }
-  );
   return (
     <section className="section-cta">
       <div className="container-cta container-cta--main">
