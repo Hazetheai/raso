@@ -1,6 +1,7 @@
 import Tabs from "components/Tabs";
 import React, { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import home from "res/images/home.svg";
 import { removeDuplicates } from "res/lib";
 import { useUserData } from "userData";
 import { useUserInteraction } from "userInteraction";
@@ -13,7 +14,6 @@ import Personal from "./Personal";
 import Review from "./Review";
 import TaxEstimate from "./TaxEstimate";
 import TaxInfo from "./TaxInfo";
-import home from "res/images/home.svg";
 
 const tabs = [
   "personalFields",
@@ -112,6 +112,7 @@ const Form = ({}) => {
           : { ...el, complete: el.tabId === dataSection }
       )
     );
+
     setCurrentStep(calcNextStep(steps, currentStep));
 
     setUserInteraction({
@@ -144,16 +145,7 @@ const Form = ({}) => {
         activeTab={userInteraction?.tabId || currentStep.tabId}
         onTabClick={handleTabClick}
       />
-      <div className="form-container element-container">
-        <div className="screen-header">
-          <h2 className="screen-title">{currentStep.tabLabel}</h2>
-          <p className="screen-subtitle body--small">
-            {currentStep.tabSubtitle}
-          </p>
-          {currentStep.tabHelper && (
-            <p className="tab-helper body--medium">{currentStep.tabHelper}</p>
-          )}
-        </div>
+      <div className="form-container">
         {currentStep.tabId === "personalFields" && (
           <Personal
             currentStep={currentStep}

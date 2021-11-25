@@ -1,14 +1,14 @@
-import Button from "components/Button";
 import { nYearsFromNow } from "components/Field/helpers";
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import states from "res/FormData/de/states.json";
-import { gtagEvent } from "res/gtag";
 import { useUserInteraction } from "userInteraction";
 import Field from "../../Field";
 import { useLocalFormVal } from "../../hooks/useLocalState";
 import Fieldset from "../Fieldset";
+import FormHeader from "../FormHeader";
+import FormSubmit from "../FormSubmit";
 import { sanitizeNumbers } from "../helpers";
 import { taxIdValidator, validators } from "../validators";
 
@@ -102,252 +102,245 @@ const TaxInfo = ({ currentStep, nextStep, comingStep }) => {
 
   const { t } = useTranslation();
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     sendAmplitudeData("WEB_SIGNUP_TABVIEW", {
-  //       tab: "taxInfo",
-  //     });
-  //   }, 500);
-  // }, []);
   return (
-    <form id={currentStep.tabId} onSubmit={handleSubmit(onSubmit)}>
-      <div className="form">
-        <Field
-          type="number"
-          inputMode="numeric"
-          name="steueridentifkationsnummer"
-          ref={register({
-            required: true,
-            pattern: validators.steueridentifkationsnummer,
-            validate: taxIdValidator,
-          })}
-          errors={errors}
-          watch={watch}
-          fieldHelperText={t("steueridentifkationsnummer_helper", {
-            interpolation: { escapeValue: false },
-          })}
-          expandedHelpers={[
-            {
-              title: t("steuernummer_helper_expand_title"),
-              content: t("steuernummer_helper_expand_content", {
-                interpolation: { escapeValue: false },
-              }),
-            },
-            {
-              title: t("steuernummer_helper_2_expand_title"),
-              content: t("steuernummer_helper_2_expand_content", {
-                interpolation: { escapeValue: false },
-              }),
-            },
-          ]}
-          topLabel={t("steueridentifkationsnummer_label")}
-        />
-
-        <Field
-          type="picker"
-          control={control}
-          name="steuernummer"
-          topLabel={t("steuernummer_label")}
-          options={[
-            { name: t("yes"), value: "yes" },
-            { name: t("no"), value: "no" },
-          ]}
-          errors={errors}
-        />
-
-        {steuernummer_field_value === "yes" && (
-          <Fieldset subfield>
+    <>
+      <form id={currentStep.tabId} onSubmit={handleSubmit(onSubmit)}>
+        <div className="form">
+          <Fieldset section>
+            <FormHeader currentStep={currentStep} />
             <Field
               type="number"
               inputMode="numeric"
-              name="steuernummer_value"
-              placeholder={t("steuernummer_value_placeholder")}
+              name="steueridentifkationsnummer"
               ref={register({
                 required: true,
-                pattern: validators.steuernummer_value,
+                pattern: validators.steueridentifkationsnummer,
+                validate: taxIdValidator,
               })}
               errors={errors}
-              topLabel={t("steuernummer_value_label")}
-            />
-            <Field
-              type="select"
-              name="steuernummer_state"
-              ref={register({
-                required: true,
+              watch={watch}
+              fieldHelperText={t("steueridentifkationsnummer_helper", {
+                interpolation: { escapeValue: false },
               })}
-              errors={errors}
-              options={states}
+              expandedHelpers={[
+                {
+                  title: t("steuernummer_helper_expand_title"),
+                  content: t("steuernummer_helper_expand_content", {
+                    interpolation: { escapeValue: false },
+                  }),
+                },
+                {
+                  title: t("steuernummer_helper_2_expand_title"),
+                  content: t("steuernummer_helper_2_expand_content", {
+                    interpolation: { escapeValue: false },
+                  }),
+                },
+              ]}
+              topLabel={t("steueridentifkationsnummer_label")}
             />
           </Fieldset>
-        )}
-        <Field
-          type="picker"
-          control={control}
-          name="singleentry"
-          placeholder={t("singleentry_placeholder")}
-          ref={register({
-            required: true,
-          })}
-          errors={errors}
-          expandedHelpers={[
-            {
-              title: t("singleentry_helper_expand_title", {
-                interpolation: { escapeValue: false },
-              }),
-              content: t("singleentry_helper_expand_content", {
-                interpolation: { escapeValue: false },
-              }),
-            },
-          ]}
-          options={[{ name: t("yes"), value: "yes" }]}
-          topLabel={t("singleentry_label")}
-        />
+          <Fieldset section title={t("tax_info_your_strnum_fieldset_title")}>
+            <Field
+              type="picker"
+              control={control}
+              name="steuernummer"
+              topLabel={t("steuernummer_label")}
+              options={[
+                { name: t("yes"), value: "yes" },
+                { name: t("no"), value: "no" },
+              ]}
+              errors={errors}
+            />
 
-        <Fieldset title={t("tax_info_expected_income_fieldset_title")}>
-          <Field
-            type="jump-date"
-            name="startdate"
-            floatingLabel={t("date_format")}
-            control={control}
-            ref={register({
-              required: true,
-            })}
-            expandedHelpers={[
-              {
-                title: t("startdate_helper_expand_title"),
-                content: t("startdate_helper_expand_content", {
-                  interpolation: { escapeValue: false },
-                }),
-              },
-            ]}
-            errors={errors}
-            //   watch={watch}
-            dateMinMax={{ dateMin: nYearsFromNow(90, "before") }}
-            topLabel={t("startdate_label")}
-          />
-          <Field
-            type="money"
-            control={control}
-            inputMode="numeric"
-            name="revenue_firstYear"
-            moneyRules={{ validate: (value) => validateKUN("first") }}
-            errors={errors}
-            fieldHelperText={t("revenue_firstYear_helper", {
-              interpolation: { escapeValue: false },
-            })}
-            expandedHelpers={[
-              {
-                title: t("revenue_firstYear_helper_expand_title"),
-                content: t("revenue_firstYear_helper_expand_content", {
-                  interpolation: { escapeValue: false },
-                }),
-              },
-              {
-                title: t("revenue_firstYear_helper_2_expand_title"),
-                content: t("revenue_firstYear_helper_2_expand_content", {
-                  interpolation: { escapeValue: false },
-                }),
-              },
-              {
-                title: t("revenue_firstYear_helper_3_expand_title"),
-                content: t("revenue_firstYear_helper_3_expand_content", {
-                  interpolation: { escapeValue: false },
-                }),
-              },
-            ]}
-            topLabel={t("revenue_firstYear_label")}
-          />
-          <Field
-            type="money"
-            control={control}
-            inputMode="numeric"
-            name="revenue_secondYear"
-            // floatingLabel={t("revenue_secondYear_label")}
-            placeholder={t("revenue_secondYear_placeholder")}
-            moneyRules={{ validate: (value) => validateKUN("second") }}
-            errors={errors}
-            fieldHelperText={t("revenue_secondYear_helper", {
-              interpolation: { escapeValue: false },
-            })}
-            topLabel={t("revenue_secondYear_label")}
-          />
-          <Field
-            type="picker"
-            control={control}
-            name="chargeVAT"
-            // floatingLabel={t("chargeVAT_label")}
-            placeholder={t("chargeVAT_placeholder")}
-            ref={register({
-              required: true,
-            })}
-            errors={errors}
-            options={[
-              { name: t("yes"), value: "no" },
-              { name: t("no"), value: "yes" },
-            ]}
-            fieldHelperText={t("chargeVAT_helper", {
-              interpolation: { escapeValue: false },
-            })}
-            topLabel={t("chargeVAT_label")}
-            expandedHelpers={[
-              {
-                title: t("chargeVAT_expand_helper_title"),
-                content: t("chargeVAT_expand_helper_content", {
-                  interpolation: { escapeValue: false },
-                }),
-              },
-              {
-                title: t("chargeVAT_expand_helper_2_title"),
-                content: t("chargeVAT_expand_helper_2_content", {
-                  interpolation: { escapeValue: false },
-                }),
-              },
-            ]}
-          />
-          <Field
-            type="picker"
-            control={control}
-            name="askVATnumber"
-            // floatingLabel={t("askVATnumber_label")}
-            placeholder={t("askVATnumber_placeholder")}
-            ref={register({
-              required: true,
-            })}
-            errors={errors}
-            options={[
-              { name: t("yes"), value: "yes" },
-              { name: t("no"), value: "no" },
-            ]}
-            fieldHelperText={t("askVATnumber_helper", {
-              interpolation: { escapeValue: false },
-            })}
-            topLabel={t("askVATnumber_label")}
-            expandedHelpers={[
-              {
-                title: t("askVATnumber_expand_helper_title"),
-                content: t("askVATnumber_expand_helper_content", {
-                  interpolation: { escapeValue: false },
-                }),
-              },
-            ]}
-          />
-        </Fieldset>
-      </div>
-      <div className="form_submit">
-        <div className="form-invalid">
-          {" "}
-          {/* {isEmpty(errors) ? null : t("form_invalid")} */}
+            {steuernummer_field_value === "yes" && (
+              <Fieldset subfield>
+                <Field
+                  type="number"
+                  inputMode="numeric"
+                  name="steuernummer_value"
+                  placeholder={t("steuernummer_value_placeholder")}
+                  ref={register({
+                    required: true,
+                    pattern: validators.steuernummer_value,
+                  })}
+                  errors={errors}
+                  topLabel={t("steuernummer_value_label")}
+                />
+                <Field
+                  type="select"
+                  name="steuernummer_state"
+                  ref={register({
+                    required: true,
+                  })}
+                  errors={errors}
+                  options={states}
+                />
+              </Fieldset>
+            )}
+            <Field
+              type="picker"
+              control={control}
+              name="singleentry"
+              placeholder={t("singleentry_placeholder")}
+              ref={register({
+                required: true,
+              })}
+              errors={errors}
+              expandedHelpers={[
+                {
+                  title: t("singleentry_helper_expand_title", {
+                    interpolation: { escapeValue: false },
+                  }),
+                  content: t("singleentry_helper_expand_content", {
+                    interpolation: { escapeValue: false },
+                  }),
+                },
+              ]}
+              options={[{ name: t("yes"), value: "yes" }]}
+              topLabel={t("singleentry_label")}
+            />
+          </Fieldset>
+
+          <Fieldset
+            section
+            title={t("tax_info_expected_income_fieldset_title")}
+          >
+            <Field
+              type="jump-date"
+              name="startdate"
+              floatingLabel={t("date_format")}
+              control={control}
+              ref={register({
+                required: true,
+              })}
+              expandedHelpers={[
+                {
+                  title: t("startdate_helper_expand_title"),
+                  content: t("startdate_helper_expand_content", {
+                    interpolation: { escapeValue: false },
+                  }),
+                },
+              ]}
+              errors={errors}
+              //   watch={watch}
+              dateMinMax={{ dateMin: nYearsFromNow(90, "before") }}
+              topLabel={t("startdate_label")}
+            />
+            <Field
+              type="money"
+              control={control}
+              inputMode="numeric"
+              name="revenue_firstYear"
+              moneyRules={{ validate: (value) => validateKUN("first") }}
+              errors={errors}
+              fieldHelperText={t("revenue_firstYear_helper", {
+                interpolation: { escapeValue: false },
+              })}
+              expandedHelpers={[
+                {
+                  title: t("revenue_firstYear_helper_expand_title"),
+                  content: t("revenue_firstYear_helper_expand_content", {
+                    interpolation: { escapeValue: false },
+                  }),
+                },
+                {
+                  title: t("revenue_firstYear_helper_2_expand_title"),
+                  content: t("revenue_firstYear_helper_2_expand_content", {
+                    interpolation: { escapeValue: false },
+                  }),
+                },
+                {
+                  title: t("revenue_firstYear_helper_3_expand_title"),
+                  content: t("revenue_firstYear_helper_3_expand_content", {
+                    interpolation: { escapeValue: false },
+                  }),
+                },
+              ]}
+              topLabel={t("revenue_firstYear_label")}
+            />
+            <Field
+              type="money"
+              control={control}
+              inputMode="numeric"
+              name="revenue_secondYear"
+              // floatingLabel={t("revenue_secondYear_label")}
+              placeholder={t("revenue_secondYear_placeholder")}
+              moneyRules={{ validate: (value) => validateKUN("second") }}
+              errors={errors}
+              fieldHelperText={t("revenue_secondYear_helper", {
+                interpolation: { escapeValue: false },
+              })}
+              topLabel={t("revenue_secondYear_label")}
+            />
+            <Field
+              type="picker"
+              control={control}
+              name="chargeVAT"
+              // floatingLabel={t("chargeVAT_label")}
+              placeholder={t("chargeVAT_placeholder")}
+              ref={register({
+                required: true,
+              })}
+              errors={errors}
+              options={[
+                { name: t("yes"), value: "no" },
+                { name: t("no"), value: "yes" },
+              ]}
+              fieldHelperText={t("chargeVAT_helper", {
+                interpolation: { escapeValue: false },
+              })}
+              topLabel={t("chargeVAT_label")}
+              expandedHelpers={[
+                {
+                  title: t("chargeVAT_expand_helper_title"),
+                  content: t("chargeVAT_expand_helper_content", {
+                    interpolation: { escapeValue: false },
+                  }),
+                },
+                {
+                  title: t("chargeVAT_expand_helper_2_title"),
+                  content: t("chargeVAT_expand_helper_2_content", {
+                    interpolation: { escapeValue: false },
+                  }),
+                },
+              ]}
+            />
+            <Field
+              type="picker"
+              control={control}
+              name="askVATnumber"
+              // floatingLabel={t("askVATnumber_label")}
+              placeholder={t("askVATnumber_placeholder")}
+              ref={register({
+                required: true,
+              })}
+              errors={errors}
+              options={[
+                { name: t("yes"), value: "yes" },
+                { name: t("no"), value: "no" },
+              ]}
+              fieldHelperText={t("askVATnumber_helper", {
+                interpolation: { escapeValue: false },
+              })}
+              topLabel={t("askVATnumber_label")}
+              expandedHelpers={[
+                {
+                  title: t("askVATnumber_expand_helper_title"),
+                  content: t("askVATnumber_expand_helper_content", {
+                    interpolation: { escapeValue: false },
+                  }),
+                },
+              ]}
+            />
+          </Fieldset>
         </div>
-        <Button
-          type="submit"
-          className="body--big-bold"
-          text={`${t("form_continue")}: ${comingStep.tabLabel}`}
-          func={() => {
-            gtagEvent("RASO_CLICKED_BUTTON-ITER-1", { button: "#estimation" });
-          }}
+        <FormSubmit
+          gtagButton="#estimation"
+          errors={errors}
+          comingStep={comingStep}
         />
-      </div>
-    </form>
+      </form>
+    </>
   );
 };
 export default TaxInfo;

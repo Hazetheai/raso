@@ -1,5 +1,6 @@
 import Button from "components/Button";
 import Link from "components/Link";
+import calcFinanzamtLetters from "components/PDFReader/calcFinanzamtLetters";
 import React, { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
@@ -13,6 +14,7 @@ import { useUserInteraction } from "userInteraction";
 import Field from "../../Field";
 import { useLocalFormVal } from "../../hooks/useLocalState";
 import Fieldset from "../Fieldset";
+import FormHeader from "../FormHeader";
 import { previewForm, sendForm } from "../sendData";
 
 const Review = ({ currentStep, nextStep }) => {
@@ -56,25 +58,9 @@ const Review = ({ currentStep, nextStep }) => {
   const taxOffice = watch("taxOffice");
 
   useEffect(() => {
-    function getFinanzamtLetters(ld) {
-      const fl = [];
-
-      if (["002", "003"].includes(userData.personalFields.maritalstatus)) {
-        fl.push(...ld.married_letters);
-      } else {
-        fl.push(...ld.single_letters);
-      }
-
-      if (userData.taxInfoFields.askVATnumber === "yes") {
-        fl.push(...ld.with_vat_letters);
-      }
-
-      return fl;
-    }
-
     setUserData(
       {
-        finanzamtLetters: getFinanzamtLetters(letter_data),
+        finanzamtLetters: calcFinanzamtLetters(userData),
       },
       "reviewFields"
     );
@@ -93,183 +79,175 @@ const Review = ({ currentStep, nextStep }) => {
     }
   }, [linkRef, previewLink]);
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     sendAmplitudeData("WEB_SIGNUP_TABVIEW", {
-  //       tab: "review",
-  //     });
-  //   }, 500);
-  // }, []);
   return (
-    <form id={currentStep.tabId} onSubmit={handleSubmit(onSubmit)}>
-      <div className="form">
-        <Fieldset title={t("review_proof_read_fieldset_title")}>
-          <Field
-            type="select"
-            topLabel={t("taxOffice_label")}
-            name="taxOffice"
-            ref={register({
-              required: true,
-              validate: (value) => !/choose/.test(value) || t("field_invalid"),
-            })}
-            errors={errors}
-            watch={watch}
-            options={tax_offices}
-            fieldHelperText={t("taxOffice_helper")}
-            secondFieldHelperText={t("taxOffice_helper_2")}
-          />
-        </Fieldset>
-      </div>
-      <div className="form__review--actions">
-        {!success && (
-          <div className="tab-helper">
-            {userInteraction.stepsCompleted.length < 5 ? (
-              <p className="tab-helper__heading">
-                {t("review_please_complete", {
-                  interpolation: { escapeValue: false },
+    <>
+      <form id={currentStep.tabId} onSubmit={handleSubmit(onSubmit)}>
+        <Fieldset section>
+          <div className="form">
+            <FormHeader currentStep={currentStep} />
+            <Fieldset title={t("review_proof_read_fieldset_title")}>
+              <Field
+                type="select"
+                topLabel={t("taxOffice_label")}
+                name="taxOffice"
+                ref={register({
+                  required: true,
+                  validate: (value) =>
+                    !/choose/.test(value) || t("field_invalid"),
                 })}
-              </p>
-            ) : (
-              <p className="tab-helper__heading">
-                {t("review_proof_read", {
-                  interpolation: { escapeValue: false },
-                })}
-              </p>
-            )}
-            {(isDev || isStaging) &&
-            !/accountable/gi.test(userData.personalFields.email) ? (
-              <p style={{ color: "var(--color-invalid_red)" }}>
-                Please use an @accountable.eu address for testing
-              </p>
-            ) : null}
-            <Button
-              func={async () => {
-                if (userInteraction.stepsCompleted.length < 5) {
-                  return;
-                }
-                setLoading(true);
-                const ar = await previewForm({
-                  fields: {
-                    ...userData,
-                    reviewFields: { ...userData.reviewFields, taxOffice },
-                  },
-                  preview: true,
-                  sLang: "en",
-                  sPartner: "",
-                });
-                setUserInteraction({ ...ar, preview: true });
-                setLoading(false);
-              }}
-              disabled={
-                userInteraction.stepsCompleted.length < 5 ||
-                /choose/.test(taxOffice) ||
-                (isDev &&
-                  !/accountable/gi.test(userData.personalFields.email)) ||
-                (isStaging &&
-                  !/accountable/gi.test(userData.personalFields.email))
-              }
-              text={t("review_button_gen_pdf")}
-              className="body--big-bold"
-              type="submit"
-              isLoading={loading}
-            />
-          </div>
-        )}
-
-        {previewLink && (
-          <div className="tab-helper">
-            <p className="tab-helper__heading">
-              {t("review_proof_read", {
-                interpolation: { escapeValue: false },
-              })}
-            </p>
-            <Link
-              secondary
-              ref={linkRef}
-              className="body--big-bold"
-              href={previewLink} //.replace(corsProxy, "")}
-              target={"_blank"}
-              rel="noopener"
-              text={t("review_button_view_pdf")}
-              autoFocus
-            />
-            {/* <Link
-              secondary
-              className="body--big-bold"
-              href={"/en/success"} //.replace(corsProxy, "")}
-              text={"Go Success"}
-              autoFocus
-            /> */}
-          </div>
-        )}
-
-        {success && (
-          <div className="tab-helper form_submit--review">
-            <p className="body--medium">{t("review_button_success_heading")}</p>
-            <p
-              className="body--small"
-              dangerouslySetInnerHTML={{
-                __html: t("review_button_success_subtitle", {
-                  interpolation: { escapeValue: false },
-                }),
-              }}
-            />
-
-            <Button
-              func={async () => {
-                setLoading(true);
-                const ar = await sendForm({
-                  fields: userData,
-                  preview: true,
-                  sLang: "en",
-                  sPartner: "",
-                });
-                setLoading(false);
-                setUserInteraction(ar);
-              }}
-              isLoading={loading}
-              className="body--big-bold"
-              type="button"
-            >
-              <img src={eagle} alt={t("review_button_send_pdf")} />
-              {t("review_button_send_pdf")}
-            </Button>
-            {userInteraction.downloadAppLink_desktop && (
-              <Redirect
-                to={i18n.language === "de" ? "/erfolg" : "/en/success"}
+                errors={errors}
+                watch={watch}
+                options={tax_offices}
+                fieldHelperText={t("taxOffice_helper")}
+                secondFieldHelperText={t("taxOffice_helper_2")}
               />
-            )}
+            </Fieldset>
           </div>
-        )}
-        <p className="body--small">{t("disclaimer")}</p>
-        <p className="body--small">
-          {code && !success && <span className="error-code">Code: {code}</span>}
-          {message && !success && (
-            <span className="error-message">{message}</span>
-          )}
-        </p>
+          <div className="form__review--actions">
+            {!success && (
+              <div className="tab-helper">
+                {userInteraction.stepsCompleted.length < 5 ? (
+                  <p className="tab-helper__heading">
+                    {t("review_please_complete", {
+                      interpolation: { escapeValue: false },
+                    })}
+                  </p>
+                ) : (
+                  <p className="tab-helper__heading">
+                    {t("review_proof_read", {
+                      interpolation: { escapeValue: false },
+                    })}
+                  </p>
+                )}
+                {(isDev || isStaging) &&
+                !/accountable/gi.test(userData.personalFields.email) ? (
+                  <p style={{ color: "var(--color-invalid_red)" }}>
+                    Please use an @accountable.eu address for testing
+                  </p>
+                ) : null}
+                <Button
+                  func={async () => {
+                    if (userInteraction.stepsCompleted.length < 5) {
+                      return;
+                    }
+                    setLoading(true);
+                    const ar = await previewForm({
+                      fields: {
+                        ...userData,
+                        reviewFields: { ...userData.reviewFields, taxOffice },
+                      },
+                      preview: true,
+                      sLang: "en",
+                      sPartner: "",
+                    });
+                    setUserInteraction({ ...ar, preview: true });
+                    setLoading(false);
+                  }}
+                  disabled={
+                    userInteraction.stepsCompleted.length < 5 ||
+                    /choose/.test(taxOffice) ||
+                    (isDev &&
+                      !/accountable/gi.test(userData.personalFields.email)) ||
+                    (isStaging &&
+                      !/accountable/gi.test(userData.personalFields.email))
+                  }
+                  text={t("review_button_gen_pdf")}
+                  className="body--big-bold"
+                  type="submit"
+                  isLoading={loading}
+                />
+              </div>
+            )}
 
-        <div className="qa-errors">
-          {code && !success ? (
-            <div>
-              <Button
-                func={() => setErrorsVisible(!errorsVisible)}
-                text={errorsVisible ? "Hide" : "Show Errors"}
-              />
-              {errorsVisible && (
-                <pre>
-                  {JSON.stringify(userInteraction?.data || {}, null, 2)}
-                </pre>
+            {previewLink && (
+              <div className="tab-helper">
+                <p className="tab-helper__heading">
+                  {t("review_proof_read", {
+                    interpolation: { escapeValue: false },
+                  })}
+                </p>
+                <Link
+                  secondary
+                  ref={linkRef}
+                  className="body--big-bold"
+                  href={previewLink}
+                  target={"_blank"}
+                  rel="noopener"
+                  text={t("review_button_view_pdf")}
+                  autoFocus
+                />
+              </div>
+            )}
+
+            {success && (
+              <div className="tab-helper form_submit--review">
+                <p className="body--medium">
+                  {t("review_button_success_heading")}
+                </p>
+                <p
+                  className="body--small"
+                  dangerouslySetInnerHTML={{
+                    __html: t("review_button_success_subtitle", {
+                      interpolation: { escapeValue: false },
+                    }),
+                  }}
+                />
+
+                <Button
+                  func={async () => {
+                    setLoading(true);
+                    const ar = await sendForm({
+                      fields: userData,
+                      preview: true,
+                      sLang: "en",
+                      sPartner: "",
+                    });
+                    setLoading(false);
+                    setUserInteraction(ar);
+                  }}
+                  isLoading={loading}
+                  className="body--big-bold"
+                  type="button"
+                >
+                  <img src={eagle} alt={t("review_button_send_pdf")} />
+                  {t("review_button_send_pdf")}
+                </Button>
+                {userInteraction.downloadAppLink_desktop && (
+                  <Redirect
+                    to={i18n.language === "de" ? "/erfolg" : "/en/success"}
+                  />
+                )}
+              </div>
+            )}
+            <p className="body--small">{t("disclaimer")}</p>
+            <p className="body--small">
+              {code && !success && (
+                <span className="error-code">Code: {code}</span>
               )}
+              {message && !success && (
+                <span className="error-message">{message}</span>
+              )}
+            </p>
+
+            <div className="qa-errors">
+              {code && !success ? (
+                <div>
+                  <Button
+                    func={() => setErrorsVisible(!errorsVisible)}
+                    text={errorsVisible ? "Hide" : "Show Errors"}
+                  />
+                  {errorsVisible && (
+                    <pre>
+                      {JSON.stringify(userInteraction?.data || {}, null, 2)}
+                    </pre>
+                  )}
+                </div>
+              ) : null}
             </div>
-          ) : null}
-        </div>
-      </div>
-      <div className="form-invalid">
-        {" "}
-        {/* {isEmpty(errors) ? null : t("form_invalid")} */}
-      </div>
-    </form>
+          </div>
+        </Fieldset>
+      </form>
+    </>
   );
 };
 export default Review;
