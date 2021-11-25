@@ -279,8 +279,7 @@ const Field = React.forwardRef(
             )}
           </span>
         </div>
-        {/* {console.log(`userInteraction.helperId`, userInteraction.helperId)} */}
-        {/* {console.log(`name`, name)} */}
+
         {userInteraction.helperId === name && !!expandedHelpers?.length && (
           <FieldHelper
             name={name}
