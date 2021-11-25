@@ -9,14 +9,17 @@ import { useTranslation } from "react-i18next";
 import { gtagEvent } from "res/gtag";
 import checkmark from "res/images/checkmark.svg";
 import rasoCTAImage from "res/images/raso-cta-2-illustration.png";
+import { isDev } from "settings/config";
 import { useUserData } from "userData";
 import { useUserInteraction } from "userInteraction";
+import { useUserTesting } from "userTesting";
 
 const SuccessPage = ({ lang }) => {
   const { t, i18n } = useTranslation();
   if (i18n.language !== lang) {
     i18n.changeLanguage(lang);
   }
+  const { userTesting, setUserTesting } = useUserTesting();
   const { userInteraction, setUserInteraction } = useUserInteraction();
   const { userData, setUserData } = useUserData();
 
@@ -53,15 +56,17 @@ const SuccessPage = ({ lang }) => {
 
   return (
     <div className="content">
-      {/* <Button
-        text={userInteraction.version === "a" ? "Set B" : "Set A"}
-        func={() =>
-          setUserInteraction({
-            version: userInteraction.version === "a" ? "b" : "a",
-          })
-        }
-      /> */}
-      {userInteraction.version === "a" && (
+      {isDev && (
+        <Button
+          text={userTesting.successPage === "a" ? "Set B" : "Set A"}
+          func={() =>
+            setUserInteraction({
+              version: userTesting.successPage === "a" ? "b" : "a",
+            })
+          }
+        />
+      )}
+      {userTesting.successPage === "a" && (
         <>
           <FinanzamtLetters
             finanzamtLetters={userData.reviewFields?.finanzamtLetters || []}
@@ -73,7 +78,7 @@ const SuccessPage = ({ lang }) => {
         </>
       )}
 
-      {userInteraction.version === "b" && <RASOSuccessBSection />}
+      {userTesting.successPage === "b" && <RASOSuccessBSection />}
     </div>
   );
 };
