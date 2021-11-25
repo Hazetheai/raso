@@ -267,6 +267,7 @@
   "startdate_helper_expand_title": "Business start date",
   "startdate_helper_expand_content": "You can also register your self-employment retroactively. This can make sense, especially if you already have costs to kick-start your self-employment. However, please note that you may then have to file tax returns for this period.",
 
+  "tax_info_your_strnum_fieldset_title": "Your Steuernummer",
   "tax_info_expected_income_fieldset_title": "Expected revenue from self-employment",
 
   "revenue_firstYear_label": "Estimated revenue this year",
