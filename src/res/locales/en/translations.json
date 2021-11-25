@@ -166,6 +166,13 @@
   "raso_success_a_section_faq_8_title": "Can I use Accountable if I already have a tax advisor?",
   "raso_success_a_section_faq_8_answer": "You like to work with your current Steuerberater or accountant and still want to use Accountable? No problem: You can simply export all transactions with all the receipts for a certain period. Your tax advisor can then advise you optimally based on this information.<br/><br/>",
 
+  "video_section_title": "How does the questionnaire work?",
+  "video_section_subtitle": "Our step-by-step guide",
+
+  "video_section_step_one": "✍️  1. Fill in the online form",
+  "video_section_step_two": "🌍  2. Send to the Finanzamt for free",
+  "video_section_step_three": "📮  3. Receive your Steuernummer in the post",
+
   "tab_header_welcome": "Welcome",
 
   "tab_personalFields_label": "Personal details",
