@@ -75,8 +75,6 @@ const Form = ({}) => {
     setUserInteraction({
       workingStep: tabData.tabs[0].tabId,
     });
-
-    setUserTesting({ successPage: Math.random() > 0.5 ? "a" : "b" });
   }, []);
 
   useEffect(() => {
@@ -110,7 +108,10 @@ const Form = ({}) => {
       return;
     }
 
-    layoutRef.current.scrollIntoView({ behaviour: "smooth" });
+    // layoutRef.current.scrollIntoView({ behaviour: "smooth" });
+    setTimeout(() => {
+      document.querySelector("form").scrollIntoView({ behavior: "smooth" });
+    }, 50);
   }, [currentStep.tabNumber]);
 
   function nextStep(data, dataSection, progress = true) {
@@ -145,6 +146,9 @@ const Form = ({}) => {
     const selectedTab = steps.find((el) => el.tabId === id);
     setCurrentStep(selectedTab);
     setUserInteraction({ workingStep: id });
+    setTimeout(() => {
+      document.querySelector("form").scrollIntoView({ behavior: "smooth" });
+    }, 50);
   }
 
   return (

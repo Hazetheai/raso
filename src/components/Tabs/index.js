@@ -7,7 +7,9 @@ import "./tabs.css";
 
 const Tabs = ({ tabData, activeTab, onTabClick }) => {
   const { userInteraction } = useUserInteraction();
+
   const newActiveTab = userInteraction.workingStep || activeTab;
+  const { isVideoSectionVisible } = userInteraction;
 
   function filterTabData(tabData) {
     const newTabData = Object.assign({}, tabData);
@@ -30,11 +32,29 @@ const Tabs = ({ tabData, activeTab, onTabClick }) => {
   return (
     <div className="tab-container element-container">
       <nav className="tab-nav">
-        <div className={clsx("tab-nav__header")} title={tabData.title}>
-          <span className="tab-nav__header-icon ">
+        <div
+          className={clsx(
+            "tab-nav__header",
+            isVideoSectionVisible && "tab-nav__header--active"
+          )}
+          title={tabData.title}
+        >
+          <span
+            className={clsx(
+              "tab-nav__header-icon ",
+              isVideoSectionVisible && "tab-nav__header-icon--active"
+            )}
+          >
             <img src={tabData.icon} alt={tabData.title} />
           </span>
-          <span className="tab-nav__header-title body--medium">
+          <span
+            className={clsx(
+              "tab-nav__header-title",
+              isVideoSectionVisible &&
+                "tab-nav__header-title--active body--bold",
+              "body--medium"
+            )}
+          >
             {tabData.title}
           </span>
         </div>
@@ -50,7 +70,7 @@ const Tabs = ({ tabData, activeTab, onTabClick }) => {
                 key={tabId}
                 className={clsx(
                   "tab-nav__tab",
-                  newActiveTab === tabId && "active",
+                  !isVideoSectionVisible && newActiveTab === tabId && "active",
                   tab.touched && !tab.complete && "incomplete",
                   tab.complete && "complete"
                 )}
@@ -66,7 +86,9 @@ const Tabs = ({ tabData, activeTab, onTabClick }) => {
                 <span
                   className={clsx(
                     "tab-nav__nav-label body--medium",
-                    newActiveTab === tabId && "body--bold"
+                    !isVideoSectionVisible &&
+                      newActiveTab === tabId &&
+                      "body--bold"
                   )}
                 >
                   {tabLabel}

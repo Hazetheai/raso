@@ -5,26 +5,47 @@ import { useInView } from "react-intersection-observer";
 import { useUserInteraction } from "userInteraction";
 import "./video-section.css";
 import "intersection-observer";
+import YouTube from "react-youtube";
 
+// https://www.youtube.com/watch?v=U8OzOj5x4NE
 const VideoSection = () => {
   const { userInteraction, setUserInteraction } = useUserInteraction();
 
   const { t, i18n } = useTranslation();
   const { ref, inView, entry } = useInView({
-    threshold: 0.5,
+    threshold: 0.2,
   });
 
   useEffect(() => {
     setUserInteraction({ isVideoSectionVisible: inView });
+
+    return () => {
+      setUserInteraction({ isVideoSectionVisible: false });
+    };
   }, [inView, setUserInteraction]);
+
+  function handleReady(e) {
+    // access to player in all event handlers via event.target
+    e.target.pauseVideo();
+  }
+
+  const opts = {
+    height: "281",
+    width: "500",
+    playerVars: {
+      // https://developers.google.com/youtube/player_parameters
+      autoplay: 0,
+    },
+  };
 
   return (
     <div ref={ref} className="form-section  form-section--video-section">
-      {console.log(`inView`, inView)}
       <h2>{t("video_section_title")}</h2>
       <p>{t("video_section_subtitle")}</p>
 
-      <div className="video-wrapper">Video</div>
+      <div className="video-wrapper">
+        <YouTube videoId="U8OzOj5x4NE" opts={opts} onReady={handleReady} />
+      </div>
       <div className="video-instructions">
         <ul>
           <li className="step-one">{t("video_section_step_one")}</li>

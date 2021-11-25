@@ -60,8 +60,8 @@ const SuccessPage = ({ lang }) => {
         <Button
           text={userTesting.successPage === "a" ? "Set B" : "Set A"}
           func={() =>
-            setUserInteraction({
-              version: userTesting.successPage === "a" ? "b" : "a",
+            setUserTesting({
+              successPage: userTesting.successPage === "a" ? "b" : "a",
             })
           }
         />
