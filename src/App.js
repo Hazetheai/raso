@@ -5,6 +5,7 @@ import SuccessPage from "pages/RASO/success";
 import { Fragment, useEffect } from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
 import { initPixel, logPageView } from "res/pixel";
+import { UserTestingProvider } from "userTesting";
 import "./App.css";
 import { initAmplitude } from "./res/amplitude";
 import { gtagEvent, initGTM } from "./res/gtag";
@@ -29,29 +30,31 @@ function App() {
   }, []);
 
   return (
-    <UserDataProvider>
-      <UserInteractionProvider>
-        <Header />
-        <Switch>
-          <Fragment>
-            <Route exact path="/" render={(props) => <RASO lang="de" />} />
-            <Route
-              exact
-              path="/erfolg"
-              render={(props) => <SuccessPage lang="de" />}
-            />
+    <UserTestingProvider>
+      <UserDataProvider>
+        <UserInteractionProvider>
+          <Header />
+          <Switch>
+            <Fragment>
+              <Route exact path="/" render={(props) => <RASO lang="de" />} />
+              <Route
+                exact
+                path="/erfolg"
+                render={(props) => <SuccessPage lang="de" />}
+              />
 
-            <Route exact path="/en" render={(props) => <RASO lang="en" />} />
-            <Route
-              exact
-              path="/en/success"
-              render={(props) => <SuccessPage lang="en" />}
-            />
-          </Fragment>
-        </Switch>
-        <Footer />
-      </UserInteractionProvider>
-    </UserDataProvider>
+              <Route exact path="/en" render={(props) => <RASO lang="en" />} />
+              <Route
+                exact
+                path="/en/success"
+                render={(props) => <SuccessPage lang="en" />}
+              />
+            </Fragment>
+          </Switch>
+          <Footer />
+        </UserInteractionProvider>
+      </UserDataProvider>
+    </UserTestingProvider>
   );
 }
 
