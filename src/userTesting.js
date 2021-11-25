@@ -10,7 +10,7 @@ const useUserTesting = () => {
 const UserTestingProvider = ({ children }) => {
   const [userTesting, setUserTestingHook] = useState({
     successPage: "a",
-    videoSection: "a",
+    videoSection: "b",
   });
 
   useEffect(() => {
