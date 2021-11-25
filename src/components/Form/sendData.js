@@ -7,20 +7,47 @@ import { formatforAPICall } from "./helper-functions/data-shaping";
 import { generateWebSignupPayLoad } from "./helper-functions/generateWebSignupPayLoad";
 import { getNextVATDeadline } from "./helper-functions/getNextVATDeadline";
 
-export async function sendForm({ fields, sLang, sPartner, preview }) {
+export async function sendForm({
+  fields,
+  sLang,
+  sPartner,
+  preview,
+  successPageVersion,
+}) {
   const usecase = "send";
   // TODO
   gtagEvent("RASO_SEND_FORM-ITER-1", {
-    version: `12/10/2021_${fields.version}`,
+    version: `12/11/2021_${successPageVersion}`,
   });
-  if (preview) return await apiCall(fields, sLang, sPartner, preview, usecase);
+  if (preview)
+    return await apiCall(
+      fields,
+      sLang,
+      sPartner,
+      preview,
+      usecase,
+      successPageVersion
+    );
 }
 
-export async function previewForm({ fields, sLang, sPartner, preview }) {
+export async function previewForm({
+  fields,
+  sLang,
+  sPartner,
+  preview,
+  successPageVersion,
+}) {
   const usecase = "validate";
   // TODO
   gtagEvent("RASO_PREVIEW_FORM-ITER-1");
-  return await apiCall(fields, sLang, sPartner, preview, usecase);
+  return await apiCall(
+    fields,
+    sLang,
+    sPartner,
+    preview,
+    usecase,
+    successPageVersion
+  );
 }
 
 /**
@@ -30,9 +57,17 @@ export async function previewForm({ fields, sLang, sPartner, preview }) {
  * @param {string} partner Partner Name
  * @param {boolean} preview Is this a preview?
  * @param {"subscribe"|"validate"|"send"} usecase API Use Case
+ * @param {"a"|"b"} successPageVersion
  * @returns
  */
-async function apiCall(fields, lang, partner, preview, usecase) {
+async function apiCall(
+  fields,
+  lang,
+  partner,
+  preview,
+  usecase,
+  successPageVersion
+) {
   const apiResponse = {};
 
   const sLang = lang;
@@ -82,7 +117,7 @@ async function apiCall(fields, lang, partner, preview, usecase) {
       }raso?d=${generateWebSignupPayLoad(
         apiResponse["data"].data.ticket,
         fields
-      )}&utm_content=${fields.version}`;
+      )}&utm_content=${successPageVersion}`;
 
       apiResponse["downloadAppLink_desktop"] = downloadAppLink;
       apiResponse["downloadAppLink_mobile"] = dlAppLink;
