@@ -2,14 +2,17 @@ import Tabs from "components/Tabs";
 import React, { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import home from "res/images/home.svg";
-import { removeDuplicates } from "res/lib";
+import { removeDuplicates, wrap } from "res/lib";
 import { useUserData } from "userData";
 import { useUserInteraction } from "userInteraction";
 import BankAccount from "./BankAccount";
 import Business from "./Business";
 import "./form-layout.css";
 import "./form.css";
-import { formatDatasection, reFormatForFormData, wrap } from "./helpers";
+import {
+  formatDatasection,
+  reFormatForFormData,
+} from "./helper-functions/data-shaping";
 import Personal from "./Personal";
 import Review from "./Review";
 import TaxEstimate from "./TaxEstimate";

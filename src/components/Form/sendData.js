@@ -3,11 +3,9 @@ import { gtagEvent } from "res/gtag";
 import { cleanLocal } from "res/lib";
 import { fbLogEvent } from "res/pixel";
 import { dlAppLink, wpHost } from "settings/config";
-import {
-  formatforAPICall,
-  generateWebSignupPayLoad,
-  getNextVATDeadline,
-} from "./helpers";
+import { formatforAPICall } from "./helper-functions/data-shaping";
+import { generateWebSignupPayLoad } from "./helper-functions/generateWebSignupPayLoad";
+import { getNextVATDeadline } from "./helper-functions/getNextVATDeadline";
 
 export async function sendForm({ fields, sLang, sPartner, preview }) {
   const usecase = "send";

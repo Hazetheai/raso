@@ -3,13 +3,14 @@ import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import states from "res/FormData/de/states.json";
+import { sanitizeNumbers } from "res/lib";
 import { useUserInteraction } from "userInteraction";
-import Field from "../../Field";
-import { useLocalFormVal } from "../../hooks/useLocalState";
+import Field from "components/Field";
+import { useLocalFormVal } from "components/hooks/useLocalState";
 import Fieldset from "../Fieldset";
 import FormHeader from "../FormHeader";
 import FormSubmit from "../FormSubmit";
-import { sanitizeNumbers } from "../helpers";
+
 import { taxIdValidator, validators } from "../validators";
 
 const TaxInfo = ({ currentStep, nextStep, comingStep }) => {
