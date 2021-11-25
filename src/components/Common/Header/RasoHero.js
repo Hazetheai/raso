@@ -7,9 +7,11 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 
 import { useUserInteraction } from "userInteraction";
+import { useUserTesting } from "userTesting";
 import "./hero.css";
 
 const RasoHero = ({ terms, h1, h3, ctaText, ctaLink, ctaFunc }) => {
+  const { userTesting, setUserTesting } = useUserTesting();
   const { userInteraction, setUserInteraction } = useUserInteraction();
   const { t } = useTranslation();
   return (
@@ -46,9 +48,13 @@ const RasoHero = ({ terms, h1, h3, ctaText, ctaLink, ctaFunc }) => {
             )}
           </>
         )}
-        <br />
-        <br />
-        <Badges />
+        {userTesting.videoSection === "b" && (
+          <>
+            <br />
+            <br />
+            <Badges />
+          </>
+        )}
       </div>
     </>
   );
