@@ -176,7 +176,7 @@
   "tab_taxInfoFields_subtitle": "Alle Daten werden SSL-verschlüsselt und über die ELSTER Schnittstelle sicher an dein Finanzamt übertragen.",
 
   "tab_taxEstimateFields_label": "Steuerschätzung",
-  "tab_taxEstimateFields_helper": "Diese Angaben bilden die Berechnungsgrundlage für deine vierteljährlichen Vorauszahlungen zur Einkommensteuer und Gewerbesteuer. Bitte wähle mindestens eine Einkommensquelle aus",
+
   "tab_taxEstimateFields_subtitle": "Alle Daten werden SSL-verschlüsselt und über die ELSTER Schnittstelle sicher an dein Finanzamt übertragen.",
 
   "tab_bankAccountFields_label": "Bankkonto",

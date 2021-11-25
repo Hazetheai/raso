@@ -178,7 +178,7 @@
   "tab_taxInfoFields_subtitle": "All data is SSL encrypted and securely sent to the official Finanzamt portal ELSTER.",
 
   "tab_taxEstimateFields_label": "Tax estimation",
-  "tab_taxEstimateFields_helper": "The expected profit and deduction amounts are the basis for calculating the quarterly income tax and trade tax prepayments. Please, select at least one source of profit.",
+
   "tab_taxEstimateFields_subtitle": "All data is SSL encrypted and securely sent to the official Finanzamt portal ELSTER.",
 
   "tab_bankAccountFields_label": "Bank account",
