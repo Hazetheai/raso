@@ -492,6 +492,23 @@ const Money = ({ name, control, rules }) => {
   const { userInteraction, setUserInteraction } = useUserInteraction();
 
   const isDe = i18n.language === "de";
+
+  function setCaretPosition(ctrl, pos) {
+    // Modern browsers
+    if (ctrl.setSelectionRange) {
+      ctrl.focus();
+      console.log(`ctrl`, ctrl);
+      ctrl.setSelectionRange(pos, pos);
+
+      // IE8 and below
+    } else if (ctrl.createTextRange) {
+      var range = ctrl.createTextRange();
+      range.collapse(true);
+      range.moveEnd("character", pos);
+      range.moveStart("character", pos);
+      range.select();
+    }
+  }
   return (
     <Cleave
       className="field_input"
@@ -505,6 +522,7 @@ const Money = ({ name, control, rules }) => {
       }}
       onFocus={() => {
         setUserInteraction({ helperId: name });
+        setCaretPosition(ref.current, 3);
       }}
       options={{
         numeral: true,
@@ -514,8 +532,8 @@ const Money = ({ name, control, rules }) => {
         delimiter: isDe ? "." : ",",
         numeralPositiveOnly: true,
         noImmediatePrefix: true,
-        prefix: "€ ",
-        //   tailPrefix: isDe,
+        prefix: isDe ? " €" : "€ ",
+        tailPrefix: isDe,
       }}
     />
   );

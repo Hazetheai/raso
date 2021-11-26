@@ -81,7 +81,6 @@ const Business = ({
               })}
               errors={errors}
               watch={watch}
-              autoFocus
               maxChars={200}
             />
 

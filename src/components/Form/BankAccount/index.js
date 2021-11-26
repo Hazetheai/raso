@@ -11,6 +11,10 @@ import FormHeader from "../FormHeader";
 import FormSubmit from "../FormSubmit";
 import { isValidIBANNumber } from "../validators";
 
+const bank_account_holders = {
+  en: bankAccountHolders_en,
+  de: bankAccountHolders_de,
+};
 const BankAccount = ({ currentStep, nextStep, comingStep }) => {
   const { userInteraction, setUserInteraction } = useUserInteraction();
   const {
@@ -30,7 +34,7 @@ const BankAccount = ({ currentStep, nextStep, comingStep }) => {
 
   const onSubmit = (data) => nextStep(data, "bankAccountFields");
   const { t, i18n } = useTranslation();
-
+  console.log(`i18n.language`, i18n.language);
   const showBusinessBankAccount_field_value = watch("showBusinessBankAccount");
   const showPersonalBankAccount_field_value = watch("showPersonalBankAccount");
 
@@ -113,11 +117,7 @@ const BankAccount = ({ currentStep, nextStep, comingStep }) => {
                     ref={register({
                       required: true,
                     })}
-                    options={
-                      i18n.language === "de"
-                        ? bankAccountHolders_de
-                        : bankAccountHolders_en
-                    }
+                    options={bank_account_holders[i18n.language]}
                     errors={errors}
                     watch={watch}
                   />
@@ -174,11 +174,7 @@ const BankAccount = ({ currentStep, nextStep, comingStep }) => {
                     ref={register({
                       required: true,
                     })}
-                    options={
-                      i18n.language === "de"
-                        ? bankAccountHolders_de
-                        : bankAccountHolders_en
-                    }
+                    options={bank_account_holders[i18n.language]}
                     errors={errors}
                     watch={watch}
                   />
