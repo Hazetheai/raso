@@ -38,6 +38,7 @@ const VideoSection = () => {
       cc_lang_pref: i18n.language,
       modestbranding: 1,
       rel: 0,
+      origin: window.location.href,
     },
   };
 
