@@ -35,6 +35,9 @@ const VideoSection = () => {
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
       autoplay: 0,
+      cc_lang_pref: i18n.language,
+      modestbranding: 1,
+      rel: 0,
     },
   };
 
