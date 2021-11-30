@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import bankAccountHolders_en from "res/FormData/de/bankAccountHolders.json";
-import bankAccountHolders_de from "res/FormData/en/bankAccountHolders.json";
+import bankAccountHolders_en from "res/FormData/en/bankAccountHolders.json";
+import bankAccountHolders_de from "res/FormData/de/bankAccountHolders.json";
 import { useUserInteraction } from "userInteraction";
 import Field from "../../Field";
 import { useLocalFormVal } from "../../hooks/useLocalState";
