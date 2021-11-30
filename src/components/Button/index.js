@@ -18,7 +18,7 @@ const Button = ({
     <button
       {...rest}
       className={clsx(
-        "body--big-bold",
+        !inline && "body--big-bold",
         className,
         clear && "form_submit_btn--clear",
         fluid && "form_submit_btn--fluid",

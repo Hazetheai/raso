@@ -492,6 +492,7 @@ const Money = ({ name, control, rules }) => {
   const { userInteraction, setUserInteraction } = useUserInteraction();
 
   const isDe = i18n.language === "de";
+
   return (
     <Cleave
       className="field_input"
@@ -501,9 +502,15 @@ const Money = ({ name, control, rules }) => {
       onBlur={() => {
         gtagEvent("RASO_FILLFIELD-ITER-1", { field: name });
         setUserInteraction({ helperId: "" });
+
         return onBlur();
       }}
-      onFocus={() => {
+      onFocus={(e) => {
+        if (e.target.value?.length > 2 && isDe) {
+          const end = e.target.value.length - 2;
+          const start = end - 1;
+          e.target.setSelectionRange(start, end);
+        }
         setUserInteraction({ helperId: name });
       }}
       options={{
@@ -514,8 +521,8 @@ const Money = ({ name, control, rules }) => {
         delimiter: isDe ? "." : ",",
         numeralPositiveOnly: true,
         noImmediatePrefix: true,
-        prefix: "€ ",
-        //   tailPrefix: isDe,
+        prefix: isDe ? " €" : "€ ",
+        tailPrefix: isDe,
       }}
     />
   );

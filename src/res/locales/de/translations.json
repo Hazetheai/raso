@@ -187,7 +187,7 @@
 
   "full_name_label": "Vollständiger Name",
 
-  "firstname_label": "Wie is dein Vorname",
+  "firstname_label": "Vorname",
   "firstname_placeholder": "Max",
   "name_label": "Nachname",
   "name_placeholder": "Mustermann",
@@ -234,10 +234,10 @@
   "moved_helper": "Diese Information hilft dem Finanzamt deine bisherigen Steuerdaten zuzuordnen.",
   "movingdate_label": "Umzugsdatum",
 
-  "optin_label": "Ich will Hilfe beim Ausfüllen des Fragebogens und Steuer-Tipps von Accountable erhalten",
+  "optin_label": "Ich möchte Hilfe beim Ausfüllen des Fragebogens und Steuer-Tipps von Accountable erhalten",
 
   "profession_label": "Beruf/Tätigkeitsbeschreibung",
-  "profession_helper": "Auf Basis dieser Informationen entscheidet das Finanzamt, ob du als Freiberufler*in oder Gewerbetreibende*r eingestuft wirst und welche Steuern du zahlen musst. Hier findest du mehr Informationen dazu. <a href=\"http://accountable.de/blog/freiberufler-oder-gewerbe/\" target=\"_blank\">Hier findest du mehr Informationen dazu.</a>",
+  "profession_helper": "Auf Basis dieser Informationen entscheidet das Finanzamt, ob du als Freiberufler*in oder Gewerbetreibende*r eingestuft wirst und welche Steuern du zahlen musst. <a href=\"http://accountable.de/blog/freiberufler-oder-gewerbe/\" target=\"_blank\">Hier findest du mehr Informationen dazu.</a>",
 
   "profession_helper_expand_title": "Was sollte ich bei der Tätigkeitsbeschreibung beachten?",
   "profession_helper_expand_content": "Eine kurze aber genaue Angabe deiner Tätigkeit: z.B. nicht nur \"Design\", sondern \"Erstellung von Designs für Webseiten\" <br/><br/> Du kannst auch mehrere Tätigkeiten anmelden. Diese sollten zu deiner Haupttätigkeit passen. Als Webdesigner*in kannst du z.B. auch Online-Werbung oder Marketing machen.",
@@ -247,9 +247,9 @@
   "previousbusiness_label": "Hast du in den letzten 5 Jahren ein Gewerbe betrieben, warst als Selbständige*r tätig oder hast Anteile an einer Gesellschaft (von mind. 1%) besessen?",
 
   "steueridentifkationsnummer_label": "Deine Steueridentifikationsnummer",
-  "steueridentifkationsnummer_helper": "Wenn du in Deutschland geboren bist, erhältst du die Steueridentifikationsnummer nach der Geburt. Als Expat erhältst du sie bei der ersten Anmeldung in Deutschland. Es ist NICHT deine Steuernummer. <a href=\"https://accountable.de/blog/selbststandig-in-deutschland-das-bedeuten-die-verschiedenen-steuernummern/\" target=\"_blank\"> Hier handelt es sich nicht um die Steuernummer, die du gerade beantragst.</a>",
+  "steueridentifkationsnummer_helper": "Wenn du in Deutschland geboren bist, erhältst du die Steueridentifikationsnummer nach der Geburt. Als Expat erhältst du sie bei der ersten Anmeldung in Deutschland. <strong>Hier handelt es sich NICHT um die Steuernummer, die du gerade beantragst.</strong>",
 
-  "steuernummer_label": "Hast du oder dein*e Ehepartner*in/eingetragene*r Lebenspartner*in bereits eine Steuernummer?",
+  "steuernummer_label": "Hast du oder dein*e Ehepartner*in/eingetragene*r Lebenspartner*in bereits eine Steuernummer für eine selbstständige Tätigkeit?",
   "steuernummer_helper_expand_title": "Was ist meine Steueridentifikationsnummer?",
   "steuernummer_helper_expand_content": "Die Steueridentifikationsnummer oder Steuer-ID besteht aus 11 Ziffern, die wie in diesem Beispiel geschrieben werden: 12365489753 (Bitte nicht verwechseln mit der Steuernummer deiner selbständigen Tätigkeit mit diesem Format: 198/113/10010).",
   "steuernummer_helper_2_expand_title": "Wo finde ich meine Steueridentifikationsnummer?",
@@ -304,13 +304,13 @@
   "profitFreiberufler_expand_helper_content": "Zu den selbständigen Tätigkeiten gehören: <br/> - <a href=\"https://www.accountable.de/blog/freiberufler-oder-gewerbe/\" target=\"_blank\"> freiberufliche Tätigkeiten </a> <br/> - staatliche Lotterieeinnahmen <br/> - sonstige selbständige Arbeiten (z.B. Vermögensverwaltung)<br/><br/>Alle anderen Tätigkeiten sind in der Regel gewerblich. Mehr Infos dazu auf <a href=\"https://www.accountable.de/blog/freiberufler-oder-gewerbe/\" target=\"_blank\"> unseren Blog.</a>",
   "profitFreiberufler_expand_helper_2_title": "Wie schätze ich meinen Gewinn?",
   "profitFreiberufler_expand_helper_2_content": "Du kannst von deinen voraussichtlichen Einnahmen die geschätzten Ausgaben abziehen und so deinen Gewinn berechnen. Keine Sorge, das Finanzamt erwartet keine perfekte Voraussage deines Gewinns.",
-  "profitFreiberuflerFirstYear_label": "Erstes Geschäftsjahr (2021)",
+  "profitFreiberuflerFirstYear_label": "Erstes Geschäftsjahr {{- yearOne}}",
   "profitFreiberuflerFirstYear_helper": "Schätze den Gewinn so gut du kannst. Dein Gewinn ist dein Umsatz nach Abzug aller geschäftlichen Kosten (z.B. Software, Reisekosten, Hilfsmittel etc.)",
-  "profitFreiberuflerSecondYear_label": "Zweites Geschäftsjahr (2021)",
+  "profitFreiberuflerSecondYear_label": "Zweites Geschäftsjahr {{- yearTwo}}",
 
-  "profitFirstYear_label": "Erstes Geschäftsjahr (2021)",
+  "profitFirstYear_label": "Erstes Geschäftsjahr {{- yearOne}}",
   "profitFirstYear_helper": "Schätze den Gewinn so gut du kannst. Dein Gewinn ist dein Umsatz nach Abzug aller geschäftlichen Kosten (z.B. Software, Reisekosten, Hilfsmittel etc.)",
-  "profitSecondYear_label": "Zweites Geschäftsjahr (2021)",
+  "profitSecondYear_label": "Zweites Geschäftsjahr {{- yearTwo}}",
 
   "profit_expand_helper_title": "Was ist der Unterschied zwischen selbständigen und gewerblichen Tätigkeiten?",
   "profit_expand_helper_content": "Zu den selbständigen Tätigkeiten gehören: <br/> - <a href=\"https://www.accountable.de/blog/freiberufler-oder-gewerbe/\" target=\"_blank\"> freiberufliche Tätigkeiten </a> <br/> - staatliche Lotterieeinnahmen <br/> - sonstige selbständige Arbeiten (z.B. Vermögensverwaltung)<br/><br/>Alle anderen Tätigkeiten sind in der Regel gewerblich. Mehr Infos dazu auf <a href=\"https://www.accountable.de/blog/freiberufler-oder-gewerbe/\" target=\"_blank\"> unseren Blog.</a>",
@@ -320,30 +320,30 @@
   "freiberufler_oder_gewerbetreibender_label": "Stammen diese Gewinne aus der freiberuflichen Selbständigkeit (Freiberufler) oder aus gewerblichen Betrieben (Gewerbetreibender)?",
 
   "profitGewerbetreibender_label": "Erwartest du Gewinne aus Gewerbebetrieb? (z.B. Gewerbetreibende)",
-  "profitGewerbetreibenderFirstYear_label": "Erstes Geschäftsjahr (2021)",
-  "profitGewerbetreibenderSecondYear_label": "Zweites Geschäftsjahr (2021)",
+  "profitGewerbetreibenderFirstYear_label": "Erstes Geschäftsjahr {{- yearOne}}",
+  "profitGewerbetreibenderSecondYear_label": "Zweites Geschäftsjahr {{- yearTwo}}",
   "profitGewerbetreibenderSecondYear_helper": "Schätze den Gewinn so gut du kannst. Dein Gewinn ist dein Umsatz nach Abzug aller geschäftlichen Kosten (z.B. Software, Reisekosten, Hilfsmittel etc.)",
 
   "tax_estimate_other_income_fieldset_label": "Andere Einkommensquellen",
   "profitNichtselbstandiger_label": "Erwartete Gehalts- oder Lohnzahlungen (Nichtselbständige Arbeit)",
   "profitNichtselbstandiger_helper": "Wenn du ein Lohn oder Gehalt bekommst, trage hier bitte das Bruttojahresgehalt vor allen Abzügen ein.",
-  "profitNichtselbstandiger_FirstYear_label": "Erstes Geschäftsjahr (2021)",
-  "profitNichtselbstandiger_SecondYear_label": "Zweites Geschäftsjahr (2021)",
+  "profitNichtselbstandiger_FirstYear_label": "Erstes Geschäftsjahr {{- yearOne}}",
+  "profitNichtselbstandiger_SecondYear_label": "Zweites Geschäftsjahr {{- yearTwo}}",
 
   "profitKapitalvermogen_label": "Erwartest du Einkommen aus Kapitalvermögen?",
   "profitKapitalvermogen_helper": "Einkommen aus Aktien, Fonds oder Zinsen (keine Mieteinnahmen)",
-  "profitKapitalvermogen_FirstYear_label": "Erstes Geschäftsjahr (2021)",
-  "profitKapitalvermogen_SecondYear_label": "Zweites Geschäftsjahr (2021)",
+  "profitKapitalvermogen_FirstYear_label": "Erstes Geschäftsjahr {{- yearOne}}",
+  "profitKapitalvermogen_SecondYear_label": "Zweites Geschäftsjahr {{- yearTwo}}",
 
   "profitVermietung_label": "Erwartest du Einkommen aus Vermietung oder Verpachtung?",
   "profitVermietung_helper": "Einkommen aus Vermietung und Verpachtung",
-  "profitVermietung_FirstYear_label": "Erstes Geschäftsjahr (2021)",
-  "profitVermietung_SecondYear_label": "Zweites Geschäftsjahr (2021)",
+  "profitVermietung_FirstYear_label": "Erstes Geschäftsjahr {{- yearOne}}",
+  "profitVermietung_SecondYear_label": "Zweites Geschäftsjahr {{- yearTwo}}",
 
   "profitSonstigen_label": "Erwartest du sonstige Einkünfte?",
   "profitSonstigen_helper": "Einkommen aus anderen Quellen (z.B. Rente)",
-  "profitSonstigen_FirstYear_label": "Erstes Geschäftsjahr (2021)",
-  "profitSonstigen_SecondYear_label": "Zweites Geschäftsjahr (2021)",
+  "profitSonstigen_FirstYear_label": "Erstes Geschäftsjahr {{- yearOne}}",
+  "profitSonstigen_SecondYear_label": "Zweites Geschäftsjahr {{- yearTwo}}",
 
   "profitAgriculture_label": "Hast du Einkommen aus Land- und Forstwirtschaft?",
   "profitAgriculture_helper": "Aktuell unterstützen wir die Online-Meldung beim Finanzamt nicht, wenn du Einkommen aus Land- und Forstwirtschaft hast. <a href=\"https://accountable.de/steuernummer-online-beantragen/#\" target=\"_blank\"> Kontaktiere uns, wenn das bei dir der Fall ist.</a>",
@@ -356,10 +356,10 @@
   "tax_estimate_steuerabzugsbetrage_fieldset_title": "Steuerschatzung",
   "tax_estimate_steuerabzugsbetrage_fieldset_helper": "Hier kannst du eine Schätzung z.B. anhand deiner letzten Einkommensteuererklärung vornehmen.",
 
-  "sonderausgabenFirstYear_label": "Erstes Geschäftsjahr (2021)",
-  "sonderausgabenSecondYear_label": "Zweites Geschäftsjahr (2021)",
-  "steuerabzugsbetrageFirstYear_label": "Erstes Geschäftsjahr (2021)",
-  "steuerabzugsbetrageSecondYear_label": "Zweites Geschäftsjahr (2021)",
+  "sonderausgabenFirstYear_label": "Erstes Geschäftsjahr {{- yearOne}}",
+  "sonderausgabenSecondYear_label": "Zweites Geschäftsjahr {{- yearTwo}}",
+  "steuerabzugsbetrageFirstYear_label": "Erstes Geschäftsjahr {{- yearOne}}",
+  "steuerabzugsbetrageSecondYear_label": "Zweites Geschäftsjahr {{- yearTwo}}",
 
   "tax_estimate_form_warning": "Eine dieser Einkommensarten muss ausgefüllt werden:",
 
@@ -379,7 +379,7 @@
 
   "review_proof_read_fieldset_title": "Daten überprüfen und abschicken",
   "review_proof_read": "Bitte überprüfe deine Daten, um sicherzustellen, dass du alle Informationen korrekt eingegeben hast.",
-  "review_please_complete": "Bitte stellen Sie sicher, dass alle Abschnitte vollständig ausgefüllt sind.",
+  "review_please_complete": "Bitte stelle sicher, dass du alle Felder korrekt ausgefüllt hast.",
 
   "review_button_gen_pdf": "Vorschau laden",
   "review_button_view_pdf": "Vorschau ansehen",
