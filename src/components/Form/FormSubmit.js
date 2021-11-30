@@ -10,7 +10,6 @@ const FormSubmit = ({ comingStep, errors, gtagButton }) => {
     <div className="form_submit">
       <Button
         type="submit"
-        className="body--big-bold"
         text={`${t("form_continue")}: ${comingStep.tabLabel}`}
         func={() => {
           gtagEvent("RASO_CLICKED_BUTTON-ITER-1", {
