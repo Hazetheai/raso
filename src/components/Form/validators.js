@@ -54,7 +54,7 @@ export const validators = {
   partner_firstname: /^.{1,72}$/,
   partner_name: /^.{1,72}$/,
   profession: /^[\s\S]{1,200}$/,
-  office_address_street: /\D{1,72}$/,
+  office_address_street: /\w{1,72}$/,
   office_address_number: /^([0-9]{1,6})([a-z0-9A-Z]*)?$/,
   office_address_city: /^(?=.{1,72}$)\D*$/,
   office_address_postcode: /^([0-9]{5})$/,

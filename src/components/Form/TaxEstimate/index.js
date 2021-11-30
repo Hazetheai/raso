@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
+import { useUserData } from "userData";
 import { useUserInteraction } from "userInteraction";
 import Field from "../../Field";
 import { useLocalFormVal } from "../../hooks/useLocalState";
@@ -11,6 +12,7 @@ import { validators } from "../validators";
 
 const TaxEstimate = ({ currentStep, nextStep, comingStep }) => {
   const { userInteraction, setUserInteraction } = useUserInteraction();
+  const { userData, setUserData } = useUserData();
   const {
     register,
     handleSubmit,
@@ -35,6 +37,9 @@ const TaxEstimate = ({ currentStep, nextStep, comingStep }) => {
     localFormVals,
     errors,
   });
+
+  const yearOne = Number(userData["taxInfoFields"]?.startdate.y);
+  const yearTwo = yearOne + 1;
 
   useEffect(() => {
     if (
@@ -89,7 +94,9 @@ const TaxEstimate = ({ currentStep, nextStep, comingStep }) => {
                 type="money"
                 control={control}
                 inputMode="numeric"
-                topLabel={t("profitFirstYear_label")}
+                topLabel={t("profitFirstYear_label", {
+                  yearOne,
+                })}
                 name="profitFirstYear"
                 ref={register({
                   required: true,
@@ -119,7 +126,7 @@ const TaxEstimate = ({ currentStep, nextStep, comingStep }) => {
                 type="money"
                 control={control}
                 inputMode="numeric"
-                topLabel={t("profitSecondYear_label")}
+                topLabel={t("profitSecondYear_label", { yearTwo })}
                 name="profitSecondYear"
                 ref={register({
                   required: true,
@@ -192,7 +199,9 @@ const TaxEstimate = ({ currentStep, nextStep, comingStep }) => {
                   type="money"
                   control={control}
                   inputMode="numeric"
-                  topLabel={t("profitNichtselbstandiger_FirstYear_label")}
+                  topLabel={t("profitNichtselbstandiger_FirstYear_label", {
+                    yearOne,
+                  })}
                   name="profitNichtselbstandigerFirstYear"
                   ref={register({
                     required: true,
@@ -205,7 +214,9 @@ const TaxEstimate = ({ currentStep, nextStep, comingStep }) => {
                   type="money"
                   control={control}
                   inputMode="numeric"
-                  topLabel={t("profitNichtselbstandiger_SecondYear_label")}
+                  topLabel={t("profitNichtselbstandiger_SecondYear_label", {
+                    yearTwo,
+                  })}
                   name="profitNichtselbstandigerSecondYear"
                   ref={register({
                     required: true,
@@ -244,7 +255,9 @@ const TaxEstimate = ({ currentStep, nextStep, comingStep }) => {
                   type="money"
                   control={control}
                   inputMode="numeric"
-                  topLabel={t("profitKapitalvermogen_FirstYear_label")}
+                  topLabel={t("profitKapitalvermogen_FirstYear_label", {
+                    yearOne,
+                  })}
                   name="profitKapitalvermogenFirstYear"
                   ref={register({
                     required: true,
@@ -257,7 +270,9 @@ const TaxEstimate = ({ currentStep, nextStep, comingStep }) => {
                   type="money"
                   control={control}
                   inputMode="numeric"
-                  topLabel={t("profitKapitalvermogen_SecondYear_label")}
+                  topLabel={t("profitKapitalvermogen_SecondYear_label", {
+                    yearTwo,
+                  })}
                   name="profitKapitalvermogenSecondYear"
                   ref={register({
                     required: true,
@@ -296,7 +311,9 @@ const TaxEstimate = ({ currentStep, nextStep, comingStep }) => {
                   type="money"
                   control={control}
                   inputMode="numeric"
-                  topLabel={t("profitVermietung_FirstYear_label")}
+                  topLabel={t("profitVermietung_FirstYear_label", {
+                    yearOne,
+                  })}
                   name="profitVermietungFirstYear"
                   ref={register({
                     required: true,
@@ -309,7 +326,7 @@ const TaxEstimate = ({ currentStep, nextStep, comingStep }) => {
                   type="money"
                   control={control}
                   inputMode="numeric"
-                  topLabel={t("profitVermietung_SecondYear_label")}
+                  topLabel={t("profitVermietung_SecondYear_label", { yearTwo })}
                   name="profitVermietungSecondYear"
                   ref={register({
                     required: true,
@@ -348,7 +365,9 @@ const TaxEstimate = ({ currentStep, nextStep, comingStep }) => {
                   type="money"
                   control={control}
                   inputMode="numeric"
-                  topLabel="Erstes Geschäftsjahr (2021)"
+                  topLabel={t("profitSonstigen_FirstYear_label", {
+                    yearOne,
+                  })}
                   name="profitSonstigenFirstYear"
                   ref={register({
                     required: true,
@@ -361,7 +380,7 @@ const TaxEstimate = ({ currentStep, nextStep, comingStep }) => {
                   type="money"
                   control={control}
                   inputMode="numeric"
-                  topLabel="Zweites Geschäftsjahr (2021)"
+                  topLabel={t("profitSonstigen_SecondYear_label", { yearTwo })}
                   name="profitSonstigenSecondYear"
                   ref={register({
                     required: true,
@@ -421,7 +440,9 @@ const TaxEstimate = ({ currentStep, nextStep, comingStep }) => {
                   type="money"
                   control={control}
                   inputMode="numeric"
-                  topLabel={t("sonderausgabenFirstYear_label")}
+                  topLabel={t("sonderausgabenFirstYear_label", {
+                    yearOne,
+                  })}
                   name="sonderausgabenFirstYear"
                   ref={register({
                     required: true,
@@ -433,7 +454,7 @@ const TaxEstimate = ({ currentStep, nextStep, comingStep }) => {
                   type="money"
                   control={control}
                   inputMode="numeric"
-                  topLabel={t("sonderausgabenSecondYear_label")}
+                  topLabel={t("sonderausgabenSecondYear_label", { yearTwo })}
                   name="sonderausgabenSecondYear"
                   ref={register({
                     required: true,
@@ -455,7 +476,9 @@ const TaxEstimate = ({ currentStep, nextStep, comingStep }) => {
                   type="money"
                   control={control}
                   inputMode="numeric"
-                  topLabel={t("steuerabzugsbetrageFirstYear_label")}
+                  topLabel={t("steuerabzugsbetrageFirstYear_label", {
+                    yearOne,
+                  })}
                   name="steuerabzugsbetrageFirstYear"
                   ref={register({
                     required: true,
@@ -467,7 +490,9 @@ const TaxEstimate = ({ currentStep, nextStep, comingStep }) => {
                   type="money"
                   control={control}
                   inputMode="numeric"
-                  topLabel={t("steuerabzugsbetrageSecondYear_label")}
+                  topLabel={t("steuerabzugsbetrageSecondYear_label", {
+                    yearTwo,
+                  })}
                   name="steuerabzugsbetrageSecondYear"
                   ref={register({
                     required: true,
