@@ -7,7 +7,7 @@ import "./video-section.css";
 import "intersection-observer";
 import YouTube from "react-youtube";
 
-// https://www.youtube.com/watch?v=U8OzOj5x4NE
+// https://www.youtube.com/watch?v=o6Agt7RZe-g
 const VideoSection = () => {
   const { userInteraction, setUserInteraction } = useUserInteraction();
 
@@ -44,7 +44,7 @@ const VideoSection = () => {
       <p>{t("video_section_subtitle")}</p>
 
       <div className="video-wrapper">
-        <YouTube videoId="U8OzOj5x4NE" opts={opts} onReady={handleReady} />
+        <YouTube videoId="o6Agt7RZe-g" opts={opts} onReady={handleReady} />
       </div>
       <div className="video-instructions">
         <ul>
