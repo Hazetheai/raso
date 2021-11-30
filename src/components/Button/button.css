@@ -6,10 +6,8 @@
   border: 0;
   color: white;
   padding: 0 25px;
-  min-width: 160px;
   cursor: pointer;
   text-decoration: none;
-  min-width: 100%;
   transition: 0.3s;
   white-space: nowrap;
 }
