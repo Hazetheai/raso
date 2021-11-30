@@ -47,7 +47,7 @@ label.field_top-label {
 .field_helper {
   display: none;
   position: absolute;
-  left: 115%;
+  left: 112%;
   top: -12px;
   background: var(--color-white);
   padding: 20px;
@@ -66,13 +66,13 @@ label.field_top-label {
 }
 
 fieldset .field_helper {
-  left: 115%;
+  left: 112%;
   top: -24px;
 }
 
 .form-question.half-width .field_helper,
 fieldset.wrap .field_helper {
-  left: 230%;
+  left: 225%;
 }
 
 .field_helper::after {
@@ -187,6 +187,7 @@ svg {
   transition: 0.2s;
   padding: 2px 8px;
   border-radius: 5px;
+  pointer-events: none;
 }
 .field_label {
   color: rgba(46, 0, 87, 0.38);
@@ -196,6 +197,7 @@ svg {
   line-height: 16px;
   display: block;
   word-break: break-word;
+  pointer-events: none;
 }
 
 .field_top-label {
@@ -425,7 +427,7 @@ textarea.field_input {
 @media only screen and (min-width: 1300px) {
   .form-question.half-width .field_helper,
   fieldset.wrap .field_helper {
-    left: 230%;
+    left: 225%;
   }
 }
 

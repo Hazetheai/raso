@@ -493,22 +493,6 @@ const Money = ({ name, control, rules }) => {
 
   const isDe = i18n.language === "de";
 
-  function setCaretPosition(ctrl, pos) {
-    // Modern browsers
-    if (ctrl.setSelectionRange) {
-      ctrl.focus();
-      console.log(`ctrl`, ctrl);
-      ctrl.setSelectionRange(pos, pos);
-
-      // IE8 and below
-    } else if (ctrl.createTextRange) {
-      var range = ctrl.createTextRange();
-      range.collapse(true);
-      range.moveEnd("character", pos);
-      range.moveStart("character", pos);
-      range.select();
-    }
-  }
   return (
     <Cleave
       className="field_input"
@@ -518,11 +502,16 @@ const Money = ({ name, control, rules }) => {
       onBlur={() => {
         gtagEvent("RASO_FILLFIELD-ITER-1", { field: name });
         setUserInteraction({ helperId: "" });
+
         return onBlur();
       }}
-      onFocus={() => {
+      onFocus={(e) => {
+        if (e.target.value?.length > 2 && isDe) {
+          const end = e.target.value.length - 2;
+          const start = end - 1;
+          e.target.setSelectionRange(start, end);
+        }
         setUserInteraction({ helperId: name });
-        setCaretPosition(ref.current, 3);
       }}
       options={{
         numeral: true,
