@@ -11,9 +11,9 @@ import CTA from "components/CTA";
 
 const RASO = ({ lang }) => {
   const { t, i18n } = useTranslation();
-  if (i18n.language !== lang) {
-    i18n.changeLanguage(lang);
-  }
+  // if (i18n.language !== lang) {
+  //   i18n.changeLanguage(lang);
+  // }
 
   const { userInteraction } = useUserInteraction();
 
