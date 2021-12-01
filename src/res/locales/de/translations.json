@@ -126,6 +126,28 @@
   "success_b_raso_quote_3_occupation": "Entwickler",
   "success_b_raso_quote_3_content": "Spart Zeit und Geld. Und mal ehrlich es gibt schönere Dinge im Leben als Accounting. Daher bin ich froh, dass es jetzt einfacher geht.",
 
+  "success_table_heading_1": "",
+  "success_table_heading_2": "Elster",
+  "success_table_heading_3": "Accountable",
+
+  "success_table_row_1": "Versand Umsatzsteuer",
+  "success_table_row_2": "Versand Einkommen steuer & EÜR",
+  "success_table_row_3": "Steuerberechnung",
+  "success_table_row_4": "Erstellung der Steuererklärung",
+  "success_table_row_5": "Erinnerung Steuerfristen",
+  "success_table_row_6": "Rechnungsstellung",
+  "success_table_row_7": "Finanzbuchhaltung",
+  "success_table_row_8": "Support per Chat & Telefon",
+
+  "success_table_elster_actionElement_text": "Gehe zu ELSTER",
+  "success_table_accountable_actionElement_text": "Jetzt starten",
+
+  "manageTaxes_cta_heading": "Alle deine Steuererklärungen in einer App",
+  "manageTaxes_cta_content": "Die einfachste Lösung, die dir volle Sicherheit und Kontrolle über deine Steuern gibt.",
+  "manageTaxes_cta_list_1": "Erstelle alle deine Steuererklärungen ganz einfach ohne Vorkenntnisse",
+  "manageTaxes_cta_list_2": "Sende deine Steuerunterlagen digital an das Finanzamt",
+  "manageTaxes_cta_list_3": "Verpasse nie eine Steuerfrist ",
+
   "success_cta_join_pre_headline": "BESONDERES ANGEBOT FÜR ANFÄNGER",
   "success_cta_join_headline": "Erhalte 6 Monate kostenlos Accountable PRO",
   "success_cta_join_sub_headline": "Wir bieten unser bestes Abo kostenlos für alle an, die über uns ihre Steuernummer erhalten.",
@@ -136,9 +158,9 @@
   "success_cta_join_offer_promises_text_1": "Ohne Kreditkarte",
   "success_cta_join_offer_promises_text_2": "Volle Unterstützung für Anfänger",
 
-  "secondary_cta_heading": "Was sollst du damit machen? <br/> Wie geht’s jetzt weiter?",
-  "secondary_cta_content": "📅 Buche hier ein kostenloses (Video-) Telefonat mit einem unserer Steuer-Coaches, der mit dir die Dokumente durchgeht und sie dir erklärt.",
-  "secondary_cta_action_element": "Kostenloses Telefonat buchen",
+  "calendly_cta_heading": "Was sollst du damit machen? <br/> Wie geht’s jetzt weiter?",
+  "calendly_cta_content": "📅 Buche hier ein kostenloses (Video-) Telefonat mit einem unserer Steuer-Coaches, der mit dir die Dokumente durchgeht und sie dir erklärt.",
+  "calendly_cta_action_element": "Kostenloses Telefonat buchen",
 
   "raso_success_a_section_faq_1_title": "Was ist Accountable?",
   "raso_success_a_section_faq_1_answer": "Accountable ist die einfachste und beste Lösung für Selbstständige.<br/><br/>\r\n                    Du kannst vom Finanzamt anerkannte Rechnungen schreiben, alle deine Belege scannen und somit deine Buchhaltung spielend leicht digitalisieren. Zusätzlich kümmert sich Accountable um deine Steuerverpflichtungen: ob Umsatzsteuer oder Einkommensteuer, mit Accountable verpasst du keine Fristen mehr und kannst deine Steuererklärungen durch eine sichere Elster Schnittstelle direkt an dein Finanzamt versenden.<br/><br/>\r\n                    Mit Accountable kannst du auch als Steuerneuling von Anfang alles richtig machen. Wir übersetzen die Sprache des Finanzamts für dich und geben dir wertvolle Steuertipps. Unsere Mission ist es, dir den Alltag als Selbstständige*n zu erleichtern, damit du dich auf das wirklich Wichtige konzentrieren kannst.",
@@ -184,6 +206,11 @@
 
   "tab_reviewFields_label": "Prüfen & abschicken",
   "tab_reviewFields_subtitle": "Alle Daten werden SSL-verschlüsselt und über die ELSTER Schnittstelle sicher an dein Finanzamt übertragen.",
+
+  "tab_manageTaxes_label": "Selbstständigkeit starten",
+  "tab_manageTaxes_heading": "Herzlichen Glückwunsch {{- name}} ✨",
+  "tab_manageTaxes_heading_2": "Deine Registrierung wurde erfolgreich versendet! <br/> Erledige deine Steuern komplett digital.",
+  "tab_manageTaxes_subtitle": "Nutze ELSTER oder Accountable, um alle erforderlichen Steuererklärungen beim Finanzamt einzureichen.",
 
   "full_name_label": "Vollständiger Name",
 

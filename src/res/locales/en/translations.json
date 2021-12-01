@@ -128,6 +128,28 @@
   "success_b_raso_quote_3_occupation": "Consultant",
   "success_b_raso_quote_3_content": "This app has saved me so much time on my bookkeeping. It's intuitive and easy to use and all my administration is in one place. Next to that, the app actually gives you tax saving tips, just with those I've saved the more money then the app cost me!",
 
+  "success_table_heading_1": "",
+  "success_table_heading_2": "Elster",
+  "success_table_heading_3": "Accountable",
+
+  "success_table_row_1": "Submit VAT",
+  "success_table_row_2": "Submit income tax & EÜR",
+  "success_table_row_3": "Tax calculation",
+  "success_table_row_4": "Tax return preparation",
+  "success_table_row_5": "Reminder tax deadlines",
+  "success_table_row_6": "Invoicing",
+  "success_table_row_7": "Financial accounting",
+  "success_table_row_8": "Chat & Phone Support",
+
+  "success_table_elster_actionElement_text": "Go to ELSTER",
+  "success_table_accountable_actionElement_text": "Start now",
+
+  "manageTaxes_cta_heading": "All your tax declarations in one app",
+  "manageTaxes_cta_content": "The easiest solution that gives you peace of mind and full control over your taxes.",
+  "manageTaxes_cta_list_1": "Prepare all tax declarations with confidence",
+  "manageTaxes_cta_list_2": "Send your tax documents digitally to the tax office",
+  "manageTaxes_cta_list_3": "Never miss a tax deadline",
+
   "success_cta_join_pre_headline": "SPECIAL OFFER FOR BEGINNERS",
   "success_cta_join_headline": "Get 6 months free of Accountable PRO",
   "success_cta_join_sub_headline": "We offer our best subscription free of charge for all those who obtain their tax number through us.",
@@ -138,9 +160,9 @@
   "success_cta_join_offer_promises_text_1": "No Credit Card Required",
   "success_cta_join_offer_promises_text_2": "Full Beginner Support",
 
-  "secondary_cta_heading": "What should you do with it? What happens now?",
-  "secondary_cta_content": "📅 Book a free (video) phone call with one of our tax coaches here, who will go through the documents with you and explain them to you.",
-  "secondary_cta_action_element": "Book a free call",
+  "calendly_cta_heading": "What should you do with it? What happens now?",
+  "calendly_cta_content": "📅 Book a free (video) phone call with one of our tax coaches here, who will go through the documents with you and explain them to you.",
+  "calendly_cta_action_element": "Book a free call",
 
   "raso_success_a_section_faq_1_title": "What is Accountable?",
   "raso_success_a_section_faq_1_answer": "Accountable is the simplest and best solution for self-employed professionals.<br/><br/>\r\n                    You can create invoices accepted by the German tax office, scan all your receipts and therefore digitalise your accounting with ease. In addition, Accountable takes care of your tax obligations: whether it's VAT or income tax, with Accountable you won't miss any deadlines. You can send your tax returns directly to your tax office through a secure Elster interface.<br/><br/>\r\n                    Even if you don't know anything about the German tax system, with Accountable you can do everything right from the start. We translate the language of the tax office for you and give you valuable tax tips. Our mission is to make your everyday life as a self-employed professional easier, so that you can concentrate on what is really important.",
@@ -186,6 +208,11 @@
 
   "tab_reviewFields_label": "Review & submit",
   "tab_reviewFields_subtitle": "All data is SSL encrypted and securely sent to the official Finanzamt portal ELSTER.",
+
+  "tab_manageTaxes_label": "Start as self-employed",
+  "tab_manageTaxes_heading": "Congratulations {{- name}} ✨",
+  "tab_manageTaxes_heading_2": "Your registration has been sent! <br/> Now start managing your taxes digitally.",
+  "tab_manageTaxes_subtitle": "Use ELSTER or Accountable to file all necessary tax declarations.",
 
   "firstname_label": "First Name",
   "firstname_placeholder": "Max",
