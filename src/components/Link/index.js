@@ -29,7 +29,7 @@ const Link = React.forwardRef(
           "link",
           "body--big-bold",
           className,
-          secondary && "link--sencondary",
+          secondary && "link--secondary",
           inline && "link--inline"
         )}
         onClick={func}

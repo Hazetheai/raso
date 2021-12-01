@@ -7,20 +7,47 @@ import { formatforAPICall } from "./helper-functions/data-shaping";
 import { generateWebSignupPayLoad } from "./helper-functions/generateWebSignupPayLoad";
 import { getNextVATDeadline } from "./helper-functions/getNextVATDeadline";
 
-export async function sendForm({ fields, sLang, sPartner, preview }) {
+export async function sendForm({
+  fields,
+  sLang,
+  sPartner,
+  preview,
+  successPageVersion,
+}) {
   const usecase = "send";
   // TODO
   gtagEvent("RASO_SEND_FORM-ITER-1", {
-    version: `12/10/2021_${fields.version}`,
+    version: `12/10/2021_${successPageVersion}`,
   });
-  if (preview) return await apiCall(fields, sLang, sPartner, preview, usecase);
+  if (preview)
+    return await apiCall(
+      fields,
+      sLang,
+      sPartner,
+      preview,
+      usecase,
+      successPageVersion
+    );
 }
 
-export async function previewForm({ fields, sLang, sPartner, preview }) {
+export async function previewForm({
+  fields,
+  sLang,
+  sPartner,
+  preview,
+  successPageVersion,
+}) {
   const usecase = "validate";
   // TODO
   gtagEvent("RASO_PREVIEW_FORM-ITER-1");
-  return await apiCall(fields, sLang, sPartner, preview, usecase);
+  return await apiCall(
+    fields,
+    sLang,
+    sPartner,
+    preview,
+    usecase,
+    successPageVersion
+  );
 }
 
 /**
@@ -30,9 +57,17 @@ export async function previewForm({ fields, sLang, sPartner, preview }) {
  * @param {string} partner Partner Name
  * @param {boolean} preview Is this a preview?
  * @param {"subscribe"|"validate"|"send"} usecase API Use Case
+ * @param {"a"|"b"} successPageVersion
  * @returns
  */
-async function apiCall(fields, lang, partner, preview, usecase) {
+async function apiCall(
+  fields,
+  lang,
+  partner,
+  preview,
+  usecase,
+  successPageVersion
+) {
   const apiResponse = {};
 
   const sLang = lang;
@@ -59,13 +94,15 @@ async function apiCall(fields, lang, partner, preview, usecase) {
     }
 
     apiResponse["data"] = await response.json();
-    apiResponse["success"] = apiResponse["data"].success;
+    console.log(`apiResponse`, apiResponse);
+    apiResponse["success"] = apiResponse["data"]?.success;
   } catch (error) {
+    console.log(`apiResponse`, apiResponse);
     console.error(`error sending form-fields`, error);
   }
 
   // On success
-  if (apiResponse["data"].success) {
+  if (apiResponse["data"]?.success) {
     preview = true;
     // On Validation
     if (usecase === "validate") {
@@ -74,7 +111,6 @@ async function apiCall(fields, lang, partner, preview, usecase) {
         wpHost + "/r/?t=" + apiResponse["data"].data.ticket;
     } else {
       // On Submission
-      cleanLocal();
       apiResponse["ticketId"] = apiResponse["data"].data.ticket;
 
       const downloadAppLink = `https://onboarding.accountable.de/${
@@ -82,7 +118,7 @@ async function apiCall(fields, lang, partner, preview, usecase) {
       }raso?d=${generateWebSignupPayLoad(
         apiResponse["data"].data.ticket,
         fields
-      )}&utm_content=${fields.version}`;
+      )}&utm_content=${successPageVersion}`;
 
       apiResponse["downloadAppLink_desktop"] = downloadAppLink;
       apiResponse["downloadAppLink_mobile"] = dlAppLink;
@@ -91,6 +127,7 @@ async function apiCall(fields, lang, partner, preview, usecase) {
       window.scrollTo(0, 0);
 
       fbLogEvent("trackCustom", "TaxIdRegistrationLead");
+      cleanLocal();
     }
   }
 

@@ -1,3 +1,4 @@
+import ManageTaxes from "components/Form/ManageTaxes";
 import Tabs from "components/Tabs";
 import React, { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -25,6 +26,7 @@ const tabs = [
   "taxEstimateFields",
   "bankAccountFields",
   "reviewFields",
+  "manageTaxes",
 ];
 
 function calcNextStep(steps, currentStep) {
@@ -46,7 +48,7 @@ const Form = ({}) => {
   const tabData = {
     title: t("tab_header_welcome"),
     icon: home,
-    tabs: tabs.map((tab, idx) => {
+    tabs: tabs.map((tab, idx, arr) => {
       const helper = t(`tab_${tab}_helper`, {
         interpolation: { escapeValue: false },
       });
@@ -57,6 +59,7 @@ const Form = ({}) => {
         tabId: `${tab}`,
         complete: false,
         touched: false,
+        hidden: idx < arr.length - 1 ? false : true,
         tabHelper: /_/g.test(helper) ? null : helper,
       };
     }),
@@ -71,7 +74,8 @@ const Form = ({}) => {
 
   useEffect(() => {
     setUserInteraction({
-      workingStep: tabData.tabs[0].tabId,
+      ...userInteraction,
+      workingStep: userInteraction.workingStep || tabData.tabs[0].tabId,
       version: Math.random() > 0.5 ? "a" : "b",
     });
   }, []);
@@ -110,7 +114,12 @@ const Form = ({}) => {
     layoutRef.current.scrollIntoView({ behaviour: "smooth" });
   }, [currentStep.tabNumber]);
 
-  function nextStep(data, dataSection, progress = true) {
+  function nextStep(
+    data,
+    dataSection,
+    progress = true,
+    userInteractionData = {}
+  ) {
     setUserData(formatDatasection(data), dataSection, true);
     if (!progress) {
       return;
@@ -126,6 +135,7 @@ const Form = ({}) => {
     setCurrentStep(calcNextStep(steps, currentStep));
 
     setUserInteraction({
+      ...userInteractionData,
       stepsCompleted: removeDuplicates([
         ...steps.filter((s) => s.complete).map((s) => s.tabId),
         currentStep.tabId,
@@ -204,8 +214,11 @@ const Form = ({}) => {
             defaultValues={reFormatForFormData(userData["reviewFields"])}
           />
         )}
+        {currentStep.tabId === "manageTaxes" && <ManageTaxes />}
       </div>
-      <div className="helper-container"></div>
+      {currentStep.tabId !== "manageTaxes" && (
+        <div className="helper-container"></div>
+      )}
     </div>
   );
 };

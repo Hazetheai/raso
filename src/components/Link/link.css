@@ -8,20 +8,13 @@
   border: 0;
   color: white;
   font-weight: 600;
-  text-transform: uppercase;
   padding: 0 25px;
-  min-width: 160px;
   cursor: pointer;
   text-decoration: none;
-  min-width: 100%;
   transition: 0.3s;
+  white-space: nowrap;
 }
 
-@media screen and (min-width: 400px) {
-  .link {
-    min-width: 160px;
-  }
-}
 .link--inline {
   padding: 0 10px;
   width: auto;
@@ -76,4 +69,13 @@
   background: none;
   border: 1px solid rgb(109, 74, 211);
   color: rgb(109, 74, 211);
+}
+.link--secondary {
+  background: none;
+  border: 1px solid var(--color-primary_faded);
+  color: var(--color-primary_faded);
+}
+
+.link--secondary:hover {
+  color: var(--color-white);
 }

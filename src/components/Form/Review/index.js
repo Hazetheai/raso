@@ -139,6 +139,7 @@ const Review = ({ currentStep, nextStep }) => {
                       preview: true,
                       sLang: "en",
                       sPartner: "",
+                      successPageVersion: userInteraction.version,
                     });
                     setUserInteraction({ ...ar, preview: true });
                     setLoading(false);
@@ -201,9 +202,11 @@ const Review = ({ currentStep, nextStep }) => {
                       preview: true,
                       sLang: "en",
                       sPartner: "",
+                      successPageVersion: userInteraction.version,
                     });
+                    console.log(`ar`, ar);
                     setLoading(false);
-                    setUserInteraction(ar);
+                    nextStep(userData.reviewFields, "reviewFields", true, ar);
                   }}
                   isLoading={loading}
                   className="body--big-bold"
@@ -212,11 +215,13 @@ const Review = ({ currentStep, nextStep }) => {
                   <img src={eagle} alt={t("review_button_send_pdf")} />
                   {t("review_button_send_pdf")}
                 </Button>
-                {userInteraction.downloadAppLink_desktop && (
-                  <Redirect
-                    to={i18n.language === "de" ? "/erfolg" : "/en/success"}
-                  />
-                )}
+
+                {userInteraction.nextVatDeadline.vatDeadline &&
+                  userInteraction.version === "b" && (
+                    <Redirect
+                      to={i18n.language === "de" ? "/erfolg" : "/en/success"}
+                    />
+                  )}
               </div>
             )}
             <p className="body--small">{t("disclaimer")}</p>

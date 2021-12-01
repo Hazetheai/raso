@@ -9,3 +9,5 @@ const Logo = () => (
 );
 
 export default Logo;
+
+export { LogoImg };

@@ -1,0 +1,66 @@
+.grid {
+  display: grid;
+  grid-gap: 0 10px;
+  /* grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); */
+}
+
+.grid span {
+  padding: 8px 16px;
+}
+
+.grid .even {
+  background-color: #dad6e2ae;
+}
+
+.grid .odd {
+  background-color: #dad6e247;
+}
+
+.table-heading,
+.table-row-data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.table-row-data.table-row-data--actionElement:not(.row--empty) {
+  padding-top: 24px;
+  padding-bottom: 24px;
+  background-color: #dad6e245;
+}
+
+.table-row-heading {
+  color: #624d7e;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+}
+
+@media only screen and (min-width: 600px) {
+  .table-row-heading {
+    font-size: 16px;
+  }
+}
+
+.table-heading img {
+  min-width: 60%;
+}
+
+.row--empty {
+  background: transparent;
+}
+
+.table-row-acc-button {
+  justify-content: center;
+}
+.table-row-acc-button img {
+  max-width: 40%;
+  min-width: 30px;
+}
+
+@media only screen and (min-width: 500px) {
+  .table-row-acc-button img {
+    max-width: 30%;
+    min-width: 30px;
+  }
+}

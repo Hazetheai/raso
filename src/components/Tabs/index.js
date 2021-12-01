@@ -22,6 +22,11 @@ const Tabs = ({ tabData, activeTab, onTabClick }) => {
         userInteraction.touchedScreens.includes(tab.tabId)
           ? { ...tab, touched: true }
           : tab
+      )
+      .map((tab) =>
+        userInteraction.stepsCompleted.includes("reviewFields")
+          ? { ...tab, hidden: false }
+          : tab
       );
 
     return newTabData;
@@ -52,7 +57,8 @@ const Tabs = ({ tabData, activeTab, onTabClick }) => {
                   "tab-nav__tab",
                   newActiveTab === tabId && "active",
                   tab.touched && !tab.complete && "incomplete",
-                  tab.complete && "complete"
+                  tab.complete && "complete",
+                  tab.hidden && "hidden"
                 )}
                 id={tabId}
               >

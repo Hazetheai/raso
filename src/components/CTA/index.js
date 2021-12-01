@@ -3,6 +3,7 @@ import Link from "components/Link";
 import Terms from "components/Terms";
 import React from "react";
 import pinkStars from "res/images/pink_stars.svg";
+import { useUserInteraction } from "userInteraction";
 import "./cta.css";
 
 const CTA = ({
@@ -18,18 +19,7 @@ const CTA = ({
   isButton,
   offerPromises,
 }) => {
-  console.log(
-    `{  mobileActionElementLink,
-  mobileActionElementText,
-  desktopActionElementLink,
-  desktopActionElementText,}`,
-    {
-      mobileActionElementLink,
-      mobileActionElementText,
-      desktopActionElementLink,
-      desktopActionElementText,
-    }
-  );
+  const { userInteraction } = useUserInteraction();
   return (
     <section className="section-cta">
       <div className="container-cta container-cta--main">

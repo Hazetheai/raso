@@ -37,14 +37,14 @@ const SecondaryCTA = () => {
         <h2
           className="secondary-cta__header"
           dangerouslySetInnerHTML={{
-            __html: t("secondary_cta_heading", {
+            __html: t("calendly_cta_heading", {
               interpolation: { escapeValue: false },
             }),
           }}
         />
         <br />
         <p className="section-p cta-p">
-          {t("secondary_cta_content", {
+          {t("calendly_cta_content", {
             interpolation: { escapeValue: false },
           })}
         </p>
@@ -53,7 +53,7 @@ const SecondaryCTA = () => {
 
           <Button
             className="body--big-bold pulse"
-            text={t("secondary_cta_action_element")}
+            text={t("calendly_cta_action_element")}
             func={() => openPopupWidget({ url, prefill, pageSettings, utm })}
           />
 

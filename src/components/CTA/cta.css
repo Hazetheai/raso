@@ -115,7 +115,9 @@
   max-width: 400px;
 }
 
-/** Secondary CTA **/
+/************************/
+/****** Secondary CTA ******/
+/************************/
 
 .secondary-cta {
   flex-direction: column-reverse;
@@ -195,4 +197,39 @@
   text-transform: uppercase;
   width: 100%;
   max-width: initial;
+}
+
+/************************/
+/****** ManageTaxes CTA ******/
+/************************/
+
+.secondary-cta--manageTaxes {
+  width: 100%;
+  max-width: 700px;
+  margin: 72px auto;
+}
+
+@media only screen and (min-width: 350px) {
+  .secondary-cta--manageTaxes .cta-content {
+    padding-top: 0;
+    padding-right: 2rem;
+    width: 50%;
+    min-width: 280px;
+    max-width: 500px;
+  }
+}
+
+.secondary-cta__header--manageTaxes {
+  font-size: 30px;
+}
+
+#manageTaxesCTA .cta-p--manageTaxes {
+  font-weight: 400;
+}
+
+.cta-image--manageTaxes {
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 120%;
 }
