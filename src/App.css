@@ -227,6 +227,13 @@ hr {
   padding: 24px;
 }
 
+.list--check li {
+  list-style-image: url("res//images/list-item-check.svg");
+  margin: 0 0 0 18px;
+  padding: 6px 0;
+  font-weight: 600;
+}
+
 /************************/
 /****** Typography ******/
 /************************/

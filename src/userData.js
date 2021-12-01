@@ -58,8 +58,8 @@ const UserDataProvider = ({ children }) => {
       steuernummer_state: "choose",
       singleentry: "yes",
       startdate: {
-        d: new Date().getDate(),
-        m: new Date().getMonth() + 1,
+        d: new Date().getDate().toString().padStart(2, "0"),
+        m: (new Date().getMonth() + 1).toString().padStart(2, "0"),
         y: new Date().getFullYear(),
       },
       revenue_firstYear: "",
