@@ -2,9 +2,11 @@ import Footer from "components/Common/Footer";
 import Header from "components/Common/Header";
 import RASO from "pages/RASO";
 import SuccessPage from "pages/RASO/success";
+import Test from "pages/RASO/test";
 import { Fragment, useEffect } from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
 import { initPixel, logPageView } from "res/pixel";
+import { isDev } from "settings/config";
 import "./App.css";
 import { initAmplitude } from "./res/amplitude";
 import { gtagEvent, initGTM } from "./res/gtag";
@@ -35,6 +37,8 @@ function App() {
         <Switch>
           <Fragment>
             <Route exact path="/" render={(props) => <RASO lang="de" />} />
+
+            {/* Only used on Version B */}
             <Route
               exact
               path="/erfolg"
@@ -42,11 +46,20 @@ function App() {
             />
 
             <Route exact path="/en" render={(props) => <RASO lang="en" />} />
+
+            {/* Only used on Version B */}
             <Route
               exact
               path="/en/success"
               render={(props) => <SuccessPage lang="en" />}
             />
+            {isDev && (
+              <Route
+                exact
+                path="/en/test"
+                render={(props) => <Test lang="en" />}
+              />
+            )}
           </Fragment>
         </Switch>
         <Footer />

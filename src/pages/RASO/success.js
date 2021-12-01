@@ -1,6 +1,6 @@
 import Button from "components/Button";
 import CTA from "components/CTA";
-import SecondaryCTA from "components/CTA/SecondaryCTA";
+import SecondaryCTA from "components/CTA/CalendlyCTA";
 import FAQ from "components/FAQ";
 import RASOSuccessBSection from "components/Misc/RASOSuccessBSection";
 import FinanzamtLetters from "components/PDFReader/FinanzamtLetters";
