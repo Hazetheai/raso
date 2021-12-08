@@ -12,11 +12,13 @@ import clsx from "clsx";
 import Button from "components/Button";
 import { cleanLocal } from "res/lib";
 import { useUserInteraction } from "userInteraction";
+import { useUserTesting } from "userTesting";
 
 const Header = () => {
   const { t } = useTranslation();
   const { pathname } = useLocation();
   const { userInteraction, setUserInteraction } = useUserInteraction();
+  const { userTesting, setuserTesting } = useUserTesting();
   const isSuccess = /success|erfolg/gi.test(pathname);
 
   const terms = [
@@ -35,11 +37,16 @@ const Header = () => {
     ctaText: t("hero_ctaText"),
     ctaFunc: () => {
       setUserInteraction({ clickedStart: true });
-      document.querySelector(".content").scrollIntoView({ behavior: "smooth" });
+      if (document.querySelector(".content")) {
+        document
+          .querySelector(".content")
+          .scrollIntoView({ behavior: "smooth" });
+      }
     },
   };
   return (
     <>
+      {console.log(`userTesting`, userTesting)}
       <div className={clsx("top-section")}>
         <div
           className={clsx(
@@ -47,7 +54,7 @@ const Header = () => {
             isSuccess && "top-section-gradient--raso-success"
           )}
         />
-        {isSuccess ? null : (
+        {isSuccess ? null : userTesting.videoSection === "a" ? null : (
           <img src={rasoBg} alt="" className="top-section-raso-bg" />
         )}
         <header className="top-section__header">

@@ -1,10 +1,11 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { useHistory } from "react-router";
+import { useHistory, useLocation } from "react-router";
 import "./language-picker.css";
 const LanguagePicker = () => {
   const { t, i18n } = useTranslation();
   let history = useHistory();
+  const { search } = useLocation();
 
   return (
     <div className="language-picker-active">
@@ -13,9 +14,11 @@ const LanguagePicker = () => {
         <a
           onClick={() => {
             i18n.changeLanguage(i18n.language === "de" ? "en" : "de");
-            history.push(i18n.language === "de" ? "/" : "/en");
+            history.push(
+              i18n.language === "de" ? "/" + search : "/en" + search
+            );
           }}
-          href="#0"
+          href=""
         >
           {i18n.language === "de" ? "English" : "Deutsch"}{" "}
         </a>{" "}
