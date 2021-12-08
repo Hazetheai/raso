@@ -17,12 +17,14 @@ const VideoSection = () => {
   });
 
   useEffect(() => {
-    setUserInteraction({ isVideoSectionVisible: inView });
+    if (userInteraction.isVideoSectionVisible !== inView) {
+      setUserInteraction({ isVideoSectionVisible: inView });
+    }
 
     return () => {
       setUserInteraction({ isVideoSectionVisible: false });
     };
-  }, [inView, setUserInteraction]);
+  }, [inView]);
 
   function handleReady(e) {
     // access to player in all event handlers via event.target
