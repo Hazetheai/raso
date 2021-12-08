@@ -14,4 +14,4 @@ export const initGTM = () => {
 };
 
 export const gtagEvent = (event, payload = {}) =>
-  window.dataLayer.push({ event: event, payload: payload });
+  window?.dataLayer?.push({ event: event, payload: payload });

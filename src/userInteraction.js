@@ -16,6 +16,7 @@ const UserInteractionProvider = ({ children }) => {
     stepsCompleted: [],
     workingStep: "",
     clickedStart: false,
+    isVideoSectionVisible: false,
     isAutoSaving: false,
     preview: false,
     send: false,

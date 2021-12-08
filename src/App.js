@@ -7,6 +7,7 @@ import { Fragment, useEffect } from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
 import { initPixel, logPageView } from "res/pixel";
 import { isDev } from "settings/config";
+import { UserTestingProvider } from "userTesting";
 import "./App.css";
 import { initAmplitude } from "./res/amplitude";
 import { gtagEvent, initGTM } from "./res/gtag";
@@ -31,40 +32,38 @@ function App() {
   }, []);
 
   return (
-    <UserDataProvider>
-      <UserInteractionProvider>
-        <Header />
-        <Switch>
-          <Fragment>
-            <Route exact path="/" render={(props) => <RASO lang="de" />} />
-
-            {/* Only used on Version B */}
-            <Route
-              exact
-              path="/erfolg"
-              render={(props) => <SuccessPage lang="de" />}
-            />
-
-            <Route exact path="/en" render={(props) => <RASO lang="en" />} />
-
-            {/* Only used on Version B */}
-            <Route
-              exact
-              path="/en/success"
-              render={(props) => <SuccessPage lang="en" />}
-            />
-            {isDev && (
+    <UserTestingProvider>
+      <UserDataProvider>
+        <UserInteractionProvider>
+          <Header />
+          <Switch>
+            <Fragment>
+              <Route exact path="/" render={(props) => <RASO lang="de" />} />
               <Route
                 exact
-                path="/en/test"
-                render={(props) => <Test lang="en" />}
+                path="/erfolg"
+                render={(props) => <SuccessPage lang="de" />}
               />
-            )}
-          </Fragment>
-        </Switch>
-        <Footer />
-      </UserInteractionProvider>
-    </UserDataProvider>
+
+              <Route exact path="/en" render={(props) => <RASO lang="en" />} />
+              <Route
+                exact
+                path="/en/success"
+                render={(props) => <SuccessPage lang="en" />}
+              />
+              {isDev && (
+                <Route
+                  exact
+                  path="/en/test"
+                  render={(props) => <Test lang="en" />}
+                />
+              )}
+            </Fragment>
+          </Switch>
+          <Footer />
+        </UserInteractionProvider>
+      </UserDataProvider>
+    </UserTestingProvider>
   );
 }
 

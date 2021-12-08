@@ -19,7 +19,6 @@ const CTA = ({
   isButton,
   offerPromises,
 }) => {
-  const { userInteraction } = useUserInteraction();
   return (
     <section className="section-cta">
       <div className="container-cta container-cta--main">

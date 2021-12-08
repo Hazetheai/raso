@@ -6,6 +6,7 @@ import home from "res/images/home.svg";
 import { removeDuplicates, wrap } from "res/lib";
 import { useUserData } from "userData";
 import { useUserInteraction } from "userInteraction";
+import { useUserTesting } from "userTesting";
 import BankAccount from "./BankAccount";
 import Business from "./Business";
 import "./form-layout.css";
@@ -42,6 +43,7 @@ function calcNextStep(steps, currentStep) {
 const Form = ({}) => {
   const { t, i18n } = useTranslation();
   const { userInteraction, setUserInteraction } = useUserInteraction();
+  const { userTesting, setUserTesting } = useUserTesting();
   const layoutRef = useRef(null);
   const { userData, setUserData } = useUserData();
 
@@ -74,9 +76,7 @@ const Form = ({}) => {
 
   useEffect(() => {
     setUserInteraction({
-      ...userInteraction,
-      workingStep: userInteraction.workingStep || tabData.tabs[0].tabId,
-      version: Math.random() > 0.5 ? "a" : "b",
+      workingStep: currentStep.tabId,
     });
   }, []);
 
@@ -111,7 +111,10 @@ const Form = ({}) => {
       return;
     }
 
-    layoutRef.current.scrollIntoView({ behaviour: "smooth" });
+    // layoutRef.current.scrollIntoView({ behaviour: "smooth" });
+    setTimeout(() => {
+      document.querySelector("form").scrollIntoView({ behavior: "smooth" });
+    }, 50);
   }, [currentStep.tabNumber]);
 
   function nextStep(
@@ -152,6 +155,9 @@ const Form = ({}) => {
     const selectedTab = steps.find((el) => el.tabId === id);
     setCurrentStep(selectedTab);
     setUserInteraction({ workingStep: id });
+    setTimeout(() => {
+      document.querySelector("form").scrollIntoView({ behavior: "smooth" });
+    }, 50);
   }
 
   return (

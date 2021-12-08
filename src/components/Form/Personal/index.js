@@ -9,15 +9,18 @@ import genders_en from "res/FormData/en/gender.json";
 import marital_status_en from "res/FormData/en/marital_status.json";
 import religion_en from "res/FormData/en/religion.json";
 import { useUserInteraction } from "userInteraction";
+import { useUserTesting } from "userTesting";
 import Field from "../../Field";
 import { useLocalFormVal } from "../../hooks/useLocalState";
 import Fieldset from "../Fieldset";
 import FormHeader from "../FormHeader";
 import FormSubmit from "../FormSubmit";
 import { validators } from "../validators";
+import VideoSection from "./VideoSection";
 
 const Personal = ({ nextStep, comingStep, currentStep }) => {
   const { userInteraction, setUserInteraction } = useUserInteraction();
+  const { userTesting, setUserTesting } = useUserTesting();
 
   const {
     register,
@@ -63,6 +66,7 @@ const Personal = ({ nextStep, comingStep, currentStep }) => {
 
   return (
     <>
+      {userTesting.videoSection === "a" && <VideoSection />}
       <form id={currentStep.tabId} onSubmit={handleSubmit(onSubmit)}>
         <div className="form">
           <Fieldset section>

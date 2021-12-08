@@ -25,6 +25,7 @@ export function cleanLocal() {
   localStorage.removeItem("reviewFields");
   localStorage.removeItem("userData");
   localStorage.removeItem("userInteraction");
+  localStorage.removeItem("userTesting");
 }
 
 /**

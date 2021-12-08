@@ -11,6 +11,7 @@ import letter_data from "res/letterData.json";
 import { isDev, isStaging } from "settings/config";
 import { useUserData } from "userData";
 import { useUserInteraction } from "userInteraction";
+import { useUserTesting } from "userTesting";
 import Field from "../../Field";
 import { useLocalFormVal } from "../../hooks/useLocalState";
 import Fieldset from "../Fieldset";
@@ -19,6 +20,7 @@ import { previewForm, sendForm } from "../sendData";
 
 const Review = ({ currentStep, nextStep }) => {
   const { userInteraction, setUserInteraction } = useUserInteraction();
+  const { userTesting, setUserTesting } = useUserTesting();
   const {
     register,
     handleSubmit,
@@ -139,7 +141,7 @@ const Review = ({ currentStep, nextStep }) => {
                       preview: true,
                       sLang: "en",
                       sPartner: "",
-                      successPageVersion: userInteraction.version,
+                      successPageVersion: userTesting.successPage,
                     });
                     setUserInteraction({ ...ar, preview: true });
                     setLoading(false);
@@ -202,7 +204,7 @@ const Review = ({ currentStep, nextStep }) => {
                       preview: true,
                       sLang: "en",
                       sPartner: "",
-                      successPageVersion: userInteraction.version,
+                      successPageVersion: userTesting.successPage,
                     });
 
                     setLoading(false);
