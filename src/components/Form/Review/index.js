@@ -219,7 +219,8 @@ const Review = ({ currentStep, nextStep }) => {
                 </Button>
 
                 {userInteraction.nextVatDeadline.vatDeadline &&
-                  userInteraction.version === "b" && (
+                  !userInteraction.stepsCompleted.includes("reviewFields") &&
+                  userTesting.successPage === "b" && (
                     <Redirect
                       to={i18n.language === "de" ? "/erfolg" : "/en/success"}
                     />

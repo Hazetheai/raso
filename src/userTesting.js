@@ -10,7 +10,7 @@ const useUserTesting = () => {
 const UserTestingProvider = ({ children }) => {
   const [userTesting, setUserTestingHook] = useState({
     successPage: Math.random() > 0.5 ? "a" : "b",
-    videoSection: Math.random() > 0.5 ? "a" : "b",
+    videoSection: "b", // Math.random() > 0.5 ? "a" : "b",
   });
 
   useEffect(() => {
