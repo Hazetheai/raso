@@ -6,7 +6,7 @@
   width: 100px;
   opacity: 0.4;
 }
-@media screen and (min-width: 1008px) {
+@media screen and (min-width: 1024px) {
   .header {
     display: none;
   }

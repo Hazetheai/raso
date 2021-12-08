@@ -34,7 +34,7 @@
     padding: 0;
   }
 }
-@media screen and (min-width: 1008px) {
+@media screen and (min-width: 1024px) {
   .checkmarks {
     justify-content: left;
   }

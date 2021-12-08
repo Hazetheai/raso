@@ -75,7 +75,7 @@ fieldset.form-section + fieldset.form-section {
   max-width: 65ch;
 }
 
-@media screen and (min-width: 1008px) {
+@media screen and (min-width: 1024px) {
   .form_submit,
   .form_error {
     text-align: left;
