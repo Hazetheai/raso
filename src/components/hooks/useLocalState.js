@@ -53,6 +53,11 @@ export function useLocalFormVal({ key, reset, localFormVals, errors }) {
         previewLink: "",
         code: "",
         message: "",
+        stepsCompleted: [
+          ...userInteraction.stepsCompleted.filter(
+            (el) => el !== "reviewFields"
+          ),
+        ],
       });
 
       setUserData(
