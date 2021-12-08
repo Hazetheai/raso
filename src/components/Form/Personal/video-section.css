@@ -14,7 +14,11 @@
   margin: 24px auto 24px 0;
 }
 
-.video-instructions {
+.video-container {
+  max-width: 100%;
+}
+.video-container frame {
+  max-width: 100%;
 }
 
 .video-instructions ul {

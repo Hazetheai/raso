@@ -6,6 +6,7 @@ import { useUserInteraction } from "userInteraction";
 import "./video-section.css";
 import "intersection-observer";
 import YouTube from "react-youtube";
+import { useWindowSize } from "components/hooks/useWindowSize";
 
 // https://www.youtube.com/watch?v=o6Agt7RZe-g
 const VideoSection = () => {
@@ -15,6 +16,8 @@ const VideoSection = () => {
   const { ref, inView, entry } = useInView({
     threshold: 0.2,
   });
+
+  const { width } = useWindowSize();
 
   useEffect(() => {
     if (userInteraction.isVideoSectionVisible !== inView) {
@@ -31,9 +34,13 @@ const VideoSection = () => {
     e.target.pauseVideo();
   }
 
+  const size = {
+    width: width > 650 ? "500" : width > 400 ? "300" : "250",
+    height: width > 650 ? "281.25" : width > 400 ? "168.75" : "140.63",
+  };
+
   const opts = {
-    height: "281",
-    width: "500",
+    ...size,
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
       autoplay: 0,
@@ -50,7 +57,12 @@ const VideoSection = () => {
       <p>{t("video_section_subtitle")}</p>
 
       <div className="video-wrapper">
-        <YouTube videoId="o6Agt7RZe-g" opts={opts} onReady={handleReady} />
+        <YouTube
+          containerClassName="video-container"
+          videoId="o6Agt7RZe-g"
+          opts={opts}
+          onReady={handleReady}
+        />
       </div>
       <div className="video-instructions">
         <ul>
