@@ -1,3 +1,4 @@
+import { isEqual } from "lodash";
 import ManageTaxes from "components/Form/ManageTaxes";
 import Tabs from "components/Tabs";
 import React, { useEffect, useRef, useState } from "react";
@@ -69,16 +70,18 @@ const Form = ({}) => {
 
   const [steps, setSteps] = useState(tabData.tabs);
   const [currentStep, setCurrentStep] = useState(
-    userInteraction.workingStep
-      ? tabData.tabs.find((s) => s.tabId === userInteraction.workingStep)
-      : tabData.tabs[0]
+    tabData.tabs.find((s) => s.tabId === userInteraction.workingStep)
   );
 
   useEffect(() => {
-    setUserInteraction({
-      workingStep: currentStep.tabId,
-    });
-  }, []);
+    const cs = tabData.tabs.find(
+      (s) => s.tabId === userInteraction.workingStep
+    );
+
+    if (!isEqual(cs, currentStep)) {
+      setCurrentStep(cs);
+    }
+  }, [userInteraction.workingStep, tabData.tabs, currentStep]);
 
   useEffect(() => {
     setSteps(
@@ -121,6 +124,7 @@ const Form = ({}) => {
     data,
     dataSection,
     progress = true,
+    // TODO - Remove this as version is now tied to the userTesting Provider
     userInteractionData = {}
   ) {
     setUserData(formatDatasection(data), dataSection, true);
@@ -141,6 +145,7 @@ const Form = ({}) => {
       ...userInteractionData,
       stepsCompleted: removeDuplicates([
         ...steps.filter((s) => s.complete).map((s) => s.tabId),
+        ...userInteraction.stepsCompleted,
         currentStep.tabId,
       ]),
       touchedScreens: removeDuplicates([
@@ -168,7 +173,7 @@ const Form = ({}) => {
           icon: tabData.icon,
           tabs: steps,
         }}
-        activeTab={userInteraction?.tabId || currentStep.tabId}
+        activeTab={userInteraction.workingStep || currentStep.tabId}
         onTabClick={handleTabClick}
       />
       <div className="form-container">
