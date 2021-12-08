@@ -1,6 +1,6 @@
 import produce from "immer";
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { dlAppLink } from "settings/config";
+import { dlAppLink, isDev } from "settings/config";
 
 const UserInteractionContext = createContext();
 
@@ -14,7 +14,7 @@ const UserInteractionProvider = ({ children }) => {
     helperId: "",
     touchedScreens: [],
     stepsCompleted: [],
-    workingStep: "",
+    workingStep: "personalFields",
     clickedStart: false,
     isVideoSectionVisible: false,
     isAutoSaving: false,
@@ -50,7 +50,11 @@ const UserInteractionProvider = ({ children }) => {
    * @param {boolean} save
    */
   const setUserInteraction = (newUserInteraction, save = true) => {
-    const newData = produce(userInteraction, (draft) => {
+    isDev && console.log(`updating userInteraction`);
+    const v = localStorage.getItem("userInteraction") || null;
+    const sessionUserInteraction = v ? JSON.parse(v) : userInteraction;
+
+    const newData = produce(sessionUserInteraction, (draft) => {
       Object.assign(draft, newUserInteraction);
     });
 
