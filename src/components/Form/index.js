@@ -116,7 +116,9 @@ const Form = ({}) => {
 
     // layoutRef.current.scrollIntoView({ behaviour: "smooth" });
     setTimeout(() => {
-      document.querySelector("form").scrollIntoView({ behavior: "smooth" });
+      if (document.querySelector("form")) {
+        document.querySelector("form").scrollIntoView({ behavior: "smooth" });
+      }
     }, 50);
   }, [currentStep.tabNumber]);
 
@@ -161,7 +163,9 @@ const Form = ({}) => {
     setCurrentStep(selectedTab);
     setUserInteraction({ workingStep: id });
     setTimeout(() => {
-      document.querySelector("form").scrollIntoView({ behavior: "smooth" });
+      if (document.querySelector("form")) {
+        document.querySelector("form").scrollIntoView({ behavior: "smooth" });
+      }
     }, 50);
   }
 
