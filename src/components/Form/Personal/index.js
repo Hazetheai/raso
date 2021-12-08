@@ -20,7 +20,7 @@ import VideoSection from "./VideoSection";
 
 const Personal = ({ nextStep, comingStep, currentStep }) => {
   const { userInteraction, setUserInteraction } = useUserInteraction();
-  const { userTesting, setUserTesting } = useUserTesting();
+  const { userTesting } = useUserTesting();
 
   const {
     register,
@@ -243,6 +243,9 @@ const Personal = ({ nextStep, comingStep, currentStep }) => {
                   floatingLabel={t("date_format")}
                   errors={errors}
                   control={control}
+                  dateMinMax={{
+                    dateMin: nYearsFromNow(90, "before"),
+                  }}
                 />
                 {["002", "003"].includes(maritalstatus_value) && (
                   <>
@@ -302,7 +305,6 @@ const Personal = ({ nextStep, comingStep, currentStep }) => {
                     <Field
                       type="select"
                       name="partner_religion"
-                      //floatingLabel={""}
                       ref={register({
                         required: true,
                         validate: (value) => !/choose/.test(value),

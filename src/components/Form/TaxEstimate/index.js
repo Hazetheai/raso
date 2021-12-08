@@ -38,7 +38,8 @@ const TaxEstimate = ({ currentStep, nextStep, comingStep }) => {
     errors,
   });
 
-  const yearOne = Number(userData["taxInfoFields"]?.startdate.y);
+  const yearOne =
+    Number(userData["taxInfoFields"]?.startdate.y) || new Date().getFullYear();
   const yearTwo = yearOne + 1;
 
   useEffect(() => {

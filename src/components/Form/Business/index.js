@@ -9,14 +9,9 @@ import FormHeader from "../FormHeader";
 import FormSubmit from "../FormSubmit";
 import { validators } from "../validators";
 
-const Business = ({
-  steps,
-  currentStep,
-  nextStep,
-
-  comingStep,
-}) => {
+const Business = ({ currentStep, nextStep, comingStep }) => {
   const { userInteraction, setUserInteraction } = useUserInteraction();
+
   const {
     handleSubmit,
     watch,
@@ -31,10 +26,11 @@ const Business = ({
       ? "onChange"
       : "onBlur",
   });
+  const { t } = useTranslation();
 
   const onSubmit = (data) => nextStep(data, "businessFields");
+
   const officeaddress_value = watch("officeaddress");
-  const { t } = useTranslation();
   const localFormVals = getValues();
 
   useLocalFormVal({
