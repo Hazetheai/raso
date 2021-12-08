@@ -2,7 +2,7 @@ import ManageTaxesCTA from "components/CTA/ManageTaxesCTA";
 import Table, { sampleTableData } from "components/Table";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { UserDataContext, useUserData } from "userData";
+import { useUserData } from "userData";
 import { useUserInteraction } from "userInteraction";
 import Fieldset from "../Fieldset";
 
