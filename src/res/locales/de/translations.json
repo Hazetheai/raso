@@ -280,7 +280,7 @@
   "steuernummer_helper_expand_title": "Was ist meine Steueridentifikationsnummer?",
   "steuernummer_helper_expand_content": "Die Steueridentifikationsnummer oder Steuer-ID besteht aus 11 Ziffern, die wie in diesem Beispiel geschrieben werden: 12365489753 (Bitte nicht verwechseln mit der Steuernummer deiner selbständigen Tätigkeit mit diesem Format: 198/113/10010).",
   "steuernummer_helper_2_expand_title": "Wo finde ich meine Steueridentifikationsnummer?",
-  "steuernummer_helper_2_expand_content": "Wenn du bereits als Arbeitnehmer in gearbeitet hast, findest du sie in der Regel auf deiner Lohnsteuerbescheinigung im oberen Bereich unter Steuer-IfD. <br/><br/> Außerdem ist die Steuer-ID auch auf deinem Einkommensteuerbescheid vermerkt, wenn du schon mal eine Steuererklärung gemacht hast. <br/><br/> Wenn du in Deutschland geboren oder hier steuerpflichtig gemeldet bist, solltest du ein Schreiben vom Bundeszentralamt für Steuern mit deiner Steuer-ID bekommen haben. Kinder erhalten ihre Steuer-ID kurz nach Geburt und Einwanderern wird die Steuer-ID bei der ersten Anmeldung in Deutschland zugeteilt. Wenn das nicht der Fall ist oder du nicht weißt, wo der Brief ist, kannst du die Nummer aber auch über das <a href=\"https://www.bzst.de/SiteGlobals/Kontaktformulare/DE/Steuerliche_IDNr/Mitteilung_IdNr/mitteilung_IdNr_node.html\" target=\"_blank\" rel=\"noopener\">Web-Formular beim BZSt erfragen</a>",
+  "steuernummer_helper_2_expand_content": "Wenn du bereits als Arbeitnehmer in gearbeitet hast, findest du sie in der Regel auf deiner Lohnsteuerbescheinigung im oberen Bereich unter Steuer-ID. <br/><br/> Außerdem ist die Steuer-ID auch auf deinem Einkommensteuerbescheid vermerkt, wenn du schon mal eine Steuererklärung gemacht hast. <br/><br/> Wenn du in Deutschland geboren oder hier steuerpflichtig gemeldet bist, solltest du ein Schreiben vom Bundeszentralamt für Steuern mit deiner Steuer-ID bekommen haben. Kinder erhalten ihre Steuer-ID kurz nach Geburt und Einwanderern wird die Steuer-ID bei der ersten Anmeldung in Deutschland zugeteilt. Wenn das nicht der Fall ist oder du nicht weißt, wo der Brief ist, kannst du die Nummer aber auch über das <a href=\"https://www.bzst.de/SiteGlobals/Kontaktformulare/DE/Steuerliche_IDNr/Mitteilung_IdNr/mitteilung_IdNr_node.html\" target=\"_blank\" rel=\"noopener\">Web-Formular beim BZSt erfragen</a>",
 
   "steuernummer_value_label": "Bitte gebe die vorhandene Steuernummer an",
 
@@ -380,7 +380,7 @@
 
   "tax_estimate_sonderausgaben_fieldset_title": "Deine erwarteten Sonderausgaben",
   "tax_estimate_sonderausgaben_fieldset_helper": "Private Versicherungen, Altersvorsorge, Unterhalt. Bitte trage hier nicht deine geschäftlichen Ausgaben ein (Büromaterial, Miete etc.)",
-  "tax_estimate_steuerabzugsbetrage_fieldset_title": "Steuerschatzung",
+  "tax_estimate_steuerabzugsbetrage_fieldset_title": "Steuerschätzung",
   "tax_estimate_steuerabzugsbetrage_fieldset_helper": "Hier kannst du eine Schätzung z.B. anhand deiner letzten Einkommensteuererklärung vornehmen.",
 
   "sonderausgabenFirstYear_label": "Erstes Geschäftsjahr {{- yearOne}}",
