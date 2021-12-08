@@ -46,7 +46,14 @@ export function useLocalFormVal({ key, reset, localFormVals, errors }) {
         formatDatasection({ ...userData[key], ...localFormVals })
       )
     ) {
-      setUserInteraction({ isAutoSaving: true });
+      setUserInteraction({
+        isAutoSaving: true,
+        // Reset Review screen to force regeneration of the pdf
+        success: false,
+        previewLink: "",
+        code: "",
+        message: "",
+      });
 
       setUserData(
         formatDatasection({ ...userData[key], ...localFormVals }),
