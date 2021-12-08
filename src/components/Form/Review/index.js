@@ -204,7 +204,7 @@ const Review = ({ currentStep, nextStep }) => {
                       sPartner: "",
                       successPageVersion: userInteraction.version,
                     });
-                    console.log(`ar`, ar);
+
                     setLoading(false);
                     nextStep(userData.reviewFields, "reviewFields", true, ar);
                   }}

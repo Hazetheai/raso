@@ -69,7 +69,7 @@ const Table = ({ tableData }) => {
       const dlAppLink = isMobile
         ? userInteraction.downloadAppLink_mobile
         : userInteraction.downloadAppLink_desktop;
-      console.log(`appLink`, appLink);
+
       setActionElements(
         tableData.actionElements.map((el) =>
           el?.link === "dlAppLink"

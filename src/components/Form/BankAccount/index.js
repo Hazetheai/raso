@@ -34,7 +34,7 @@ const BankAccount = ({ currentStep, nextStep, comingStep }) => {
 
   const onSubmit = (data) => nextStep(data, "bankAccountFields");
   const { t, i18n } = useTranslation();
-  console.log(`i18n.language`, i18n.language);
+
   const showBusinessBankAccount_field_value = watch("showBusinessBankAccount");
   const showPersonalBankAccount_field_value = watch("showPersonalBankAccount");
 
