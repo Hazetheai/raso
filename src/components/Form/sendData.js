@@ -13,11 +13,13 @@ export async function sendForm({
   sPartner,
   preview,
   successPageVersion,
+  videoSection,
 }) {
   const usecase = "send";
   // TODO
   gtagEvent("RASO_SEND_FORM-ITER-1", {
     version: `12/10/2021_${successPageVersion}`,
+    video: `12/10/2021_${videoSection}`,
   });
   if (preview)
     return await apiCall(

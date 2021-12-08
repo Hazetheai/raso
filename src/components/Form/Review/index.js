@@ -205,6 +205,7 @@ const Review = ({ currentStep, nextStep }) => {
                       sLang: i18n.language,
                       sPartner: "",
                       successPageVersion: userTesting.successPage,
+                      videoSection: userTesting.videoSection,
                     });
 
                     setLoading(false);
