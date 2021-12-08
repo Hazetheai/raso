@@ -350,7 +350,7 @@
   "profit_expand_helper_2_title": "How do I estimate my profit?",
   "profit_expand_helper_2_content": "You can subtract your estimated expenses from your expected income and calculate your profit. No worries, the Finanzamt does not expect a perfect prediction of your profit. <br/> <br/> Based on your estimate, the tax office will determine the advance tax payments. With your tax return at the end of the year you will be refunded or you have to pay more taxes, based on how much you really earned.",
 
-  "freiberufler_oder_gewerbetreibender_label": "Will these profits come from freelance self-employment (Freiberufler) pr commercial operations (Gewerbetreibender)",
+  "freiberufler_oder_gewerbetreibender_label": "Will these profits come from freelance self-employment (Freiberufler) or commercial operations (Gewerbetreibender)",
 
   "profitGewerbetreibender_label": "Are you expecting profit from commercial operations (Gewerbetreibender)?",
   "profitGewerbetreibenderFirstYear_label": "First year in business {{- yearOne}}",
