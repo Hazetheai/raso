@@ -139,7 +139,7 @@ const Review = ({ currentStep, nextStep }) => {
                         reviewFields: { ...userData.reviewFields, taxOffice },
                       },
                       preview: true,
-                      sLang: "en",
+                      sLang: i18n.language,
                       sPartner: "",
                       successPageVersion: userTesting.successPage,
                     });
@@ -202,7 +202,7 @@ const Review = ({ currentStep, nextStep }) => {
                     const ar = await sendForm({
                       fields: userData,
                       preview: true,
-                      sLang: "en",
+                      sLang: i18n.language,
                       sPartner: "",
                       successPageVersion: userTesting.successPage,
                     });
