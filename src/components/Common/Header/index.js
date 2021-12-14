@@ -1,18 +1,16 @@
+import clsx from "clsx";
 import React from "react";
+import { useTranslation } from "react-i18next";
+import { useLocation } from "react-router";
+import checkmark from "res/images/checkmark.svg";
 import logo from "res/images/logo.svg";
+import rasoBg from "res/images/top-section.png";
+import { useUserInteraction } from "userInteraction";
+import { useUserTesting } from "userTesting";
+import "./header.css";
 import Hero from "./Hero";
 import LanguagePicker from "./LanguagePicker";
 import Nav from "./Nav";
-import rasoBg from "res/images/top-section.png";
-import checkmark from "res/images/checkmark.svg";
-import "./header.css";
-import { useTranslation } from "react-i18next";
-import { useLocation } from "react-router";
-import clsx from "clsx";
-import Button from "components/Button";
-import { cleanLocal } from "res/lib";
-import { useUserInteraction } from "userInteraction";
-import { useUserTesting } from "userTesting";
 
 const Header = () => {
   const { t } = useTranslation();
@@ -46,7 +44,6 @@ const Header = () => {
   };
   return (
     <>
-      {console.log(`userTesting`, userTesting)}
       <div className={clsx("top-section")}>
         <div
           className={clsx(
