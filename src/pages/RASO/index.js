@@ -8,6 +8,7 @@ import rasoCTAImage from "res/images/raso-cta-2-illustration.png";
 import { gtagEvent } from "res/gtag";
 import checkmark from "res/images/checkmark.svg";
 import CTA from "components/CTA";
+import { useUserTesting } from "userTesting";
 
 const RASO = ({ lang }) => {
   const { t, i18n } = useTranslation();
@@ -16,6 +17,16 @@ const RASO = ({ lang }) => {
   // }
 
   const { userInteraction } = useUserInteraction();
+  const { userTesting } = useUserTesting();
+
+  useEffect(() => {
+    gtagEvent("RASO_PAGEVIEW-ITER-1", {
+      path: window.location.pathname,
+      version: `12/10/2021_${userTesting.successPage}`,
+      video: `12/10/2021_${userTesting.videoSection}`,
+    });
+    gtagEvent("RASO_TAB-ITER-1", { tab: "#personal" });
+  }, []);
 
   const faqData = {
     containerClassName: "raso-faq",

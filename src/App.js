@@ -27,8 +27,6 @@ function App() {
 
   useEffect(() => {
     logPageView();
-    gtagEvent("RASO_PAGEVIEW-ITER-1", { path: window.location.pathname });
-    gtagEvent("RASO_TAB-ITER-1", { tab: "#personal" });
   }, []);
 
   return (
