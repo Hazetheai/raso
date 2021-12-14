@@ -99,6 +99,13 @@ html {
   box-sizing: border-box;
 }
 
+/**
+* 1. Containers
+* 2. Elements
+* 3. Typography
+* 4. Animations
+**/
+
 /************************/
 /****** Containers ******/
 /************************/
@@ -179,19 +186,6 @@ html {
   }
 }
 
-a {
-  color: #007bff;
-  text-decoration: none;
-}
-img {
-  vertical-align: middle;
-}
-
-.dlAccountableLink:hover {
-  text-decoration: none;
-  opacity: 0.95;
-}
-
 @media only screen and (max-width: 769px) {
   .desktop-only {
     display: none !important;
@@ -207,6 +201,19 @@ img {
 /************************/
 /****** Elements ******/
 /************************/
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+img {
+  vertical-align: middle;
+}
+
+.dlAccountableLink:hover {
+  text-decoration: none;
+  opacity: 0.95;
+}
 
 hr {
   border: 0;
