@@ -12,11 +12,6 @@ export const FinanzamtLetters = ({ finanzamtLetters }) => {
   const [currentLetter, setCurrentLetter] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  //   useEffect(() => {
-  //       setWindowSize(window.innerHeight * .7)
-
-  //   }, [])
-
   const { t } = useTranslation();
 
   useEffect(() => {

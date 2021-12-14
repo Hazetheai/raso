@@ -16,7 +16,6 @@ export async function sendForm({
   videoSection,
 }) {
   const usecase = "send";
-  // TODO
   gtagEvent("RASO_SEND_FORM-ITER-1", {
     version: `12/10/2021_${successPageVersion}`,
     video: `12/10/2021_${videoSection}`,
@@ -40,7 +39,6 @@ export async function previewForm({
   successPageVersion,
 }) {
   const usecase = "validate";
-  // TODO
   gtagEvent("RASO_PREVIEW_FORM-ITER-1");
   return await apiCall(
     fields,
