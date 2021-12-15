@@ -371,7 +371,7 @@ textarea.field_input {
 
 .checkbox_option svg {
   position: relative;
-  top: 1px;
+  top: -1px;
 }
 
 .checkbox_option-name {
