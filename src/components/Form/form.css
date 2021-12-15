@@ -81,3 +81,21 @@ fieldset.form-section + fieldset.form-section {
     text-align: left;
   }
 }
+
+.submission-error {
+  position: relative;
+}
+.submission-error__copy-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 200%;
+  background-color: transparent;
+  border: 1px solid #905fda;
+  padding: 4px 1px 4px 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  max-height: 30px;
+}

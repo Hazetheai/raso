@@ -39,7 +39,7 @@ const Review = ({ currentStep, nextStep }) => {
 
   const { t, i18n } = useTranslation();
   const { userData, setUserData } = useUserData();
-  const [errorsVisible, setErrorsVisible] = useState(false);
+  const [errorsVisible, setErrorsVisible] = useState(true);
   const linkRef = useRef(null);
   const [loading, setLoading] = useState(false);
 
@@ -246,9 +246,27 @@ const Review = ({ currentStep, nextStep }) => {
                     text={errorsVisible ? "Hide" : "Show Errors"}
                   />
                   {errorsVisible && (
-                    <pre>
-                      {JSON.stringify(userInteraction?.data || {}, null, 2)}
-                    </pre>
+                    <>
+                      <pre className="submission-error">
+                        <Button
+                          fluid
+                          title={t("copy_to_clipboard")}
+                          className={"submission-error__copy-icon"}
+                          func={() =>
+                            navigator.clipboard.writeText(
+                              JSON.stringify(
+                                userInteraction?.data || {},
+                                null,
+                                2
+                              )
+                            )
+                          }
+                        >
+                          📋
+                        </Button>
+                        {JSON.stringify(userInteraction?.data || {}, null, 2)}
+                      </pre>
+                    </>
                   )}
                 </div>
               ) : null}
