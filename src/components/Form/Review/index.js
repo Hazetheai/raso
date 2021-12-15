@@ -212,7 +212,7 @@ const Review = ({ currentStep, nextStep }) => {
                     nextStep(userData.reviewFields, "reviewFields", true, ar);
                   }}
                   isLoading={loading}
-                  className="body--big-bold"
+                  className="body--big-bold notranslate"
                   type="button"
                 >
                   <img src={eagle} alt={t("review_button_send_pdf")} />
