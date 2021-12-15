@@ -226,7 +226,10 @@ const Review = ({ currentStep, nextStep }) => {
                     });
 
                     setLoading(false);
-                    nextStep(userData.reviewFields, "reviewFields", true, ar);
+                    nextStep(userData.reviewFields, "reviewFields", true, {
+                      ...ar,
+                      send: true,
+                    });
                   }}
                   isLoading={loading}
                   className="body--big-bold notranslate"

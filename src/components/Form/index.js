@@ -178,7 +178,7 @@ const Form = ({}) => {
           tabs: steps,
         }}
         activeTab={userInteraction.workingStep || currentStep.tabId}
-        onTabClick={userInteraction.success ? null : handleTabClick}
+        onTabClick={userInteraction.send ? null : handleTabClick}
       />
       <div className="form-container">
         {currentStep.tabId === "personalFields" && (

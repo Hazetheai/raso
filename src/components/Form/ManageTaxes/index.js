@@ -22,7 +22,7 @@ const ManageTaxes = ({}) => {
         <div className="form">
           <Fieldset section>
             <div className="screen-header">
-              {userInteraction.success ? (
+              {userInteraction.send ? (
                 <>
                   <h2
                     className="screen-title"
@@ -53,7 +53,7 @@ const ManageTaxes = ({}) => {
                 />
               )}
 
-              {userInteraction.success ? (
+              {userInteraction.send ? (
                 <p className="screen-subtitle screen-subtitle--manageTaxes body--small">
                   {t("tab_manageTaxes_subtitle")}
                 </p>
@@ -66,7 +66,7 @@ const ManageTaxes = ({}) => {
                 />
               )}
             </div>
-            {userInteraction.success ? (
+            {userInteraction.send ? (
               <Table tableData={sampleTableData} />
             ) : null}
             <ManageTaxesCTA />
