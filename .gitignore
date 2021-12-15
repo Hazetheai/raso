@@ -11,6 +11,9 @@
 # production
 /build
 
+# development
+stash.js
+
 # misc
 .DS_Store
 .env.local
