@@ -15,11 +15,6 @@ const LanguagePicker = () => {
         <Link
           onClick={() => {
             i18n.changeLanguage(i18n.language === "de" ? "en" : "de");
-            // if(i18n.language === "de")
-            // {window.history.pushState({}, '', window.location.href.replace(/\/en/,""));}
-            // history.push(
-            //   i18n.language === "de" ? "/" + search : "/en" + search
-            // );
           }}
           to={i18n.language === "en" ? "/" + search : "/en" + search}
         >
