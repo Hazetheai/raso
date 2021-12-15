@@ -17,3 +17,4 @@ export const fbPixelId = "2207534789479329"; //its prod
 export const gtagId = "GTM-5SW8SVC";
 export const country = "de";
 export const dlAppLink = "https://accountable.app.link/FTshY7oGF3?";
+export const webAppLink = "https://onboarding.accountable.de/";

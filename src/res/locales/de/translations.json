@@ -219,6 +219,7 @@
   "tab_manageTaxes_label": "Selbstständigkeit starten",
   "tab_manageTaxes_heading": "Herzlichen Glückwunsch {{- name}} ✨",
   "tab_manageTaxes_heading_2": "Deine Registrierung wurde erfolgreich versendet! <br/> Erledige deine Steuern komplett digital.",
+  "tab_manageTaxes_heading_empty": "Sie erhalten alle Hilfe, die Sie brauchen: <br/> Nach der Registrierung können Sie Ihre Steuern vertrauensvoll mit Accountable einreichen.",
   "tab_manageTaxes_subtitle": "Nutze ELSTER oder Accountable, um alle erforderlichen Steuererklärungen beim Finanzamt einzureichen.",
 
   "full_name_label": "Vollständiger Name",
@@ -424,7 +425,7 @@
   "review_button_success_heading": "Nach dem Absenden des Formulars erhältst du deine Steuernummer vom Finanzamt per Post. In der Regel dauert es 3-6 Wochen, bis sie eintrifft.",
 
   "review_button_success_subtitle": "Wenn du willst, kannst du zusätzlich auch einen unserer Partner-Steuerberater beauftragen, deine Angaben zu prüfen bevor du sie an das Finanzamt sendest.",
-
+  "test_app_for_free": "Testen Sie die App kostenlos",
   "disclaimer": "Die in diesem Formular gegebenen Hinweise sind unverbindlich und ersetzen keinen Steuerberater. Bitte lass dir im Zweifel von einem Steuerberater helfen.",
   "no_credit_card_required_label": "Land",
   "country_option_germany": "🇩🇪 Deutschland",

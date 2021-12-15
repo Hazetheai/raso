@@ -63,7 +63,8 @@ const RASO = ({ lang }) => {
     <div className="content">
       <Form />
 
-      {userInteraction.workingStep === "manageTaxes" && <CTA {...ctaData} />}
+      {userInteraction.workingStep === "manageTaxes" &&
+        userInteraction.success && <CTA {...ctaData} />}
       {(userInteraction.workingStep === "personalFields" ||
         userInteraction.workingStep === "manageTaxes") && (
         <FAQ faqData={faqData} />

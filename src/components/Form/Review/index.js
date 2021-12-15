@@ -250,7 +250,8 @@ const Review = ({ currentStep, nextStep }) => {
               {code && !success && (
                 <span className="error-code">Code: {code}</span>
               )}
-              <hr />
+              {code && !success && <hr />}
+
               {userInteraction?.data?.data?.messages?.errors?.map(
                 (err, idx, arr) => {
                   return (

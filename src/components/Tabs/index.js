@@ -24,12 +24,12 @@ const Tabs = ({ tabData, activeTab, onTabClick }) => {
         userInteraction.touchedScreens.includes(tab.tabId)
           ? { ...tab, touched: true }
           : tab
-      )
-      .map((tab) =>
-        userInteraction.stepsCompleted.includes("reviewFields")
-          ? { ...tab, hidden: false }
-          : tab
       );
+    // .map((tab) =>
+    //   userInteraction.stepsCompleted.includes("reviewFields")
+    //     ? { ...tab, hidden: false }
+    //     : tab
+    // );
 
     return newTabData;
   }

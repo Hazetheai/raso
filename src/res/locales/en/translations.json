@@ -222,6 +222,7 @@
   "tab_manageTaxes_label": "Start as self-employed",
   "tab_manageTaxes_heading": "Congratulations {{- name}} ✨",
   "tab_manageTaxes_heading_2": "Your registration has been sent! <br/> Now start managing your taxes digitally.",
+  "tab_manageTaxes_heading_empty": "Receive all the help you need: <br/> After registration you can submit your taxes with confidence using Accountable.",
   "tab_manageTaxes_subtitle": "Use ELSTER or Accountable to file all necessary tax declarations.",
 
   "firstname_label": "First Name",
@@ -421,7 +422,7 @@
   "review_button_success_heading": "After submitting the form you will receive your tax number from the Finanzamt via post. It usually takes 3-6 weeks to arrive.",
 
   "review_button_success_subtitle": "For extra peace of mind, you can <a href=\"http://accountable.de/en/tax-advisor/\" target=\"_blank\"> ask your tax consultant </a> on our website to review your tax registration form before submitting it to the Finanzamt.",
-
+  "test_app_for_free": "Test the app for free",
   "disclaimer": "The guidance provided within this form is without liability and does not replace a tax consultant. To get an accurate answer for your specific case, please consult with a certified tax consultant.",
 
   "no_credit_card_required_label": "Land",

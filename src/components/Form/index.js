@@ -62,7 +62,7 @@ const Form = ({}) => {
         tabId: `${tab}`,
         complete: false,
         touched: false,
-        hidden: idx < arr.length - 1 ? false : true,
+        // hidden: idx < arr.length - 1 ? false : true,
         tabHelper: /_/g.test(helper) ? null : helper,
       };
     }),
@@ -178,7 +178,7 @@ const Form = ({}) => {
           tabs: steps,
         }}
         activeTab={userInteraction.workingStep || currentStep.tabId}
-        onTabClick={handleTabClick}
+        onTabClick={userInteraction.success ? null : handleTabClick}
       />
       <div className="form-container">
         {currentStep.tabId === "personalFields" && (
