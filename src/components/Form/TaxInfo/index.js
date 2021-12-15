@@ -28,7 +28,6 @@ const TaxInfo = ({ currentStep, nextStep, comingStep }) => {
     mode: userInteraction.stepsCompleted.includes("personalFields")
       ? "onChange"
       : "onBlur",
-    reValidateMode: "onBlur",
   });
 
   const localFormVals = getValues();

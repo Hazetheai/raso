@@ -31,7 +31,7 @@ const Review = ({ currentStep, nextStep }) => {
     getValues,
     formState,
   } = useForm({
-    mode: userInteraction.stepsCompleted.includes("personalFields")
+    mode: userInteraction.stepsCompleted.includes("reviewFields")
       ? "onChange"
       : "onBlur",
   });
