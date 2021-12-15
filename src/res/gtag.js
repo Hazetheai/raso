@@ -13,5 +13,12 @@ export const initGTM = () => {
   })(window, document, "script", "dataLayer", gtagId);
 };
 
-export const gtagEvent = (event, payload = {}) =>
-  window?.dataLayer?.push({ event: event, payload: payload });
+export const gtagEvent = (event, payload = {}) => {
+  if (window.dataLayer) {
+    return window?.dataLayer?.push({ event: event, payload: payload });
+  } else {
+    setTimeout(() => {
+      return window?.dataLayer?.push({ event: event, payload: payload });
+    }, 1000);
+  }
+};
