@@ -14,6 +14,7 @@ import "./table.css";
 import mobileAccLogo from "res/images/logo192.png";
 import mobileElsLogo from "res/images/elster-mobile.png";
 import { useWindowSize } from "components/hooks/useWindowSize";
+import { gtagEvent } from "res/gtag";
 
 export const sampleTableData = {
   columns: [
@@ -46,7 +47,11 @@ export const sampleTableData = {
       text: "success_table_elster_actionElement_text",
       secondary: true,
     },
-    { link: "dlAppLink", text: "success_table_accountable_actionElement_text" },
+    {
+      link: "dlAppLink",
+      text: "success_table_accountable_actionElement_text",
+      gtagEvent: { event: "RASO_CLICKED_DOWNLOADAPP-ITER-1", params: {} },
+    },
   ],
 };
 
@@ -162,7 +167,14 @@ const Table = ({ tableData }) => {
                 <Link
                   key={el.link}
                   href={el.link}
-                  func={el.func}
+                  func={() =>
+                    el.gtagEvent
+                      ? gtagEvent(
+                          el.gtagEvent?.event,
+                          el.gtagEvent?.params || {}
+                        )
+                      : null
+                  }
                   secondary={el.secondary}
                   className="table-row-acc-button"
                   target="_blank"
@@ -186,7 +198,14 @@ const Table = ({ tableData }) => {
               className={"table-row-data table-row-data--actionElement"}
             >
               {" "}
-              <Button key={el.text} func={el?.func}>
+              <Button
+                key={el.text}
+                func={() =>
+                  el.gtagEvent
+                    ? gtagEvent(el.gtagEvent?.event, el.gtagEvent?.params || {})
+                    : null
+                }
+              >
                 {t(el?.text)}
               </Button>
             </span>
