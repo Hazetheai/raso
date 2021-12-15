@@ -84,7 +84,7 @@ const Review = ({ currentStep, nextStep }) => {
   useEffect(() => {
     if (userInteraction?.data?.data?.messages?.errors) {
       const submissionErrors = {};
-      const accErrs = userInteraction?.data?.data?.messages?.errors.forEach(
+      const accErrs = userInteraction?.data?.data?.messages?.errors?.forEach(
         (err, idx) => {
           submissionErrors[`error-${idx + 1}`] = err?.message.replace(
             /.+:\s/,
@@ -251,7 +251,7 @@ const Review = ({ currentStep, nextStep }) => {
                 <span className="error-code">Code: {code}</span>
               )}
               <hr />
-              {userInteraction?.data?.data?.messages?.errors.map(
+              {userInteraction?.data?.data?.messages?.errors?.map(
                 (err, idx, arr) => {
                   return (
                     <span key={err?.message || idx} className="error">
