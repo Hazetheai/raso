@@ -39,7 +39,7 @@ const Review = ({ currentStep, nextStep }) => {
 
   const { t, i18n } = useTranslation();
   const { userData, setUserData } = useUserData();
-  const [errorsVisible, setErrorsVisible] = useState(true);
+  const [errorsVisible, setErrorsVisible] = useState(false);
   const linkRef = useRef(null);
   const [loading, setLoading] = useState(false);
 
