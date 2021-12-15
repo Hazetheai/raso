@@ -457,7 +457,9 @@ const JumpDate = ({ name, control, errors, shorter, minMax = {} }) => {
         "field_input",
         shorter && "field_input--shorter",
         inputProps.value && "field_input--control-value",
-        errors[name] && "field_input--error"
+        (errors[name] ||
+          (inputProps.value?.length > 0 && inputProps.value?.length < 10)) &&
+          "field_input--error"
       )}
       name={name}
       ref={ref}
