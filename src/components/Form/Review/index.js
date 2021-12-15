@@ -6,8 +6,8 @@ import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { Redirect } from "react-router";
 import tax_offices from "res/FormData/de/tax_office.json";
+import { gtagEvent } from "res/gtag";
 import eagle from "res/images/eagle.png";
-import letter_data from "res/letterData.json";
 import { isDev, isStaging } from "settings/config";
 import { useUserData } from "userData";
 import { useUserInteraction } from "userInteraction";
@@ -80,6 +80,23 @@ const Review = ({ currentStep, nextStep }) => {
       linkRef.current.focus();
     }
   }, [linkRef, previewLink]);
+
+  useEffect(() => {
+    if (userInteraction?.data?.data?.messages?.errors) {
+      const submissionErrors = {};
+      const accErrs = userInteraction?.data?.data?.messages?.errors.forEach(
+        (err, idx) => {
+          submissionErrors[`error-${idx + 1}`] = err?.message.replace(
+            /.+:\s/,
+            ""
+          );
+          submissionErrors[`field-${idx + 1}`] = err?.context?.field;
+        }
+      );
+
+      gtagEvent("RASO_SUBMISSION_ERROR", submissionErrors);
+    }
+  }, [userInteraction?.data?.data?.messages?.errors]);
 
   return (
     <>
@@ -229,41 +246,59 @@ const Review = ({ currentStep, nextStep }) => {
               </div>
             )}
             <p className="body--small">{t("disclaimer")}</p>
-            <p className="body--small">
+            <div className="body--small">
               {code && !success && (
                 <span className="error-code">Code: {code}</span>
               )}
-              {message && !success && (
-                <span className="error-message">{message}</span>
+              <hr />
+              {userInteraction?.data?.data?.messages?.errors.map(
+                (err, idx, arr) => {
+                  return (
+                    <span key={err?.message || idx} className="error">
+                      <p>
+                        <strong>Error:</strong>{" "}
+                        {err?.message.replace(/.+:\s/, "")}
+                      </p>
+                      <p>
+                        <strong>Field:</strong> {err?.context?.field}
+                      </p>
+                      {idx < arr.length - 1 ? <hr /> : null}
+                    </span>
+                  );
+                }
               )}
-            </p>
+            </div>
 
             <div className="qa-errors">
               {code && !success ? (
                 <div>
-                  <Button
-                    func={() => setErrorsVisible(!errorsVisible)}
-                    text={errorsVisible ? "Hide" : "Show Errors"}
-                  />
+                  <div className="flex--between">
+                    <Button
+                      inline
+                      fluid
+                      func={() => setErrorsVisible(!errorsVisible)}
+                      text={
+                        errorsVisible
+                          ? t("hide_full_error")
+                          : t("show_full_error")
+                      }
+                    />
+                    <Button
+                      fluid
+                      title={t("copy_to_clipboard")}
+                      className={"submission-error__copy-icon"}
+                      func={() =>
+                        navigator.clipboard.writeText(
+                          JSON.stringify(userInteraction?.data || {}, null, 2)
+                        )
+                      }
+                    >
+                      📋
+                    </Button>
+                  </div>
                   {errorsVisible && (
                     <>
                       <pre className="submission-error">
-                        <Button
-                          fluid
-                          title={t("copy_to_clipboard")}
-                          className={"submission-error__copy-icon"}
-                          func={() =>
-                            navigator.clipboard.writeText(
-                              JSON.stringify(
-                                userInteraction?.data || {},
-                                null,
-                                2
-                              )
-                            )
-                          }
-                        >
-                          📋
-                        </Button>
                         {JSON.stringify(userInteraction?.data || {}, null, 2)}
                       </pre>
                     </>

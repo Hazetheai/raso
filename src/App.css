@@ -173,6 +173,17 @@ html {
   flex-direction: column;
 }
 
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flex--between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 @media screen and (min-width: 1024px) {
   .content {
     margin: auto;
@@ -346,6 +357,10 @@ hr {
   letter-spacing: -0.02em;
   margin-top: 25px;
   margin-bottom: 10px;
+}
+
+.error {
+  color: var(--color-invalid_red);
 }
 
 /************************/

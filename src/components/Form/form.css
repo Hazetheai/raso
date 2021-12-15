@@ -67,7 +67,7 @@ fieldset.form-section + fieldset.form-section {
 
 .error-code,
 .error-message {
-  display: block;
+  display: inline-block;
   color: var(--color-invalid_red);
 }
 
@@ -86,6 +86,16 @@ fieldset.form-section + fieldset.form-section {
   position: relative;
 }
 .submission-error__copy-icon {
+  background-color: transparent;
+  border: 1px solid #905fda;
+  padding: 4px 1px 4px 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  max-height: 30px;
+}
+.submission-error__copy-icon--hidden {
   position: absolute;
   top: 0;
   right: 0;
