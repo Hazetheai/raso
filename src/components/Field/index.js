@@ -446,7 +446,7 @@ const JumpDate = ({ name, control, errors, shorter, minMax = {} }) => {
   } = useController({
     name,
     control,
-    rules: { required: true, minLength: 8 },
+    rules: { required: true, minLength: 10 },
     defaultValue: "",
   });
   const { userInteraction, setUserInteraction } = useUserInteraction();
