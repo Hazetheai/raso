@@ -501,37 +501,48 @@ const Money = ({ name, control, rules }) => {
   const isDe = i18n.language === "de";
 
   return (
-    <Cleave
-      className="field_input"
-      ref={ref}
-      value={value}
-      onChange={onChange}
-      onBlur={() => {
-        gtagEvent("RASO_FILLFIELD-ITER-1", { field: name });
-        setUserInteraction({ helperId: "" });
+    <>
+      <Cleave
+        className={clsx(
+          "field_input field_input--money",
+          !isDe && "field_input--money--de"
+        )}
+        ref={ref}
+        value={value}
+        onChange={onChange}
+        onBlur={() => {
+          gtagEvent("RASO_FILLFIELD-ITER-1", { field: name });
+          setUserInteraction({ helperId: "" });
 
-        return onBlur();
-      }}
-      onFocus={(e) => {
-        if (e.target.value?.length > 2 && isDe) {
-          const end = e.target.value.length - 2;
-          const start = end - 1;
-          e.target.setSelectionRange(start, end);
-        }
-        setUserInteraction({ helperId: name });
-      }}
-      options={{
-        numeral: true,
-        numericOnly: true,
-        numeralThousandsGroupStyle: "thousand",
-        numeralDecimalMark: isDe ? "," : ".",
-        delimiter: isDe ? "." : ",",
-        numeralPositiveOnly: true,
-        noImmediatePrefix: true,
-        prefix: isDe ? " €" : "€ ",
-        tailPrefix: isDe,
-      }}
-    />
+          return onBlur();
+        }}
+        onFocus={(e) => {
+          if (e.target.value?.length > 2 && isDe) {
+            const end = e.target.value.length - 2;
+            const start = end - 1;
+            e.target.setSelectionRange(start, end);
+          }
+          setUserInteraction({ helperId: name });
+        }}
+        options={{
+          numeral: true,
+          numericOnly: true,
+          numeralThousandsGroupStyle: "thousand",
+          numeralDecimalMark: isDe ? "," : ".",
+          delimiter: isDe ? "." : ",",
+          numeralPositiveOnly: true,
+          tailPrefix: isDe,
+        }}
+      />
+      <span
+        className={clsx(
+          "currency-sign",
+          isDe ? "currency-sign--de" : "currency-sign--en"
+        )}
+      >
+        €
+      </span>
+    </>
   );
 };
 

@@ -234,6 +234,29 @@ svg {
   font-size: 18px;
 }
 
+.field_input--money--de {
+  padding: 0 20px 0 40px;
+}
+
+.currency-sign {
+  font-size: 18px;
+  position: absolute;
+  top: 1px;
+  padding: 11px 12px;
+  background: var(--color-primary_faded);
+  border-radius: 9px;
+}
+.currency-sign--de {
+  right: 1px;
+  border-start-start-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.currency-sign--en {
+  border-start-end-radius: 0;
+  border-bottom-right-radius: 0;
+  left: 1px;
+}
+
 textarea.field_input {
   height: 120px;
   padding: 24px;
