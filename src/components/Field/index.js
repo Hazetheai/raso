@@ -401,13 +401,7 @@ const PhoneInput = ({ name, control, errors, shorter }) => {
         phone
           .split("")
           .map(function (char, index) {
-            if (
-              index === 2 ||
-              index === 5 ||
-              index === 7 ||
-              index === 9 ||
-              index === 11
-            ) {
+            if (index === 2 || index === 5) {
               char = " " + char;
             }
             if (index > 12) char = "";
