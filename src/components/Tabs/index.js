@@ -12,24 +12,17 @@ const Tabs = ({ tabData, activeTab, onTabClick }) => {
   const { isVideoSectionVisible } = userInteraction;
 
   function filterTabData(tabData) {
-    const newTabData = Object.assign({}, tabData);
+    const newTabData = { ...tabData };
 
     newTabData["tabs"] = newTabData.tabs
-      .map((tab) =>
-        userInteraction.stepsCompleted.includes(tab.tabId)
-          ? { ...tab, complete: true }
-          : tab
-      )
-      .map((tab) =>
-        userInteraction.touchedScreens.includes(tab.tabId)
-          ? { ...tab, touched: true }
-          : tab
-      );
-    // .map((tab) =>
-    //   userInteraction.stepsCompleted.includes("reviewFields")
-    //     ? { ...tab, hidden: false }
-    //     : tab
-    // );
+      .map((tab) => ({
+        ...tab,
+        complete: userInteraction.stepsCompleted.includes(tab.tabId),
+      }))
+      .map((tab) => ({
+        ...tab,
+        touched: userInteraction.touchedScreens.includes(tab.tabId),
+      }));
 
     return newTabData;
   }
