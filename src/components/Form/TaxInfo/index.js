@@ -25,7 +25,7 @@ const TaxInfo = ({ currentStep, nextStep, comingStep }) => {
     getValues,
     formState,
   } = useForm({
-    mode: userInteraction.stepsCompleted.includes("personalFields")
+    mode: userInteraction.stepsCompleted.includes("taxInfoFields")
       ? "onChange"
       : "onBlur",
   });
