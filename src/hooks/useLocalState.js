@@ -2,8 +2,8 @@ import { isEqual } from "lodash";
 import { useEffect } from "react";
 import { debounce, isEmpty } from "res/lib";
 import { isDev } from "settings/config";
-import { useUserData } from "userData";
-import { useUserInteraction } from "userInteraction";
+import { useUserData } from "data-layer/userData";
+import { useUserInteraction } from "data-layer/userInteraction";
 import {
   formatDatasection,
   reFormatForFormData,

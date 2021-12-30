@@ -8,7 +8,7 @@ import { useTranslation } from "react-i18next";
 import checkFalse from "res/images/comparison-check-false.png";
 import checkTrue from "res/images/comparison-check-true.png";
 import ElsterLogo from "res/images/elster-logo.svg";
-import { useUserInteraction } from "userInteraction";
+import { useUserInteraction } from "data-layer/userInteraction";
 import "./table.css";
 
 import mobileAccLogo from "res/images/logo192.png";

@@ -4,7 +4,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 
 import Quotes from "components/Quotes";
-import { useUserInteraction } from "userInteraction";
+import { useUserInteraction } from "data-layer/userInteraction";
 
 const RASOSuccessBSection = () => {
   const { userInteraction, setUserInteraction } = useUserInteraction();

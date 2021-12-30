@@ -6,8 +6,8 @@ import Terms from "components/Terms";
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-import { useUserInteraction } from "userInteraction";
-import { useUserTesting } from "userTesting";
+import { useUserInteraction } from "data-layer/userInteraction";
+import { useUserTesting } from "data-layer/userTesting";
 import "./hero.css";
 
 const RasoHero = ({ terms, h1, h3, ctaText, ctaLink, ctaFunc }) => {

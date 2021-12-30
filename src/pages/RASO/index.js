@@ -3,18 +3,15 @@ import Form from "components/Form/";
 import Toast from "components/Toast";
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { useUserInteraction } from "userInteraction";
+import { useUserInteraction } from "data-layer/userInteraction";
 import rasoCTAImage from "res/images/raso-cta-2-illustration.png";
 import { gtagEvent } from "res/gtag";
 import checkmark from "res/images/checkmark.svg";
 import CTA from "components/CTA";
-import { useUserTesting } from "userTesting";
+import { useUserTesting } from "data-layer/userTesting";
 
-const RASO = ({ lang }) => {
+const RASO = () => {
   const { t, i18n } = useTranslation();
-  // if (i18n.language !== lang) {
-  //   i18n.changeLanguage(lang);
-  // }
 
   const { userInteraction } = useUserInteraction();
   const { userTesting } = useUserTesting();

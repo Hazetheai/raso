@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import states from "res/FormData/de/states.json";
 import { sanitizeNumbers } from "res/lib";
-import { useUserInteraction } from "userInteraction";
+import { useUserInteraction } from "data-layer/userInteraction";
 import Field from "components/Field";
 import { useLocalFormVal } from "hooks/useLocalState";
 import Fieldset from "../Fieldset";

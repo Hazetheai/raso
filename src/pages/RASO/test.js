@@ -5,13 +5,10 @@ import Table, { sampleTableData } from "components/Table";
 import Toast from "components/Toast";
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { useUserInteraction } from "userInteraction";
+import { useUserInteraction } from "data-layer/userInteraction";
 
-const Test = ({ lang }) => {
+const Test = () => {
   const { t, i18n } = useTranslation();
-  // if (i18n.language !== lang) {
-  //   i18n.changeLanguage(lang);
-  // }
 
   const { userInteraction } = useUserInteraction();
 

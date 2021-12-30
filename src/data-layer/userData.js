@@ -1,7 +1,7 @@
 import produce from "immer";
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { isDev } from "settings/config";
-import { initialUserData } from "state/initialUserData";
+import { initialUserData } from "data-layer/initialUserData";
 const UserDataContext = createContext();
 
 const useUserData = () => {

@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import bankAccountHolders_en from "res/FormData/en/bankAccountHolders.json";
 import bankAccountHolders_de from "res/FormData/de/bankAccountHolders.json";
-import { useUserInteraction } from "userInteraction";
+import { useUserInteraction } from "data-layer/userInteraction";
 import Field from "../../Field";
 import { useLocalFormVal } from "../../../hooks/useLocalState";
 import Fieldset from "../Fieldset";

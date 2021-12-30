@@ -9,7 +9,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import { useController } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { gtagEvent } from "res/gtag";
-import { useUserInteraction } from "userInteraction";
+import { useUserInteraction } from "data-layer/userInteraction";
 import "./field.css";
 import fieldHelperIcon from "./helper-icon.svg";
 

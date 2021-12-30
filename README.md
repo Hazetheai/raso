@@ -14,10 +14,10 @@ It uses a traditional React app structure of:
   Logos
 - src
   components
+  data-layer
   pages
   res
   settings
-  data-layer
   App.js etc
 
 environment files (package.json etc)

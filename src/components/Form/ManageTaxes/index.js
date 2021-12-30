@@ -6,8 +6,8 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { gtagEvent } from "res/gtag";
 import { dlAppLink, webAppLink } from "settings/config";
-import { useUserData } from "userData";
-import { useUserInteraction } from "userInteraction";
+import { useUserData } from "data-layer/userData";
+import { useUserInteraction } from "data-layer/userInteraction";
 import Fieldset from "../Fieldset";
 
 const ManageTaxes = ({}) => {

@@ -10,15 +10,13 @@ import { gtagEvent } from "res/gtag";
 import checkmark from "res/images/checkmark.svg";
 import rasoCTAImage from "res/images/raso-cta-2-illustration.png";
 import { isDev } from "settings/config";
-import { useUserData } from "userData";
-import { useUserInteraction } from "userInteraction";
-import { useUserTesting } from "userTesting";
+import { useUserData } from "data-layer/userData";
+import { useUserInteraction } from "data-layer/userInteraction";
+import { useUserTesting } from "data-layer/userTesting";
 
-const SuccessPage = ({ lang }) => {
+const SuccessPage = () => {
   const { t, i18n } = useTranslation();
-  // if (i18n.language !== lang) {
-  //   i18n.changeLanguage(lang);
-  // }
+
   const { userTesting, setUserTesting } = useUserTesting();
   const { userInteraction, setUserInteraction } = useUserInteraction();
   const { userData, setUserData } = useUserData();

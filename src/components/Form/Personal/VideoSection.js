@@ -2,7 +2,7 @@ import Badges from "components/Badges";
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useInView } from "react-intersection-observer";
-import { useUserInteraction } from "userInteraction";
+import { useUserInteraction } from "data-layer/userInteraction";
 import "./video-section.css";
 import "intersection-observer";
 import YouTube from "react-youtube";

@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { useUserData } from "userData";
-import { useUserInteraction } from "userInteraction";
+import { useUserData } from "data-layer/userData";
+import { useUserInteraction } from "data-layer/userInteraction";
 import tax_offices from "res/FormData/de/tax_office.json";
 import { gtagEvent } from "res/gtag";
-import { useUserTesting } from "userTesting";
+import { useUserTesting } from "data-layer/userTesting";
 
 const SuccessHero = () => {
   const { userInteraction, setUserInteraction } = useUserInteraction();

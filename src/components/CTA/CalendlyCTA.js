@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import click from "res/images/finger-click-illlustration.png";
 import tino from "res/images/tino-cta.png";
 import { openPopupWidget } from "react-calendly";
-import { useUserData } from "userData";
+import { useUserData } from "data-layer/userData";
 
 const SecondaryCTA = () => {
   const { t, i18n } = useTranslation();
