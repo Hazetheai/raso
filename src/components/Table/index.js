@@ -79,7 +79,11 @@ const Table = ({ tableData }) => {
           el?.link === "dlAppLink"
             ? {
                 ...el,
-                link: dlAppLink || "http://onboarding.accountable.de/en/",
+                link:
+                  dlAppLink ||
+                  `http://onboarding.accountable.de/${
+                    i18n.language === "de" ? "" : "en"
+                  }`,
               }
             : el
         )

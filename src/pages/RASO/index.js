@@ -5,6 +5,7 @@ import Toast from "components/Toast";
 import { useUserInteraction } from "data-layer/userInteraction";
 import { useUserTesting } from "data-layer/userTesting";
 import React, { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { gtagEvent } from "res/gtag";
 import checkmark from "res/images/checkmark.svg";
 import home from "res/images/home.svg";
@@ -66,6 +67,7 @@ const tabData = {
 const RASO = () => {
   const { userInteraction } = useUserInteraction();
   const { userTesting } = useUserTesting();
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     gtagEvent("RASO_PAGEVIEW-ITER-1", {
@@ -81,13 +83,15 @@ const RASO = () => {
       <Form tabData={tabData} />
       {userInteraction.workingStep === "manageTaxes" &&
         userInteraction.success &&
-        userInteraction.ticketId && (
+        userInteraction.stepsCompleted.length > 5 && (
           <CTA
             {...ctaData}
             mobileActionElementLink={userInteraction.downloadAppLink_mobile}
             desktopActionElementLink={
               userInteraction.downloadAppLink_desktop ||
-              "http://onboarding.accountable.de/en/"
+              `http://onboarding.accountable.de/${
+                i18n.language === "de" ? "" : "en"
+              }`
             }
           />
         )}
