@@ -165,11 +165,7 @@ const Review = ({ currentStep, nextStep }) => {
                   }}
                   disabled={
                     userInteraction.stepsCompleted.length < 5 ||
-                    /choose/.test(taxOffice) ||
-                    (isDev &&
-                      !/accountable/gi.test(userData.personalFields.email)) ||
-                    (isStaging &&
-                      !/accountable/gi.test(userData.personalFields.email))
+                    /choose/.test(taxOffice)
                   }
                   text={t("review_button_gen_pdf")}
                   className="body--big-bold"
@@ -226,10 +222,14 @@ const Review = ({ currentStep, nextStep }) => {
                     });
 
                     setLoading(false);
-                    nextStep(userData.reviewFields, "reviewFields", true, {
-                      ...ar,
-                      send: true,
-                    });
+                    if (ar.data.success) {
+                      nextStep(userData.reviewFields, "reviewFields", true, {
+                        ...ar,
+                        send: true,
+                      });
+                    } else {
+                      setUserInteraction(ar);
+                    }
                   }}
                   isLoading={loading}
                   className="body--big-bold notranslate"
