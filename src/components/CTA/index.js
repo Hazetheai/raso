@@ -3,7 +3,6 @@ import Link from "components/Link";
 import Terms from "components/Terms";
 import React from "react";
 import pinkStars from "res/images/pink_stars.svg";
-import { useUserInteraction } from "userInteraction";
 import "./cta.css";
 
 const CTA = ({

@@ -1,14 +1,9 @@
-import Button from "components/Button";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import click from "res/images/finger-click-illlustration.png";
 import manageTaxesImage from "res/images/manageTaxesCTA.png";
-import { openPopupWidget } from "react-calendly";
-import { useUserData } from "userData";
 
 const ManageTaxesCTA = () => {
   const { t, i18n } = useTranslation();
-  const { userData } = useUserData();
 
   return (
     <div
