@@ -1,5 +1,5 @@
 import ManageTaxesCTA from "components/CTA/ManageTaxesCTA";
-import useDeviceDetect from "components/hooks/useDeviceDetect";
+import useDeviceDetect from "hooks/useDeviceDetect";
 import Link from "components/Link";
 import Table, { sampleTableData } from "components/Table";
 import React from "react";

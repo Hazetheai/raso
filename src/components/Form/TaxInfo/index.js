@@ -6,7 +6,7 @@ import states from "res/FormData/de/states.json";
 import { sanitizeNumbers } from "res/lib";
 import { useUserInteraction } from "userInteraction";
 import Field from "components/Field";
-import { useLocalFormVal } from "components/hooks/useLocalState";
+import { useLocalFormVal } from "hooks/useLocalState";
 import Fieldset from "../Fieldset";
 import FormHeader from "../FormHeader";
 import FormSubmit from "../FormSubmit";

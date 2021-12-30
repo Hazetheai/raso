@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import Button from "components/Button";
 import { LogoImg } from "components/Common/Logo";
-import useDeviceDetect from "components/hooks/useDeviceDetect";
+import useDeviceDetect from "hooks/useDeviceDetect";
 import Link from "components/Link";
 import React, { Fragment, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -13,7 +13,7 @@ import "./table.css";
 
 import mobileAccLogo from "res/images/logo192.png";
 import mobileElsLogo from "res/images/elster-mobile.png";
-import { useWindowSize } from "components/hooks/useWindowSize";
+import { useWindowSize } from "hooks/useWindowSize";
 import { gtagEvent } from "res/gtag";
 
 export const sampleTableData = {

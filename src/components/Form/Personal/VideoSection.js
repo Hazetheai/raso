@@ -6,7 +6,7 @@ import { useUserInteraction } from "userInteraction";
 import "./video-section.css";
 import "intersection-observer";
 import YouTube from "react-youtube";
-import { useWindowSize } from "components/hooks/useWindowSize";
+import { useWindowSize } from "hooks/useWindowSize";
 
 // https://www.youtube.com/watch?v=o6Agt7RZe-g
 const VideoSection = () => {

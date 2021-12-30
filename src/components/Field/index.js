@@ -4,7 +4,7 @@ import Cleave from "cleave.js/react";
 import clsx from "clsx";
 import Button from "components/Button";
 import { moneyRegex } from "components/Form/validators";
-import { useKeyPress } from "components/hooks/useKeyPress";
+import { useKeyPress } from "hooks/useKeyPress";
 import React, { Fragment, useEffect, useState } from "react";
 import { useController } from "react-hook-form";
 import { useTranslation } from "react-i18next";
