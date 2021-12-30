@@ -57,6 +57,7 @@ export function useLocalFormVal({ key, reset, localFormVals, errors }) {
       )
     ) {
       isDev &&
+        logEvents &&
         console.log(`calling 2nd hook (Save local changes to completed steps)`);
       setUserInteraction({
         isAutoSaving: true,
