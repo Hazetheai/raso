@@ -1,13 +1,11 @@
-import { isEqual } from "lodash";
 import ManageTaxes from "components/Form/ManageTaxes";
 import Tabs from "components/Tabs";
-import React, { useEffect, useRef, useState } from "react";
-import { useTranslation } from "react-i18next";
-import home from "res/images/home.svg";
-import { removeDuplicates, wrap } from "res/lib";
 import { useUserData } from "data-layer/userData";
 import { useUserInteraction } from "data-layer/userInteraction";
-import { useUserTesting } from "data-layer/userTesting";
+import { isEqual } from "lodash";
+import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { removeDuplicates } from "res/lib";
 import BankAccount from "./BankAccount";
 import Business from "./Business";
 import "./form-layout.css";
@@ -16,57 +14,16 @@ import {
   formatDatasection,
   reFormatForFormData,
 } from "./helper-functions/data-shaping";
+import { calcNextStep } from "./helper-functions/next-step";
 import Personal from "./Personal";
 import Review from "./Review";
 import TaxEstimate from "./TaxEstimate";
 import TaxInfo from "./TaxInfo";
 
-const tabs = [
-  "personalFields",
-  "businessFields",
-  "taxInfoFields",
-  "taxEstimateFields",
-  "bankAccountFields",
-  "reviewFields",
-  "manageTaxes",
-];
-
-function calcNextStep(steps, currentStep) {
-  return steps[
-    wrap(
-      steps.map((el) => el.tabId).indexOf(currentStep.tabId) + 1,
-      0,
-      steps.length - 1
-    )
-  ];
-}
-
-const Form = ({}) => {
+const Form = ({ tabData }) => {
   const { t, i18n } = useTranslation();
   const { userInteraction, setUserInteraction } = useUserInteraction();
-  const { userTesting, setUserTesting } = useUserTesting();
-  const layoutRef = useRef(null);
   const { userData, setUserData } = useUserData();
-
-  const tabData = {
-    title: t("tab_header_welcome"),
-    icon: home,
-    tabs: tabs.map((tab, idx, arr) => {
-      const helper = t(`tab_${tab}_helper`, {
-        interpolation: { escapeValue: false },
-      });
-      return {
-        tabNumber: idx + 1,
-        tabLabel: t(`tab_${tab}_label`),
-        tabSubtitle: t(`tab_${tab}_subtitle`),
-        tabId: `${tab}`,
-        complete: false,
-        touched: false,
-        // hidden: idx < arr.length - 1 ? false : true,
-        tabHelper: /_/g.test(helper) ? null : helper,
-      };
-    }),
-  };
 
   const [steps, setSteps] = useState(tabData.tabs);
   const [currentStep, setCurrentStep] = useState(
@@ -99,9 +56,9 @@ const Form = ({}) => {
 
     setCurrentStep({
       ...currentStep,
-      tabHelper: tabData.tabs[currentStep.tabNumber - 1].tabHelper,
-      tabSubtitle: tabData.tabs[currentStep.tabNumber - 1].tabSubtitle,
-      tabLabel: tabData.tabs[currentStep.tabNumber - 1].tabLabel,
+      tabHelper: t(tabData.tabs[currentStep.tabNumber - 1].tabHelper),
+      tabSubtitle: t(tabData.tabs[currentStep.tabNumber - 1].tabSubtitle),
+      tabLabel: t(tabData.tabs[currentStep.tabNumber - 1].tabLabel),
     });
   }, [i18n.language]);
 
@@ -114,7 +71,6 @@ const Form = ({}) => {
       return;
     }
 
-    // layoutRef.current.scrollIntoView({ behaviour: "smooth" });
     setTimeout(() => {
       if (document.querySelector("form")) {
         document.querySelector("form").scrollIntoView({ behavior: "smooth" });
@@ -126,7 +82,6 @@ const Form = ({}) => {
     data,
     dataSection,
     progress = true,
-    // TODO - Remove this as version is now tied to the userTesting Provider
     userInteractionData = {}
   ) {
     setUserData(formatDatasection(data), dataSection, true);
@@ -170,7 +125,7 @@ const Form = ({}) => {
   }
 
   return (
-    <div ref={layoutRef} className="form-layout">
+    <div className="form-layout">
       <Tabs
         tabData={{
           title: t("tab_header_welcome"),

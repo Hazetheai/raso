@@ -4,9 +4,11 @@ import clsx from "clsx";
 import React from "react";
 import { useUserInteraction } from "data-layer/userInteraction";
 import "./tabs.css";
+import { useTranslation } from "react-i18next";
 
 const Tabs = ({ tabData, activeTab, onTabClick }) => {
   const { userInteraction } = useUserInteraction();
+  const { t } = useTranslation();
 
   const newActiveTab = userInteraction.workingStep || activeTab;
   const { isVideoSectionVisible } = userInteraction;
@@ -35,7 +37,7 @@ const Tabs = ({ tabData, activeTab, onTabClick }) => {
             "tab-nav__header",
             isVideoSectionVisible && "tab-nav__header--active"
           )}
-          title={tabData.title}
+          title={t(tabData.title)}
         >
           <span
             className={clsx(
@@ -43,7 +45,7 @@ const Tabs = ({ tabData, activeTab, onTabClick }) => {
               isVideoSectionVisible && "tab-nav__header-icon--active"
             )}
           >
-            <img src={tabData.icon} alt={tabData.title} />
+            <img src={tabData.icon} alt={t(tabData.title)} />
           </span>
           <span
             className={clsx(
@@ -53,7 +55,7 @@ const Tabs = ({ tabData, activeTab, onTabClick }) => {
               "body--medium"
             )}
           >
-            {tabData.title}
+            {t(tabData.title)}
           </span>
         </div>
         <hr />
@@ -63,7 +65,7 @@ const Tabs = ({ tabData, activeTab, onTabClick }) => {
 
             return (
               <li
-                title={tabLabel}
+                title={t(tabLabel)}
                 onClick={() => (onTabClick ? onTabClick(tabId) : null)}
                 key={tabId}
                 className={clsx(
@@ -90,7 +92,7 @@ const Tabs = ({ tabData, activeTab, onTabClick }) => {
                       "body--bold"
                   )}
                 >
-                  {tabLabel}
+                  {t(tabLabel)}
                 </span>
               </li>
             );

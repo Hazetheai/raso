@@ -13,8 +13,11 @@ import "./faq.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 import clsx from "clsx";
+import { useTranslation } from "react-i18next";
 
 const FAQ = ({ faqData }) => {
+  const { t, i18n } = useTranslation();
+
   return (
     <section className={clsx("section-faq", faqData.containerClassName || "")}>
       <Accordion allowZeroExpanded>
@@ -29,7 +32,7 @@ const FAQ = ({ faqData }) => {
                       className="faq-h3"
                       id={`xerius-q${question["xerius_number"]}`}
                     >
-                      {question["title"]}
+                      {t(question["title"])}
                     </h3>
                     <AccordionItemState>
                       {({ expanded }) =>
@@ -49,7 +52,11 @@ const FAQ = ({ faqData }) => {
                   <div id={`xerius-a${question["xerius_number"]}`}>
                     <p
                       className="faq-answer"
-                      dangerouslySetInnerHTML={{ __html: question["answer"] }}
+                      dangerouslySetInnerHTML={{
+                        __html: t(question["answer"], {
+                          interpolation: { escapeValue: false },
+                        }),
+                      }}
                     />
                   </div>
                 </AccordionItemPanel>

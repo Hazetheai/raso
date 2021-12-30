@@ -14,6 +14,10 @@
   justify-content: space-between;
 }
 
+.toast.element-container {
+  padding: 0 12px;
+}
+
 .toast:not(.toast--active) {
   visibility: hidden;
   opacity: 0;

@@ -1,12 +1,17 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const FormHeader = ({ currentStep }) => {
+  const { t } = useTranslation();
+
   return (
     <div className="screen-header">
-      <h2 className="screen-title">{currentStep.tabLabel}</h2>
-      <p className="screen-subtitle body--small">{currentStep.tabSubtitle}</p>
+      <h2 className="screen-title">{t(currentStep.tabLabel)}</h2>
+      <p className="screen-subtitle body--small">
+        {t(currentStep.tabSubtitle)}
+      </p>
       {currentStep.tabHelper && (
-        <p className="tab-helper body--medium">{currentStep.tabHelper}</p>
+        <p className="tab-helper body--medium">{t(currentStep.tabHelper)}</p>
       )}
     </div>
   );

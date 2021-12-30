@@ -4,6 +4,7 @@ import Button from "../Button";
 
 const customStyles = {
   // this is what the package requires
+  overlay: { zIndex: 1 },
   content: {
     top: "50%",
     left: "50%",
@@ -53,6 +54,7 @@ const Modal = ({
     ...customStyles,
     ...overRideStyles,
     content: { ...customStyles.content, ...overRideStyles.content },
+    overlay: { ...customStyles.overlay, ...overRideStyles.overlay },
   };
 
   return (

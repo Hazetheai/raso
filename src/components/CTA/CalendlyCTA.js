@@ -6,7 +6,7 @@ import tino from "res/images/tino-cta.png";
 import { openPopupWidget } from "react-calendly";
 import { useUserData } from "data-layer/userData";
 
-const SecondaryCTA = () => {
+const CalendlyCTA = () => {
   const { t, i18n } = useTranslation();
   const { userData } = useUserData();
   const calendly_link_base = "https://calendly.com/accountable-eu";
@@ -69,4 +69,4 @@ const SecondaryCTA = () => {
   );
 };
 
-export default SecondaryCTA;
+export default CalendlyCTA;
