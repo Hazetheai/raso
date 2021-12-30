@@ -488,7 +488,12 @@ const Money = ({ name, control, rules }) => {
   } = useController({
     name,
     control,
-    rules: { required: true, pattern: moneyRegex, ...rules },
+    rules: {
+      required: true,
+      pattern: moneyRegex,
+      minLength: 3,
+      ...rules,
+    },
   });
   const { i18n } = useTranslation();
   const { userInteraction, setUserInteraction } = useUserInteraction();
