@@ -23,6 +23,10 @@
   color: var(--color-primary_medium);
 }
 
+.top-section__title-l--raso {
+  max-width: 20ch;
+}
+
 .top-section__title-m {
   color: var(--color-primary_medium);
 }

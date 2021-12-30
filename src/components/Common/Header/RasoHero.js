@@ -17,7 +17,9 @@ const RasoHero = ({ terms, h1, h3, ctaText, ctaLink, ctaFunc }) => {
   return (
     <>
       <div className="top-section-raso-container" id="rasoHead">
-        <h1 className="top-section__title-l">{h1}</h1>
+        <h1 className="top-section__title-l top-section__title-l--raso">
+          {h1}
+        </h1>
         {h3 && (
           <h3 className="top-section__title-m top-section__title-m--raso">
             {h3}
