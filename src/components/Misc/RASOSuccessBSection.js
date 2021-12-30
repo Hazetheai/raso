@@ -1,10 +1,9 @@
-import "./raso-b-section.css";
-import Link from "components/Link";
-import React from "react";
-import { useTranslation } from "react-i18next";
-
+import { ExternalLink } from "components/Link";
 import Quotes from "components/Quotes";
 import { useUserInteraction } from "data-layer/userInteraction";
+import React from "react";
+import { useTranslation } from "react-i18next";
+import "./raso-b-section.css";
 
 const RASOSuccessBSection = () => {
   const { userInteraction, setUserInteraction } = useUserInteraction();
@@ -44,7 +43,7 @@ const RASOSuccessBSection = () => {
         </p>
 
         <div className={"raso-congrats--b-section__cta"}>
-          <Link
+          <ExternalLink
             target="_blank"
             rel="noopener"
             text={t("form_continue")}
@@ -54,7 +53,7 @@ const RASOSuccessBSection = () => {
             }
             className="desktop-only pulse"
           />
-          <Link
+          <ExternalLink
             rel="noopener"
             target="_blank"
             text={t("form_continue")}

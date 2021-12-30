@@ -3,6 +3,7 @@ import "./link.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import clsx from "clsx";
+import { Link as RRLink } from "react-router-dom";
 
 const Link = React.forwardRef(
   (
@@ -51,4 +52,7 @@ const Link = React.forwardRef(
   }
 );
 
-export default Link;
+export const ExternalLink = Link;
+export const InternalLink = (props) => (
+  <RRLink {...props} component={<Link {...props} />} />
+);

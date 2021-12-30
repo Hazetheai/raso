@@ -1,20 +1,19 @@
 import clsx from "clsx";
 import Button from "components/Button";
 import { LogoImg } from "components/Common/Logo";
+import { ExternalLink } from "components/Link";
+import { useUserInteraction } from "data-layer/userInteraction";
 import useDeviceDetect from "hooks/useDeviceDetect";
-import Link from "components/Link";
+import { useWindowSize } from "hooks/useWindowSize";
 import React, { Fragment, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { gtagEvent } from "res/gtag";
 import checkFalse from "res/images/comparison-check-false.png";
 import checkTrue from "res/images/comparison-check-true.png";
 import ElsterLogo from "res/images/elster-logo.svg";
-import { useUserInteraction } from "data-layer/userInteraction";
-import "./table.css";
-
-import mobileAccLogo from "res/images/logo192.png";
 import mobileElsLogo from "res/images/elster-mobile.png";
-import { useWindowSize } from "hooks/useWindowSize";
-import { gtagEvent } from "res/gtag";
+import mobileAccLogo from "res/images/logo192.png";
+import "./table.css";
 
 export const sampleTableData = {
   columns: [
@@ -164,7 +163,7 @@ const Table = ({ tableData }) => {
                   el.secondary && "row--empty"
                 )}
               >
-                <Link
+                <ExternalLink
                   key={el.link}
                   href={el.link}
                   func={() =>
@@ -187,7 +186,7 @@ const Table = ({ tableData }) => {
                       alt={el.text}
                     />
                   )}
-                </Link>
+                </ExternalLink>
               </span>
             );
           }

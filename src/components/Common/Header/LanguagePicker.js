@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { useHistory, useLocation } from "react-router";
-import { Link } from "react-router-dom";
+import { Link as RRLink } from "react-router-dom";
 import "./language-picker.css";
 const LanguagePicker = () => {
   const { t, i18n } = useTranslation();
@@ -12,14 +12,14 @@ const LanguagePicker = () => {
     <div className="language-picker-active">
       {i18n.language.toUpperCase()}
       <div className="language-picker-all">
-        <Link
+        <RRLink
           onClick={() => {
             i18n.changeLanguage(i18n.language === "de" ? "en" : "de");
           }}
           to={i18n.language === "en" ? "/" + search : "/en" + search}
         >
           {i18n.language === "de" ? "English" : "Deutsch"}{" "}
-        </Link>{" "}
+        </RRLink>{" "}
         {i18n.language === "de" ? "Deutsch" : "English"}{" "}
       </div>
       <svg

@@ -1,6 +1,9 @@
 import Button from "components/Button";
-import Link from "components/Link";
+import { ExternalLink } from "components/Link";
 import calcFinanzamtLetters from "components/PDFReader/calcFinanzamtLetters";
+import { useUserData } from "data-layer/userData";
+import { useUserInteraction } from "data-layer/userInteraction";
+import { useUserTesting } from "data-layer/userTesting";
 import React, { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
@@ -9,11 +12,8 @@ import tax_offices from "res/FormData/de/tax_office.json";
 import { gtagEvent } from "res/gtag";
 import eagle from "res/images/eagle.png";
 import { isDev, isStaging } from "settings/config";
-import { useUserData } from "data-layer/userData";
-import { useUserInteraction } from "data-layer/userInteraction";
-import { useUserTesting } from "data-layer/userTesting";
-import Field from "../../Field";
 import { useLocalFormVal } from "../../../hooks/useLocalState";
+import Field from "../../Field";
 import Fieldset from "../Fieldset";
 import FormHeader from "../FormHeader";
 import { previewForm, sendForm } from "../sendData";
@@ -186,7 +186,7 @@ const Review = ({ currentStep, nextStep }) => {
                     interpolation: { escapeValue: false },
                   })}
                 </p>
-                <Link
+                <ExternalLink
                   secondary
                   ref={linkRef}
                   className="body--big-bold"

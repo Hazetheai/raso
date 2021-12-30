@@ -1,5 +1,5 @@
 import Button from "components/Button";
-import Link from "components/Link";
+import { ExternalLink } from "components/Link";
 import Terms from "components/Terms";
 import React from "react";
 import { useTranslation } from "react-i18next";
@@ -39,7 +39,7 @@ const CTA = ({
               text={t(mobileActionElementText)}
             />
           ) : (
-            <Link
+            <ExternalLink
               href={mobileActionElementLink}
               func={action}
               text={t(mobileActionElementText)}
@@ -52,7 +52,7 @@ const CTA = ({
           {isButton ? (
             <Button func={action} text={t(desktopActionElementText)} />
           ) : (
-            <Link
+            <ExternalLink
               href={desktopActionElementLink}
               func={action}
               text={t(desktopActionElementText)}

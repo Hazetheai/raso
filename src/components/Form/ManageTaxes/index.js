@@ -1,13 +1,13 @@
 import ManageTaxesCTA from "components/CTA/ManageTaxesCTA";
-import useDeviceDetect from "hooks/useDeviceDetect";
-import Link from "components/Link";
+import { ExternalLink } from "components/Link";
 import Table, { sampleTableData } from "components/Table";
+import { useUserData } from "data-layer/userData";
+import { useUserInteraction } from "data-layer/userInteraction";
+import useDeviceDetect from "hooks/useDeviceDetect";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { gtagEvent } from "res/gtag";
 import { dlAppLink, webAppLink } from "settings/config";
-import { useUserData } from "data-layer/userData";
-import { useUserInteraction } from "data-layer/userInteraction";
 import Fieldset from "../Fieldset";
 
 const ManageTaxes = ({}) => {
@@ -58,7 +58,7 @@ const ManageTaxes = ({}) => {
                   {t("tab_manageTaxes_subtitle")}
                 </p>
               ) : (
-                <Link
+                <ExternalLink
                   text={t("test_app_for_free")}
                   func={() => gtagEvent("RASO_CLICKED_DOWNLOADAPP-ITER-1")}
                   href={isMobile ? dlAppLink : webAppLink}
@@ -66,6 +66,10 @@ const ManageTaxes = ({}) => {
                 />
               )}
             </div>
+            {console.log(
+              `isMobile ? dlAppLink : webAppLink`,
+              isMobile ? dlAppLink : webAppLink
+            )}
             {userInteraction.send ? (
               <Table tableData={sampleTableData} />
             ) : null}

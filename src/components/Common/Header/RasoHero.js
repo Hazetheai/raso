@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import Badges from "components/Badges";
 import Button from "components/Button";
-import Link from "components/Link";
+import Link, { ExternalLink } from "components/Link";
 import Terms from "components/Terms";
 import React from "react";
 import { useTranslation } from "react-i18next";
@@ -27,7 +27,7 @@ const RasoHero = ({ terms, h1, h3, ctaText, ctaLink, ctaFunc }) => {
         {ctaText && (
           <>
             {userInteraction.startedFilling ? null : ctaLink ? (
-              <Link
+              <ExternalLink
                 href={ctaLink}
                 text={ctaText}
                 func={ctaFunc}
